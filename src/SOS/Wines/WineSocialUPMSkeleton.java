@@ -11,6 +11,7 @@ import java.util.Map;
 import es.upm.etsiinf.sos.*;
 import es.upm.etsiinf.sos.model.xsd.Response;
 import es.upm.fi.sos.t3.backend.LoginResponse;
+import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton;
 import es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd;
 import es.upm.etsiinf.sos.model.*;
 
@@ -56,8 +57,13 @@ public class WineSocialUPMSkeleton {
 
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
 		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException(
-				"Please implement " + this.getClass().getName() + "#removeUser");
+		RemoveUserResponse response= new RemoveUserResponse();// creo las respuesta.
+		String username = removeUser.getArgs0().getUsername();// cojo el nombre de usuario
+		if(username.equals(ADMIN_USERNAME)||username.equals(removeUser.getArgs0().getUsername())){//en lo de username ns como saber cual es la sesion actual
+			authService.removeUser(removeUser);// aqui debería haber un casteo
+			return response;// devolvemos el reponse
+		}
+		
 	}
 
 	/**
