@@ -5,12 +5,35 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 package SOS.Wines;
+import SOS.autor.*;
+import java.util.HashMap;
+import java.util.Map;
+import es.upm.etsiinf.sos.*;
+import es.upm.etsiinf.sos.model.xsd.Response;
+import es.upm.fi.sos.t3.backend.LoginResponse;
+import es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd;
+import es.upm.etsiinf.sos.model.*;
 
 /**
  * WineSocialUPMSkeleton java skeleton for the axisService
  */
 
 public class WineSocialUPMSkeleton {
+	 
+	private static final String ADMIN_USERNAME = "admin";
+	private static final String ADMIN_PASSWORD = "admin";
+	
+	private UPMAuthenticationAuthorizationWSSkeletonSkeleton authService;
+	
+	
+	public WineSocialUPMSkeleton() {
+		//añado al admin como usuario local
+		localUsers.put(ADMIN_USERNAME, ADMIN_PASSWORD);
+		
+		//inicializo el upmauthor...
+		this.authService = new UPMAuthenticationAuthorizationWSSkeletonSkeleton();
+	}
+	
 
 	/**
 	 * Auto generated method signature
@@ -58,8 +81,14 @@ public class WineSocialUPMSkeleton {
 	 */
 
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#logout");
+		LogoutResponse response = new LogoutResponse();
+		
+        // Redirigir el logout de otros usuarios al servicio web
+//        es.upm.fi.sos.t3.backend.Logout backendLogout = new es.upm.fi.sos.t3.backend.Logout(username);
+//        es.upm.fi.sos.t3.backend.LogoutResponse backendResponse = authService.logout(backendLogout);
+        
+        response.setSuccess(backendResponse);
+        return response;
 	}
 
 	/**
@@ -100,18 +129,41 @@ public class WineSocialUPMSkeleton {
 		throw new java.lang.UnsupportedOperationException(
 				"Please implement " + this.getClass().getName() + "#unfollow");
 	}
-
+	
+	
+	
 	/**
 	 * Auto generated method signature
 	 * 
 	 * @param addUser
 	 * @return addUserResponse
 	 */
-
+	
+	// TODO : fill this with the necessary business logic
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#addUser");
+		String username = addUser.getArgs0().getUsername();
+		AddUserResponse response = new AddUserResponse();
+        Response addUserResponse = new Response();
+		
+		//la creacion del admin se hace localmente
+		if(username.equals(ADMIN_USERNAME)) {
+			addUserResponse.setResponse(false);
+//			response.set_return(addUserResponse);
+		}
+		
+		// Redirigir la creación de otros usuarios al servicio web
+        es.upm.fi.sos.t3.backend.AddUser backendAddUser = new es.upm.fi.sos.t3.backend.AddUser();
+        es.upm.fi.sos.t3.backend.AddUserResponse backendResponse = authService.addUser(backendAddUser);
+        
+//        response.setSuccess(backendResponse.isSuccess());
+//        response.setPassword(backendResponse.getPassword());
+        return response;
 	}
+	
+	
+	
+	
+	
 
 	/**
 	 * Auto generated method signature
@@ -172,9 +224,25 @@ public class WineSocialUPMSkeleton {
 	 */
 
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#login");
+		LoginResponse respuesta = new LoginResponse();
+		LoginResponseBackEnd respBack = respuesta.get_return();
+		String username = login.getArgs0().getName();
+		String password = login.getArgs0().getPwd();
+        
+		//si es admin lo hago localmente (no redirijo al backend)
+        if (username.equals(ADMIN_USERNAME)) {
+        	//TRATO AL ADMIN AQUI DENTRO
+        } else {
+        	//si no es admin lo tengo que redirigir al UPMAuthenticationAuthorization (es decir el backend)
+        	es.upm.fi.sos.t3.backend.Login backendLogin = new es.upm.fi.sos.t3.backend.Login();
+            es.upm.fi.sos.t3.backend.LoginResponse backendResponseLogin = authService.login(backendLogin);
+            
+        }
+        
+        return respuesta;
 	}
+	
+	
 
 	/**
 	 * Auto generated method signature
