@@ -94,21 +94,118 @@ public class WineSocialUPMSkeleton {
 	 * @return loginResponse
 	 */
 
+	//cada llamada a esto tiene que redirigirlo a UPMAuth...
+	//ahi nos devuelve un true/false dependiendo de si ha tenido exito o no
+	//if(usuariosAutenticados)
+	
+	//TODO: gestionar el login del admin AQUI, NO en el UPMAuth...
+	
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
-		es.upm.fi.sos.t3.backend.LoginResponse respuestaBackend = new es.upm.fi.sos.t3.backend.LoginResponse();
+		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+		es.upm.fi.sos.t3.backend.LoginResponse respuestaLogin = new es.upm.fi.sos.t3.backend.LoginResponse();
+		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackend respuestaLoginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackend();  
 		es.upm.fi.sos.t3.backend.ExistUser usuarioExiste = new es.upm.fi.sos.t3.backend.ExistUser();
 		es.upm.fi.sos.t3.backend.ExistUserResponse respuestaUsuarioExiste = new es.upm.fi.sos.t3.backend.ExistUserResponse();
 		es.upm.fi.sos.t3.backend.Login paramLogin = new es.upm.fi.sos.t3.backend.Login();
+		es.upm.fi.sos.t3.backend.xsd.Username nombre_usuario = new es.upm.fi.sos.t3.backend.xsd.Username(); 
 		
-		//cada llamada a esto tiene que redirigirlo a UPMAuth...
-		//ahi nos devuelve un true/false dependiendo de si ha tenido exito o no
-		//if(usuariosAutenticados)
+		//obtengo el usuario del param login
+		User usuario = login.getArgs0();
+		//pillo su username y su contraseña
+		String name = usuario.getName();
+		String password = usuario.getPwd();
 		
-		respuestaBackend = auth.login(paramLogin);
+		//Creo el objeto Username y le pongo el nombre del usuario que me pasan
+		nombre_usuario.setName(name);
+		//TODO: setteo el nombre del login en el objeto de existUser para comprobar que existe
+		usuarioExiste.setUsername(nombre_usuario);
+		
+		respuestaUsuarioExiste = auth.existUser(usuarioExiste);
+		boolean existe = respuestaUsuarioExiste.get_return().getResult();
 		
 		
+		//si no existe y no es el admin => Response = false (El usuario no existe)
+		if(!existe && !name.equals("admin")) {
+			System.out.println("El usuario: '" + name + "' no existe en el sistema.\n");
+			response.setResponse(false);
+		}
+		else { //si el usuario existe
+			//habria que ver si el usuario ya esta conectado y lanzar directamente => TRUE
+			if(usuariosAutenticados.contains(usuario)) {
+				System.out.println("Usuario: '" + name + "' ya autenticado!!\n");
+				response.setResponse(true);
+			}else {
+				//TODO: habria que meter algo para iniciar el 'paramLogin'
+				respuestaLogin = auth.login(paramLogin);
+				respuestaLoginBackend = respuestaLogin.get_return();
+				
+				//si ha ido bien el login => TRUE
+				if(respuestaLoginBackend.getResult()) {
+					System.out.println("Usuario: '" + name + "' autenticando...\n");
+					usuariosAutenticados.add(usuario); //añado el usuario a la lista de conectados, compruebo posteriormente
+					response.setResponse(true);
+				} else {
+					System.out.println("El usuario: '" + name + "' no se pudo autenticar :(\n");
+					response.setResponse(false);
+				}
+			}
+		}
+		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
+	}
+	
+	
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param logout
+	 * @return logoutResponse
+	 */
+
+	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) {
+		LogoutResponse respuestaFinalFuncion new LogoutResponse();
+		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+		boolean conectado = false;
+		
+		if(usuariosAutenticados.contains(this.usuarioActual)) {
+			usuariosAutenticados.remove(usuarioActual);
+			this.usuarioActual = null;
+			System.out.println("Has cerrado correctamente la sesión!!\n");
+			response.setResponse(true);
+		}else {
+			System.out.println("Hubo un error en el cierre de sesión :(\n");
+			response.setResponse(false);
+		}
+		respuestaFinalFuncion.set_return(response);
+		return respuestaFinalFuncion;
+	}
+	
+	
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param removeUser
+	 * @return removeUserResponse
+	 */
+
+	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
+		RemoveUserResponse respuestaFinalFuncion = new respuestaFinalFuncion();
+		es.upm.fi.sos.t3.backend.RemoveUserResponse respuestaRemove = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
+		es.upm.fi.sos.t3.backend.RemoveUser paramRemove = new es.upm.fi.sos.t3.backend.RemoveUser();
+		es.upm.fi.sos.t3.backend.xsd.RemoveUser removeDevuelto = new es.upm.fi.sos.t3.backend.xsd.RemoveUser();
+		es.upm.fi.sos.t3.backend.xsd removeModelo = new es.upm.fi.sos.t3.backend.xsd();
+		
+		Username usuario = removeUser.getArgs0();
+		String nombre_usuario = usuario.getUsername();
+		removeModelo.setName(nombre_usuario);
+		
+		//TODO: si el usuario existe dentro de mi memoria, entonces se puede borrar
+		//if(usuarios)
+		//solo el admin o el propio usuario pueden borrar
+		if(soyAdmin(usuarioActual)) {
+			
+		}
 	}
 	
 	
@@ -129,18 +226,6 @@ public class WineSocialUPMSkeleton {
 				"Please implement " + this.getClass().getName() + "#getMyFollowers");
 	}
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param removeUser
-	 * @return removeUserResponse
-	 */
-
-	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException(
-				"Please implement " + this.getClass().getName() + "#removeUser");
-	}
 
 	/**
 	 * Auto generated method signature
@@ -153,18 +238,6 @@ public class WineSocialUPMSkeleton {
 		// TODO : fill this with the necessary business logic
 		throw new java.lang.UnsupportedOperationException(
 				"Please implement " + this.getClass().getName() + "#addFollower");
-	}
-
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param logout
-	 * @return logoutResponse
-	 */
-
-	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#logout");
 	}
 
 	/**
