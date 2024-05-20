@@ -6,14 +6,11 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
     package es.upm.fi.sos.t3.backend;
-
-import java.util.HashMap;
-
-/**
+    /**
      *  UPMAuthenticationAuthorizationWSSkeletonSkeleton java skeleton for the axisService
      */
     public class UPMAuthenticationAuthorizationWSSkeletonSkeleton{
-        private static HashMap<String,String> map = new HashMap<String,String>();
+        
          
         /**
          * Auto generated method signature
@@ -28,13 +25,7 @@ import java.util.HashMap;
                   )
             {
                 //TODO : fill this with the necessary business logic
-                try {
-                	map.remove(removeUser.getRemoveUser().getName());
-               	 	RemoveUserResponse res = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
-               	 	return res;
-                }catch(Exception e){
                 throw new  java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#removeUser");
-                }
         }
      
          
