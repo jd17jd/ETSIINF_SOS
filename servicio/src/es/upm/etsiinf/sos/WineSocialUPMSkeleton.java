@@ -7,6 +7,7 @@
  */
 package es.upm.etsiinf.sos;
 import java.util.HashMap;
+import java.util.*;
 
 import es.upm.etsiinf.sos.model.xsd.User;
 /**
@@ -18,8 +19,9 @@ public class WineSocialUPMSkeleton {
 	public List<User> usuariosAutenticados = new ArrayList<>();
 	
 	private User admin = new User();
-	admin.setName("admin");
-	admin.setPwd("admin");
+	//TODO: revisar creacion admin
+//	admin.setName("admin");
+//	admin.setPwd("admin");
 	private User usuarioActual;
 	private UPMAuthenticationAuthorizationWSSkeletonSkeleton auth = new UPMAuthenticationAuthorizationWSSkeletonSkeleton();
 	
@@ -47,7 +49,8 @@ public class WineSocialUPMSkeleton {
 		//TODO: esto no lo entiendo bien
 		if(this.usuarioActual == null) {
 			System.out.println("Inicie sesión para añadir usuarios...\n");
-			respuestaFinal.setResponse(false);
+			response.setResponse(false);
+			respuestaFinalFuncion.set_return(response);
 		}
 		
 		//si soy el admin puedo añadir usuarios
@@ -58,7 +61,7 @@ public class WineSocialUPMSkeleton {
 			//si la respuesta es que HA IDO BIEN => TRUE (entro en el if)
 			if(respuestaBackend.get_return().getResult()) {
 				response.setResponse(true); //pongo la respuesta a true
-				response.setPwd(response.get_return().getPassword()); //pongo contraseña en la respuesta
+				response.setPwd(respresponse.setPwd(respuestaBackend.get_return().getPassword()); //pongo contraseña en la respuesta
 				respuestaFinalFuncion.set_return(response);
 				//TODO: revisar que haya que añadir un usuario a lista de usuarios conectados
 				//usuarios.put()...
@@ -83,7 +86,7 @@ public class WineSocialUPMSkeleton {
 	//TRUE => si soy el admin
 	//FALSE => e.o.c
 	private boolean soyAdmin(User user) {
-		return (user.getUsername().equals(admin.getUsername())) && (user.getPwd().equals(admin.getPwd()));
+		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
 	}
 	
 	
@@ -164,7 +167,7 @@ public class WineSocialUPMSkeleton {
 	 */
 
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) {
-		LogoutResponse respuestaFinalFuncion new LogoutResponse();
+		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		boolean conectado = false;
 		
@@ -190,7 +193,7 @@ public class WineSocialUPMSkeleton {
 	 */
 
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
-		RemoveUserResponse respuestaFinalFuncion = new respuestaFinalFuncion();
+		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.RemoveUserResponse respuestaRemove = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.RemoveUser paramRemove = new es.upm.fi.sos.t3.backend.RemoveUser();
 		es.upm.fi.sos.t3.backend.xsd.RemoveUser removeDevuelto = new es.upm.fi.sos.t3.backend.xsd.RemoveUser();
