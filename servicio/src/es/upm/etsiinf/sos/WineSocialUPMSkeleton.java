@@ -1,4 +1,3 @@
-
 /**
  * WineSocialUPMSkeleton.java
  *
@@ -10,7 +9,8 @@ import java.util.HashMap;
 import java.util.*;
 import es.upm.etsiinf.sos.model.xsd.User;
 import es.upm.etsiinf.sos.model.xsd.Username;
-import src.es.upm.fi.sos.t3.backend.es;
+import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton;
+import es.upm.fi.sos.t3.backend.*;
 /**
  * WineSocialUPMSkeleton java skeleton for the axisService
  */
@@ -23,7 +23,7 @@ public class WineSocialUPMSkeleton {
 	//TODO: revisar creacion admin
 //	admin.setName("admin");
 //	admin.setPwd("admin");
-	private User usuarioActual;
+	public User usuarioActual;
 	private UPMAuthenticationAuthorizationWSSkeletonSkeleton auth = new UPMAuthenticationAuthorizationWSSkeletonSkeleton();
 	
 	/**
@@ -36,7 +36,7 @@ public class WineSocialUPMSkeleton {
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) {
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton.AddUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton.AddUserResponse();
+		es.upm.fi.sos.t3.backend.AddUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.AddUserResponse();
 		es.upm.fi.sos.t3.backend.AddUser usuario = new es.upm.fi.sos.t3.backend.AddUser();
 		es.upm.fi.sos.t3.backend.xsd.UserBackEnd usuarioBackend = new es.upm.fi.sos.t3.backend.xsd.UserBackEnd();
 		Username username = addUser.getArgs0();
@@ -44,7 +44,6 @@ public class WineSocialUPMSkeleton {
 		//Aqui creo el usuario del backend que le paso al stub (UPMAuth...)
 		usuarioBackend.setName(username.getUsername());
 		usuario.setUser(usuarioBackend);
-		
 		
 		
 		//TODO: esto no lo entiendo bien
@@ -62,7 +61,7 @@ public class WineSocialUPMSkeleton {
 			//si la respuesta es que HA IDO BIEN => TRUE (entro en el if)
 			if(respuestaBackend.get_return().getResult()) {
 				response.setResponse(true); //pongo la respuesta a true
-				response.setPwd(respresponse.setPwd(respuestaBackend.get_return().getPassword()); //pongo contraseña en la respuesta
+				response.setPwd(respuestaBackend.get_return().getPassword()); //pongo contraseña en la respuesta
 				respuestaFinalFuncion.set_return(response);
 				//TODO: revisar que haya que añadir un usuario a lista de usuarios conectados
 				//usuarios.put()...
@@ -108,7 +107,7 @@ public class WineSocialUPMSkeleton {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		es.upm.fi.sos.t3.backend.LoginResponse respuestaLogin = new es.upm.fi.sos.t3.backend.LoginResponse();
-		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackend respuestaLoginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackend();  
+		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd respuestaLoginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd();  
 		es.upm.fi.sos.t3.backend.ExistUser usuarioExiste = new es.upm.fi.sos.t3.backend.ExistUser();
 		es.upm.fi.sos.t3.backend.ExistUserResponse respuestaUsuarioExiste = new es.upm.fi.sos.t3.backend.ExistUserResponse();
 		es.upm.fi.sos.t3.backend.Login paramLogin = new es.upm.fi.sos.t3.backend.Login();
@@ -201,13 +200,16 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		es.upm.fi.sos.t3.backend.ExistUser usuarioExiste = new es.upm.fi.sos.t3.backend.ExistUser();
 		es.upm.fi.sos.t3.backend.ExistUserResponse respuestaUsuarioExiste = new es.upm.fi.sos.t3.backend.ExistUserResponse();
+		es.upm.fi.sos.t3.backend.xsd.Username username = new es.upm.fi.sos.t3.backend.xsd.Username();
+		
 		boolean eliminado = false;
 		
 		//obtengo el usuario y nombre del parametro de la funcion
 		Username usuario = removeUser.getArgs0();
 		String nombre_usuario = usuario.getUsername();
+		username.setName(nombre_usuario);
 		
-		usuarioExiste.setUsername(nombre_usuario);
+		usuarioExiste.setUsername(username);
 		respuestaUsuarioExiste = auth.existUser(usuarioExiste);
 		boolean existe = respuestaUsuarioExiste.get_return().getResult();
 		
@@ -277,7 +279,8 @@ public class WineSocialUPMSkeleton {
 			respuestaFinalFuncion.set_return(response);
 		}
 		
-		paramAuth.setArgs0(passw);
+		//TODO: arreglar
+		//paramAuth.setArgs0(passw);
 		
 		//llamo a la funcion del UPMAuth... y obtengo la respuesta
 		respuestaAuth = auth.changePassword(paramAuth);
@@ -302,7 +305,9 @@ public class WineSocialUPMSkeleton {
 	 */
 
 	public es.upm.etsiinf.sos.AddFollowerResponse addFollower(es.upm.etsiinf.sos.AddFollower addFollower) {
-		
+		// TODO : fill this with the necessary business logic
+		throw new java.lang.UnsupportedOperationException(
+			"Please implement " + this.getClass().getName() + "#addFollower");
 	}
 	
 	
