@@ -32,7 +32,7 @@ public class WineSocialUPMSkeleton {
 	 * @return addUserResponse
 	 */
 
-	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
+	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) {
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton.AddUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton.AddUserResponse();
