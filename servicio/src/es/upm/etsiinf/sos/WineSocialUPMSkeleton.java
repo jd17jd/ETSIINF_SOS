@@ -1,3 +1,4 @@
+
 /**
  * WineSocialUPMSkeleton.java
  *
@@ -5,26 +6,27 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 package es.upm.etsiinf.sos;
-import java.util.HashMap;
-import java.util.*;
 import es.upm.etsiinf.sos.model.xsd.User;
 import es.upm.etsiinf.sos.model.xsd.Username;
 import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton;
-import es.upm.fi.sos.t3.backend.*;
 /**
  * WineSocialUPMSkeleton java skeleton for the axisService
  */
 public class WineSocialUPMSkeleton {
 	
-	public Map<String, User> usuarios = new HashMap<>();
-	public List<User> usuariosAutenticados = new ArrayList<>();
-	
-	private User admin = new User();
-	//TODO: revisar creacion admin
-//	admin.setName("admin");
-//	admin.setPwd("admin");
+	private User admin;
 	public User usuarioActual;
-	private UPMAuthenticationAuthorizationWSSkeletonSkeleton auth = new UPMAuthenticationAuthorizationWSSkeletonSkeleton();
+	private UPMAuthenticationAuthorizationWSSkeletonSkeleton auth;
+	
+	
+	public WineSocialUPMSkeleton() {
+		admin = new User();
+		admin.setName("admin");
+		admin.setPwd("admin");
+		this.usuarioActual = new User();
+		auth = new UPMAuthenticationAuthorizationWSSkeletonSkeleton();
+	}
+	
 	
 	/**
 	 * Auto generated method signature
@@ -33,6 +35,8 @@ public class WineSocialUPMSkeleton {
 	 * @return addUserResponse
 	 */
 
+	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
+	
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) {
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
@@ -47,26 +51,26 @@ public class WineSocialUPMSkeleton {
 		
 		
 		//TODO: esto no lo entiendo bien
-		if(this.usuarioActual == null) {
-			System.out.println("Inicie sesión para añadir usuarios...\n");
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
-		}
+//		if(this.usuarioActual == null) {
+//			System.out.println("Inicie sesión para añadir usuarios...\n");
+//			response.setResponse(false);
+//			respuestaFinalFuncion.set_return(response);
+//		}
 		
 		//si soy el admin puedo añadir usuarios
 		//redirijo servicio a UPMAuth...para que haga el add en el backend 
 		if(soyAdmin(usuarioActual)) {
+			
 			//en la respuesta el backend me devuelve la contraseña y el true/false que debe 
 			respuestaBackend = auth.addUser(usuario);
 			//si la respuesta es que HA IDO BIEN => TRUE (entro en el if)
 			if(respuestaBackend.get_return().getResult()) {
 				response.setResponse(true); //pongo la respuesta a true
+				//TODO: revisar como se genera la contraseña (si la imprimo me da null)
 				response.setPwd(respuestaBackend.get_return().getPassword()); //pongo contraseña en la respuesta
 				respuestaFinalFuncion.set_return(response);
-				//TODO: revisar que haya que añadir un usuario a lista de usuarios conectados
-				//usuarios.put()...
-				
-				System.out.println("Funcionó bieeeeen!!\nSe ha añadido al usuario: '" + username.getUsername() + "'.\n");
+
+				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'.\n");
 			  //si la respuesta que me devuelve el backend es [false]
 			} else {
 				System.out.println("El usuario: '" + username.getUsername() + "' ya existía en el servicio.\n");
@@ -76,7 +80,7 @@ public class WineSocialUPMSkeleton {
 			
 		  //si no soy el admin debe dar error prq no he podido añadir al usuario
 		} else {
-			System.out.println("Error!! No se pudo añadir al usuario. (Falta de permisos)\n");
+			System.out.println("Error!! No se pudo añadir al usuario. No soy el usuario administrador :(\n");
 			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);
 		}	
@@ -86,7 +90,8 @@ public class WineSocialUPMSkeleton {
 	//TRUE => si soy el admin
 	//FALSE => e.o.c
 	private boolean soyAdmin(User user) {
-		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
+		return (user.getName().equals(admin.getName())) && 
+				(user.getPwd().equals(admin.getPwd()));
 	}
 	
 	
@@ -117,7 +122,6 @@ public class WineSocialUPMSkeleton {
 		User usuario = login.getArgs0();
 		//pillo su username y su contraseña
 		String name = usuario.getName();
-		String password = usuario.getPwd();
 		
 		//Creo el objeto Username y le pongo el nombre del usuario que me pasan
 		nombre_usuario.setName(name);
@@ -135,7 +139,7 @@ public class WineSocialUPMSkeleton {
 		}
 		else { //si el usuario existe
 			//habria que ver si el usuario ya esta conectado y lanzar directamente => TRUE
-			if(usuariosAutenticados.contains(usuario)) {
+			if(auth.usuariosAutenticados.contains(usuario)) {
 				System.out.println("Usuario: '" + name + "' ya autenticado!!\n");
 				response.setResponse(true);
 			}else {
@@ -146,7 +150,7 @@ public class WineSocialUPMSkeleton {
 				//si ha ido bien el login => TRUE
 				if(respuestaLoginBackend.getResult()) {
 					System.out.println("Usuario: '" + name + "' autenticando...\n");
-					usuariosAutenticados.add(usuario); //añado el usuario a la lista de conectados, compruebo posteriormente
+					auth.usuariosAutenticados.add(usuario); //añado el usuario a la lista de conectados, compruebo posteriormente
 					response.setResponse(true);
 				} else {
 					System.out.println("El usuario: '" + name + "' no se pudo autenticar :(\n");
@@ -171,8 +175,8 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		boolean conectado = false;
 		
-		if(usuariosAutenticados.contains(this.usuarioActual)) {
-			usuariosAutenticados.remove(usuarioActual);
+		if(auth.usuariosAutenticados.contains(this.usuarioActual)) {
+			auth.usuariosAutenticados.remove(usuarioActual);
 			this.usuarioActual = null;
 			System.out.println("Has cerrado correctamente la sesión!!\n");
 			response.setResponse(true);
