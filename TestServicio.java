@@ -17,7 +17,7 @@ public class TestServicio {
 		
 		//simulamos que el admin ha iniciado sesion
 		servicio.usuarioUsado = admin;
-		
+
 		//System.out.println("El usuario con el que accedo al servicio es: " + servicio.usuarioActual.getName());
 		
 		
@@ -34,7 +34,7 @@ public class TestServicio {
         System.out.println("Respuesta de añadir usuario: " + addUserResponse.get_return().getResponse());
         
         System.out.println("==================================");
-        
+
         
 		
 		
@@ -54,9 +54,8 @@ public class TestServicio {
         addUser.setArgs0(username); //añado al usuario pero la contraseña se settea en el backend (contraseñaAutoGenerada)
         
         // Añadir el usuario al sistema
-        AddUserResponse addUserResponse = servicio.addUser(addUser);
-        System.out.println("Respuesta de añadir usuario: " + addUserResponse.get_return().getResponse());
-        
+        AddUserResponse addUserResponse1 = servicio.addUser(addUser);
+        System.out.println("Respuesta de añadir usuario: " + addUserResponse1.get_return().getResponse());
         //hasta aqui se ha añadido el usuario con nombre "pepito" y contraseña la que se ha autogenerado en backend
         //cuando intente hacer el login con la contraseña que he setteado al 'newUser' me va a dar error
         //prq la contraseña que tiene es "password1" y la que ha generado el backend es "contraseñaAutoGenerada"
@@ -70,8 +69,7 @@ public class TestServicio {
         System.out.println("=================================");
         */
         
-		
-		
+	
 		
         
         /*
@@ -80,7 +78,7 @@ public class TestServicio {
         
         User usuarioPepito = new User();
 		usuarioPepito.setName("pepitoPlayer");
-		usuarioPepito.setPwd("contraseñaAutoGenerada");
+		//usuarioPepito.setPwd("contraseñaAutoGenerada");
 		
 		servicio.usuarioUsado = usuarioPepito;
         
@@ -89,8 +87,9 @@ public class TestServicio {
         LogoutResponse logoutResponse = servicio.logout(logout);
         System.out.println("Respuesta de cierre de sesión: " + logoutResponse.get_return().getResponse());
         System.out.println("=================================");
-        */
         
+        System.out.println("LISTA DE LOGGEADOS =>" + servicio.getLoggeados());
+		*/
 		
 		/*
         //User usuarioPepito = new User();
@@ -110,18 +109,29 @@ public class TestServicio {
         System.out.println("=================================");
 		*/
         
+        /*
+        User usuarioPepito = new User();
+		usuarioPepito.setName("pepito");
+		usuarioPepito.setPwd("contraseñaAutoGenerada");
+		servicio.usuarioUsado = usuarioPepito;
         
         
-//        // Probar cambio de contraseña del admin
-//        System.out.println("===== Cambio de Contraseña =====");
-//        ChangePassword changePassword = new ChangePassword();
-//        PasswordPair passwordPair = new PasswordPair();
-//        passwordPair.setOldpwd("admin");
-//        passwordPair.setNewpwd("newadmin");
-//        changePassword.setArgs0(passwordPair);
-//        ChangePasswordResponse changePasswordResponse = servicio.changePassword(changePassword);
-//        System.out.println("Respuesta de cambio de contraseña: " + changePasswordResponse.get_return().getResponse());
-//
+        System.out.println("\n");
+        System.out.println("======== PRUEBA changePassword ========");
+        
+        ChangePassword changePassword = new ChangePassword();
+        PasswordPair passwordPair = new PasswordPair();
+        passwordPair.setOldpwd("contraseñaAutoGenerada");
+        passwordPair.setNewpwd("newPepitoPss1-2-3");
+        changePassword.setArgs0(passwordPair);
+        ChangePasswordResponse changePasswordResponse = servicio.changePassword(changePassword);
+        System.out.println("Respuesta de cambio de contraseña: " + changePasswordResponse.get_return().getResponse());
+        System.out.println("=================================");
+        */
+        
+        
+        
+        
 //        // Intentar iniciar sesión con la nueva contraseña del admin
 //        System.out.println("===== Re-Inicio de Sesión (Admin) =====");
 //        admin.setPwd("newadmin");

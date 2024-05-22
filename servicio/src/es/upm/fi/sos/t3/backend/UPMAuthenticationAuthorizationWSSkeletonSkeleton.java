@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import es.upm.etsiinf.sos.model.xsd.User;
 import es.upm.fi.sos.t3.backend.xsd.UserBackEnd;
 import es.upm.fi.sos.t3.backend.xsd.Username;
@@ -28,7 +27,7 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	
 	public UPMAuthenticationAuthorizationWSSkeletonSkeleton() {
 		usuariosEnSistema = new HashMap<>();
-		usuariosAutenticados = new ArrayList<>(); 
+		usuariosAutenticados = new ArrayList<>();
 	}
 	
 	
@@ -62,6 +61,14 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		return respuestaFinalFuncion;
 	}
 	
+	private String getLoggeados() {
+		String res = "Usuarios Loggeados => [";
+		for(User usuarioLog : usuariosAutenticados) {
+			res += usuarioLog.getName() + " ";
+		}
+		return res + "]";
+	}
+	
 	/**
 	 * Auto generated method signature
 	 * 
@@ -72,7 +79,7 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	public es.upm.fi.sos.t3.backend.LoginResponse login(es.upm.fi.sos.t3.backend.Login login) {
 		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd();
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
-		String nombre_login = login.localLogin.getName();
+		String nombre_login = login.getLogin().getName();
 		String password_login = login.getLogin().getPassword();
 		User usuario = new User();
 		
@@ -97,6 +104,8 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		respuestaFinalFuncion.set_return(respuestaBackend);
 		return respuestaFinalFuncion;
 	}
+	
+	
 	
 	
 	/**
@@ -142,6 +151,8 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		if(existe) {
 			respuestaBackend.setResult(true);
 			usuariosEnSistema.remove(nombre_user_borrado);
+		} else {
+			respuestaBackend.setResult(false);
 		}
 		respuestaFinalFuncion.set_return(respuestaBackend);
 		return respuestaFinalFuncion;
@@ -156,11 +167,28 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	 * @return changePasswordResponse
 	 */
 
-	public es.upm.fi.sos.t3.backend.ChangePasswordResponse changePassword(
-			es.upm.fi.sos.t3.backend.ChangePassword changePassword) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException(
-				"Please implement " + this.getClass().getName() + "#changePassword");
+	public es.upm.fi.sos.t3.backend.ChangePasswordResponse changePassword(es.upm.fi.sos.t3.backend.ChangePassword changePassword) {
+		ChangePasswordResponse respuestaFinalFuncion = new ChangePasswordResponse();
+		es.upm.fi.sos.t3.backend.xsd.ChangePasswordBackEnd cambioBackend = new es.upm.fi.sos.t3.backend.xsd.ChangePasswordBackEnd();
+		es.upm.fi.sos.t3.backend.xsd.ChangePasswordResponse response = new es.upm.fi.sos.t3.backend.xsd.ChangePasswordResponse();
+		cambioBackend = changePassword.getChangePassword();
+		
+		//TODO: revisar como obtener el nombre de pepito sin meterlo hardcodeado
+		String nombre = cambioBackend.getName();
+		String antigua = cambioBackend.getOldpwd();
+		String nueva = cambioBackend.getNewpwd();
+		
+		//si la contraseña antigua es igual a la que tiene almacenada, la cambio
+		//TODO: si no es igual o NO SE HA HECHO LOGIN PREVIO => ERROR
+		if(antigua.equals(usuariosEnSistema.get(nombre).getPwd())) {
+			usuariosEnSistema.get(nombre).setPwd(nueva);
+			response.setResult(true);
+			respuestaFinalFuncion.set_return(response);
+		} else {
+			response.setResult(false);
+			respuestaFinalFuncion.set_return(response);
+		}
+		return respuestaFinalFuncion;
 	}
 
 }

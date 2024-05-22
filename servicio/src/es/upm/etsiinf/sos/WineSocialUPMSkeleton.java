@@ -153,14 +153,13 @@ public class WineSocialUPMSkeleton {
 				response.setResponse(true);
 			}else {
 				//si no esta autenticado habria que inciarle sesion en caso de que todo vaya bien
-				//TODO: habria que meter algo para iniciar el 'paramLogin'
 				paramLogin.setLogin(loginBackend);
 				respuestaLogin = auth.login(paramLogin);
 				respuestaLoginBackend = respuestaLogin.get_return();
 				
 				//si ha ido bien el login => TRUE
 				if(respuestaLoginBackend.getResult()) {
-					auth.usuariosAutenticados.add(usuario); //añado el usuario a la lista de conectados, compruebo posteriormente
+					System.out.println("El usuario '" + name + "' se ha autenticado correctamente.\n");
 					response.setResponse(true);
 				} else {
 					System.out.println("El usuario: '" + name + "' no se pudo autenticar :(\n");
@@ -180,10 +179,10 @@ public class WineSocialUPMSkeleton {
 	 * @return logoutResponse
 	 */
 	
-	private String getLoggeados() {
-		String res = "Usuarios Loggeados => [";
-		for(int i=0; i<auth.usuariosAutenticados.size(); i++) {
-			res += auth.usuariosAutenticados.get(i).getName() + ",";
+	public String getLoggeados() {
+		String res = "[";
+		for(User usuarioLog : auth.usuariosAutenticados) {
+			res += usuarioLog.getName() + " ";
 		}
 		return res + "]";
 	}
@@ -205,7 +204,6 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
 		if(estoyLoggeado()) {
-			auth.usuariosAutenticados.remove(usuarioUsado);
 			this.usuarioUsado = null;
 			System.out.println("Has cerrado correctamente la sesión!!\n");
 			response.setResponse(true);
@@ -225,6 +223,7 @@ public class WineSocialUPMSkeleton {
 	 * @return removeUserResponse
 	 */
 
+	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.RemoveUserResponse respuestaRemove = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
@@ -269,11 +268,12 @@ public class WineSocialUPMSkeleton {
 		
 		
 		//solo el admin o el propio usuario pueden borrar
-		if((soyAdmin(this.usuarioUsado)) || (this.usuarioUsado.getName().equals(nombre_usuario))) {
+		if((soyAdmin(usuarioUsado)) || (usuarioUsado.getName().equals(nombre_usuario))) {
 			System.out.println("Si he entrado aqui, o soy el admin o soy el usuario que se quiere borrar...\n");
 			//llamo a la funcion y me devuelve una respuesta
 			respuestaRemove = auth.removeUser(paramRemove);
 			eliminado = respuestaRemove.get_return().getResult();
+			//TODO: if de si ha ido mal el borrado
 			System.out.println("Se ha eliminado al usuario: '" + nombre_usuario + "'\n");
 			response.setResponse(eliminado);
 			respuestaFinalFuncion.set_return(response);
@@ -293,6 +293,7 @@ public class WineSocialUPMSkeleton {
 	 * @return changePasswordResponse
 	 */
 
+	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	public es.upm.etsiinf.sos.ChangePasswordResponse changePassword(es.upm.etsiinf.sos.ChangePassword changePassword) {
 		ChangePasswordResponse respuestaFinalFuncion = new ChangePasswordResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
@@ -300,34 +301,44 @@ public class WineSocialUPMSkeleton {
 		es.upm.fi.sos.t3.backend.ChangePassword paramAuth = new es.upm.fi.sos.t3.backend.ChangePassword();
 		es.upm.etsiinf.sos.model.xsd.PasswordPair passw = new es.upm.etsiinf.sos.model.xsd.PasswordPair();
 		es.upm.fi.sos.t3.backend.xsd.ChangePasswordResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.ChangePasswordResponse();
+		es.upm.fi.sos.t3.backend.xsd.ChangePasswordBackEnd cambioBackend = new es.upm.fi.sos.t3.backend.xsd.ChangePasswordBackEnd();
 		
 		//extraigo la contraseñas del parametro
 		passw = changePassword.getArgs0();
 		//extraigo cada contraseña por si quisiese imprimirlas
 		String oldPassword = passw.getOldpwd();
 		String newPassword = passw.getNewpwd();
+		boolean existe = auth.usuariosEnSistema.containsKey(usuarioUsado.getName());
+		
+		System.out.println("CONTRASEÑA ANTIGUA: " + oldPassword);
+		System.out.println("CONTRASEÑA NUEVA: " + newPassword);
 		
 		//el cambio de contraseña del admin se trata de forma local
-		if(soyAdmin(this.usuarioUsado) && admin.getPwd().equals(oldPassword)) {
-			System.out.println("Se ha cambiado la contraseña del admin correctamente!!");
+		if(soyAdmin(usuarioUsado) && admin.getPwd().equals(oldPassword)) {
 			admin.setPwd(newPassword);
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
+			System.out.println("Se ha cambiado la contraseña del admin correctamente!!");
 		}
 		
-		//TODO: arreglar
-		//paramAuth.setArgs0(passw);
-		
 		//llamo a la funcion del UPMAuth... y obtengo la respuesta
+		cambioBackend.setName(usuarioUsado.getName());
+		cambioBackend.setOldpwd(oldPassword);
+		cambioBackend.setNewpwd(newPassword);
+		
+		paramAuth.setChangePassword(cambioBackend);
 		respuestaAuth = auth.changePassword(paramAuth);
 		respuestaBackend = respuestaAuth.get_return();
 		
 		
-		//si se ha cambiado correctamente
-		if(respuestaBackend.getResult()) {
+		//si se ha cambiado correctamente entro (TRUE)
+		if(respuestaBackend.getResult() && existe) {
 			System.out.println("Contraseña cambiada correctamente!!\n");
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
+		} else {
+			response.setResponse(false);
+			respuestaFinalFuncion.set_return(response);	
 		}
 		return respuestaFinalFuncion;
 	}
