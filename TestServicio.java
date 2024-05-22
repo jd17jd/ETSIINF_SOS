@@ -21,12 +21,12 @@ public class TestServicio {
 		//System.out.println("El usuario con el que accedo al servicio es: " + servicio.usuarioActual.getName());
 		
 		
-		/*
+		
         System.out.println("========= PRUEBA addUser =========");
         
         AddUser addUser = new AddUser();
         Username username = new Username();
-        username.setUsername("user1");
+        username.setUsername("pepito");
         addUser.setArgs0(username);
         //System.out.println("El usuario que quiero añadir es => " + addUser.getArgs0().getUsername());
         AddUserResponse addUserResponse = servicio.addUser(addUser);
@@ -34,7 +34,7 @@ public class TestServicio {
         System.out.println("Respuesta de añadir usuario: " + addUserResponse.get_return().getResponse());
         
         System.out.println("==================================");
-        */
+        
         
 		
 		
@@ -88,21 +88,27 @@ public class TestServicio {
         Logout logout = new Logout();
         LogoutResponse logoutResponse = servicio.logout(logout);
         System.out.println("Respuesta de cierre de sesión: " + logoutResponse.get_return().getResponse());
+        System.out.println("=================================");
         */
         
 		
-		
-		
-		
+		/*
+        //User usuarioPepito = new User();
+		//usuarioPepito.setName("pepitoPlayer");
+		//usuarioPepito.setPwd("contraseñaAutoGenerada");
+		//servicio.usuarioUsado = usuarioPepito;
+        
 		System.out.println("\n");
-        System.out.println("======== PRUEBA removeUser ========");        
+        System.out.println("======== PRUEBA removeUser ========");
+        
         RemoveUser removeUser = new RemoveUser();
-        Username username = new Username();
-        username.setUsername("admin");
-        removeUser.setArgs0(username);
+        Username usernameRemove = new Username();
+        usernameRemove.setUsername("pepito");
+        removeUser.setArgs0(usernameRemove);
         RemoveUserResponse removeUserResponse = servicio.removeUser(removeUser);
         System.out.println("Respuesta de eliminación de usuario: " + removeUserResponse.get_return().getResponse());
-
+        System.out.println("=================================");
+		*/
         
         
         

@@ -229,7 +229,7 @@ public class WineSocialUPMSkeleton {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.RemoveUserResponse respuestaRemove = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.RemoveUser paramRemove = new es.upm.fi.sos.t3.backend.RemoveUser();
-		es.upm.fi.sos.t3.backend.xsd.RemoveUser removeDevuelto = new es.upm.fi.sos.t3.backend.xsd.RemoveUser();
+		es.upm.fi.sos.t3.backend.xsd.RemoveUser removeBackend = new es.upm.fi.sos.t3.backend.xsd.RemoveUser();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		es.upm.fi.sos.t3.backend.ExistUser usuarioExiste = new es.upm.fi.sos.t3.backend.ExistUser();
 		es.upm.fi.sos.t3.backend.ExistUserResponse respuestaUsuarioExiste = new es.upm.fi.sos.t3.backend.ExistUserResponse();
@@ -242,14 +242,9 @@ public class WineSocialUPMSkeleton {
 		String nombre_usuario = usuario.getUsername();
 		username.setName(nombre_usuario);
 		
-		
-		//obtengo el remove del backend y le pongo el nombre del usuario dado
-		//removeDevuelto = auth.removeUser(paramRemove);
-		removeDevuelto = paramRemove.getRemoveUser();
-		removeDevuelto.setName(nombre_usuario);
-		
+		removeBackend.setName(nombre_usuario);
 		//setteo ese remove del backend en el parametro del que le paso a la funcion de UPMAuth...
-		paramRemove.setRemoveUser(removeDevuelto);
+		paramRemove.setRemoveUser(removeBackend);
 		
 		
 		//El admin NUNCA se puede borrar
@@ -257,18 +252,19 @@ public class WineSocialUPMSkeleton {
 			System.out.println("Hubo un error! No se puede borrar el usuario 'admin'\n");
 			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
 		}
 		
 		usuarioExiste.setUsername(username);
 		respuestaUsuarioExiste = auth.existUser(usuarioExiste);
 		boolean existe = respuestaUsuarioExiste.get_return().getResult();
-		System.out.println("¿EXISTE EL USUARIO? => " + existe);
 		
 		//si el usuario no existe, obviamente NO se puede borrar
 		if(!existe) {
 			System.out.println("Hubo un error! No existe el usuario: '" + nombre_usuario +"'\n");
 			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
 		}
 		
 		
@@ -280,6 +276,10 @@ public class WineSocialUPMSkeleton {
 			eliminado = respuestaRemove.get_return().getResult();
 			System.out.println("Se ha eliminado al usuario: '" + nombre_usuario + "'\n");
 			response.setResponse(eliminado);
+			respuestaFinalFuncion.set_return(response);
+		} else {
+			System.out.println("No tienes permisos para borrar el usuario.\n");
+			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);
 		}
 		return respuestaFinalFuncion;
