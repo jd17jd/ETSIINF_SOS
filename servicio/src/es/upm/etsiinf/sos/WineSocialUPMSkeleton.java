@@ -15,101 +15,122 @@ import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton
 public class WineSocialUPMSkeleton {
 	
 	private User admin;
-	public User usuarioUsado;
+	public User usuarioActual;
 	private UPMAuthenticationAuthorizationWSSkeletonSkeleton auth;
 	
-	
 	public WineSocialUPMSkeleton() {
-		admin = new User();
+		this.admin = new User();
+		this.usuarioActual = new User();
 		admin.setName("admin");
 		admin.setPwd("admin");
-		this.usuarioUsado = new User();
 		auth = new UPMAuthenticationAuthorizationWSSkeletonSkeleton();
 	}
-	
-	
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param addUser
-	 * @return addUserResponse
-	 */
 
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
-	
+	//Getters y Setters para pruebas
+
+	//---------------------------------------------------
+
+	public void setUserAdmin(User admin) {
+		this.admin = admin;
+	}
+
+	public User getUserAdmin() {
+		return this.admin;
+	}
+
+	public void setUserActual(User usuarioActual) {
+		this.usuarioActual = usuarioActual;
+	}
+
+	public User getUserActual() {
+		return this.usuarioActual;
+	}
+
+	public void setAuth(UPMAuthenticationAuthorizationWSSkeletonSkeleton auth) {
+		this.auth = auth;
+	}
+
+	public UPMAuthenticationAuthorizationWSSkeletonSkeleton getAuth() {
+		return this.auth;
+	}
+
+	//---------------------------------------------------
+
+	// Metodos auxiliares
+
+	private boolean soyAdmin(User user) {
+		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
+	}
+
+
+	//---------------------------------------------------
+
+	// Metodos principales
+
+	/**
+	 * Añade el usuario username a la red social
+	 * @param addUser usuario a añadir
+	 * @return AddUserResponse: Contiene la contraseña + booleano de exito de operacion
+	 */
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) {
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
+		Username username = addUser.getArgs0();
+
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 		es.upm.fi.sos.t3.backend.AddUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.AddUserResponse();
+
 		es.upm.fi.sos.t3.backend.AddUser usuario = new es.upm.fi.sos.t3.backend.AddUser();
 		es.upm.fi.sos.t3.backend.xsd.UserBackEnd usuarioBackend = new es.upm.fi.sos.t3.backend.xsd.UserBackEnd();
-		Username username = addUser.getArgs0(); 
-		
-		//Aqui creo el usuario del backend que le paso al stub (UPMAuth...)
+
+		// INICIALIZACION RESPUESTA
+		response.setResponse(false);
+		respuestaFinalFuncion.set_return(response); //False en incio
+
+		// CREO EL USUARIO DEL BACKEND
 		usuarioBackend.setName(username.getUsername());
 		usuario.setUser(usuarioBackend);
 		
-		
-		//TODO: esto no lo entiendo bien
-//		if(this.usuarioActual == null) {
-//			System.out.println("Inicie sesión para añadir usuarios...\n");
-//			response.setResponse(false);
-//			respuestaFinalFuncion.set_return(response);
-//		}
-		
-		//si soy el admin puedo añadir usuarios
-		//redirijo servicio a UPMAuth...para que haga el add en el backend 
-		if(soyAdmin(usuarioUsado)) {
-			
-			//en la respuesta el backend me devuelve la contraseña y el true/false que debe 
-			respuestaBackend = auth.addUser(usuario);
-			//si la respuesta es que HA IDO BIEN => TRUE (entro en el if)
-			if(respuestaBackend.get_return().getResult()) {
-				response.setResponse(true); //pongo la respuesta a true
-				//TODO: revisar como se genera la contraseña (si la imprimo me da null)
-				System.out.println("La password que tiene el user es => {" + respuestaBackend.get_return().getPassword() + "}\n");
-				response.setPwd(respuestaBackend.get_return().getPassword()); //pongo contraseña en la respuesta
-				respuestaFinalFuncion.set_return(response);
-
-				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'.\n");
-			  //si la respuesta que me devuelve el backend es [false]
-			} else {
-				System.out.println("El usuario: '" + username.getUsername() + "' ya existía en el servicio.\n");
-				response.setResponse(false);
-				respuestaFinalFuncion.set_return(response);
-			}
-			
-		  //si no soy el admin debe dar error prq no he podido añadir al usuario
-		} else {
-			System.out.println("Error!! No se pudo añadir al usuario. No soy el usuario administrador :(\n");
+		/* // TODO: COMPROBACION LOGIN DEL ADMIN
+		if(this.usuarioActual == null) {
+			System.out.println("Inicie sesión para añadir usuarios...\n");
 			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);
-		}	
+		}
+		*/
+
+		// COMPROBACION ADMOIN
+		if(soyAdmin(usuarioActual)) {
+			respuestaBackend = auth.addUser(usuario); 
+			
+			if(respuestaBackend.get_return().getResult()) { // Ha creado el usuario		
+
+				// Seteo la respuesta
+				response.setResponse(true);
+				response.setPwd(respuestaBackend.get_return().getPassword());
+				respuestaFinalFuncion.set_return(response);
+
+				System.out.println("Se ha añadido al usuario: " + username.getUsername() + " con contraseña: " + respuestaBackend.get_return().getPassword() + "\n");
+				return respuestaFinalFuncion;
+
+			}
+			else // No ha creado el usuario
+				System.out.println("El usuario: '" + username.getUsername() + "' ya existía en el servicio.\n");
+
+		}
+		else { // No soy el admin
+			System.out.println("Error, no se es administrador\n");
+		}
 		return respuestaFinalFuncion;
 	}
-	
-	//TRUE => si soy el admin
-	//FALSE => e.o.c
-	private boolean soyAdmin(User user) {
-		return (user.getName().equals(admin.getName())) && 
-				(user.getPwd().equals(admin.getPwd()));
-	}
-	
-	
-	/**
-	 * 
-	 * 
-	 * @param login
-	 * @return loginResponse
-	 */
 
-	//cada llamada a esto tiene que redirigirlo a UPMAuth...
-	//ahi nos devuelve un true/false dependiendo de si ha tenido exito o no
-	//if(usuariosAutenticados)
 	
 	//TODO: gestionar el login del admin AQUI, NO en el UPMAuth...
-	
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
+
+	/**
+	 * Comienza una nueva sesión para un usuario
+	 * @param login usuario a loggear
+	 * @return loginResponse inddicando si se ha loggeado correctamente
+	 */
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
@@ -120,31 +141,33 @@ public class WineSocialUPMSkeleton {
 		es.upm.fi.sos.t3.backend.Login paramLogin = new es.upm.fi.sos.t3.backend.Login();
 		es.upm.fi.sos.t3.backend.xsd.Username nombre_usuario = new es.upm.fi.sos.t3.backend.xsd.Username();
 		es.upm.fi.sos.t3.backend.xsd.LoginBackEnd loginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginBackEnd();
-		
-		//obtengo el usuario del param login
+
+		// INICIALIZACION RESPUESTA
+		response.setResponse(false);
+		respuestaFinalFuncion.set_return(response); //False en incio
+
+		// OBTENGO EL USUARIO Y CONTRASEÑA DEL PARAMETRO
 		User usuario = login.getArgs0();
-		//pillo su username y su contraseña
 		String name = usuario.getName();
 		String password = usuario.getPwd();
 		
-		//Parametros que le voy a pasar al login
+		// PAARAMETROS A PASAR AL BACKEND
 		loginBackend.setName(name);
-		//TODO: arreglar que funcione o no sin depender de esta linea de debajo, debo coger la contraseña del map
 		loginBackend.setPassword(password);
+
+
+		nombre_usuario.setName(name); // Inicializamos username
 		
-		//Creo el objeto Username y le pongo el nombre del usuario que me pasan
-		nombre_usuario.setName(name);
-		//TODO: setteo el nombre del login en el objeto de existUser para comprobar que existe
-		usuarioExiste.setUsername(nombre_usuario);
-		
+		//TODO: COMPROBACION DE SI EXISTE EN BACKEND
+		usuarioExiste.setUsername(nombre_usuario); 
 		respuestaUsuarioExiste = auth.existUser(usuarioExiste);
 		boolean existe = respuestaUsuarioExiste.get_return().getResult();
-		
 		//si no existe y no es el admin => Response = false (El usuario no existe)
 		if(!existe && !name.equals("admin")) {
 			System.out.println("El usuario: '" + name + "' no existe en el sistema.\n");
 			response.setResponse(false);
 		}
+
 		else { //si el usuario existe
 			//habria que ver si el usuario ya esta conectado y lanzar directamente => TRUE
 			//System.out.println("¿¿Está contenido en la lista de loggeados?? => " + auth.usuariosAutenticados.contains(usuario));
@@ -190,7 +213,7 @@ public class WineSocialUPMSkeleton {
 	private boolean estoyLoggeado() {
 		boolean estoy = false;
 		for(int i=0; i<auth.usuariosAutenticados.size(); i++) {
-			if(auth.usuariosAutenticados.get(i).getName().equals(this.usuarioUsado.getName())) {
+			if(auth.usuariosAutenticados.get(i).getName().equals(this.usuarioActual.getName())) {
 				estoy = true;
 			}
 		}
@@ -204,7 +227,7 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
 		if(estoyLoggeado()) {
-			this.usuarioUsado = null;
+			this.usuarioActual = null;
 			System.out.println("Has cerrado correctamente la sesión!!\n");
 			response.setResponse(true);
 		}else {
@@ -268,7 +291,7 @@ public class WineSocialUPMSkeleton {
 		
 		
 		//solo el admin o el propio usuario pueden borrar
-		if((soyAdmin(usuarioUsado)) || (usuarioUsado.getName().equals(nombre_usuario))) {
+		if((soyAdmin(usuarioActual)) || (usuarioActual.getName().equals(nombre_usuario))) {
 			System.out.println("Si he entrado aqui, o soy el admin o soy el usuario que se quiere borrar...\n");
 			//llamo a la funcion y me devuelve una respuesta
 			respuestaRemove = auth.removeUser(paramRemove);
@@ -308,13 +331,13 @@ public class WineSocialUPMSkeleton {
 		//extraigo cada contraseña por si quisiese imprimirlas
 		String oldPassword = passw.getOldpwd();
 		String newPassword = passw.getNewpwd();
-		boolean existe = auth.usuariosEnSistema.containsKey(usuarioUsado.getName());
+		boolean existe = auth.usuariosEnSistema.containsKey(usuarioActual.getName());
 		
 		System.out.println("CONTRASEÑA ANTIGUA: " + oldPassword);
 		System.out.println("CONTRASEÑA NUEVA: " + newPassword);
 		
 		//el cambio de contraseña del admin se trata de forma local
-		if(soyAdmin(usuarioUsado) && admin.getPwd().equals(oldPassword)) {
+		if(soyAdmin(usuarioActual) && admin.getPwd().equals(oldPassword)) {
 			admin.setPwd(newPassword);
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
@@ -322,7 +345,7 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		//llamo a la funcion del UPMAuth... y obtengo la respuesta
-		cambioBackend.setName(usuarioUsado.getName());
+		cambioBackend.setName(usuarioActual.getName());
 		cambioBackend.setOldpwd(oldPassword);
 		cambioBackend.setNewpwd(newPassword);
 		
