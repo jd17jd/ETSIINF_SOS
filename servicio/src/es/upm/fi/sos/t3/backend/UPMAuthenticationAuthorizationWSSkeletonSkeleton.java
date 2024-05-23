@@ -172,7 +172,8 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 					if (user.getName().equals(nombre_login)) {
 						System.out.println("El usuario: '" + nombre_login + "' ya está loggeado en el sistema.\n");
 						respuestaBackend.setResult(true);
-						break; //TODO: Checkear bucle para quitar break
+						respuestaFinalFuncion.set_return(respuestaBackend);
+						return respuestaFinalFuncion;
 					}
 				}
 			}
@@ -180,8 +181,8 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 			// COMPROBACION DE SI TIENE CONTRASEÑA SUMINISTRADA
 			usuario = usuariosRegistrados.get(nombre_login);
 
-			System.out.println("Contraseña introducida por el usuario:	" + password_login + "\n");
-			System.out.println("Contraseña autogenerada en memoria:		" + usuario.getPwd() + "\n");
+			System.out.println("Contraseña introducida por el usuario: " + password_login);
+			System.out.println("Contraseña autogenerada en memoria: " + usuario.getPwd());
 
 			if(password_login.equals(usuario.getPwd())) { //Comparamos contraseña suministrada con la autogenerada
 				usuariosLoggeados.add(usuario);

@@ -96,6 +96,8 @@ public class TestServicio {
         System.out.println("login(admin): " + res6.get_return().getResponse() + "\n");
 
         // Prueba3: Iniciar sesión con un usuario que tiene la contraseña incorrecta
+
+        // Prueba4: A
         es.upm.etsiinf.sos.Login login3 = new es.upm.etsiinf.sos.Login();
         es.upm.etsiinf.sos.model.xsd.User user3 = new es.upm.etsiinf.sos.model.xsd.User();
         user3.setName("Pepito");
@@ -105,7 +107,7 @@ public class TestServicio {
         System.out.println("Usuario a loggear: " + login3.getArgs0().getName() + ", con contraseña: " + login3.getArgs0().getPwd());
         es.upm.etsiinf.sos.LoginResponse res7 = servicio.login(login3);
         System.out.println("login(Pepito): " + res7.get_return().getResponse() + "\n");
-        
+
 
 
 
