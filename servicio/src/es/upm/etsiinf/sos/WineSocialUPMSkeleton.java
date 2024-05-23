@@ -62,6 +62,23 @@ public class WineSocialUPMSkeleton {
 		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
 	}
 
+	private boolean estoyLoggeado() {
+		for (User usuario : auth.getUsuariosLoggeados()) {
+			if (usuario.getName().equals(this.usuarioActual.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public String getLoggeados() {
+		String res = "[";
+		for(User usuarioLog : auth.getUsuariosLoggeados()) {
+			res += usuarioLog.getName() + " ";
+		}
+		return res + "]";
+	}
+
 
 	//---------------------------------------------------
 
@@ -69,8 +86,8 @@ public class WineSocialUPMSkeleton {
 
 	/**
 	 * Añade el usuario username a la red social
-	 * @param addUser usuario a añadir
-	 * @return AddUserResponse: Contiene la contraseña + booleano de exito de operacion
+	 * @param addUser Objeto con los datos del usuario a añadir
+	 * @return AddUserResponse: Objeto que contiene la contraseña + booleano de exito de operacion
 	 */
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) {
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
@@ -109,27 +126,26 @@ public class WineSocialUPMSkeleton {
 				response.setPwd(respuestaBackend.get_return().getPassword());
 				respuestaFinalFuncion.set_return(response);
 
-				System.out.println("Se ha añadido al usuario: " + username.getUsername() + " con contraseña: " + respuestaBackend.get_return().getPassword() + "\n");
+				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'' con contraseña: '" + respuestaBackend.get_return().getPassword() + "'\n");
 				return respuestaFinalFuncion;
 
 			}
 			else // No ha creado el usuario
-				System.out.println("El usuario: '" + username.getUsername() + "' no se ha podido registrar'.\n");
+				System.out.println("El usuario: '" + username.getUsername() + "' ya existe en el sistema. No se ha podido registrar'.\n");
 
 		}
 		else { // No soy el admin
-			System.out.println("Error, no se es administrador\n");
+			System.out.println("Error. No se es administrador\n");
 		}
 		return respuestaFinalFuncion;
 	}
 
 	
 	//TODO: gestionar el login del admin AQUI, NO en el UPMAuth...
-
 	/**
 	 * Comienza una nueva sesión para un usuario
-	 * @param login usuario a loggear
-	 * @return loginResponse inddicando si se ha loggeado correctamente
+	 * @param login Objeto con los datos del usuario a loggear
+	 * @return loginResponse Objeto inddicando si se ha loggeado correctamente
 	 */
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
@@ -165,7 +181,7 @@ public class WineSocialUPMSkeleton {
 			response.setResponse(true);
 		}
 		
-		else {// en caso de no estar logeado --> Hacer login
+		else { // En caso de no estar logeado --> Hacer login
 			paramLogin.setLogin(loginBackend);
 			respuestaLogin = auth.login(paramLogin);
 			respuestaLoginBackend = respuestaLogin.get_return();
@@ -185,58 +201,54 @@ public class WineSocialUPMSkeleton {
 	}
 	
 	
+	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	/**
-	 * Auto generated method signature
-	 * 
+	 * Cierra la sesión del usuario que la invoca
 	 * @param logout
 	 * @return logoutResponse
 	 */
-	
-	public String getLoggeados() {
-		String res = "[";
-		for(User usuarioLog : auth.getUsuariosLoggeados()) {
-			res += usuarioLog.getName() + " ";
-		}
-		return res + "]";
-	}
-
-	private boolean estoyLoggeado() {
-		boolean estoy = false;
-		for(int i=0; i<auth.getUsuariosLoggeados().size(); i++) {
-			if(auth.getUsuariosLoggeados().get(i).getName().equals(this.usuarioActual.getName())) {
-				estoy = true;
-			}
-		}
-		return estoy;
-	}
-	
-	
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) {
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
+		boolean removed = false;
+
+		// COMPROBACION SESION INICIADA
 		if(estoyLoggeado()) {
-			this.usuarioActual = null;
-			System.out.println("Has cerrado correctamente la sesión!!\n");
-			response.setResponse(true);
-		}else {
-			System.out.println("Hubo un error en el cierre de sesión :(\n");
+			for(User usuario : auth.getUsuariosLoggeados()) {
+				if(usuario.getName().equals(usuarioActual.getName())) {
+					auth.getUsuariosLoggeados().remove(usuario);
+					removed = true;
+					break; //TODO: Checkear bucle para quitar break
+				}
+			}
+			//si se ha borrado de la lista correctamente
+			if(removed) {
+				this.usuarioActual = null;
+				System.out.println("Has cerrado correctamente la sesión.\n");
+				response.setResponse(true);
+			//el logout ha dado un erro un no se ha podido cerrar sesion bien 
+			} else {
+				System.out.println("Hubo un error en el cierre de sesión.\n");
+				response.setResponse(false);
+			}
+		//si no estaba loggeado no podria hacer logout
+		} else {
+			System.out.println("Para cerrar sesión se debe haber iniciado sesión previamente.\n");
 			response.setResponse(false);
 		}
 		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
 	}
 	
-	
+
+	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	/**
 	 * Auto generated method signature
 	 * 
 	 * @param removeUser
 	 * @return removeUserResponse
 	 */
-
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.RemoveUserResponse respuestaRemove = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
