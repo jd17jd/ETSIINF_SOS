@@ -167,6 +167,7 @@ public class TestServicio {
         es.upm.etsiinf.sos.LogoutResponse res11 = servicio.logout(logout);
         System.out.println("logout(): " + res11.get_return().getResponse() + "\n");
 
+
         // Prueba2: Cerrar sesión con un usuario que no está loggeado
         es.upm.etsiinf.sos.model.xsd.User user_Actual3 = new es.upm.etsiinf.sos.model.xsd.User();
         user_Actual3.setName("Juanita");
@@ -178,6 +179,11 @@ public class TestServicio {
         System.out.println("logout(): " + res12.get_return().getResponse() + "\n");
 
 
+        // Prueba3: Cerrar sesión de un user que ya ha cerrado sesion
+        servicio.setUserActual(user_Actual2);
+
+        es.upm.etsiinf.sos.LogoutResponse res13 = servicio.logout(logout);
+        System.out.println("logout(): " + res13.get_return().getResponse() + "\n");
 
 
 
