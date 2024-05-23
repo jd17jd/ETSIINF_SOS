@@ -8,15 +8,15 @@ public class TestServicio {
 	
 	public static void main(String[] args) {
 
-        System.out.println("========= PRUEBAS TOTALES =========");
+        System.out.println("==================================== PRUEBAS TOTALES ====================================");
 
-        System.out.println("========= INICIALIZACION WineSocialUPMSkeleton =========");
+        System.out.println("=========================== INICIALIZACION WineSocialUPMSkeleton ===========================");
 
 		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
 
         User user_1 = new User();
-        user_1.setName("Juan");
-        user_1.setPwd("ContraseñaJuan");
+        user_1.setName("admin");
+        user_1.setPwd("admin");
 
 
         System.out.println("El admin tiene\n"
@@ -31,7 +31,7 @@ public class TestServicio {
         
     
 
-        System.out.println("========= PRUEBA addUser =========");
+        System.out.println("=========================== PRUEBA addUser ===========================");
         
 
         es.upm.etsiinf.sos.AddUser addUser = new es.upm.etsiinf.sos.AddUser();
