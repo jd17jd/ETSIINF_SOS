@@ -13,4 +13,5 @@ Pruebas Proyecto SOS
     - La passwd creada correctamente.       Bien. (Guarda la passwd dels usuarios registrados en su campo)
 
 - PRUEBAS LOGIN
-    - Iniciar sesion sin mas.
+    - Iniciar sesion sin mas.               Bien.
+    

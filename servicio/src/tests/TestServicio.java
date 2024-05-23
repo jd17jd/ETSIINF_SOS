@@ -73,8 +73,7 @@ public class TestServicio {
 
         System.out.println("=========================== PRUEBAS login ===========================");
 
-        // Prueba1: Iniciar sesión con un usuario que no existe
-
+        // Prueba1: Iniciar sesión con un usuario que existe
         es.upm.etsiinf.sos.Login login = new es.upm.etsiinf.sos.Login();
         es.upm.etsiinf.sos.model.xsd.User user = new es.upm.etsiinf.sos.model.xsd.User();
         user.setName("Pepito");
@@ -84,6 +83,18 @@ public class TestServicio {
         System.out.println("Usuario a loggear: " + login.getArgs0().getName() + ", con contraseña: " + login.getArgs0().getPwd());
         es.upm.etsiinf.sos.LoginResponse res5 = servicio.login(login);
         System.out.println("login(Pepito): " + res5.get_return().getResponse() + "\n");
+
+        // Prueba2: Iniciar sesión con un usuario que no existe
+        es.upm.etsiinf.sos.Login login2 = new es.upm.etsiinf.sos.Login();
+        es.upm.etsiinf.sos.model.xsd.User user2 = new es.upm.etsiinf.sos.model.xsd.User();
+        user2.setName("NoExisto");
+        user2.setPwd(servicio.getPwdUser("NoExisto"));
+        login2.setArgs0(user2);
+
+        System.out.println("Usuario a loggear: " + login2.getArgs0().getName() + ", con contraseña: " + login2.getArgs0().getPwd());
+        es.upm.etsiinf.sos.LoginResponse res6 = servicio.login(login2);
+        System.out.println("login(admin): " + res6.get_return().getResponse() + "\n");
+
 
 
 
