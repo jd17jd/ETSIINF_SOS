@@ -14,16 +14,16 @@ public class TestServicio {
 
 		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
 
-        es.upm.etsiinf.sos.model.xsd.User user_1 = new User();
-        user_1.setName("admin");
-        user_1.setPwd("admin");
+        es.upm.etsiinf.sos.model.xsd.User admin = new User();
+        admin.setName("admin");
+        admin.setPwd("admin");
 
 
         System.out.println("El admin tiene\n"
                 + "\t\tUsuario:     '" + servicio.getUserAdmin().getName() + "'\n"
                 + "\t\tContraseña:  '" + servicio.getUserAdmin().getPwd() + "'\n");
                 
-        servicio.setUserActual(user_1);
+        servicio.setUserActual(admin);
 
         System.out.println("El user actual tiene\n"
         + "\t\tUsuario:     '" + servicio.getUserActual().getName() + "'\n"
@@ -33,20 +33,24 @@ public class TestServicio {
 
         System.out.println("=========================== PRUEBAS addUser ===========================");
         
+        // userActual = admin
+
+        // Prueba1: Añadir un usuario
         es.upm.etsiinf.sos.AddUser addUser = new es.upm.etsiinf.sos.AddUser();
         es.upm.etsiinf.sos.model.xsd.Username username = new es.upm.etsiinf.sos.model.xsd.Username();
         username.setUsername("Pepito");
         addUser.setArgs0(username);
 
-        // Prueba1: Añadir un usuario
         System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername());
         AddUserResponse res = servicio.addUser(addUser);
         System.out.println("addUser(Pepito): " + res.get_return().getResponse() + "\n");
+
 
         // Prueba2: Añadir un usuario que ya existe
         System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername());
         AddUserResponse res2 = servicio.addUser(addUser);
         System.out.println("addUser(Pepito): " + res2.get_return().getResponse() + "\n");
+
 
         // Prueba3: Añadir un usuario con nombre vacio
         es.upm.etsiinf.sos.AddUser addUser2 = new es.upm.etsiinf.sos.AddUser();
@@ -57,6 +61,7 @@ public class TestServicio {
         System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername());
         AddUserResponse res3 = servicio.addUser(addUser2);
         System.out.println("addUser(''): " + res3.get_return().getResponse() + "\n");
+
 
         // Prueba4: Añadir un usuario con nombre nulo
         es.upm.etsiinf.sos.AddUser addUser3 = new es.upm.etsiinf.sos.AddUser();
@@ -84,6 +89,7 @@ public class TestServicio {
         es.upm.etsiinf.sos.LoginResponse res5 = servicio.login(login);
         System.out.println("login(Pepito): " + res5.get_return().getResponse() + "\n");
 
+
         // Prueba2: Iniciar sesión con un usuario que no existe
         es.upm.etsiinf.sos.Login login2 = new es.upm.etsiinf.sos.Login();
         es.upm.etsiinf.sos.model.xsd.User user2 = new es.upm.etsiinf.sos.model.xsd.User();
@@ -95,6 +101,7 @@ public class TestServicio {
         es.upm.etsiinf.sos.LoginResponse res6 = servicio.login(login2);
         System.out.println("login(NoExisto): " + res6.get_return().getResponse() + "\n");
 
+
         // Prueba3: Iniciar sesion con un usuario que ya habia iniciado sesion previamente
         es.upm.etsiinf.sos.Login login3 = new es.upm.etsiinf.sos.Login();
         es.upm.etsiinf.sos.model.xsd.User user3 = new es.upm.etsiinf.sos.model.xsd.User();
@@ -105,6 +112,7 @@ public class TestServicio {
         System.out.println("Usuario a loggear: " + login3.getArgs0().getName() + ", con contraseña: " + login3.getArgs0().getPwd());
         es.upm.etsiinf.sos.LoginResponse res7 = servicio.login(login3);
         System.out.println("login(Pepito): " + res7.get_return().getResponse() + "\n");
+
 
         // Prueba4: Iniciar sesión con un usuario que tiene la contraseña incorrecta
             // Previamente debe estar registrado
@@ -142,18 +150,32 @@ public class TestServicio {
 
         System.out.println("=========================== FIN login ===========================\n");
 
+
+
         System.out.println("=========================== PRUEBAS logout ===========================");
+
+        es.upm.etsiinf.sos.Logout logout = new es.upm.etsiinf.sos.Logout();
+
     
         // Prueba1: Cerrar sesión con un usuario que está loggeado
-        es.upm.etsiinf.sos.Logout logout = new es.upm.etsiinf.sos.Logout();
-        servicio.setUserActual(user); //prueba1 de login
+        es.upm.etsiinf.sos.model.xsd.User user_Actual2 = new es.upm.etsiinf.sos.model.xsd.User();
+        user_Actual2.setName("Pepito");
+        user_Actual2.setPwd(servicio.getPwdUser("Pepito"));
+        login.setArgs0(user_Actual2);
+        servicio.setUserActual(user_Actual2);
 
         es.upm.etsiinf.sos.LogoutResponse res11 = servicio.logout(logout);
         System.out.println("logout(): " + res11.get_return().getResponse() + "\n");
 
+        // Prueba2: Cerrar sesión con un usuario que no está loggeado
+        es.upm.etsiinf.sos.model.xsd.User user_Actual3 = new es.upm.etsiinf.sos.model.xsd.User();
+        user_Actual3.setName("Juanita");
+        user_Actual3.setPwd(servicio.getPwdUser("Juanita"));
+        login.setArgs0(user_Actual3);
+        servicio.setUserActual(user_Actual3);
 
-
-
+        es.upm.etsiinf.sos.LogoutResponse res12 = servicio.logout(logout);
+        System.out.println("logout(): " + res12.get_return().getResponse() + "\n");
 
 
 

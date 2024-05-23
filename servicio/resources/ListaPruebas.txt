@@ -18,3 +18,7 @@ Pruebas Proyecto SOS
     - In. sesion con user ya loggeado previamente.  Bien 
     - In. sesion con contraseña ≠ a la generada.    Bien. (Devuelve error esperado)
     - In. sesion de admin                           Bien. (Devuelve error esperado)
+
+- PRUEBAS LOGOUT
+    - C. sesion sin mas.                            Bien.
+    - 

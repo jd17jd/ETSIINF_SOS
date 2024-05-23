@@ -216,8 +216,8 @@ public class WineSocialUPMSkeleton {
 	
 	
 	/**
-	 * Cierra la sesión del usuario que la invoca
-	 * @param logout
+	 * Cierra la sesión del usuario QUE LA INVOCA
+	 * @param logout 
 	 * @return logoutResponse
 	 */
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) {
