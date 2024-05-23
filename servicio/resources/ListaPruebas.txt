@@ -10,3 +10,7 @@ Pruebas Proyecto SOS
     - Añadir el mismo usuario.              Bien. (Devuelve error esperado)
     - Añadir usuario con nombre vacio.      Bien. (Devuelve error esperado)
     - Añadir usuario con nombre null.       Bien. (Devuelve error esperado)
+    - La passwd creada correctamente.       Bien. (Guarda la passwd dels usuarios registrados en su campo)
+
+- PRUEBAS LOGIN
+    - Iniciar sesion sin mas.

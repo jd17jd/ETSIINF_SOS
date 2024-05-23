@@ -82,8 +82,8 @@ public class TestServicio {
         login.setArgs0(user);
 
         System.out.println("Usuario a loggear: " + login.getArgs0().getName() + ", con contraseña: " + login.getArgs0().getPwd());
-        // es.upm.etsiinf.sos.LoginResponse res5 = servicio.login(login);
-        // System.out.println("login(Pepito): " + res5.get_return().getResponse() + "\n");
+        es.upm.etsiinf.sos.LoginResponse res5 = servicio.login(login);
+        System.out.println("login(Pepito): " + res5.get_return().getResponse() + "\n");
 
 
 
