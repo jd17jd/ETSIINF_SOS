@@ -41,7 +41,7 @@ public class TestServicio {
 
         // Prueba1: Añadir un usuario
         System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
-        servicio.addUser(addUser);
+        System.out.println(servicio.addUser(addUser));
 
         // Prueba2: Añadir un usuario que ya existe
         System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
