@@ -8,4 +8,5 @@ Pruebas Proyecto SOS
     - Añadir algun usuario sin ser admin.   Bien. (Devuelve error esperado)
     - Añadir un usuario sin mas.            Bien. 
     - Añadir el mismo usuario.              Bien. (Devuelve error esperado)
-    - Añadir usuario con nombre vacio.      
+    - Añadir usuario con nombre vacio.      Bien. (Devuelve error esperado)
+    - Añadir usuario con nombre null.       Bien. (Devuelve error esperado)
