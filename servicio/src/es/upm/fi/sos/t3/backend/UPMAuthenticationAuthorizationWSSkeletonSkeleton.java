@@ -189,7 +189,9 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 				respuestaBackend.setResult(true);
 			}
 		}
-		System.out.println("El usuario: '" + nombre_login + "' no existe en el sistema.\n");
+		else {
+			System.out.println("El usuario: '" + nombre_login + "' no existe en el sistema.\n");
+		}
 		respuestaFinalFuncion.set_return(respuestaBackend);
 		return respuestaFinalFuncion;
 	}
