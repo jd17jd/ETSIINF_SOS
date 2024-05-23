@@ -41,29 +41,27 @@ public class TestServicio {
 
         System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
 
+        // Prueba1: Añadir un usuario
         es.upm.etsiinf.sos.AddUserResponse resultado_addUser = servicio.addUser(addUser);
-
         System.out.println("Operacion: addUser(Pepito) (1era vez)\n"
-        + "\t\tRespuesta:     '" + resultado_addUser.get_return().getResponse());
+        + "\t\tRespuesta:     '" + resultado_addUser.get_return().getResponse() + "\n");
 
+        // Prueba2: Añadir un usuario que ya existe
         es.upm.etsiinf.sos.AddUserResponse resultado_addUser2 = servicio.addUser(addUser);
-        
         System.out.println("Operacion: addUser(Pepito) (Otra vez)\n"
-        + "\t\tRespuesta:     '" + resultado_addUser2.get_return().getResponse());
+        + "\t\tRespuesta:     '" + resultado_addUser2.get_return().getResponse() + "\n");
 
+        // Prueba3: Añadir un usuario con nombre vacio
+        es.upm.etsiinf.sos.AddUser addUser2 = new es.upm.etsiinf.sos.AddUser();
+        es.upm.etsiinf.sos.model.xsd.Username username2 = new es.upm.etsiinf.sos.model.xsd.Username();
+        username2.setUsername("");
+        addUser2.setArgs0(username2);
 
+        System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername() + "\n");
 
-        // es.upm.etsiinf.sos.AddUser addUser2 = new es.upm.etsiinf.sos.AddUser();
-        // es.upm.etsiinf.sos.model.xsd.Username username2 = new es.upm.etsiinf.sos.model.xsd.Username();
-        // username2.setUsername("Pepito");
-        // addUser2.setArgs0(username2);
-
-        // System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername() + "\n");
-
-        // es.upm.etsiinf.sos.AddUserResponse resultado_addUser2 = servicio.addUser(addUser2);
-        
-        // System.out.println("Operacion: addUser(Pepito)\n"
-        // + "\t\tRespuesta:     '" + resultado_addUser2.get_return().getResponse());
+        es.upm.etsiinf.sos.AddUserResponse resultado_addUser3 = servicio.addUser(addUser2);
+        System.out.println("Operacion: addUser(Pepito)\n"
+        + "\t\tRespuesta:     '" + resultado_addUser3.get_return().getResponse());
 
         
 		

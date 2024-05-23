@@ -5,6 +5,7 @@ Pruebas Proyecto SOS
     - Añadirle un usuario actual.           Bien
 
 - PRUEBAS ADDUSER
-    - Añadir algun usuario sin ser admin.   Bien
-    - Añadir un usuario sin mas.            Bien
-    - Añadir 
+    - Añadir algun usuario sin ser admin.   Bien. (Devuelve error esperado)
+    - Añadir un usuario sin mas.            Bien. 
+    - Añadir el mismo usuario.              Bien. (Devuelve error esperado)
+    - Añadir usuario con nombre vacio.      
