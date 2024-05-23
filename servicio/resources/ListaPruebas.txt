@@ -1,17 +1,18 @@
 Pruebas Proyecto SOS
 
 - INICIALIZACION WineSocialUPMSkeleton
-    - Añadirle un usuario admin.            Bien
-    - Añadirle un usuario actual.           Bien
+    - Añadirle un usuario admin.                    Bien
+    - Añadirle un usuario actual.                   Bien
 
 - PRUEBAS ADDUSER
-    - Añadir algun usuario sin ser admin.   Bien. (Devuelve error esperado)
-    - Añadir un usuario sin mas.            Bien. 
-    - Añadir el mismo usuario.              Bien. (Devuelve error esperado)
-    - Añadir usuario con nombre vacio.      Bien. (Devuelve error esperado)
-    - Añadir usuario con nombre null.       Bien. (Devuelve error esperado)
-    - La passwd creada correctamente.       Bien. (Guarda la passwd dels usuarios registrados en su campo)
+    - Añadir algun usuario sin ser admin.           Bien. (Devuelve error esperado)
+    - Añadir un usuario sin mas.                    Bien. 
+    - Añadir el mismo usuario.                      Bien. (Devuelve error esperado)
+    - Añadir usuario con nombre vacio.              Bien. (Devuelve error esperado)
+    - Añadir usuario con nombre null.               Bien. (Devuelve error esperado)
+    - La passwd creada correctamente.               Bien. (Guarda la passwd dels usuarios registrados en su campo)
 
 - PRUEBAS LOGIN
-    - Iniciar sesion sin mas.               Bien.
-    
+    - Iniciar sesion sin mas.                       Bien.
+    - Iniciar sesiion con un usuario inexistente.   Bien (Devuelve errores esperados)
+    - 

@@ -206,7 +206,7 @@ public class WineSocialUPMSkeleton {
 				response.setResponse(true);
 
 			} else { // Caso de fallo
-				System.out.println("El usuario: '" + name + "' no se pudo autenticar :(\n");
+				System.out.println("El usuario: '" + name + "' no se pudo autenticar.\n");
 				return respuestaFinalFuncion;
 			}
 		}
