@@ -1,0 +1,10 @@
+Pruebas Proyecto SOS
+
+- INICIALIZACION WineSocialUPMSkeleton
+    - Añadirle un usuario admin.            Bien
+    - Añadirle un usuario actual.           Bien
+
+- PRUEBAS ADDUSER
+    - Añadir algun usuario sin ser admin.   Bien
+    - Añadir un usuario sin mas.            Bien
+    - Añadir 
