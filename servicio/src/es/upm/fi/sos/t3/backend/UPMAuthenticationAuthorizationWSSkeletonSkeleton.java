@@ -197,31 +197,24 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	}
 	
 	
-	
-	
 	/**
-	 * Auto generated method signature
-	 * 
-	 * @param existUser
-	 * @return existUserResponse
+	 * Averiguar si un usuario está registrado en el sistema.
+	 * @param existUser Objeto con el nombre del usuario a comprobar
+	 * @return existUserResponse Objeto indicando si el usuario existe
 	 */
-
-	//Comprueba que el usuario pasado como parametro existe en memoria
 	public es.upm.fi.sos.t3.backend.ExistUserResponse existUser(es.upm.fi.sos.t3.backend.ExistUser existUser) {
 		ExistUserResponse respuestaFinalFuncion = new ExistUserResponse();
-		es.upm.fi.sos.t3.backend.xsd.ExistUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.ExistUserResponse(); 
-		Username usuario = existUser.getUsername();
-		String nombreUsuario = usuario.getName();
-		
+		es.upm.fi.sos.t3.backend.xsd.ExistUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.ExistUserResponse();
+
+		String nombreUsuario = existUser.getUsername().getName();
 		boolean existe = usuariosRegistrados.containsKey(nombreUsuario);
-		if(existe) {
-			respuestaBackend.setResult(true);
-		} else {
-			respuestaBackend.setResult(false);
-		}
+	
+		respuestaBackend.setResult(existe);
 		respuestaFinalFuncion.set_return(respuestaBackend);
+
 		return respuestaFinalFuncion;
 	}
+	
 	
 
 	/**
