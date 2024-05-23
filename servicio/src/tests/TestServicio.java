@@ -93,7 +93,7 @@ public class TestServicio {
 
         System.out.println("Usuario a loggear: " + login2.getArgs0().getName() + ", con contraseña: " + login2.getArgs0().getPwd());
         es.upm.etsiinf.sos.LoginResponse res6 = servicio.login(login2);
-        System.out.println("login(admin): " + res6.get_return().getResponse() + "\n");
+        System.out.println("login(NoExisto): " + res6.get_return().getResponse() + "\n");
 
         // Prueba3: Iniciar sesion con un usuario que ya habia iniciado sesion previamente
         es.upm.etsiinf.sos.Login login3 = new es.upm.etsiinf.sos.Login();
@@ -107,7 +107,7 @@ public class TestServicio {
         System.out.println("login(Pepito): " + res7.get_return().getResponse() + "\n");
 
         // Prueba4: Iniciar sesión con un usuario que tiene la contraseña incorrecta
-        // Previamente debe estar registrado
+            // Previamente debe estar registrado
         es.upm.etsiinf.sos.AddUser addUser4 = new es.upm.etsiinf.sos.AddUser();
         es.upm.etsiinf.sos.model.xsd.Username username4 = new es.upm.etsiinf.sos.model.xsd.Username();
         username4.setUsername("Juanita");
@@ -117,7 +117,7 @@ public class TestServicio {
         AddUserResponse res8 = servicio.addUser(addUser4);
         System.out.println("addUser(Juanita): " + res8.get_return().getResponse() + "\n");
 
-        // Y ahora sí, intentar iniciar sesión con la contraseña incorrecta
+            // Y ahora sí, intentar iniciar sesión con la contraseña incorrecta
         es.upm.etsiinf.sos.Login login4 = new es.upm.etsiinf.sos.Login();
         es.upm.etsiinf.sos.model.xsd.User user4 = new es
         .upm.etsiinf.sos.model.xsd.User();
@@ -129,6 +129,22 @@ public class TestServicio {
         es.upm.etsiinf.sos.LoginResponse res9 = servicio.login(login4);
         System.out.println("login(Juanita): " + res9.get_return().getResponse() + "\n");
 
+
+        // Prueba5: Iniciar sesión con el usuario admin
+        es.upm.etsiinf.sos.Login login5 = new es.upm.etsiinf.sos.Login();
+        es.upm.etsiinf.sos.model.xsd.User user5 = new es.upm.etsiinf.sos.model.xsd.User();
+        user5.setName("admin");
+        user5.setPwd("admin");
+        login5.setArgs0(user5);
+
+        System.out.println("Usuario a loggear: " + login5.getArgs0().getName() + ", con contraseña: " + login5.getArgs0().getPwd());
+        es.upm.etsiinf.sos.LoginResponse res10 = servicio.login(login5);
+        System.out.println("login(admin): " + res10.get_return().getResponse() + "\n");
+        
+
+
+
+        System.out.println("=========================== FIN login ===========================\n");
 
 
 
