@@ -56,8 +56,14 @@ public class TestServicio {
         System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername() + "\n");
         servicio.addUser(addUser2);
 
+        // Prueba4: Añadir un usuario con nombre nulo
+        es.upm.etsiinf.sos.AddUser addUser3 = new es.upm.etsiinf.sos.AddUser();
+        es.upm.etsiinf.sos.model.xsd.Username username3 = new es.upm.etsiinf.sos.model.xsd.Username();
+        username3.setUsername(null);
+        addUser3.setArgs0(username3);
         
-		
+        System.out.println("Usuario a añadir: " + addUser3.getArgs0().getUsername() + "\n");
+        servicio.addUser(addUser3);
 		
 		
 		
