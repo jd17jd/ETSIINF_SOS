@@ -6,34 +6,41 @@ import es.upm.etsiinf.sos.model.xsd.*;
 public class TestServicio {
 	
 	public static void main(String[] args) {
-		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
-		
-		User admin = new User();
-		admin.setName("admin");
-		admin.setPwd("admin");
-		
-//		System.out.println("El admin tiene => Usuario: '" + admin.getName() + "'\n"
-//				+ "\t\tContraseña: '" + admin.getPwd() + "'\n");
-		
-		//simulamos que el admin ha iniciado sesion
-		servicio.usuarioUsado = admin;
 
-		//System.out.println("El usuario con el que accedo al servicio es: " + servicio.usuarioActual.getName());
+        System.out.println("========= PRUEBAS TOTALES =========");
+
+		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
+
+        User user_1 = new User();
+        user_1.setName("Juan");
+        user_1.setPwd("ContraseñaJuan");
+
+
+        System.out.println("El admin tiene\n"
+                + "\t\tUsuario:     '" + servicio.getUserAdmin().getName() + "'\n"
+                + "\t\tContraseña:  '" + servicio.getUserAdmin().getPwd() + "'\n");
+                
+        servicio.setUserActual(user_1);
+
+        System.out.println("El user actual tiene\n"
+        + "\t\tUsuario:     '" + servicio.getUserActual().getName() + "'\n"
+        + "\t\tContraseña:  '" + servicio.getUserActual().getName() + "'\n");
+        
+        
 		
 		
-		
-        System.out.println("========= PRUEBA addUser =========");
+        // System.out.println("========= PRUEBA addUser =========");
         
-        AddUser addUser = new AddUser();
-        Username username = new Username();
-        username.setUsername("pepito");
-        addUser.setArgs0(username);
-        //System.out.println("El usuario que quiero añadir es => " + addUser.getArgs0().getUsername());
-        AddUserResponse addUserResponse = servicio.addUser(addUser);
+        // AddUser addUser = new AddUser();
+        // Username username = new Username();
+        // username.setUsername("pepito");
+        // addUser.setArgs0(username);
+        // //System.out.println("El usuario que quiero añadir es => " + addUser.getArgs0().getUsername());
+        // AddUserResponse addUserResponse = servicio.addUser(addUser);
         
-        System.out.println("Respuesta de añadir usuario: " + addUserResponse.get_return().getResponse());
+        // System.out.println("Respuesta de añadir usuario: " + addUserResponse.get_return().getResponse());
         
-        System.out.println("==================================");
+        // System.out.println("==================================");
 
         
 		
