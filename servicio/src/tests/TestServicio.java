@@ -40,12 +40,14 @@ public class TestServicio {
         addUser.setArgs0(username);
 
         // Prueba1: Añadir un usuario
-        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
-        System.out.println(servicio.addUser(addUser));
+        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername());
+        AddUserResponse res = servicio.addUser(addUser);
+        System.out.println(res + "\n");
 
         // Prueba2: Añadir un usuario que ya existe
-        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
-        servicio.addUser(addUser);
+        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername());
+        AddUserResponse res2 = servicio.addUser(addUser);
+        System.out.println(res2 + "\n");
 
         // Prueba3: Añadir un usuario con nombre vacio
         es.upm.etsiinf.sos.AddUser addUser2 = new es.upm.etsiinf.sos.AddUser();
@@ -53,8 +55,9 @@ public class TestServicio {
         username2.setUsername("");
         addUser2.setArgs0(username2);
 
-        System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername() + "\n");
-        servicio.addUser(addUser2);
+        System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername());
+        AddUserResponse res3 = servicio.addUser(addUser2);
+        System.out.println(res3 + "\n");
 
         // Prueba4: Añadir un usuario con nombre nulo
         es.upm.etsiinf.sos.AddUser addUser3 = new es.upm.etsiinf.sos.AddUser();
@@ -62,8 +65,9 @@ public class TestServicio {
         username3.setUsername(null);
         addUser3.setArgs0(username3);
         
-        System.out.println("Usuario a añadir: " + addUser3.getArgs0().getUsername() + "\n");
-        servicio.addUser(addUser3);
+        System.out.println("Usuario a añadir: " + addUser3.getArgs0().getUsername());
+        AddUserResponse res4 = servicio.addUser(addUser3);
+        System.out.println(res4);
 		
 		
 		
