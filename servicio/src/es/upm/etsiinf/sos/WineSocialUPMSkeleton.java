@@ -80,6 +80,9 @@ public class WineSocialUPMSkeleton {
 	}
 
 	public String getPwdUser(String name) {
+		if (!auth.getUsuariosRegistrados().containsKey(name)) {
+			return "Sin contraseña";
+		}
 		return auth.getUsuariosRegistrados().get(name).getPwd();
 	}
 
