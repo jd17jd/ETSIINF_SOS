@@ -95,9 +95,7 @@ public class TestServicio {
         es.upm.etsiinf.sos.LoginResponse res6 = servicio.login(login2);
         System.out.println("login(admin): " + res6.get_return().getResponse() + "\n");
 
-        // Prueba3: Iniciar sesión con un usuario que tiene la contraseña incorrecta
-
-        // Prueba4: A
+        // Prueba3: Iniciar sesion con un usuario que ya habia iniciado sesion previamente
         es.upm.etsiinf.sos.Login login3 = new es.upm.etsiinf.sos.Login();
         es.upm.etsiinf.sos.model.xsd.User user3 = new es.upm.etsiinf.sos.model.xsd.User();
         user3.setName("Pepito");
@@ -107,6 +105,30 @@ public class TestServicio {
         System.out.println("Usuario a loggear: " + login3.getArgs0().getName() + ", con contraseña: " + login3.getArgs0().getPwd());
         es.upm.etsiinf.sos.LoginResponse res7 = servicio.login(login3);
         System.out.println("login(Pepito): " + res7.get_return().getResponse() + "\n");
+
+        // Prueba4: Iniciar sesión con un usuario que tiene la contraseña incorrecta
+        // Previamente debe estar registrado
+        es.upm.etsiinf.sos.AddUser addUser4 = new es.upm.etsiinf.sos.AddUser();
+        es.upm.etsiinf.sos.model.xsd.Username username4 = new es.upm.etsiinf.sos.model.xsd.Username();
+        username4.setUsername("Juanita");
+        addUser4.setArgs0(username4);
+
+        System.out.println("Usuario a añadir: " + addUser4.getArgs0().getUsername());
+        AddUserResponse res8 = servicio.addUser(addUser4);
+        System.out.println("addUser(Juanita): " + res8.get_return().getResponse() + "\n");
+
+        // Y ahora sí, intentar iniciar sesión con la contraseña incorrecta
+        es.upm.etsiinf.sos.Login login4 = new es.upm.etsiinf.sos.Login();
+        es.upm.etsiinf.sos.model.xsd.User user4 = new es
+        .upm.etsiinf.sos.model.xsd.User();
+        user4.setName("Juanita");
+        user4.setPwd("contraseñaIncorrecta");
+        login4.setArgs0(user4);
+
+        System.out.println("Usuario a loggear: " + login4.getArgs0().getName() + ", con contraseña: " + login4.getArgs0().getPwd());
+        es.upm.etsiinf.sos.LoginResponse res9 = servicio.login(login4);
+        System.out.println("login(Juanita): " + res9.get_return().getResponse() + "\n");
+
 
 
 
