@@ -164,8 +164,10 @@ public class WineSocialUPMSkeleton {
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+		
 		es.upm.fi.sos.t3.backend.LoginResponse respuestaLogin = new es.upm.fi.sos.t3.backend.LoginResponse();
 		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd respuestaLoginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd();  
+		
 		es.upm.fi.sos.t3.backend.Login paramLogin = new es.upm.fi.sos.t3.backend.Login();
 		es.upm.fi.sos.t3.backend.xsd.LoginBackEnd loginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginBackEnd();
 
@@ -182,7 +184,8 @@ public class WineSocialUPMSkeleton {
 		loginBackend.setName(name);
 		loginBackend.setPassword(password);
 		
-		if (name.equals("admin")) { //EL USUARIO ADMIN NO SE DEBE LOGGEAR ASI
+		//EL USUARIO ADMIN NO SE DEBE LOGGEAR ASI
+		if (name.equals("admin")) {
 			System.out.println("No está autorizado para iniciar sesión del usuario: '" + name + "'.\n");
 			return respuestaFinalFuncion;
 		}
@@ -229,7 +232,7 @@ public class WineSocialUPMSkeleton {
 		// COMPROBACION SESION INICIADA
 		for(User usuario : auth.getUsuariosLoggeados()) {
 			if(usuario.getName().equals(usuarioActual.getName())) {
-				auth.getUsuariosLoggeados().remove(usuario);
+				auth.getUsuariosLoggeados().remove(usuario); //TODO: Ahora mismo nuestras listas solo tienen un user aunque tenga muchas sesiones abiertas
 				removed = true;
 				break; //TODO: Checkear bucle para quitar break
 			}
@@ -248,84 +251,84 @@ public class WineSocialUPMSkeleton {
 		return respuestaFinalFuncion;
 	}
 	
-
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
+	//TODO: Revisar, pero ya lo he repensado
 	/**
-	 * Auto generated method signature
 	 * 
 	 * @param removeUser
 	 * @return removeUserResponse
 	 */
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
+		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+
 		es.upm.fi.sos.t3.backend.RemoveUserResponse respuestaRemove = new es.upm.fi.sos.t3.backend.RemoveUserResponse();
+		
 		es.upm.fi.sos.t3.backend.RemoveUser paramRemove = new es.upm.fi.sos.t3.backend.RemoveUser();
 		es.upm.fi.sos.t3.backend.xsd.RemoveUser removeBackend = new es.upm.fi.sos.t3.backend.xsd.RemoveUser();
-		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
-		es.upm.fi.sos.t3.backend.ExistUser usuarioExiste = new es.upm.fi.sos.t3.backend.ExistUser();
-		es.upm.fi.sos.t3.backend.ExistUserResponse respuestaUsuarioExiste = new es.upm.fi.sos.t3.backend.ExistUserResponse();
-		es.upm.fi.sos.t3.backend.xsd.Username username = new es.upm.fi.sos.t3.backend.xsd.Username();
 		
 		boolean eliminado = false;
-		
-		//obtengo el usuario y nombre del parametro de la funcion
+		boolean autenticado = false;
+
+		// INICIALIZACION RESPUESTA
+		response.setResponse(false);
+		respuestaFinalFuncion.set_return(response); //False en incio
+
+		// OBTENGO EL USUARIO DEL PARAMETRO
 		Username usuario = removeUser.getArgs0();
 		String nombre_usuario = usuario.getUsername();
-		username.setName(nombre_usuario);
 		
+		// PAARAMETROS A PASAR AL BACKEND
 		removeBackend.setName(nombre_usuario);
-		//setteo ese remove del backend en el parametro del que le paso a la funcion de UPMAuth...
 		paramRemove.setRemoveUser(removeBackend);
-		
-		
-		//El admin NUNCA se puede borrar
-		if(nombre_usuario.equals("admin")) {
-			System.out.println("Hubo un error! No se puede borrar el usuario 'admin'\n");
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
+
+		//EL USUARIO ADMIN NO SE PUEDE BORRAR
+		if (nombre_usuario.equals("admin")) {
+			System.out.println("No está autorizado para eliminar el usuario: '" + nombre_usuario + "'.\n");
 			return respuestaFinalFuncion;
 		}
 		
-		usuarioExiste.setUsername(username);
-		respuestaUsuarioExiste = auth.existUser(usuarioExiste);
-		boolean existe = respuestaUsuarioExiste.get_return().getResult();
-		
-		//si el usuario no existe, obviamente NO se puede borrar
-		if(!existe) {
-			System.out.println("Hubo un error! No existe el usuario: '" + nombre_usuario +"'\n");
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
-			return respuestaFinalFuncion;
-		}
-		
-		
-		//solo el admin o el propio usuario pueden borrar
+		// LA COMPROBCION DE EXISTENCIA LO DEVUELVE EL BACKEND
+		// Debemos llamar al backend para ver si da bien o mal
+
+		// SOLO EL ADMIN O EL PROPIO USUARIIO PUEDEN BORRAR SU CUENTA
 		if((soyAdmin(usuarioActual)) || (usuarioActual.getName().equals(nombre_usuario))) {
-			System.out.println("Si he entrado aqui, o soy el admin o soy el usuario que se quiere borrar...\n");
-			//llamo a la funcion y me devuelve una respuesta
 			respuestaRemove = auth.removeUser(paramRemove);
-			eliminado = respuestaRemove.get_return().getResult();
-			//TODO: if de si ha ido mal el borrado
-			System.out.println("Se ha eliminado al usuario: '" + nombre_usuario + "'\n");
-			response.setResponse(eliminado);
-			respuestaFinalFuncion.set_return(response);
+			eliminado = respuestaRemove.get_return().getResult(); //** TODO: Si no está autenticado ya se ha hecho esto
+
+			if (eliminado) {
+				// Elimino el usuario de la lista de loggeados
+				for(User usuarioLog : auth.getUsuariosLoggeados()) { //TODO: "Habienodse autenticado previamente"
+					if(usuarioLog.getName().equals(nombre_usuario)) {
+						auth.getUsuariosLoggeados().remove(usuarioLog); //TODO: Ahora mismo nuestras listas solo tienen un user aunque tenga muchas sesiones abiertas
+						System.out.println("Se ha eliminado al usuario: '" + nombre_usuario + "' de la lista de sesiones abiertas\n");
+						autenticado = true; //TODO: mirar **
+						break;
+					}
+				}
+				System.out.println("Se ha eliminado al usuario: '" + nombre_usuario + "' del sistema\n");
+				
+				response.setResponse(true);
+			}
+			else {
+				System.out.println("No se ha podido eliminar al usuario: '" + nombre_usuario + "' del sistema\n");
+				return respuestaFinalFuncion;
+			}
 		} else {
 			System.out.println("No tienes permisos para borrar el usuario.\n");
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
 		}
+		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
 	}
 	
-	
+
+	//TODO: Check si todo ok
 	/**
 	 * Auto generated method signature
 	 * 
 	 * @param changePassword
 	 * @return changePasswordResponse
 	 */
-
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	public es.upm.etsiinf.sos.ChangePasswordResponse changePassword(es.upm.etsiinf.sos.ChangePassword changePassword) {
 		ChangePasswordResponse respuestaFinalFuncion = new ChangePasswordResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();

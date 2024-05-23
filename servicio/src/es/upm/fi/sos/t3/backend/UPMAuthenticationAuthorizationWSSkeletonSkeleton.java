@@ -206,19 +206,25 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	 */
 	public es.upm.fi.sos.t3.backend.RemoveUserResponse removeUser(es.upm.fi.sos.t3.backend.RemoveUser removeUser) {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
-		es.upm.fi.sos.t3.backend.xsd.RemoveUser usuarioABorrar = removeUser.getRemoveUser();
 		es.upm.fi.sos.t3.backend.xsd.RemoveUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.RemoveUserResponse(); 
+
+		es.upm.fi.sos.t3.backend.xsd.RemoveUser usuarioABorrar = removeUser.getRemoveUser();
 		String nombre_user_borrado = usuarioABorrar.getName();
-		boolean existe = usuariosRegistrados.containsKey(nombre_user_borrado); 
-		//si el usuario existe se borra del sistema
-		//TODO: ver si de verdad hay que comprobar dos veces si existe
-		if(existe) {
-			respuestaBackend.setResult(true);
-			usuariosRegistrados.remove(nombre_user_borrado);
-		} else {
-			respuestaBackend.setResult(false);
-		}
+
+		//INICIALIZACION RESPUESTA
+		respuestaBackend.setResult(false);
 		respuestaFinalFuncion.set_return(respuestaBackend);
+		
+		// COMPROBACION EXISTENCIA USUARIO
+		boolean existe = usuariosRegistrados.containsKey(nombre_user_borrado); //TODO: Definir si asi o de la otra manera
+
+		if(existe) {
+			usuariosRegistrados.remove(nombre_user_borrado);
+			respuestaBackend.setResult(true);
+			respuestaFinalFuncion.set_return(respuestaBackend);
+			return respuestaFinalFuncion;
+		}
+		System.out.println("El usuario: '" + nombre_user_borrado + "' no existe en el sistema.\n");
 		return respuestaFinalFuncion;
 	}
 	
