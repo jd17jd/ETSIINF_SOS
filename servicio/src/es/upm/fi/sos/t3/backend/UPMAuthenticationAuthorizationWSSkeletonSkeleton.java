@@ -135,6 +135,7 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		respuestaFinalFuncion.set_return(respuestaBackend);
 		return respuestaFinalFuncion;
 	}
+
 	
 	/**
 	 * Comienza una nueva sesión para un usuario
@@ -195,35 +196,14 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		respuestaFinalFuncion.set_return(respuestaBackend);
 		return respuestaFinalFuncion;
 	}
-	
-	
+
+
+	//TODO: Check si todo ok
 	/**
-	 * Averiguar si un usuario está registrado en el sistema.
-	 * @param existUser Objeto con el nombre del usuario a comprobar
-	 * @return existUserResponse Objeto indicando si el usuario existe
+	 * Borra un usuario del sistema
+	 * @param removeUser Objeto con el nombre del usuario a borrar
+	 * @return removeUserResponse Objeto indicando si se ha borrado correctamente
 	 */
-	public es.upm.fi.sos.t3.backend.ExistUserResponse existUser(es.upm.fi.sos.t3.backend.ExistUser existUser) {
-		ExistUserResponse respuestaFinalFuncion = new ExistUserResponse();
-		es.upm.fi.sos.t3.backend.xsd.ExistUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.ExistUserResponse();
-
-		String nombreUsuario = existUser.getUsername().getName();
-		boolean existe = usuariosRegistrados.containsKey(nombreUsuario);
-	
-		respuestaBackend.setResult(existe);
-		respuestaFinalFuncion.set_return(respuestaBackend);
-
-		return respuestaFinalFuncion;
-	}
-	
-	
-
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param removeUser
-	 * @return removeUserResponse
-	 */
-
 	public es.upm.fi.sos.t3.backend.RemoveUserResponse removeUser(es.upm.fi.sos.t3.backend.RemoveUser removeUser) {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.fi.sos.t3.backend.xsd.RemoveUser usuarioABorrar = removeUser.getRemoveUser();
@@ -241,16 +221,14 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		respuestaFinalFuncion.set_return(respuestaBackend);
 		return respuestaFinalFuncion;
 	}
+	
 
-
-
+	//TODO: Check si todo ok
 	/**
-	 * Auto generated method signature
-	 * 
-	 * @param changePassword
-	 * @return changePasswordResponse
+	 * permite que un usuario ya registrado pueda cambiar su contraseña.
+	 * @param changePassword Objeto con los datos del usuario y las contraseñas
+	 * @return changePasswordResponse Objeto indicando si se ha cambiado correctamente
 	 */
-
 	public es.upm.fi.sos.t3.backend.ChangePasswordResponse changePassword(es.upm.fi.sos.t3.backend.ChangePassword changePassword) {
 		ChangePasswordResponse respuestaFinalFuncion = new ChangePasswordResponse();
 		es.upm.fi.sos.t3.backend.xsd.ChangePasswordBackEnd cambioBackend = new es.upm.fi.sos.t3.backend.xsd.ChangePasswordBackEnd();
@@ -272,6 +250,25 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 			response.setResult(false);
 			respuestaFinalFuncion.set_return(response);
 		}
+		return respuestaFinalFuncion;
+	}
+	
+	
+	/**
+	 * Averiguar si un usuario está registrado en el sistema.
+	 * @param existUser Objeto con el nombre del usuario a comprobar
+	 * @return existUserResponse Objeto indicando si el usuario existe
+	 */
+	public es.upm.fi.sos.t3.backend.ExistUserResponse existUser(es.upm.fi.sos.t3.backend.ExistUser existUser) {
+		ExistUserResponse respuestaFinalFuncion = new ExistUserResponse();
+		es.upm.fi.sos.t3.backend.xsd.ExistUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.ExistUserResponse();
+
+		String nombreUsuario = existUser.getUsername().getName();
+		boolean existe = usuariosRegistrados.containsKey(nombreUsuario);
+	
+		respuestaBackend.setResult(existe);
+		respuestaFinalFuncion.set_return(respuestaBackend);
+
 		return respuestaFinalFuncion;
 	}
 
