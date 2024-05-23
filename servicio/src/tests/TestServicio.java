@@ -1,4 +1,5 @@
 package tests;
+
 import es.upm.etsiinf.sos.*;
 import es.upm.etsiinf.sos.AddUserResponse;
 import es.upm.etsiinf.sos.model.xsd.*;
