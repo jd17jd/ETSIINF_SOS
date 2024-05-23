@@ -39,14 +39,14 @@ public class TestServicio {
         username.setUsername("Pepito");
         addUser.setArgs0(username);
 
-        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
-
         // Prueba1: Añadir un usuario
+        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
         es.upm.etsiinf.sos.AddUserResponse resultado_addUser = servicio.addUser(addUser);
         System.out.println("Operacion: addUser(Pepito) (1era vez)\n"
         + "\t\tRespuesta:     '" + resultado_addUser.get_return().getResponse() + "\n");
 
         // Prueba2: Añadir un usuario que ya existe
+        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
         es.upm.etsiinf.sos.AddUserResponse resultado_addUser2 = servicio.addUser(addUser);
         System.out.println("Operacion: addUser(Pepito) (Otra vez)\n"
         + "\t\tRespuesta:     '" + resultado_addUser2.get_return().getResponse() + "\n");
@@ -60,7 +60,7 @@ public class TestServicio {
         System.out.println("Usuario a añadir: " + addUser2.getArgs0().getUsername() + "\n");
 
         es.upm.etsiinf.sos.AddUserResponse resultado_addUser3 = servicio.addUser(addUser2);
-        System.out.println("Operacion: addUser(Pepito)\n"
+        System.out.println("Operacion: addUser()\n"
         + "\t\tRespuesta:     '" + resultado_addUser3.get_return().getResponse());
 
         
