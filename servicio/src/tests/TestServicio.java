@@ -10,6 +10,8 @@ public class TestServicio {
 
         System.out.println("========= PRUEBAS TOTALES =========");
 
+        System.out.println("========= INICIALIZACION WineSocialUPMSkeleton =========");
+
 		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
 
         User user_1 = new User();
@@ -25,23 +27,25 @@ public class TestServicio {
 
         System.out.println("El user actual tiene\n"
         + "\t\tUsuario:     '" + servicio.getUserActual().getName() + "'\n"
-        + "\t\tContraseña:  '" + servicio.getUserActual().getName() + "'\n");
+        + "\t\tContraseña:  '" + servicio.getUserActual().getPwd() + "'\n");
         
+    
+
+        System.out.println("========= PRUEBA addUser =========");
         
-		
-		
-        // System.out.println("========= PRUEBA addUser =========");
+
+        es.upm.etsiinf.sos.AddUser addUser = new es.upm.etsiinf.sos.AddUser();
+        es.upm.etsiinf.sos.model.xsd.Username username = new es.upm.etsiinf.sos.model.xsd.Username();
+        username.setUsername("Pepito");
+        addUser.setArgs0(username);
+
+        System.out.println("Usuario a añadir: " + addUser.getArgs0().getUsername() + "\n");
+
+        es.upm.etsiinf.sos.AddUserResponse resultado_addUser = servicio.addUser(addUser);
         
-        // AddUser addUser = new AddUser();
-        // Username username = new Username();
-        // username.setUsername("pepito");
-        // addUser.setArgs0(username);
-        // //System.out.println("El usuario que quiero añadir es => " + addUser.getArgs0().getUsername());
-        // AddUserResponse addUserResponse = servicio.addUser(addUser);
+        System.out.println("Operacion: addUser(Pepito)\n"
+        + "\t\tRespuesta:     '" + resultado_addUser.get_return().getResponse());
         
-        // System.out.println("Respuesta de añadir usuario: " + addUserResponse.get_return().getResponse());
-        
-        // System.out.println("==================================");
 
         
 		
