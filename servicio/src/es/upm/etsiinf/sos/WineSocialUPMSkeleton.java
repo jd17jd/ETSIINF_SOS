@@ -15,7 +15,7 @@ import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton
 public class WineSocialUPMSkeleton {
 	
 	private User admin;
-	public User usuarioActual;
+	private User usuarioActual;
 	private UPMAuthenticationAuthorizationWSSkeletonSkeleton auth;
 	
 	public WineSocialUPMSkeleton() {
@@ -114,7 +114,7 @@ public class WineSocialUPMSkeleton {
 
 			}
 			else // No ha creado el usuario
-				System.out.println("El usuario: '" + username.getUsername() + "' ya existía en el servicio.\n");
+				System.out.println("El usuario: '" + username.getUsername() + "' no se ha podido registrar'.\n");
 
 		}
 		else { // No soy el admin
@@ -136,10 +136,7 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		es.upm.fi.sos.t3.backend.LoginResponse respuestaLogin = new es.upm.fi.sos.t3.backend.LoginResponse();
 		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd respuestaLoginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd();  
-		es.upm.fi.sos.t3.backend.ExistUser usuarioExiste = new es.upm.fi.sos.t3.backend.ExistUser();
-		es.upm.fi.sos.t3.backend.ExistUserResponse respuestaUsuarioExiste = new es.upm.fi.sos.t3.backend.ExistUserResponse();
 		es.upm.fi.sos.t3.backend.Login paramLogin = new es.upm.fi.sos.t3.backend.Login();
-		es.upm.fi.sos.t3.backend.xsd.Username nombre_usuario = new es.upm.fi.sos.t3.backend.xsd.Username();
 		es.upm.fi.sos.t3.backend.xsd.LoginBackEnd loginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginBackEnd();
 
 		// INICIALIZACION RESPUESTA
@@ -154,40 +151,33 @@ public class WineSocialUPMSkeleton {
 		// PAARAMETROS A PASAR AL BACKEND
 		loginBackend.setName(name);
 		loginBackend.setPassword(password);
-
-
-		nombre_usuario.setName(name); // Inicializamos username
 		
-		//TODO: COMPROBACION DE SI EXISTE EN BACKEND
-		usuarioExiste.setUsername(nombre_usuario); 
-		respuestaUsuarioExiste = auth.existUser(usuarioExiste);
-		boolean existe = respuestaUsuarioExiste.get_return().getResult();
-		//si no existe y no es el admin => Response = false (El usuario no existe)
-		if(!existe && !name.equals("admin")) {
-			System.out.println("El usuario: '" + name + "' no existe en el sistema.\n");
-			response.setResponse(false);
+		if (name.equals("admin")) { //EL USUARIO ADMIN NO SE DEBE LOGGEAR ASI
+			System.out.println("El usuario: '" + name + "' no se puede loggear.\n");
+			return respuestaFinalFuncion;
 		}
 
-		else { //si el usuario existe
-			//habria que ver si el usuario ya esta conectado y lanzar directamente => TRUE
-			//System.out.println("¿¿Está contenido en la lista de loggeados?? => " + auth.usuariosAutenticados.contains(usuario));
-			if(auth.usuariosAutenticados.contains(usuario)) {
-				System.out.println("Usuario: '" + name + "' ya autenticado!!\n");
+		// LA COMPROBCION DE EXISTENCIA LO DEVUELVE EL BACKEND
+		// Debemos llamar al backend para ver si da bien o mal (no existe o contraseña incorrecta)
+
+		if(auth.getUsuariosLoggeados().contains(usuario)) { // Usuario ya conectado --> TRUE
+			System.out.println("Usuario: '" + name + "' ya autenticado!!\n");
+			response.setResponse(true);
+		}
+		
+		else {// en caso de no estar logeado --> Hacer login
+			paramLogin.setLogin(loginBackend);
+			respuestaLogin = auth.login(paramLogin);
+			respuestaLoginBackend = respuestaLogin.get_return();
+			
+			//si ha ido bien el login => TRUE
+			if(respuestaLoginBackend.getResult()) { // Caso de exito
+				System.out.println("El usuario: '" + name + "' con la contraseña: '" + password +  "'' ha inciado sesión correctamente.\n");
 				response.setResponse(true);
-			}else {
-				//si no esta autenticado habria que inciarle sesion en caso de que todo vaya bien
-				paramLogin.setLogin(loginBackend);
-				respuestaLogin = auth.login(paramLogin);
-				respuestaLoginBackend = respuestaLogin.get_return();
-				
-				//si ha ido bien el login => TRUE
-				if(respuestaLoginBackend.getResult()) {
-					System.out.println("El usuario '" + name + "' se ha autenticado correctamente.\n");
-					response.setResponse(true);
-				} else {
-					System.out.println("El usuario: '" + name + "' no se pudo autenticar :(\n");
-					response.setResponse(false);
-				}
+
+			} else { // Caso de fallo
+				System.out.println("El usuario: '" + name + "' no se pudo autenticar :(\n");
+				return respuestaFinalFuncion;
 			}
 		}
 		respuestaFinalFuncion.set_return(response);
@@ -204,7 +194,7 @@ public class WineSocialUPMSkeleton {
 	
 	public String getLoggeados() {
 		String res = "[";
-		for(User usuarioLog : auth.usuariosAutenticados) {
+		for(User usuarioLog : auth.getUsuariosLoggeados()) {
 			res += usuarioLog.getName() + " ";
 		}
 		return res + "]";
@@ -212,8 +202,8 @@ public class WineSocialUPMSkeleton {
 
 	private boolean estoyLoggeado() {
 		boolean estoy = false;
-		for(int i=0; i<auth.usuariosAutenticados.size(); i++) {
-			if(auth.usuariosAutenticados.get(i).getName().equals(this.usuarioActual.getName())) {
+		for(int i=0; i<auth.getUsuariosLoggeados().size(); i++) {
+			if(auth.getUsuariosLoggeados().get(i).getName().equals(this.usuarioActual.getName())) {
 				estoy = true;
 			}
 		}
@@ -331,7 +321,7 @@ public class WineSocialUPMSkeleton {
 		//extraigo cada contraseña por si quisiese imprimirlas
 		String oldPassword = passw.getOldpwd();
 		String newPassword = passw.getNewpwd();
-		boolean existe = auth.usuariosEnSistema.containsKey(usuarioActual.getName());
+		boolean existe = auth.getUsuariosRegistrados().containsKey(usuarioActual.getName());
 		
 		System.out.println("CONTRASEÑA ANTIGUA: " + oldPassword);
 		System.out.println("CONTRASEÑA NUEVA: " + newPassword);

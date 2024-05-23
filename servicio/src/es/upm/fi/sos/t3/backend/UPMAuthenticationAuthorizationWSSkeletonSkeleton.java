@@ -21,15 +21,43 @@ import es.upm.fi.sos.t3.backend.xsd.Username;
  */
 public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	
-	public Map<String,User> usuariosEnSistema;
-	public List<User> usuariosAutenticados;
+	private Map<String,User> usuariosRegistrados;
+	private List<User> usuariosLoggeados;
 	
 	
 	public UPMAuthenticationAuthorizationWSSkeletonSkeleton() {
-		usuariosEnSistema = new HashMap<>();
-		usuariosAutenticados = new ArrayList<>();
+		usuariosRegistrados = new HashMap<>();
+		usuariosLoggeados = new ArrayList<>();
 	}
+
+	// Getters y Setters
 	
+	//---------------------------------------------------
+
+	public void setUsuariosRegistrados(Map<String, User> usuariosRegistrados) {
+		this.usuariosRegistrados = usuariosRegistrados;
+	}
+
+	public Map<String, User> getUsuariosRegistrados() {
+		return usuariosRegistrados;
+	}
+
+	public void setUsuariosLoggeados(List<User> usuariosLoggeados) {
+		this.usuariosLoggeados = usuariosLoggeados;
+	}
+
+	public List<User> getUsuariosLoggeados() {
+		return usuariosLoggeados;
+	}
+
+	//---------------------------------------------------
+
+	// Metodos auxiliares
+
+	
+
+	//---------------------------------------------------
+
 	
 	/**
 	 * Auto generated method signature
@@ -53,7 +81,7 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		//////////////////////////////////////////////////////
 		
 		//TODO: revisar lo de que no exista previamente en el Map
-		usuariosEnSistema.put(user.getName(), user);
+		usuariosRegistrados.put(user.getName(), user);
 		//usuarios.add(user);
 		respuestaBackend.setResult(true);
 		respuestaBackend.setPassword(user.getPwd());
@@ -63,7 +91,7 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	
 	private String getLoggeados() {
 		String res = "Usuarios Loggeados => [";
-		for(User usuarioLog : usuariosAutenticados) {
+		for(User usuarioLog : usuariosLoggeados) {
 			res += usuarioLog.getName() + " ";
 		}
 		return res + "]";
@@ -77,31 +105,41 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 	 */
 
 	public es.upm.fi.sos.t3.backend.LoginResponse login(es.upm.fi.sos.t3.backend.Login login) {
-		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd();
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
+		es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.LoginResponseBackEnd();
+		
 		String nombre_login = login.getLogin().getName();
 		String password_login = login.getLogin().getPassword();
+
+		Username nombre_usuario = new Username();
+		ExistUser usuarioExiste = new ExistUser();
+		ExistUserResponse respuestaUsuarioExiste = new ExistUserResponse();
+		boolean existe = false;
+
 		User usuario = new User();
+
+		// INICIALIZACION RESPUESTA
+		respuestaBackend.setResult(false);
+		respuestaFinalFuncion.set_return(respuestaBackend); //False en incio
 		
-		//compruebo que el usuario existe en el sistema
-		boolean existe = usuariosEnSistema.containsKey(nombre_login);
+		// COMPROBACION USUARIO EXISTE EN EL SISTEMA
+		nombre_usuario.setName(nombre_login);
+		usuarioExiste.setUsername(nombre_usuario); 
+		respuestaUsuarioExiste = existUser(usuarioExiste);
+		existe = respuestaUsuarioExiste.get_return().getResult();
 		
-		usuario = usuariosEnSistema.get(nombre_login);
-		//si existe en el sistema habra que comprobar si puede acceder (loggearse)
-		if(existe) {
-			//si se ha podido loggear prq el nombre y contraseña coinciden
-			//se añade a la lista de loggeados y se devuelve true
-			//BIEEEN FUNCIONAAAA
-			System.out.println("CONTRASEÑA INTRODUCIDA POR USUARIO => " + password_login);
-			System.out.println("CONTRASEÑA ALMACENADA EN MEMORIA (AUTOGENERADA) => " + usuario.getPwd());
-			//si las contraseñas coinciden se puede autenticar, sino no
-			if(password_login.equals(usuario.getPwd())) {
-				usuariosAutenticados.add(usuario);
+		if(existe) { //COMPROBAR SI PODRA LOGGEAR
+			usuario = usuariosRegistrados.get(nombre_login);
+
+			System.out.println("Contraseña introducida por el usuario: " + password_login + "\n");
+			System.out.println("Contraseña generada en memoria (autogenerada): " + usuario.getPwd() + "\n");
+
+			if(password_login.equals(usuario.getPwd())) { //Comparamos contraseña suministrada con la autogenerada
+				usuariosLoggeados.add(usuario);
 				respuestaBackend.setResult(true);
 			}
 		}
-		
-		respuestaFinalFuncion.set_return(respuestaBackend);
+		System.out.println("El usuario: '" + nombre_login + "' no existe en el sistema.\n");
 		return respuestaFinalFuncion;
 	}
 	
@@ -122,7 +160,7 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		Username usuario = existUser.getUsername();
 		String nombreUsuario = usuario.getName();
 		
-		boolean existe = usuariosEnSistema.containsKey(nombreUsuario);
+		boolean existe = usuariosRegistrados.containsKey(nombreUsuario);
 		if(existe) {
 			respuestaBackend.setResult(true);
 		} else {
@@ -145,12 +183,12 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		es.upm.fi.sos.t3.backend.xsd.RemoveUser usuarioABorrar = removeUser.getRemoveUser();
 		es.upm.fi.sos.t3.backend.xsd.RemoveUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.xsd.RemoveUserResponse(); 
 		String nombre_user_borrado = usuarioABorrar.getName();
-		boolean existe = usuariosEnSistema.containsKey(nombre_user_borrado); 
+		boolean existe = usuariosRegistrados.containsKey(nombre_user_borrado); 
 		//si el usuario existe se borra del sistema
 		//TODO: ver si de verdad hay que comprobar dos veces si existe
 		if(existe) {
 			respuestaBackend.setResult(true);
-			usuariosEnSistema.remove(nombre_user_borrado);
+			usuariosRegistrados.remove(nombre_user_borrado);
 		} else {
 			respuestaBackend.setResult(false);
 		}
@@ -180,8 +218,8 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 		
 		//si la contraseña antigua es igual a la que tiene almacenada, la cambio
 		//TODO: si no es igual o NO SE HA HECHO LOGIN PREVIO => ERROR
-		if(antigua.equals(usuariosEnSistema.get(nombre).getPwd())) {
-			usuariosEnSistema.get(nombre).setPwd(nueva);
+		if(antigua.equals(usuariosRegistrados.get(nombre).getPwd())) {
+			usuariosRegistrados.get(nombre).setPwd(nueva);
 			response.setResult(true);
 			respuestaFinalFuncion.set_return(response);
 		} else {
