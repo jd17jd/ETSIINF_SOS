@@ -22,4 +22,5 @@ Pruebas Proyecto SOS
 - PRUEBAS LOGOUT
     - C. sesion sin mas.                            Bien.
     - C. sesion sin loggearse previamente.          Bien. (Devuelve error esperado)
-    - C. sesion de user que ya se ha desolggeado.   
+    - C. sesion de user que ya se ha desolggeado.   Bien. (Devuelve error esperado)
+    - 

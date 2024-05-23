@@ -227,26 +227,20 @@ public class WineSocialUPMSkeleton {
 		boolean removed = false;
 
 		// COMPROBACION SESION INICIADA
-		if(estoyLoggeado()) {
-			for(User usuario : auth.getUsuariosLoggeados()) {
-				if(usuario.getName().equals(usuarioActual.getName())) {
-					auth.getUsuariosLoggeados().remove(usuario);
-					removed = true;
-					break; //TODO: Checkear bucle para quitar break
-				}
+		for(User usuario : auth.getUsuariosLoggeados()) {
+			if(usuario.getName().equals(usuarioActual.getName())) {
+				auth.getUsuariosLoggeados().remove(usuario);
+				removed = true;
+				break; //TODO: Checkear bucle para quitar break
 			}
-			//si se ha borrado de la lista correctamente
-			if(removed) {
-				this.usuarioActual = null;
-				System.out.println("Has cerrado correctamente la sesión.\n");
-				response.setResponse(true);
-			//el logout ha dado un erro un no se ha podido cerrar sesion bien 
-			} else {
-				System.out.println("Hubo un error en el cierre de sesión.\n");
-				response.setResponse(false);
-			}
-		//si no estaba loggeado no podria hacer logout
-		} else {
+		}
+		//si se ha borrado de la lista correctamente
+		if(removed) {
+			this.usuarioActual = null;
+			System.out.println("Has cerrado correctamente la sesión.\n");
+			response.setResponse(true);
+		}
+		else {
 			System.out.println("Para cerrar sesión se debe haber iniciado sesión previamente.\n");
 			response.setResponse(false);
 		}

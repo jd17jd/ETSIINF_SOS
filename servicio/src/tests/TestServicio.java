@@ -185,6 +185,7 @@ public class TestServicio {
         es.upm.etsiinf.sos.LogoutResponse res13 = servicio.logout(logout);
         System.out.println("logout(): " + res13.get_return().getResponse() + "\n");
 
+        
 
 
 
