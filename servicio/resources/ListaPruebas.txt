@@ -15,4 +15,6 @@ Pruebas Proyecto SOS
 - PRUEBAS LOGIN
     - In. sesion sin mas.                           Bien.
     - In. sesiion con un usuario inexistente.       Bien. (Devuelve errores esperados)
-    - In. sesion con contraseña ≠ a la generada.    Bien.
+    - In. sesion con user ya loggeado previamente.  Bien 
+    - In. sesion con contraseña ≠ a la generada.    Bien. (Devuelve error esperado)
+    - In. sesion de admin                           Bien. (Devuelve error esperado)

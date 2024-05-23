@@ -14,7 +14,7 @@ public class TestServicio {
 
 		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
 
-        User user_1 = new User();
+        es.upm.etsiinf.sos.model.xsd.User user_1 = new User();
         user_1.setName("admin");
         user_1.setPwd("admin");
 
@@ -119,8 +119,7 @@ public class TestServicio {
 
             // Y ahora sí, intentar iniciar sesión con la contraseña incorrecta
         es.upm.etsiinf.sos.Login login4 = new es.upm.etsiinf.sos.Login();
-        es.upm.etsiinf.sos.model.xsd.User user4 = new es
-        .upm.etsiinf.sos.model.xsd.User();
+        es.upm.etsiinf.sos.model.xsd.User user4 = new es.upm.etsiinf.sos.model.xsd.User();
         user4.setName("Juanita");
         user4.setPwd("contraseñaIncorrecta");
         login4.setArgs0(user4);
@@ -140,11 +139,18 @@ public class TestServicio {
         System.out.println("Usuario a loggear: " + login5.getArgs0().getName() + ", con contraseña: " + login5.getArgs0().getPwd());
         es.upm.etsiinf.sos.LoginResponse res10 = servicio.login(login5);
         System.out.println("login(admin): " + res10.get_return().getResponse() + "\n");
-        
-
-
 
         System.out.println("=========================== FIN login ===========================\n");
+
+        System.out.println("=========================== PRUEBAS logout ===========================");
+    
+        // Prueba1: Cerrar sesión con un usuario que está loggeado
+        es.upm.etsiinf.sos.Logout logout = new es.upm.etsiinf.sos.Logout();
+        servicio.setUserActual(user); //prueba1 de login
+
+        es.upm.etsiinf.sos.LogoutResponse res11 = servicio.logout(logout);
+        System.out.println("logout(): " + res11.get_return().getResponse() + "\n");
+
 
 
 

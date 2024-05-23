@@ -183,7 +183,7 @@ public class WineSocialUPMSkeleton {
 		loginBackend.setPassword(password);
 		
 		if (name.equals("admin")) { //EL USUARIO ADMIN NO SE DEBE LOGGEAR ASI
-			System.out.println("El usuario: '" + name + "' no se puede loggear.\n");
+			System.out.println("No está autorizado para iniciar sesión del usuario: '" + name + "'.\n");
 			return respuestaFinalFuncion;
 		}
 
@@ -215,7 +215,6 @@ public class WineSocialUPMSkeleton {
 	}
 	
 	
-	//EN TEORIA YA ESTÁ FUNCIONANDO BIEN
 	/**
 	 * Cierra la sesión del usuario que la invoca
 	 * @param logout
