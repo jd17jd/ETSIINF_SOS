@@ -104,7 +104,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// CREO EL USUARIO DEL BACKEND
-		if (username.getUsername().equals("") || username.getUsername() == null)
+		if (username.getUsername() == null || username.getUsername().equals(""))
 		{
 			System.out.println("Error. El nombre de usuario no puede ser vacío ni ser nullo.\n");
 			return respuestaFinalFuncion;
