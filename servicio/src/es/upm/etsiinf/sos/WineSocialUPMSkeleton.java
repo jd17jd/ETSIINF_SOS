@@ -79,6 +79,10 @@ public class WineSocialUPMSkeleton {
 		return res + "]";
 	}
 
+	public String getPwdUser(String name) {
+		return auth.getUsuariosRegistrados().get(name).getPwd();
+	}
+
 
 	//---------------------------------------------------
 
