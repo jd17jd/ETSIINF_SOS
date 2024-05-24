@@ -56,14 +56,6 @@ public class UPMAuthenticationAuthorizationWSSkeletonSkeleton {
 
 	// Metodos auxiliares
 
-	// private String getLoggeados() {
-	// 	String res = "Usuarios Loggeados => [";
-	// 	for(User usuarioLog : usuariosLoggeados) {
-	// 		res += usuarioLog.getName() + " ";
-	// 	}
-	// 	return res + "]";
-	// }
-
 	private String generateRandomString() {
 		int length;
         Random random = new Random();

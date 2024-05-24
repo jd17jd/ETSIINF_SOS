@@ -14,15 +14,15 @@ public class TestServicio {
 
 		WineSocialUPMSkeleton servicio = new WineSocialUPMSkeleton(); 
 
+        //El set del admin se hace en el constructor
+        System.out.println("El admin tiene\n"
+        + "\t\tUsuario:     '" + servicio.getUserAdmin().getName() + "'\n"
+        + "\t\tContraseña:  '" + servicio.getUserAdmin().getPwd() + "'\n");
+        
+
         es.upm.etsiinf.sos.model.xsd.User admin = new User();
         admin.setName("admin");
         admin.setPwd("admin");
-
-
-        System.out.println("El admin tiene\n"
-                + "\t\tUsuario:     '" + servicio.getUserAdmin().getName() + "'\n"
-                + "\t\tContraseña:  '" + servicio.getUserAdmin().getPwd() + "'\n");
-                
         servicio.setUserActual(admin);
 
         System.out.println("El user actual tiene\n"
@@ -185,102 +185,19 @@ public class TestServicio {
         es.upm.etsiinf.sos.LogoutResponse res13 = servicio.logout(logout);
         System.out.println("logout(): " + res13.get_return().getResponse() + "\n");
 
+        System.out.println("=========================== FIN logout ===========================\n");
+
+
+        System.out.println("=========================== PRUEBAS RateWine ===========================\n");
+
         
+        //Ahora que ua lo tenemos loggeado, hacemos la prueba de rate
+
+        //Creamos
 
 
 
 
-
-
-		/*
-		System.out.println("\n");
-        System.out.println("======== PRUEBA login ========");
-
-        // Crear un nuevo usuario
-        AddUser addUser = new AddUser();
-        User newUser = new User();
-        newUser.setName("pepitoPlayer"); //esto se lo paso al login y al addUser
-        newUser.setPwd("contraseñaAutoGenerada"); //esta no es la contraseña del usuario
-        Username username = new Username();
-        username.setUsername(newUser.getName());
-        addUser.setArgs0(username); //añado al usuario pero la contraseña se settea en el backend (contraseñaAutoGenerada)
-        
-        // Añadir el usuario al sistema
-        AddUserResponse addUserResponse1 = servicio.addUser(addUser);
-        System.out.println("Respuesta de añadir usuario: " + addUserResponse1.get_return().getResponse());
-        //hasta aqui se ha añadido el usuario con nombre "pepito" y contraseña la que se ha autogenerado en backend
-        //cuando intente hacer el login con la contraseña que he setteado al 'newUser' me va a dar error
-        //prq la contraseña que tiene es "password1" y la que ha generado el backend es "contraseñaAutoGenerada"
-        
-        // Intentar hacer login con el nuevo usuario
-        es.upm.etsiinf.sos.Login login = new es.upm.etsiinf.sos.Login();
-        login.setArgs0(newUser);
-        es.upm.etsiinf.sos.LoginResponse loginResponse = servicio.login(login);
-        System.out.println("Respuesta de inicio de sesión: " + loginResponse.get_return().getResponse());
-        //System.out.println(servicio.getLoggeados());
-        System.out.println("=================================");
-        */
-        
-	
-		
-        
-        /*
-        System.out.println("\n");
-        System.out.println("======== PRUEBA logout ========");
-        
-        User usuarioPepito = new User();
-		usuarioPepito.setName("pepitoPlayer");
-		//usuarioPepito.setPwd("contraseñaAutoGenerada");
-		
-		servicio.usuarioUsado = usuarioPepito;
-        
-        
-        Logout logout = new Logout();
-        LogoutResponse logoutResponse = servicio.logout(logout);
-        System.out.println("Respuesta de cierre de sesión: " + logoutResponse.get_return().getResponse());
-        System.out.println("=================================");
-        
-        System.out.println("LISTA DE LOGGEADOS =>" + servicio.getLoggeados());
-		*/
-		
-		/*
-        //User usuarioPepito = new User();
-		//usuarioPepito.setName("pepitoPlayer");
-		//usuarioPepito.setPwd("contraseñaAutoGenerada");
-		//servicio.usuarioUsado = usuarioPepito;
-        
-		System.out.println("\n");
-        System.out.println("======== PRUEBA removeUser ========");
-        
-        RemoveUser removeUser = new RemoveUser();
-        Username usernameRemove = new Username();
-        usernameRemove.setUsername("pepito");
-        removeUser.setArgs0(usernameRemove);
-        RemoveUserResponse removeUserResponse = servicio.removeUser(removeUser);
-        System.out.println("Respuesta de eliminación de usuario: " + removeUserResponse.get_return().getResponse());
-        System.out.println("=================================");
-		*/
-        
-        /*
-        User usuarioPepito = new User();
-		usuarioPepito.setName("pepito");
-		usuarioPepito.setPwd("contraseñaAutoGenerada");
-		servicio.usuarioUsado = usuarioPepito;
-        
-        
-        System.out.println("\n");
-        System.out.println("======== PRUEBA changePassword ========");
-        
-        ChangePassword changePassword = new ChangePassword();
-        PasswordPair passwordPair = new PasswordPair();
-        passwordPair.setOldpwd("contraseñaAutoGenerada");
-        passwordPair.setNewpwd("newPepitoPss1-2-3");
-        changePassword.setArgs0(passwordPair);
-        ChangePasswordResponse changePasswordResponse = servicio.changePassword(changePassword);
-        System.out.println("Respuesta de cambio de contraseña: " + changePasswordResponse.get_return().getResponse());
-        System.out.println("=================================");
-        */
-        
         
         
         
