@@ -286,7 +286,7 @@ public class WineSocialUPMSkeleton {
 	}
 	
 	
-	/*
+	/**
 	 * Funcion auxiliar para ver el mapa de puntuaciones impreso
 	 * @param ninguno
 	 * @return el mapa
