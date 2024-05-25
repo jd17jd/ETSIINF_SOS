@@ -191,21 +191,190 @@ public class TestServicio {
         System.out.println("=========================== PRUEBAS RateWine ===========================\n");
 
         
-        //Ahora que ua lo tenemos loggeado, hacemos la prueba de rate
-
-        //Creamos
-
-
-
-
+        
+        //EN ESTA PRUEBA JUANITO PUNTUA VARIOS VINOS
+        
+        User juanito = new User();
+        juanito.setName("juanitoBanana");
+		servicio.usuarioActual = juanito;
+        
+		User juanitoLogin = new User();
+		juanitoLogin.setName("juanitoBanana"); //esto se lo paso al login y al addUser
+		juanitoLogin.setPwd("contraseñaBicho"); //esta no es la contraseña del usuario
+        Login loginJuanito = new Login();
+        loginJuanito.setArgs0(juanitoLogin);
+        servicio.login(loginJuanito); //juanitoBanana inicia sesion
+		
+        
+        System.out.println("======== PRUEBA rateWine ========");
+        RateWine vinoAPuntuar = new RateWine();
+        WineRated vino = new WineRated();
+        vino.setName("Ribera del Duero");
+        vino.setGrape("Tinto");
+        vino.setYear(1993);
+        vino.setRate(8); //lo puntuo con un 8
+        vinoAPuntuar.setArgs0(vino);
+        
+        RateWineResponse rateWineResponse = servicio.rateWine(vinoAPuntuar);
+        //System.out.println("Respuesta de puntuar un vino: " + rateWineResponse.get_return().getResponse());
+         
+        //System.out.println(servicio.imprimeRatedMap());
+        
+        //pruebo a meter otro
+        RateWine vinoAPuntuar2 = new RateWine();
+        WineRated vino2 = new WineRated();
+        vino2.setName("Yllera");
+        vino2.setGrape("Blanco");
+        vino2.setYear(2020);
+        vino2.setRate(6); //lo puntuo con un 6
+        vinoAPuntuar2.setArgs0(vino2);
+        
+        RateWineResponse rateWineResponse2 = servicio.rateWine(vinoAPuntuar2);
+        //System.out.println("Respuesta de puntuar un vino: " + rateWineResponse2.get_return().getResponse());
+        
+        //System.out.println(servicio.imprimeRatedMap());
+        
+        
+        //pruebo a cambiar puntuacion de uno que ya hay dentro
+        RateWine vinoAPuntuar3 = new RateWine();
+        WineRated vino3 = new WineRated();
+        vino3.setName("Yllera");
+        vino3.setGrape("Blanco");
+        vino3.setYear(2020);
+        vino3.setRate(9); //cambio la puntuacion del Yllera a un 9
+        vinoAPuntuar3.setArgs0(vino3);
+        
+        RateWineResponse rateWineResponse3 = servicio.rateWine(vinoAPuntuar3);
+        //System.out.println("Respuesta de puntuar un vino: " + rateWineResponse3.get_return().getResponse());
+        
+        //System.out.println(servicio.imprimeRatedMap());
+        System.out.println("===========================================\n\n");
         
         
         
-//        // Intentar iniciar sesión con la nueva contraseña del admin
-//        System.out.println("===== Re-Inicio de Sesión (Admin) =====");
-//        admin.setPwd("newadmin");
-//        login.setArgs0(admin);
-//        loginResponse = servicio.login(login);
-//        System.out.println("Respuesta de re-inicio de sesión: " + loginResponse.get_return().getResponse());        
+        //AHORA LUCIA PUNTUA UN VINO
+        
+        User usuarioLucia = new User();
+        usuarioLucia.setName("lucia_perez");
+		servicio.usuarioActual = usuarioLucia;
+        
+        User lucia = new User();
+        lucia.setName("lucia_perez"); //esto se lo paso al login y al addUser
+        lucia.setPwd("contraseñaBicho"); //esta no es la contraseña del usuario
+        Login loginLucia = new Login();
+        loginLucia.setArgs0(lucia);
+        servicio.login(loginLucia); //lucia_perez inicia sesion
+        
+        
+        RateWine vinoAPuntuar4 = new RateWine();
+        WineRated vino4 = new WineRated();
+        vino4.setName("Ramon Bilbao");
+        vino4.setGrape("Tinto");
+        vino4.setYear(2002);
+        vino4.setRate(10); //lo puntuo con un 10
+        vinoAPuntuar4.setArgs0(vino4);
+        
+        RateWineResponse rateWineResponse4 = servicio.rateWine(vinoAPuntuar4);
+        //System.out.println("Respuesta de puntuar un vino: " + rateWineResponse4.get_return().getResponse());
+        
+        System.out.println(servicio.imprimeRatedMap());
+       
+        System.out.println("=================================");
+        
+        
+        
+        
+        
+        /*
+        System.out.println("======== PRUEBA getMyRates ========");
+        //en principio ya esta loggeado de antes
+        User pepito = new User();
+		pepito.setName("pepitoPlayer");
+		servicio.usuarioActual = pepito;
+		
+		GetMyRates getMyRates = new GetMyRates();
+		GetMyRatesResponse getMyRatesResponse = servicio.getMyRates(getMyRates);		
+        WinesRatedList listaVinosPuntuados = getMyRatesResponse.get_return();
+        boolean fueBien = listaVinosPuntuados.getResult();
+
+        
+        //System.out.println("Respuesta de getMyRates: " + fueBien);
+        if (fueBien) {
+            String[] nombresVinos = listaVinosPuntuados.getNames();
+            String[] nombresUva = listaVinosPuntuados.getGrapes();
+            int[] años = listaVinosPuntuados.getYears();
+            int[] puntuaciones = listaVinosPuntuados.getRates();
+
+            StringBuilder resultado = new StringBuilder("Resultado de getMyRates de '" + servicio.usuarioActual.getName() + "' = [");
+
+            for (int i = 0; i < nombresVinos.length; i++) {
+                if (i > 0) {
+                    resultado.append(", ");
+                }
+                resultado.append("{Nombre: ").append(nombresVinos[i])
+                        .append(", Uva: ").append(nombresUva[i])
+                        .append(", Año: ").append(años[i])
+                        .append(", Puntuacion: ").append(puntuaciones[i]).append("}");
+            }
+
+            resultado.append("]");
+            System.out.println(resultado.toString());
+        } else {
+            System.out.println("No se pudo obtener la lista de vinos puntuados.");
+        }
+
+        System.out.println("=================================");
+        */
+        
+        
+        
+        
+        /*
+        System.out.println("======== PRUEBA getMyFollowerRates ========");
+        // en principio ya está loggeado de antes
+        User pepitoGet = new User();
+        pepitoGet.setName("pepitoPlayer");
+        servicio.usuarioActual = pepitoGet;
+        
+        // Definimos el follower que vamos a consultar
+        //Si juanito ha puntuado algun vino deberian de aparecer y AL REVES (los ultimos puntuados primero)
+        Username follower1 = new Username();
+        follower1.setUsername("juanitoBanana");
+        
+        GetMyFollowerRates getMyFollowerRates = new GetMyFollowerRates();
+        getMyFollowerRates.setArgs0(follower1);
+        GetMyFollowerRatesResponse getMyFollowerRatesResponse = servicio.getMyFollowerRates(getMyFollowerRates);
+        WinesRatedList listaVinosPuntuados = getMyFollowerRatesResponse.get_return();
+        boolean fueBien = listaVinosPuntuados.getResult();
+        
+        if (fueBien) {
+            String[] nombresVinos = listaVinosPuntuados.getNames();
+            String[] nombresUva = listaVinosPuntuados.getGrapes();
+            int[] años = listaVinosPuntuados.getYears();
+            int[] puntuaciones = listaVinosPuntuados.getRates();
+
+            StringBuilder resultado = new StringBuilder("Resultado de getMyFollowerRates de '" + follower1.getUsername() + "' = [");
+
+            for (int i = 0; i < nombresVinos.length; i++) {
+                if (i > 0) {
+                    resultado.append(", ");
+                }
+                resultado.append("{Nombre: ").append(nombresVinos[i])
+                        .append(", Uva: ").append(nombresUva[i])
+                        .append(", Año: ").append(años[i])
+                        .append(", Puntuacion: ").append(puntuaciones[i]).append("}");
+            }
+
+            resultado.append("]");
+            System.out.println(resultado.toString());
+        } else {
+            System.out.println("No se pudo obtener la lista de vinos puntuados del seguidor.");
+        }
+
+        System.out.println("=================================");
+        */
+        
+        
+        
 	}
 }
