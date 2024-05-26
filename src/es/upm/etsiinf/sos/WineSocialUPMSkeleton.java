@@ -279,7 +279,7 @@ public class WineSocialUPMSkeleton {
 		addUserAuth.setUser(userBackend);
 		
 		// COMPROBACION ADMIN
-		if(this.username.equals(ADMIN_NAME)) {
+		// if(this.username.equals(ADMIN_NAME)) {
 			if(!usuarioRegistrado(addUser.getArgs0().getUsername())) { // Ha creado el usuario
 				//llamo al stub con el usuarioBackend
 				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
@@ -298,12 +298,10 @@ public class WineSocialUPMSkeleton {
 				respuestaFinalFuncion.set_return(response);
 				System.out.println("El usuario: '" + username.getUsername() + "' ya existe en el sistema. No se ha podido registrar'.\n");
 			}
-		}
-		else { // No soy el admin
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
-			System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
-		}
+		// }
+		// else { // No soy el admin
+			// System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
+		// }
 		return respuestaFinalFuncion;
 	}
 
@@ -659,22 +657,22 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(true);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		// // COMPROBACION DE ADMIN
-		// if(this.username.equals(ADMIN_NAME)) {
-		// 	if(!existeVino(vino)) {
-		// 		winesList.add(vino); 
-		// 		response.setResponse(true);
-		// 		respuestaFinalFuncion.set_return(response);
-		// 		System.out.println("Se ha añadido el vino: '" + vino.getName() + "' con éxito.\n");
-		// 	} else {
-		// 		System.out.println("El vino: '" + vino.getName() + "' con: \n" +
-		// 		"\t\tTipo de uva: " + vino.getGrape() + "\n" +
-		// 		"\t\tAño: " + vino.getYear() + "\n" +
-		// 		"ya existe en la red social.\n");
-		// 		return respuestaFinalFuncion;
-		// 	}
-		// } else
-		// 	System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
+		// COMPROBACION DE ADMIN
+		if(this.username.equals(ADMIN_NAME)) {
+			if(!existeVino(vino)) {
+				winesList.add(vino); 
+				response.setResponse(true);
+				respuestaFinalFuncion.set_return(response);
+				System.out.println("Se ha añadido el vino: '" + vino.getName() + "' con éxito.\n");
+			} else {
+				System.out.println("El vino: '" + vino.getName() + "' con: \n" +
+				"\t\tTipo de uva: " + vino.getGrape() + "\n" +
+				"\t\tAño: " + vino.getYear() + "\n" +
+				"ya existe en la red social.\n");
+				return respuestaFinalFuncion;
+			}
+		} else
+			System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
 		return respuestaFinalFuncion;
 	}
 
