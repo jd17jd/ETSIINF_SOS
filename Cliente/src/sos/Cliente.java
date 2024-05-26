@@ -5,9 +5,9 @@ import java.rmi.RemoteException;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
-
 import es.upm.etsiinf.sos.WineSocialUPMStub;
 import es.upm.etsiinf.sos.WineSocialUPMStub.*;
+import org.apache.log4j.Logger;
 
 public class Cliente {
 	
@@ -21,63 +21,69 @@ public class Cliente {
 	
 	
 	public AddUserResponse addUser(String name) throws RemoteException {
-		AddUserResponseE res;
-		
-		Username username = new Username();
-		AddUser addUser = new AddUser();
-		
-		username.setUsername(name);
-		addUser.setArgs0(username);
-		
-		res = stub.addUser(addUser);
-		
-		return res.get_return();
-	}
-	
-	public boolean login(String username, String password)  throws RemoteException {
-		Login login = new Login();
-		User user = new User();
-		
-		user.setName(username);
-		user.setPwd(password);
-		login.setArgs0(user);
-		
-		return stub.login(login).get_return().getResponse();
-	}
-	
-	public void logout() throws Exception {
-		if (stub == null) throw new Exception("Error generando el stub");
-		stub.logout(new Logout());
-	}
-	
-	public boolean removeUser(String name) throws RemoteException {
-		RemoveUserResponse res;
-		
-		RemoveUser removeUser = new RemoveUser();
-		Username username = new Username();
-		
-		username.setUsername(name);
-		removeUser.setArgs0(username);
-		
-		res = stub.removeUser(removeUser);
-		
-		return res.get_return().getResponse();
-	}
-	
-	public boolean changePassword(String oldPassword, String newPassword) throws RemoteException {
-		ChangePasswordResponse res;
-		
-		ChangePassword changePassword = new ChangePassword();
-		PasswordPair passwordPair = new PasswordPair();
-		
-		passwordPair.setOldpwd(oldPassword);
-		passwordPair.setNewpwd(newPassword);
-		changePassword.setArgs0(passwordPair);
-		
-		res = stub.changePassword(changePassword);
-		
-		return res.get_return().getResponse();
-	}
+        Username username = new Username();
+        AddUser addUser = new AddUser();
+        
+        username.setUsername(name);
+        addUser.setArgs0(username);
+        
+        logger.debug("Añadiendo usuario: " + name);
+        AddUserResponseE res = stub.addUser(addUser);
+        logger.debug("Respuesta recibida: " + res.get_return().getResponse());
+        
+        return res.get_return();
+    }
+
+    public boolean login(String username, String password) throws RemoteException {
+        Login login = new Login();
+        User user = new User();
+        
+        user.setName(username);
+        user.setPwd(password);
+        login.setArgs0(user);
+        
+        logger.debug("Intentando login para usuario: " + username);
+        boolean response = stub.login(login).get_return().getResponse();
+        logger.debug("Respuesta de login: " + response);
+        
+        return response;
+    }
+
+    public void logout() throws Exception {
+        if (stub == null) throw new Exception("Error generando el stub");
+        logger.debug("Cerrando sesión");
+        stub.logout(new Logout());
+        logger.debug("Sesión cerrada");
+    }
+
+    public boolean removeUser(String name) throws RemoteException {
+        RemoveUser removeUser = new RemoveUser();
+        Username username = new Username();
+        
+        username.setUsername(name);
+        removeUser.setArgs0(username);
+        
+        logger.debug("Eliminando usuario: " + name);
+        boolean response = stub.removeUser(removeUser).get_return().getResponse();
+        logger.debug("Respuesta de eliminación: " + response);
+        
+        return response;
+    }
+
+    public boolean changePassword(String oldPassword, String newPassword) throws RemoteException {
+        ChangePassword changePassword = new ChangePassword();
+        PasswordPair passwordPair = new PasswordPair();
+        
+        passwordPair.setOldpwd(oldPassword);
+        passwordPair.setNewpwd(newPassword);
+        changePassword.setArgs0(passwordPair);
+        
+        logger.debug("Cambiando contraseña para usuario");
+        boolean response = stub.changePassword(changePassword).get_return().getResponse();
+        logger.debug("Respuesta de cambio de contraseña: " + response);
+        
+        return response;
+    }
 	
 	public boolean addFollower(String name) throws RemoteException {
 		AddFollowerResponse res;
