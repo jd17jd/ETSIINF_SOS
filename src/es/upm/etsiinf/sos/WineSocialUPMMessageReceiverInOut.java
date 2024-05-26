@@ -113,42 +113,42 @@
                                                     "logout"));
                                     } else 
 
-            if("getMyRates".equals(methodName)){
-                
-                es.upm.etsiinf.sos.GetMyRatesResponse getMyRatesResponse65 = null;
-	                        es.upm.etsiinf.sos.GetMyRates wrappedParam =
-                                                             (es.upm.etsiinf.sos.GetMyRates)fromOM(
-                                    msgContext.getEnvelope().getBody().getFirstElement(),
-                                    es.upm.etsiinf.sos.GetMyRates.class,
-                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
-                                                
-                                               getMyRatesResponse65 =
-                                                   
-                                                   
-                                                         skel.getMyRates(wrappedParam)
-                                                    ;
-                                            
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), getMyRatesResponse65, false, new javax.xml.namespace.QName("http://sos.etsiinf.upm.es",
-                                                    "getMyRates"));
-                                    } else 
-
             if("removeWine".equals(methodName)){
                 
-                es.upm.etsiinf.sos.RemoveWineResponse removeWineResponse67 = null;
+                es.upm.etsiinf.sos.RemoveWineResponse removeWineResponse65 = null;
 	                        es.upm.etsiinf.sos.RemoveWine wrappedParam =
                                                              (es.upm.etsiinf.sos.RemoveWine)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     es.upm.etsiinf.sos.RemoveWine.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
                                                 
-                                               removeWineResponse67 =
+                                               removeWineResponse65 =
                                                    
                                                    
                                                          skel.removeWine(wrappedParam)
                                                     ;
                                             
-                                        envelope = toEnvelope(getSOAPFactory(msgContext), removeWineResponse67, false, new javax.xml.namespace.QName("http://sos.etsiinf.upm.es",
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), removeWineResponse65, false, new javax.xml.namespace.QName("http://sos.etsiinf.upm.es",
                                                     "removeWine"));
+                                    } else 
+
+            if("getMyRates".equals(methodName)){
+                
+                es.upm.etsiinf.sos.GetMyRatesResponse getMyRatesResponse67 = null;
+	                        es.upm.etsiinf.sos.GetMyRates wrappedParam =
+                                                             (es.upm.etsiinf.sos.GetMyRates)fromOM(
+                                    msgContext.getEnvelope().getBody().getFirstElement(),
+                                    es.upm.etsiinf.sos.GetMyRates.class,
+                                    getEnvelopeNamespaces(msgContext.getEnvelope()));
+                                                
+                                               getMyRatesResponse67 =
+                                                   
+                                                   
+                                                         skel.getMyRates(wrappedParam)
+                                                    ;
+                                            
+                                        envelope = toEnvelope(getSOAPFactory(msgContext), getMyRatesResponse67, false, new javax.xml.namespace.QName("http://sos.etsiinf.upm.es",
+                                                    "getMyRates"));
                                     } else 
 
             if("unfollow".equals(methodName)){
@@ -428,34 +428,6 @@
 
             }
         
-            private  org.apache.axiom.om.OMElement  toOM(es.upm.etsiinf.sos.GetMyRates param, boolean optimizeContent)
-            throws org.apache.axis2.AxisFault {
-
-            
-                        try{
-                             return param.getOMElement(es.upm.etsiinf.sos.GetMyRates.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
-
-            }
-        
-            private  org.apache.axiom.om.OMElement  toOM(es.upm.etsiinf.sos.GetMyRatesResponse param, boolean optimizeContent)
-            throws org.apache.axis2.AxisFault {
-
-            
-                        try{
-                             return param.getOMElement(es.upm.etsiinf.sos.GetMyRatesResponse.MY_QNAME,
-                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-                        } catch(org.apache.axis2.databinding.ADBException e){
-                            throw org.apache.axis2.AxisFault.makeFault(e);
-                        }
-                    
-
-            }
-        
             private  org.apache.axiom.om.OMElement  toOM(es.upm.etsiinf.sos.RemoveWine param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -476,6 +448,34 @@
             
                         try{
                              return param.getOMElement(es.upm.etsiinf.sos.RemoveWineResponse.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(es.upm.etsiinf.sos.GetMyRates param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(es.upm.etsiinf.sos.GetMyRates.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(es.upm.etsiinf.sos.GetMyRatesResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(es.upm.etsiinf.sos.GetMyRatesResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -784,25 +784,6 @@
                                 return wrappedElement;
                          }
                     
-                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, es.upm.etsiinf.sos.GetMyRatesResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
-                        throws org.apache.axis2.AxisFault{
-                      try{
-                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                           
-                                    emptyEnvelope.getBody().addChild(param.getOMElement(es.upm.etsiinf.sos.GetMyRatesResponse.MY_QNAME,factory));
-                                
-
-                         return emptyEnvelope;
-                    } catch(org.apache.axis2.databinding.ADBException e){
-                        throw org.apache.axis2.AxisFault.makeFault(e);
-                    }
-                    }
-                    
-                         private es.upm.etsiinf.sos.GetMyRatesResponse wrapgetMyRates(){
-                                es.upm.etsiinf.sos.GetMyRatesResponse wrappedElement = new es.upm.etsiinf.sos.GetMyRatesResponse();
-                                return wrappedElement;
-                         }
-                    
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, es.upm.etsiinf.sos.RemoveWineResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                         throws org.apache.axis2.AxisFault{
                       try{
@@ -819,6 +800,25 @@
                     
                          private es.upm.etsiinf.sos.RemoveWineResponse wrapremoveWine(){
                                 es.upm.etsiinf.sos.RemoveWineResponse wrappedElement = new es.upm.etsiinf.sos.RemoveWineResponse();
+                                return wrappedElement;
+                         }
+                    
+                    private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, es.upm.etsiinf.sos.GetMyRatesResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                        throws org.apache.axis2.AxisFault{
+                      try{
+                          org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+                           
+                                    emptyEnvelope.getBody().addChild(param.getOMElement(es.upm.etsiinf.sos.GetMyRatesResponse.MY_QNAME,factory));
+                                
+
+                         return emptyEnvelope;
+                    } catch(org.apache.axis2.databinding.ADBException e){
+                        throw org.apache.axis2.AxisFault.makeFault(e);
+                    }
+                    }
+                    
+                         private es.upm.etsiinf.sos.GetMyRatesResponse wrapgetMyRates(){
+                                es.upm.etsiinf.sos.GetMyRatesResponse wrappedElement = new es.upm.etsiinf.sos.GetMyRatesResponse();
                                 return wrappedElement;
                          }
                     
@@ -1047,20 +1047,6 @@
 
                 }
            
-                if (es.upm.etsiinf.sos.GetMyRates.class.equals(type)){
-                
-                           return es.upm.etsiinf.sos.GetMyRates.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
-
-                }
-           
-                if (es.upm.etsiinf.sos.GetMyRatesResponse.class.equals(type)){
-                
-                           return es.upm.etsiinf.sos.GetMyRatesResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
-
-                }
-           
                 if (es.upm.etsiinf.sos.RemoveWine.class.equals(type)){
                 
                            return es.upm.etsiinf.sos.RemoveWine.Factory.parse(param.getXMLStreamReaderWithoutCaching());
@@ -1071,6 +1057,20 @@
                 if (es.upm.etsiinf.sos.RemoveWineResponse.class.equals(type)){
                 
                            return es.upm.etsiinf.sos.RemoveWineResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (es.upm.etsiinf.sos.GetMyRates.class.equals(type)){
+                
+                           return es.upm.etsiinf.sos.GetMyRates.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                    
+
+                }
+           
+                if (es.upm.etsiinf.sos.GetMyRatesResponse.class.equals(type)){
+                
+                           return es.upm.etsiinf.sos.GetMyRatesResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

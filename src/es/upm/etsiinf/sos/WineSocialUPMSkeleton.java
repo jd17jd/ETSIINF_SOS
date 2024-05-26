@@ -279,7 +279,7 @@ public class WineSocialUPMSkeleton {
 		addUserAuth.setUser(userBackend);
 		
 		// COMPROBACION ADMIN
-		if(this.username.equals(ADMIN_NAME)) {
+		 if(this.username.equals(ADMIN_NAME)) {
 			if(!usuarioRegistrado(addUser.getArgs0().getUsername())) { // Ha creado el usuario
 				//llamo al stub con el usuarioBackend
 				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
@@ -298,10 +298,10 @@ public class WineSocialUPMSkeleton {
 				respuestaFinalFuncion.set_return(response);
 				System.out.println("El usuario: '" + username.getUsername() + "' ya existe en el sistema. No se ha podido registrar'.\n");
 			}
-		}
-		else { // No soy el admin
-			System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
-		}
+		 }
+		 else { // No soy el admin
+			 System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
+		 }
 		return respuestaFinalFuncion;
 	}
 
