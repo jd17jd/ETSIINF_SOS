@@ -19,7 +19,6 @@ import es.upm.etsiinf.sos.model.xsd.Wine;
 import es.upm.etsiinf.sos.model.xsd.WineList;
 import es.upm.etsiinf.sos.model.xsd.WineRated;
 import es.upm.etsiinf.sos.model.xsd.WinesRatedList;
-import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub;
 /**
  * WineSocialUPMSkeleton java skeleton for the axisService
  */
@@ -33,22 +32,14 @@ public class WineSocialUPMSkeleton {
 	private String username = "";
 	private String password = "";
 	private boolean loggeado = false;
-	
-	private static Map<String, User> users = new HashMap<>();
-	private static User root = new User();
-	private User userID;
-	private boolean rootIsPresent = false;
-	private boolean adminLoggedIn = false;
-	static List<Username> usersTotal = new ArrayList<Username>();
-	
-	
+
 	public static Map<String,FollowerList> followersMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: lista de seguidores
 	public static List<Wine> winesList = new ArrayList<>();	
 	public static Map<String, List<WineRated>> userRatedMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: Lista de Vinos Puntuados
 	
-//	public WineSocialUPMSkeleton() {
-//		System.out.println("[IMP] Creada instancia: " + counter++);
-//	}
+	public WineSocialUPMSkeleton() {
+		System.out.println("[IMP] Creada instancia: " + counter++);
+	}
 
 	//Getters y Setters para pruebas
 
@@ -262,7 +253,6 @@ public class WineSocialUPMSkeleton {
 	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		/*
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		Username username = addUser.getArgs0();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
@@ -306,65 +296,7 @@ public class WineSocialUPMSkeleton {
 			 System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
 		 }
 		return respuestaFinalFuncion;
-		*/
-		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
-        Username username = addUser.getArgs0();
-        UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse response = new UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse();
-        es.upm.etsiinf.sos.model.xsd.AddUserResponse responseFinal = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-        AddUserResponse aux_final = new AddUserResponse();
-
-        UPMAuthenticationAuthorizationWSSkeletonStub.AddUser user = new UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-        UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd aux = new UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
-        aux.setName(username.getUsername());
-        user.setUser(aux);
-
-        if (this.userID == null) {
-            System.out.println("Por favor, inicia sesión para añadir usuarios.");
-            responseFinal.setResponse(false);
-            aux_final.set_return(responseFinal);
-            return aux_final;
-        }
-        // Verificar si el usuario que llama a esta función es el administrador y que no
-        // esté ya registrado
-        if (iAmRoot()) {
-            response = stub.addUser(user);
-            if (response.get_return().getResult()) {
-                responseFinal.setResponse(true);
-                responseFinal.setPwd(response.get_return().getPassword());
-                aux_final.set_return(responseFinal);
-                usersTotal.add(username);
-
-                System.out.println("Ha añadido al usuario " + username.getUsername() + " con contraseña "
-                        + aux_final.get_return().getPwd() + " exitosamente.");
-                return aux_final;
-            } else {
-                System.out.println("ERROR: usuario con nombre " + username.getUsername() + " ya registrado.");
-                responseFinal.setResponse(false);
-                aux_final.set_return(responseFinal);
-                return aux_final;
-            }
-        } else {
-            System.out.println("Solo el administrador del sistema puede añadir usuarios.");
-            responseFinal.setResponse(false);
-            aux_final.set_return(responseFinal);
-            return aux_final;
-        }
 	}
-	
-	private boolean iAmRoot() {
-        // return same(this.userID, root);
-        boolean result = false;
-        if (rootIsPresent) {
-            same(this.userID, root);
-            result = true;
-        }
-        return result;
-    }
-	
-	private boolean same(User user1, User user2) {
-        return (user1.getName().equals(user2.getName()) &&
-                user1.getPwd().equals(user2.getPwd()));
-    }
 
 	
 	/**
@@ -719,7 +651,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		//if(this.username.equals(ADMIN_NAME)) {
+		if(this.username.equals(ADMIN_NAME)) {
 			if(!existeVino(vino)) {
 				winesList.add(vino); 
 				response.setResponse(true);
@@ -732,8 +664,8 @@ public class WineSocialUPMSkeleton {
 				"ya existe en la red social.\n");
 				return respuestaFinalFuncion;
 			}
-		//} else
-			//System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
+		} else
+			System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
 		return respuestaFinalFuncion;
 	}
 
