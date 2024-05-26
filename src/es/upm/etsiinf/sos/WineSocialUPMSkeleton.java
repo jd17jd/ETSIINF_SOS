@@ -274,8 +274,11 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		if(username.getUsername().equals("pepito")) {
-			System.out.println("HOLAAA ENTROOO AQUIII");
-			response.setResponse(true);
+			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
+			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
+			// Seteo la respuesta
+			response.setResponse(result.getResult());
+			response.setPwd(result.getPassword());
 			respuestaFinalFuncion.set_return(response);
 			return respuestaFinalFuncion;
 		}
