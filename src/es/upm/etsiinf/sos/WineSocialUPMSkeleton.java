@@ -253,56 +253,7 @@ public class WineSocialUPMSkeleton {
 	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
-		Username username = addUser.getArgs0();
-		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-		es.upm.fi.sos.t3.backend.AddUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.AddUserResponse();
-		//parametros del stub
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
-		
-		// INICIALIZACION RESPUESTA
-		response.setResponse(false);
-		respuestaFinalFuncion.set_return(response); //False en incio
-
-		// CREO EL USUARIO DEL BACKEND
-		if (username.getUsername() == null || username.getUsername().equals("")) {
-			System.out.println("Error. El nombre de usuario no puede ser nulo ni vacío.\n");
-			return respuestaFinalFuncion;
-		}
-		
-		//configuro el usuario que voy a pasar al stub
-		userBackend.setName(username.getUsername());
-		addUserAuth.setUser(userBackend);
-		
-		// COMPROBACION ADMIN
-		if(this.username.equals(ADMIN_NAME)) {
-			if(!usuarioRegistrado(addUser.getArgs0().getUsername())) { // Ha creado el usuario
-				//llamo al stub con el usuarioBackend
-				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
-				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
-				
-				// Seteo la respuesta
-				response.setResponse(result.getResult());
-				response.setPwd(result.getPassword());
-				respuestaFinalFuncion.set_return(response);
-
-				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'' con contraseña: '" + respuestaBackend.get_return().getPassword() + "'\n");
-				return respuestaFinalFuncion;
-				
-			} else {// No ha creado el usuario
-				response.setResponse(false);
-				respuestaFinalFuncion.set_return(response);
-				System.out.println("El usuario: '" + username.getUsername() + "' ya existe en el sistema. No se ha podido registrar'.\n");
-			}
-		}
-		else { // No soy el admin
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
-			System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
-		}
-		return respuestaFinalFuncion;
+		throw new java.lang.UnsupportedOperationException("Not implemented yet:" + this.getClass().getName() + "#addUser");
 	}
 
 	
