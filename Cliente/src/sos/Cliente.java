@@ -133,13 +133,15 @@ public class Cliente {
 		return res.get_return().getResponse();
 	}
 	
-	public boolean removeWine(String name) throws RemoteException {
+	public boolean removeWine(String name, String grape, int year) throws RemoteException {
 		RemoveWineResponse res;
 		
 		RemoveWine removeWine = new RemoveWine();
 		Wine wine = new Wine();
 		
 		wine.setName(name);
+		wine.setGrape(grape);
+		wine.setYear(year);
 		removeWine.setArgs0(wine);
 		
 		res = stub.removeWine(removeWine);
@@ -197,7 +199,6 @@ public class Cliente {
 		if (response.get_return().getResult())
 			res = response.get_return().getNames(); //TODO: Check
 				
-		
 		return res;
 	}
 	
