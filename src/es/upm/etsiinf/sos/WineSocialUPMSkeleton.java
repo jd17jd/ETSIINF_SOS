@@ -64,20 +64,21 @@ public class WineSocialUPMSkeleton {
 	 * @param nombreUsuario Nombre del usuario a comprobar
 	 * @return true si está registrado, false en caso contrario
 	 */
-	private boolean usuarioRegistrado (String nombreUsuario) throws RemoteException {
-		boolean res = false;
-		
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username username2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username();
-		
-		username2.setName(nombreUsuario);
-		existUser.setUsername(username2);
-		
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  service.existUser(existUser);
-		
-		res = existResult.get_return().getResult();
-		return res;
+	private boolean usuarioRegistrado (String username) throws RemoteException {
+		boolean result = false;
+		  
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username username2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username();
+		  
+		  username2.setName(username);
+		  existUser.setUsername(username2);
+		  
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  service.existUser(existUser);
+		  
+		  result = existResult.get_return().getResult();
+		  
+		  return result;
 	}
 	
 
@@ -253,7 +254,39 @@ public class WineSocialUPMSkeleton {
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
 		//throw new java.lang.UnsupportedOperationException("Not implemented yet:" + this.getClass().getName() + "#addUser");
-
+		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
+		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
+		  
+		  if(!loggeado || !this.username.equals(ADMIN_NAME)) {
+			  response.setResponse(false);
+			  res.set_return(response);
+			  
+			  return res;
+		  }
+		  
+		  if(usuarioRegistrado(addUser.getArgs0().getUsername())) {
+			  response.setResponse(false);
+			  res.set_return(response);
+			  
+			  return res;
+		  }
+		  
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
+		  
+		  userBackend.setName(addUser.getArgs0().getUsername());
+		  addUserAuth.setUser(userBackend);
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
+		  
+		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
+		  
+		  response.setResponse(result.getResult());
+		  response.setPwd(result.getPassword());
+		  res.set_return(response);
+		  
+		  return res;
+		/*
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		Username username = addUser.getArgs0();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
@@ -266,22 +299,6 @@ public class WineSocialUPMSkeleton {
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
-
-		// CREO EL USUARIO DEL BACKEND
-		if (username.getUsername() == null || username.getUsername().equals("")) {
-			System.out.println("Error. El nombre de usuario no puede ser nulo ni vacío.\n");
-			return respuestaFinalFuncion;
-		}
-		
-		if(username.getUsername().equals("pepito")) {
-			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
-			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
-			// Seteo la respuesta
-			response.setResponse(result.getResult());
-			response.setPwd(result.getPassword());
-			respuestaFinalFuncion.set_return(response);
-			return respuestaFinalFuncion;
-		}
 		
 		//configuro el usuario que voy a pasar al stub
 		userBackend.setName(username.getUsername());
@@ -311,7 +328,7 @@ public class WineSocialUPMSkeleton {
 		 else { // No soy el admin
 			 System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
 		 }
-		return respuestaFinalFuncion;
+		return respuestaFinalFuncion;*/
 	}
 
 	
