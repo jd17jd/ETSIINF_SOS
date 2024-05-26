@@ -30,7 +30,6 @@ public class WineSocialUPMSkeleton {
 	
 	public static int counter = 0;
 	
-	public User usuarioActual; //no lo uso en addUser
 	private String username = "";
 	private String password = "";
 	private boolean loggeado = false;
@@ -46,14 +45,6 @@ public class WineSocialUPMSkeleton {
 	//Getters y Setters para pruebas
 
 	//---------------------------------------------------
-
-	public void setUserActual(User usuarioActual) {
-		this.usuarioActual = usuarioActual;
-	}
-
-	public User getUserActual() {
-		return this.usuarioActual;
-	}
 
 	//---------------------------------------------------
 
@@ -110,7 +101,7 @@ public class WineSocialUPMSkeleton {
 	 */
 //	private boolean estoyLoggeado() {
 //		for (User usuario : auth.getUsuariosLoggeados()) {
-//			if (usuario.getName().equals(this.usuarioActual.getName())) {
+//			if (usuario.getName().equals(this.this.username)) {
 //				return true;
 //			}
 //		}
@@ -126,8 +117,8 @@ public class WineSocialUPMSkeleton {
 	 */
 	private boolean followerExist(String name) {
 	    boolean existe = false;
-	    if (followersMap.get(usuarioActual.getName()).getFollowers() != null) {
-	        String[] seguidores = followersMap.get(usuarioActual.getName()).getFollowers();
+	    if (followersMap.get(this.username).getFollowers() != null) {
+	        String[] seguidores = followersMap.get(this.username).getFollowers();
 	        for (int i = 0; i < seguidores.length; i++) {
 	            //System.out.println("Comparando " + seguidores[i] + " con " + name);
 	            if (seguidores[i].equals(name)) {
@@ -146,7 +137,7 @@ public class WineSocialUPMSkeleton {
 	private void borrarSeguidor (String seguidor) {
 		int res = -1;
 		boolean encontrado = false;
-        String[] seguidores = followersMap.get(usuarioActual.getName()).getFollowers();
+        String[] seguidores = followersMap.get(this.username).getFollowers();
 
         for (int i = 0; i < seguidores.length && !encontrado; i++) {
             if (seguidores[i].equals(seguidor)) {
@@ -165,7 +156,7 @@ public class WineSocialUPMSkeleton {
                     j++;
                 }
             }
-            followersMap.get(usuarioActual.getName()).setFollowers(followersN);
+            followersMap.get(this.username).setFollowers(followersN);
         }
 	}
 
@@ -175,7 +166,7 @@ public class WineSocialUPMSkeleton {
 	 */
 	private String printStringListaFollowers() {
 		String res = "";
-		String[] arr = followersMap.get(usuarioActual.getName()).getFollowers();
+		String[] arr = followersMap.get(this.username).getFollowers();
 		for (int i = 0; i < arr.length; i++) {
 			if(i > 0) {
 				res += ", ";
@@ -420,7 +411,6 @@ public class WineSocialUPMSkeleton {
 	}
 	
 
-	//TODO: Pasarle pruebas
 	/**
 	 * userAdmin.removeUser(user1) // user1.removeUser(user1)
 	 * Elimina al usuario pasado como parametro del sistema
@@ -564,11 +554,11 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		FollowerList listaSeguidores = followersMap.get(usuarioActual.getName()); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
+		FollowerList listaSeguidores = followersMap.get(this.username); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
 		
 		if(listaSeguidores == null) { 
 			listaSeguidores = new FollowerList();
-			followersMap.put(usuarioActual.getName(), listaSeguidores);
+			followersMap.put(this.username, listaSeguidores);
 		}
 		
 		// COMPROBACION EXISTENCIA USUAIRO
@@ -576,10 +566,10 @@ public class WineSocialUPMSkeleton {
 			listaSeguidores.addFollowers(nombreUsuarioASeguir);
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
-			System.out.println("El usuario: '" + usuarioActual.getName() + "' ha empezado a seguir a: '" + nombreUsuarioASeguir + "' como seguidor.\n");
+			System.out.println("El usuario: '" + this.username + "' ha empezado a seguir a: '" + nombreUsuarioASeguir + "' como seguidor.\n");
 			return respuestaFinalFuncion;
 		}
-		System.out.println("El usuario: '" + usuarioActual.getName() + "' ya sigue a: '" + nombreUsuarioASeguir + "'.\n");
+		System.out.println("El usuario: '" + this.username + "' ya sigue a: '" + nombreUsuarioASeguir + "'.\n");
 		return respuestaFinalFuncion;
 	}
 
@@ -616,10 +606,10 @@ public class WineSocialUPMSkeleton {
 			borrarSeguidor(nombreUsuarioUnfollow);
 			reponse.setResponse(true);
 			respuestaFinalFuncion.set_return(reponse);
-			System.out.println("El usuario: '" + usuarioActual.getName() + "' ha dejado de seguir a: '" + nombreUsuarioUnfollow + "'.\n");
+			System.out.println("El usuario: '" + this.username + "' ha dejado de seguir a: '" + nombreUsuarioUnfollow + "'.\n");
 			return respuestaFinalFuncion;
 		} else {
-			System.out.println("El usuario: '" + usuarioActual.getName() + "' no sigue a: '" + nombreUsuarioUnfollow + "' y por tanto no lo puede borrar.\n");
+			System.out.println("El usuario: '" + this.username + "' no sigue a: '" + nombreUsuarioUnfollow + "' y por tanto no lo puede borrar.\n");
 			return respuestaFinalFuncion;
 		}
 	}
@@ -641,7 +631,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaSeguidores); //False en incio
 		
 		if(loggeado) {
-			listaSeguidores.setFollowers(followersMap.get(usuarioActual.getName()).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
+			listaSeguidores.setFollowers(followersMap.get(this.username).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
 			listaSeguidores.setResult(true);
 			respuestaFinalFuncion.set_return(listaSeguidores); 
 			return respuestaFinalFuncion;
@@ -806,7 +796,7 @@ public class WineSocialUPMSkeleton {
 					//lo añado siempre que no exista ya dentro, sino sobreescribo
 					
 					//obtengo la lista de vinos puntuados por el usuario actual (si no hay la creo)
-					listaPuntuados = userRatedMap.getOrDefault(usuarioActual.getName(), new ArrayList<>());
+					listaPuntuados = userRatedMap.getOrDefault(this.username, new ArrayList<>());
 					
 					// Busco si el vino ya está en la lista
 	                boolean vinoEncontrado = false;
@@ -827,7 +817,7 @@ public class WineSocialUPMSkeleton {
 						listaPuntuados.add(vinoPuntuado);
 					}
 					//actualizo el mapa con la lista modificada
-					userRatedMap.put(usuarioActual.getName(), listaPuntuados);
+					userRatedMap.put(this.username, listaPuntuados);
 					response.setResponse(true);
 	                respuestaFinalFuncion.set_return(response);
 	                System.out.println("Se ha puntuado el vino: '" + vino.getName() + "' con un: '" + vinoPuntuado.getRate() + "' con éxito.\n");
@@ -858,7 +848,7 @@ public class WineSocialUPMSkeleton {
 	public es.upm.etsiinf.sos.GetMyRatesResponse getMyRates(es.upm.etsiinf.sos.GetMyRates getMyRates) {
 		GetMyRatesResponse respuestaFinalFuncion = new GetMyRatesResponse();
 		WinesRatedList listaVinosPuntuados = new WinesRatedList();
-		List<WineRated> puntuados = userRatedMap.get(usuarioActual.getName());
+		List<WineRated> puntuados = userRatedMap.get(this.username);
 		
 		// INICIALIZACION RESPUESTA
 		listaVinosPuntuados.setResult(false);
