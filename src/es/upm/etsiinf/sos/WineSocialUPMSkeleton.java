@@ -253,47 +253,6 @@ public class WineSocialUPMSkeleton {
 	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
-		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
-		
-		//si el usuario que se va a añadir es el admin, que funcione
-		if(addUser.getArgs0().getUsername().equals(ADMIN_NAME)) {
-			
-			userBackend.setName(addUser.getArgs0().getUsername());
-			addUserAuth.setUser(userBackend);
-			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth); //se supone q esta en una lista de registrados
-			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
-			response.setResponse(result.getResult());
-			response.setPwd(result.getPassword());
-			res.set_return(response);
-		}
-
-		if(!loggeado || !this.username.equals(ADMIN_NAME)) {
-			  response.setResponse(false);
-			  res.set_return(response);
-			  return res;
-		  }
-		  
-		if(usuarioRegistrado(addUser.getArgs0().getUsername())) {
-			response.setResponse(false);
-			res.set_return(response);	  
-			return res;
-		}
-		  
-		  
-		userBackend.setName(addUser.getArgs0().getUsername());
-		addUserAuth.setUser(userBackend);
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
-		response.setResponse(result.getResult());
-		response.setPwd(result.getPassword());
-		res.set_return(response);
-		  
-		return res;
-		/*
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		Username username = addUser.getArgs0();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
@@ -321,6 +280,7 @@ public class WineSocialUPMSkeleton {
 				// Seteo la respuesta
 				response.setResponse(result.getResult());
 				response.setPwd(result.getPassword());
+				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 
 				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'' con contraseña: '" + respuestaBackend.get_return().getPassword() + "'\n");
@@ -335,7 +295,7 @@ public class WineSocialUPMSkeleton {
 		 else { // No soy el admin
 			 System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
 		 }
-		return respuestaFinalFuncion;*/
+		return respuestaFinalFuncion;
 	}
 
 	
