@@ -19,7 +19,6 @@ import es.upm.etsiinf.sos.model.xsd.Wine;
 import es.upm.etsiinf.sos.model.xsd.WineList;
 import es.upm.etsiinf.sos.model.xsd.WineRated;
 import es.upm.etsiinf.sos.model.xsd.WinesRatedList;
-import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton;
 /**
  * WineSocialUPMSkeleton java skeleton for the axisService
  */
@@ -30,8 +29,9 @@ public class WineSocialUPMSkeleton {
 	
 	public static int counter = 0;
 	
-	private String username = "";
-	private String password = "";
+	//inicializado de primeras a admin
+	private String username = "admin";
+	private String password = "admin";
 	private boolean loggeado = false;
 
 	public static Map<String,FollowerList> followersMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: lista de seguidores
