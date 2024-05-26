@@ -3,6 +3,8 @@ package sos;
 import java.rmi.RemoteException;
 
 import org.apache.axis2.AxisFault;
+import org.apache.axis2.client.Options;
+import org.apache.axis2.client.ServiceClient;
 
 import es.upm.etsiinf.sos.WineSocialUPMStub;
 import es.upm.etsiinf.sos.WineSocialUPMStub.*;
