@@ -25,89 +25,27 @@ import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonSkeleton
  */
 public class WineSocialUPMSkeleton {
 	
-	private User admin;
-	public User usuarioActual;
+	public static final String ADMIN_NAME = "admin";
+	public static final String ADMIN_PWD = "admin";
+	
+	public static int counter = 0;
+	
+	public User usuarioActual; //no lo uso en addUser
 	private String username = "";
 	private String password = "";
 	private boolean loggeado = false;
 
-	public static Map<String,FollowerList> followersMap; // KEY: Nombre usuario -- VALUE: lista de seguidores
-	public static List<Wine> winesList;	
-	public static Map<String, List<WineRated>> userRatedMap; // KEY: Nombre usuario -- VALUE: Lista de Vinos Puntuados
+	public static Map<String,FollowerList> followersMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: lista de seguidores
+	public static List<Wine> winesList = new ArrayList<>();	
+	public static Map<String, List<WineRated>> userRatedMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: Lista de Vinos Puntuados
 	
 	public WineSocialUPMSkeleton() {
-		this.admin = new User();
-		this.usuarioActual = new User();
-		admin.setName("admin");
-		admin.setPwd("admin");
-		followersMap = new HashMap<>();
-		winesList = new ArrayList<>();
-		userRatedMap = new HashMap<>();
-		//auth.getUsuariosRegistrados().put(admin.getName(), admin); //admin está ya dentro del sistema
-		
-	}
-
-	private class Pair<F, S> {
-		private F first;
-		private S second;
-	
-		// Constructor
-		public Pair(F first, S second) {
-			this.first = first;
-			this.second = second;
-		}
-	
-		// Getters
-		public F getFirst() {
-			return first;
-		}
-	
-		public S getSecond() {
-			return second;
-		}
-	
-		// Setters
-		public void setFirst(F first) {
-			this.first = first;
-		}
-	
-		public void setSecond(S second) {
-			this.second = second;
-		}
-	
-		// Override toString method
-		@Override
-		public String toString() {
-			return "Pair{" +
-					"first: " + first +
-					", second: " + second +
-					'}';
-		}
-	
-		// Override equals method
-		@Override
-		public boolean equals(Object o) {
-			if (this == o) return true;
-			if (o == null || getClass() != o.getClass()) return false;
-	
-			Pair<?, ?> pair = (Pair<?, ?>) o;
-	
-			if (!first.equals(pair.first)) return false;
-			return second.equals(pair.second);
-		}
+		System.out.println("[IMP] Creada instancia: " + counter++);
 	}
 
 	//Getters y Setters para pruebas
 
 	//---------------------------------------------------
-
-	public void setUserAdmin(User admin) {
-		this.admin = admin;
-	}
-
-	public User getUserAdmin() {
-		return this.admin;
-	}
 
 	public void setUserActual(User usuarioActual) {
 		this.usuarioActual = usuarioActual;
@@ -126,9 +64,9 @@ public class WineSocialUPMSkeleton {
 	 * @param user Usuario a comprobar
 	 * @return true si lo es, false en caso contrario
 	 */
-	private boolean soyAdmin(User user) {
-		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
-	}
+//	private boolean soyAdmin(User user) {
+//		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
+//	}
 
 	/**
 	 * usuarioRegistrado(user1)
@@ -138,6 +76,7 @@ public class WineSocialUPMSkeleton {
 	 */
 	private boolean usuarioRegistrado (String nombreUsuario) throws RemoteException {
 		boolean res = false;
+		
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username username2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username();
 		
@@ -347,8 +286,8 @@ public class WineSocialUPMSkeleton {
 		addUserAuth.setUser(userBackend);
 		
 		// COMPROBACION ADMIN
-		if(soyAdmin(usuarioActual)) {
-			if(!usuarioRegistrado(usuarioActual.getName())) { // Ha creado el usuario
+		if(this.username.equals(ADMIN_NAME)) {
+			if(!usuarioRegistrado(addUser.getArgs0().getUsername())) { // Ha creado el usuario
 				//llamo al stub con el usuarioBackend
 				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
 				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
@@ -360,11 +299,16 @@ public class WineSocialUPMSkeleton {
 
 				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'' con contraseña: '" + respuestaBackend.get_return().getPassword() + "'\n");
 				return respuestaFinalFuncion;
-			}
-			else // No ha creado el usuario
+				
+			} else {// No ha creado el usuario
+				response.setResponse(false);
+				respuestaFinalFuncion.set_return(response);
 				System.out.println("El usuario: '" + username.getUsername() + "' ya existe en el sistema. No se ha podido registrar'.\n");
+			}
 		}
 		else { // No soy el admin
+			response.setResponse(false);
+			respuestaFinalFuncion.set_return(response);
 			System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
 		}
 		return respuestaFinalFuncion;
@@ -506,7 +450,7 @@ public class WineSocialUPMSkeleton {
 		
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA
-		if(loggeado && (username.equals(admin.getName()) || username.equals(this.username)) && !username.equals(admin.getName())) {
+		if(loggeado && (username.equals(ADMIN_NAME) || username.equals(this.username)) && !username.equals(ADMIN_NAME)) {
 			// PARAMETROS A PASAR AL BACKEND
 			removeUserE2.setName(username);
 			removeUserE.setRemoveUser(removeUserE2);
@@ -550,15 +494,13 @@ public class WineSocialUPMSkeleton {
 		String newPassword = changePassword.getArgs0().getNewpwd();
 		
 		//si es admin no paso por el UPMAuth
-		if(username.equals(admin.getName())) {
+		if(username.equals(ADMIN_NAME)) {
 			
 			if(password.equals(oldPassword)) {
-				
-				admin.setPwd(newPassword);
+				this.password = newPassword;
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				System.out.println("Se ha cambiado la contraseña del admin correctamente!!");
-				this.password = newPassword;
 			} else {
 				response.setResponse(false);  
 			}
@@ -726,7 +668,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		if(soyAdmin(usuarioActual)) {
+		if(this.username.equals(ADMIN_NAME)) {
 			if(!existeVino(vino)) {
 				winesList.add(vino); 
 				response.setResponse(true);
@@ -761,7 +703,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		if(soyAdmin(usuarioActual)) {
+		if(this.username.equals(ADMIN_NAME)) {
 			if(!existeVino(vinoBorrado)) {
 				System.out.println("El vino: '" + vinoBorrado.getName() + "' con: \n" +
 				"\t\tTipo de uva: " + vinoBorrado.getGrape() + "\n" +
