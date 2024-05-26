@@ -13,7 +13,7 @@ public class Cliente {
 	
 	public Cliente() throws AxisFault {
 		stub = new WineSocialUPMStub();
-		stub._getServiceClient().engageModule("adressing");
+		stub._getServiceClient().engageModule("addressing");
 		stub._getServiceClient().getOptions().setManageSession(true);
 	}
 	

@@ -207,7 +207,7 @@ public class Main {
 		try {
 			boolean res = cliente.unfollow(name);
 			
-			if(res)	
+			if(res)
 				System.out.println("Se ha eliminado correctamente");
 			else
 				System.out.println("Error al eliminar el seguidor");
