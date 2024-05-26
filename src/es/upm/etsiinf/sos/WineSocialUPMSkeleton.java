@@ -651,7 +651,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		if(this.username.equals(ADMIN_NAME)) {
+		//if(this.username.equals(ADMIN_NAME)) {
 			if(!existeVino(vino)) {
 				winesList.add(vino); 
 				response.setResponse(true);
@@ -664,8 +664,8 @@ public class WineSocialUPMSkeleton {
 				"ya existe en la red social.\n");
 				return respuestaFinalFuncion;
 			}
-		} else
-			System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
+		//} else
+			//System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
 		return respuestaFinalFuncion;
 	}
 
