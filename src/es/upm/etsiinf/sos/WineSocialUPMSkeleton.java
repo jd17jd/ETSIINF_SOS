@@ -29,9 +29,8 @@ public class WineSocialUPMSkeleton {
 	
 	public static int counter = 0;
 	
-	//inicializado de primeras a admin
-	private String username = "admin";
-	private String password = "admin";
+	private String username = "";
+	private String password = "";
 	private boolean loggeado = false;
 
 	public static Map<String,FollowerList> followersMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: lista de seguidores
@@ -253,8 +252,9 @@ public class WineSocialUPMSkeleton {
 	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		// throw new java.lang.UnsupportedOperationException("Not implemented yet:" + this.getClass().getName() + "#addUser");
+		throw new java.lang.UnsupportedOperationException("Not implemented yet:" + this.getClass().getName() + "#addUser");
 
+		/*
 		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		Username username = addUser.getArgs0();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
@@ -269,7 +269,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// CREO EL USUARIO DEL BACKEND
-		if (username.getUsername() == null || username.getUsername().equals("")) {
+		if (username.getUsername() == null || username.getUsername().isBlank()) {
 			System.out.println("Error. El nombre de usuario no puede ser nulo ni vacío.\n");
 			return respuestaFinalFuncion;
 		}
@@ -303,6 +303,7 @@ public class WineSocialUPMSkeleton {
 			 System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
 		 }
 		return respuestaFinalFuncion;
+		*/
 	}
 
 	
