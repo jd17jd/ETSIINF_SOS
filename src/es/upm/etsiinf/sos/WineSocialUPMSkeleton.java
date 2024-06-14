@@ -5,11 +5,17 @@
  * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 package es.upm.etsiinf.sos;
+import org.apache.log4j.Level;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 
 import es.upm.etsiinf.sos.model.xsd.FollowerList;
 import es.upm.etsiinf.sos.model.xsd.Response;
@@ -39,9 +45,30 @@ public class WineSocialUPMSkeleton {
 	public static List<Wine> winesList = new ArrayList<>();	
 	public static Map<String, List<WineRated>> userRatedMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: Lista de Vinos Puntuados
 	
+	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
+	
 	public WineSocialUPMSkeleton() {
 		System.out.println("[IMP] Creada instancia: " + counter++);
 	}
+	
+	
+	//INICIALIZO LOGGER
+	static {
+        try {
+            // Configurar el logger
+            SimpleLayout layout = new SimpleLayout();
+            ConsoleAppender consoleAppender = new ConsoleAppender(layout);
+            FileAppender fileAppender = new FileAppender(layout, "app.log", true);
+
+            logger.addAppender(consoleAppender);
+            logger.addAppender(fileAppender);
+            logger.setLevel(Level.DEBUG);  // Establecer el nivel del logger a DEBUG
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+	
 
 	/**
 	 * usuarioRegistrado(user1)
@@ -212,7 +239,9 @@ public class WineSocialUPMSkeleton {
 		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
         es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
   	  	es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-  	  	/*
+
+  	  	logger.debug("Evaluo primera condicion...");
+  	  	
         if(!loggeado || !this.username.equals(ADMIN_NAME)) {
   		  response.setResponse(false);
   		  res.set_return(response);
@@ -242,10 +271,7 @@ public class WineSocialUPMSkeleton {
 	  response.setResponse(result.getResult());
 	  response.setPwd(result.getPassword());
 	  res.set_return(response);
-		
-		*/
-  	  	response.setResponse(true);
-  	  	res.set_return(response);
+
 	  return res;
 	}
 	
