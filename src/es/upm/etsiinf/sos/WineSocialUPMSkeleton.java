@@ -242,6 +242,7 @@ public class WineSocialUPMSkeleton {
 
   	  	logger.debug("Evaluo primera condicion...");
   	  	
+  	  	logger.debug("Soy el usuario: [" + this.username + "]");
         if(!loggeado || !this.username.equals(ADMIN_NAME)) {
   		  response.setResponse(false);
   		  res.set_return(response);
