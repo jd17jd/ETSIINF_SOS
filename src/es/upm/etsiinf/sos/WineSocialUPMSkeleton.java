@@ -34,38 +34,14 @@ public class WineSocialUPMSkeleton {
 	private String password = "";
 	private boolean loggeado = false;
 	
-	private static Map<String, User> users = new HashMap<>();
-	private static User root = new User();
-	private User userID;
-	private boolean rootIsPresent = false;
-	private boolean adminLoggedIn = false;
-	static List<Username> usersTotal = new ArrayList<Username>();
-	
-	
+	public static List<Username> usersTotal = new ArrayList<Username>();
 	public static Map<String,FollowerList> followersMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: lista de seguidores
 	public static List<Wine> winesList = new ArrayList<>();	
 	public static Map<String, List<WineRated>> userRatedMap = new HashMap<>(); // KEY: Nombre usuario -- VALUE: Lista de Vinos Puntuados
 	
-//	public WineSocialUPMSkeleton() {
-//		System.out.println("[IMP] Creada instancia: " + counter++);
-//	}
-
-	//Getters y Setters para pruebas
-
-	//---------------------------------------------------
-
-	//---------------------------------------------------
-
-	// Metodos auxiliares
-	/**
-	 * soyAdmin(user)
-	 * Comprueba si user1 es el administador
-	 * @param user Usuario a comprobar
-	 * @return true si lo es, false en caso contrario
-	 */
-//	private boolean soyAdmin(User user) {
-//		return (user.getName().equals(admin.getName())) && (user.getPwd().equals(admin.getPwd()));
-//	}
+	public WineSocialUPMSkeleton() {
+		System.out.println("[IMP] Creada instancia: " + counter++);
+	}
 
 	/**
 	 * usuarioRegistrado(user1)
@@ -75,48 +51,19 @@ public class WineSocialUPMSkeleton {
 	 */
 	private boolean usuarioRegistrado (String username) throws RemoteException {
 		boolean result = false;
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username username2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username();
+		
+		username2.setName(username);
+		existUser.setUsername(username2);
 		  
-		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
-		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username username2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  service.existUser(existUser);
 		  
-		  username2.setName(username);
-		  existUser.setUsername(username2);
+		result = existResult.get_return().getResult();
 		  
-		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  service.existUser(existUser);
-		  
-		  result = existResult.get_return().getResult();
-		  
-		  return result;
+		return result;
 	}
-	
-
-	/**
-	 * Imprime los nombres de las personas loggeadas
-	 * @return String representando un array con los nombres de las personas loggeadas
-	 */
-//	public String getLoggeados() {
-//		String res = "[";
-//		for(User usuarioLog : auth.getUsuariosLoggeados()) {
-//			res += usuarioLog.getName() + " ";
-//		}
-//		return res + "]";
-//	}
-
-	/**
-	 * user1.estoyLoggeado()
-	 * Comprueba si el usuario que la invoca está loggeado
-	 * @return true si está loggeado, false en caso contrario
-	 */
-//	private boolean estoyLoggeado() {
-//		for (User usuario : auth.getUsuariosLoggeados()) {
-//			if (usuario.getName().equals(this.this.username)) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
-	//LO HE CAMBIADO POR UNA VARIABLE BOOLEANA QUE DICE SI ESTA O NO LOGGEADO EL USUARIO
 	
 
 	/**
@@ -262,110 +209,43 @@ public class WineSocialUPMSkeleton {
 	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		/*
-		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
-		Username username = addUser.getArgs0();
-		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-		es.upm.fi.sos.t3.backend.AddUserResponse respuestaBackend = new es.upm.fi.sos.t3.backend.AddUserResponse();
-		//parametros del stub
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
-		
-		// INICIALIZACION RESPUESTA
-		response.setResponse(false);
-		respuestaFinalFuncion.set_return(response); //False en incio
-		
-		//configuro el usuario que voy a pasar al stub
-		userBackend.setName(username.getUsername());
-		addUserAuth.setUser(userBackend);
-		
-		// COMPROBACION ADMIN
-		 if(this.username.equals(ADMIN_NAME)) {
-			if(!usuarioRegistrado(addUser.getArgs0().getUsername())) { // Ha creado el usuario
-				//llamo al stub con el usuarioBackend
-				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = service.addUser(addUserAuth);
-				es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
-				
-				// Seteo la respuesta
-				response.setResponse(result.getResult());
-				response.setPwd(result.getPassword());
-				response.setResponse(true);
-				respuestaFinalFuncion.set_return(response);
-
-				System.out.println("Se ha añadido al usuario: '" + username.getUsername() + "'' con contraseña: '" + respuestaBackend.get_return().getPassword() + "'\n");
-				return respuestaFinalFuncion;
-				
-			} else {// No ha creado el usuario
-				response.setResponse(false);
-				respuestaFinalFuncion.set_return(response);
-				System.out.println("El usuario: '" + username.getUsername() + "' ya existe en el sistema. No se ha podido registrar'.\n");
-			}
-		 }
-		 else { // No soy el admin
-			 System.out.println("No tienes permisos para crear usuarios. Se debe ser administrador.\n");
-		 }
-		return respuestaFinalFuncion;
-		*/
 		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
-        Username username = addUser.getArgs0();
-        UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse response = new UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse();
-        es.upm.etsiinf.sos.model.xsd.AddUserResponse responseFinal = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-        AddUserResponse aux_final = new AddUserResponse();
+        es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
+  	  	es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
+  	  
+        if(!loggeado || !this.username.equals(ADMIN_NAME)) {
+  		  response.setResponse(false);
+  		  res.set_return(response);
+  		  
+  		  return res;
+  	  	}
 
-        UPMAuthenticationAuthorizationWSSkeletonStub.AddUser user = new UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-        UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd aux = new UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
-        aux.setName(username.getUsername());
-        user.setUser(aux);
-
-        if (this.userID == null) {
-            System.out.println("Por favor, inicia sesión para añadir usuarios.");
-            responseFinal.setResponse(false);
-            aux_final.set_return(responseFinal);
-            return aux_final;
-        }
-        // Verificar si el usuario que llama a esta función es el administrador y que no
-        // esté ya registrado
-        if (iAmRoot()) {
-            response = stub.addUser(user);
-            if (response.get_return().getResult()) {
-                responseFinal.setResponse(true);
-                responseFinal.setPwd(response.get_return().getPassword());
-                aux_final.set_return(responseFinal);
-                usersTotal.add(username);
-
-                System.out.println("Ha añadido al usuario " + username.getUsername() + " con contraseña "
-                        + aux_final.get_return().getPwd() + " exitosamente.");
-                return aux_final;
-            } else {
-                System.out.println("ERROR: usuario con nombre " + username.getUsername() + " ya registrado.");
-                responseFinal.setResponse(false);
-                aux_final.set_return(responseFinal);
-                return aux_final;
-            }
-        } else {
-            System.out.println("Solo el administrador del sistema puede añadir usuarios.");
-            responseFinal.setResponse(false);
-            aux_final.set_return(responseFinal);
-            return aux_final;
-        }
+        if(usuarioRegistrado(addUser.getArgs0().getUsername())) {
+  		  response.setResponse(false);
+  		  res.set_return(response);
+  		  
+  		  return res;
+  	  }
+        
+      es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
+  	  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd(); 
+      // Verificar si el usuario que llama a esta función es el administrador y que no
+      // esté ya registrado
+       
+  	  userBackend.setName(addUser.getArgs0().getUsername());
+	  addUserAuth.setUser(userBackend);
+	  
+	  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = stub.addUser(addUserAuth);
+	  
+	  es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
+	  
+	  response.setResponse(result.getResult());
+	  response.setPwd(result.getPassword());
+	  res.set_return(response);
+	  
+	  return res;
 	}
 	
-	private boolean iAmRoot() {
-        // return same(this.userID, root);
-        boolean result = false;
-        if (rootIsPresent) {
-            same(this.userID, root);
-            result = true;
-        }
-        return result;
-    }
-	
-	private boolean same(User user1, User user2) {
-        return (user1.getName().equals(user2.getName()) &&
-                user1.getPwd().equals(user2.getPwd()));
-    }
-
 	
 	/**
 	 * userAdmin.login(user1)
