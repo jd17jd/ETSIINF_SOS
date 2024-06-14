@@ -461,6 +461,8 @@ public class WineSocialUPMSkeleton {
 		String oldPassword = changePassword.getArgs0().getOldpwd();
 		String newPassword = changePassword.getArgs0().getNewpwd();
 		
+		logger.debug("Evaluo primera condicion...");
+		logger.debug("El user ahora es: " + this.username);
 		//si es admin no paso por el UPMAuth
 		if(username.equals(ADMIN_NAME)) {
 			
