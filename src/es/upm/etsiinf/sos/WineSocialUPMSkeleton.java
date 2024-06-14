@@ -212,7 +212,7 @@ public class WineSocialUPMSkeleton {
 		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
         es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
   	  	es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-  	  
+  	  	/*
         if(!loggeado || !this.username.equals(ADMIN_NAME)) {
   		  response.setResponse(false);
   		  res.set_return(response);
@@ -242,7 +242,10 @@ public class WineSocialUPMSkeleton {
 	  response.setResponse(result.getResult());
 	  response.setPwd(result.getPassword());
 	  res.set_return(response);
-	  
+		
+		*/
+  	  	response.setResponse(true);
+  	  	res.set_return(response);
 	  return res;
 	}
 	
