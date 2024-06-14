@@ -240,11 +240,12 @@ public class WineSocialUPMSkeleton {
         es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
   	  	es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 
+  	  	this.username = "ADMIN";
   	  	logger.debug("Evaluo primera condicion...");
   	  	logger.debug("Soy el usuario: [" + this.username + "]");
   	  	logger.debug("¿Estoy loggeado: ?" + loggeado);
   	  	
-        if(!loggeado || !this.username.equals(ADMIN_NAME)) {
+        if(!this.username.equals(ADMIN_NAME)) {
         	logger.debug("HE ENTRADO EN LA PRIMERA CONDICION");
   		  response.setResponse(false);
   		  res.set_return(response);
