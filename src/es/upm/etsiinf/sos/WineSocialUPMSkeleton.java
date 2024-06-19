@@ -335,8 +335,6 @@ public class WineSocialUPMSkeleton {
 		//comprobar que existe en el sistema
 		if(!usuarioRegistrado(name)) {
 			usuarioActual = null; //vacio
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);
 			logger.debug("El usuario no existe en el sistema :(");
 			return respuestaFinalFuncion;
 		}
