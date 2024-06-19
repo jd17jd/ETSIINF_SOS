@@ -35,7 +35,7 @@ public class WineSocialUPMSkeleton {
 	public static int counter = 0;
 
 	private boolean loggeado = false;
-	private User admin;
+	private static User admin;
 	private User usuarioActual;
 	
 	public static Map<String,User> users;
@@ -324,6 +324,8 @@ public class WineSocialUPMSkeleton {
 		logger.debug("Hace el login el admin...");
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
 			usuarioActual = admin;
+			logger.debug("Setteo el usuario actual como admin");
+			logger.debug("Ahora el usuario actual es: " + usuarioActual.getName());
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 			return respuestaFinalFuncion;
@@ -334,7 +336,7 @@ public class WineSocialUPMSkeleton {
 		logger.debug("Compruebo que el usuario este registrado/exista en el sistema");
 		//comprobar que existe en el sistema
 		if(!usuarioRegistrado(name)) {
-			usuarioActual = null; //vacio
+			usuarioActual = null; //vacioe
 			logger.debug("El usuario no existe en el sistema :(");
 			return respuestaFinalFuncion;
 		}
