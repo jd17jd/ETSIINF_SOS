@@ -352,7 +352,9 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		
-		// PAARAMETROS A PASAR AL BACKEND
+		//SI ESTOY AQUI, PUEDO HACER UN LOGIN NORMAL ->
+		
+		// PARAMETROS A PASAR AL BACKEND
 		upmLoginBackend.setName(name);
 		upmLoginBackend.setPassword(password);
 		
@@ -364,8 +366,11 @@ public class WineSocialUPMSkeleton {
 		loginRespuesta = stub.login(upmLogin);
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd loginResponseBackend = loginRespuesta.get_return();
 		
+		//Obtengo la respuesta del backend en el intento del login
 		response.setResponse(loginResponseBackend.getResult());
-		
+
+		//si el login ha ido bien => entro y pongo al usuario que dirige las operaciones como el usuario loggeado
+		logger.debug("La respuesta del backend al login ha sido: " + loginResponseBackend.getResult());
 		if(loginResponseBackend.getResult()) {
 			User user = users.get(name);
 			if(user == null) {
@@ -374,8 +379,11 @@ public class WineSocialUPMSkeleton {
 				user.setPwd(password);
 				users.put(name, user);
 			}
+			logger.debug("El usuario que ejecuta las operaciones ahora es: " + user.getName());
 			usuarioActual = user;
+		//si el login da error sigo como usuario 'null'
 		}else {
+			logger.debug("El login dio error y sigo siendo usuario 'null'");
 			usuarioActual = null;
 		}
 		respuestaFinalFuncion.set_return(response);
