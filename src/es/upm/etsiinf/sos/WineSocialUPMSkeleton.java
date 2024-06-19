@@ -97,7 +97,7 @@ public class WineSocialUPMSkeleton {
 		  
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  service.existUser(existUser);
-		  
+		
 		result = existResult.get_return().getResult();
 		  
 		return result;
@@ -306,71 +306,79 @@ public class WineSocialUPMSkeleton {
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) throws RemoteException {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();  
-		es.upm.fi.sos.t3.backend.xsd.LoginBackEnd loginBackend = new es.upm.fi.sos.t3.backend.xsd.LoginBackEnd();
 		
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login upmLogin = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd upmLoginBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd();
-		
 		
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 		
-		/*
 		
 		// OBTENGO EL USUARIO Y CONTRASEÑA DEL PARAMETRO
 		User usuario = login.getArgs0();
 		String name = usuario.getName();
-		String password = usuario.getPwd();
+		String password = usuario.getPwd();		
+		
+		//compruebo que soy el admin
+		logger.debug("Hace el login el admin...");
+		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
+			usuarioActual = admin;
+			response.setResponse(true);
+			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
+		}
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		
+		logger.debug("Compruebo que el usuario este registrado/exista en el sistema");
+		//comprobar que existe en el sistema
+		if(!usuarioRegistrado(name)) {
+			usuarioActual = null; //vacio
+			response.setResponse(false);
+			respuestaFinalFuncion.set_return(response);
+			logger.debug("El usuario no existe en el sistema :(");
+			return respuestaFinalFuncion;
+		}
+		
+		logger.debug("El usuario ya esta loggeado previamente");
+		//si el usuario hace login de forma repetida, da igual la contraseña, siempre da true
+		if(usuarioActual != null) {
+			if(usuarioActual.getName().equals(name)) {
+				response.setResponse(true);
+			}
+			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
+		}
+		
 		
 		// PAARAMETROS A PASAR AL BACKEND
-		loginBackend.setName(name);
-		loginBackend.setPassword(password);
+		upmLoginBackend.setName(name);
+		upmLoginBackend.setPassword(password);
 		
+		upmLogin.setLogin(upmLoginBackend);
 		
-		//TODO: EL USUARIO ADMIN NO SE DEBE LOGGEAR ASI (SEGURO??)
-		if (name.equals("admin")) {
-			System.out.println("No está autorizado para iniciar sesión del usuario: '" + name + "'.\n");
-			return respuestaFinalFuncion;
-		}
-
 		// LA COMPROBCION DE EXISTENCIA LO DEVUELVE EL BACKEND
 		// Debemos llamar al backend para ver si da bien o mal (no existe o contraseña incorrecta)
-
-		// COMPROBACION DE USUARIO AUTENTICADO
-		if (loggeado) {
-			boolean value = usuarioActual.equals(name) ? true : false; //por si con sesion activa intenta loggear otro usuario
-			response.setResponse(value);
-			respuestaFinalFuncion.set_return(response);
-			System.out.println("Usuario: '" + name + "' ya autenticado.\n");
-			return respuestaFinalFuncion;
-		}
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse loginRespuesta = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse();
+		loginRespuesta = stub.login(upmLogin);
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd loginResponseBackend = loginRespuesta.get_return();
 		
-		else { // En caso de no estar logeado --> Hacer login
-			upmLoginBackend.setName(name);
-			upmLoginBackend.setPassword(password);
-			
-			usuarioActual = name;
-			this.password = password;
-			this.loggeado = true; //me loggeo
-			
-			upmLogin.setLogin(upmLoginBackend);
-			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse loginRes = service.login(upmLogin);
-
-			response.setResponse(loginRes.get_return().getResult());
-			
-			//si ha ido bien el login => TRUE
-			if(response.getResponse() == true) { // Caso de exito
-				System.out.println("El usuario: '" + name + "' con la contraseña: '" + password +  "'' ha inciado sesión correctamente.\n");
-				respuestaFinalFuncion.set_return(response);
-				return respuestaFinalFuncion;
-
-			} else { // Caso de fallo
-				System.out.println("El usuario: '" + name + "' no se pudo autenticar.\n");
-				return respuestaFinalFuncion;
+		response.setResponse(loginResponseBackend.getResult());
+		
+		if(loginResponseBackend.getResult()) {
+			User user = users.get(name);
+			if(user == null) {
+				user = new User();
+				user.setName(name);
+				user.setPwd(password);
+				users.put(name, user);
 			}
-		}*/
+			usuarioActual = user;
+		}else {
+			usuarioActual = null;
+		}
+		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
 	}
 	
