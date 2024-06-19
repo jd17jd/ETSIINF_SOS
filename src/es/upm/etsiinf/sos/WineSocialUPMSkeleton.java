@@ -36,6 +36,7 @@ public class WineSocialUPMSkeleton {
 
 	private boolean loggeado = false;
 	private static User admin;
+	private static User emptyUser = new User();
 	private User usuarioActual;
 	
 	public static Map<String,User> users;
@@ -50,6 +51,7 @@ public class WineSocialUPMSkeleton {
 		admin.setName(ADMIN_NAME);
 		admin.setPwd(ADMIN_PWD);
 		usuarioActual = new User();
+		usuarioActual = emptyUser;
 		
 		if (users==null){
 			users = new HashMap<String, User>();
