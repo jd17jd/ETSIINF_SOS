@@ -463,6 +463,7 @@ public class WineSocialUPMSkeleton {
 		
 		logger.debug("Evaluo primera condicion...");
 		logger.debug("El user ahora es: " + this.username);
+		
 		//si es admin no paso por el UPMAuth
 		if(username.equals(ADMIN_NAME)) {
 			
