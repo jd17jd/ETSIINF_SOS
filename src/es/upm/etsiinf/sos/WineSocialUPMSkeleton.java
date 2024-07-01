@@ -94,8 +94,10 @@ public class WineSocialUPMSkeleton {
 		username2.setName(username);
 		existUser.setUsername(username2);
 		  
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  service.existUser(existUser);
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUserResponseE existResult =  stub.existUser(existUser);
+		
+		logger.debug("La respuesta del backend es: " + existResult.get_return().getResult());
 		
 		result = existResult.get_return().getResult();
 		  
