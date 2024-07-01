@@ -421,10 +421,6 @@ public class WineSocialUPMSkeleton {
 	 * @param removeUser Objeto con el nombre del usuario a borrar
 	 * @return removeUserResponse Objeto indicando si se ha borrado correctamente
 	 */
-	
-	//System.out.println("No se ha podido eliminar al usuario: '" + nombre_usuario + "' del sistema\n");	
-	//System.out.println("No tienes permisos para borrar el usuario.\n");
-	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) throws RemoteException {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
@@ -472,7 +468,6 @@ public class WineSocialUPMSkeleton {
 		//obtengo el valor devuelto por el backend
 		response.setResponse(removeResponseE.get_return().getResult()); 
 		
-		
 		//COMO YA NO EXISTE, SE BORRA DEL MAPA
 		if(removeResponseE.get_return().getResult()) {
 			logger.debug("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
@@ -480,9 +475,7 @@ public class WineSocialUPMSkeleton {
 		}		
 		return respuestaFinalFuncion;
 	}
-							
 
-	
 	//TODO: Checkear
 	/**
 	 * 
