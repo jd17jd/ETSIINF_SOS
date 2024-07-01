@@ -1,13 +1,13 @@
 <<PRUEBAS LOGIN>> ==> ACABADA
 	
-	FALLOS CUBIERTOS
-	- Usuario no existe en sistema.
+	ERRORES CUBIERTOS
+	- Login de un usuario no registrado
 	- Usuario se loggea varias veces
 	
 	
 	EXITO:
-	- Login admin.
-	- Login de otro usuario.
+	- Login user admin.
+	- Login other user.
 	
 -------------------------------------------------------------
 
