@@ -297,6 +297,8 @@ public class WineSocialUPMSkeleton {
 	 * @return loginResponse Objeto inddicando si se ha loggeado correctamente
 	 */
 	
+	//TODO: HACER LO DE LAS SESIONES
+	
 	//YA FUNCIONA!!
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) throws RemoteException {
 		logger.debug("ESTOY EN EL [LOGIN]");
@@ -394,6 +396,7 @@ public class WineSocialUPMSkeleton {
 	
 	//FUNCIONA!!
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
+		logger.debug("ESTOY EN EL [LOGOUT]");
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
@@ -410,7 +413,7 @@ public class WineSocialUPMSkeleton {
 		return respuestaFinalFuncion;
 	}
 	
-
+	
 	/**
 	 * userAdmin.removeUser(user1) // user1.removeUser(user1)
 	 * Elimina al usuario pasado como parametro del sistema
@@ -420,6 +423,7 @@ public class WineSocialUPMSkeleton {
 	
 	//FUNCIONA!!
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) throws RemoteException {
+		logger.debug("ESTOY EN EL [REMOVE_USER]");
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
@@ -469,7 +473,11 @@ public class WineSocialUPMSkeleton {
 		if(removeResponseE.get_return().getResult()) {
 			logger.debug("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
 			users.remove(nombreUsuarioBorrado);
-		}		
+		}
+		//EL BACKEND ME DEVUELVE FALSE
+		else {
+			logger.debug("No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
+		}
 		return respuestaFinalFuncion;
 	}
 
@@ -481,50 +489,50 @@ public class WineSocialUPMSkeleton {
 	 * @return changePasswordResponse
 	 */
 	public es.upm.etsiinf.sos.ChangePasswordResponse changePassword(es.upm.etsiinf.sos.ChangePassword changePassword) throws RemoteException {
+		logger.debug("ESTOY EN EL [CHANGE_PASSWORD]");
 		ChangePasswordResponse respuestaFinalFuncion = new ChangePasswordResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
-		/*
+		
 		//extraigo cada contraseña por si quisiese imprimirlas
 		String oldPassword = changePassword.getArgs0().getOldpwd();
 		String newPassword = changePassword.getArgs0().getNewpwd();
 		
-		logger.debug("Evaluo primera condicion...");
-		logger.debug("El user ahora es: " + usuarioActual);
-		
-		//si es admin no paso por el UPMAuth
-		if(username.equals(ADMIN_NAME)) {
-			
-			if(password.equals(oldPassword)) {
-				this.password = newPassword;
+		//SI ES EL ADMIN NO LLAMO AL BACKEND, LO CAMBIA "LOCAL"
+		if(usuarioLoggeado.getName().equals(admin.getName())) {
+			if(usuarioLoggeado.getPwd().equals(oldPassword)) { //si la contraseña actual coincide
+				usuarioLoggeado.setPwd(newPassword);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
-				System.out.println("Se ha cambiado la contraseña del admin correctamente!!");
+				logger.debug("Se ha cambiado la contraseña del admin correctamente.");
 			} else {
+				logger.debug("La contraseña no coincide, no se pudo cambiar.");
 				response.setResponse(false);  
 			}
 		}
 		
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub service = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePassword upmChangePassword = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePassword();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordBackEnd upmChangePasswordBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordBackEnd();
 		
-		upmChangePasswordBackend.setName(username);
+		upmChangePasswordBackend.setName(usuarioLoggeado.getName());
 		upmChangePasswordBackend.setNewpwd(newPassword);
 		upmChangePasswordBackend.setOldpwd(oldPassword);
 		upmChangePassword.setChangePassword(upmChangePasswordBackend);
 		  
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordResponseE changeRes = service.changePassword(upmChangePassword);
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordResponseE changeRes = stub.changePassword(upmChangePassword);
 
 		response.setResponse(changeRes.get_return().getResult());
 		
-		//si se ha cambiado correctamente entro (TRUE)
-		if(response.getResponse() == true) {
-			System.out.println("Contraseña cambiada correctamente!!\n");
+		//SI SE HA CAMBIADO CORRECTAMENTE 
+		if(response.getResponse()) {
+			logger.debug("Contraseña cambiada correctamente!!");
+			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 		} else {
+			logger.debug("El backend me devolvió error al intentar cambiar la contraseña");
 			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);	
-		}*/
+		}
 		return respuestaFinalFuncion;
 	}
 	
