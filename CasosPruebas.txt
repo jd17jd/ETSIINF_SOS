@@ -36,11 +36,14 @@
 	
 	FALLOS CUBIERTOS
 	- Admin no se puede borrar.
-	- Usuario no loggeado no se puede borrar.
-	- Solo admin o propio usuario puede borrarse  
+	- UusarioX no puede borrar a UsuarioY.
+	- Solo admin o propio usuario puede borrarse
 	
 	EXITO:
-	- Admin/usuario elimina a un usuario.
+	- Admin elimina a usuario ya existente
+
+	FALLO:
+	- Si usuario no está loggeado, no debe permitir borrar cualquier usuario
 	
 -------------------------------------------------------------
 
