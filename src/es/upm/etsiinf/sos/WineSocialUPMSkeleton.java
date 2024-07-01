@@ -402,11 +402,10 @@ public class WineSocialUPMSkeleton {
 			response.setResponse(false);
 		} else {
 			usuarioLoggeado = null;
+			logger.debug("Has cerrado sesión");
 			response.setResponse(true);
 		}
 		respuestaFinalFuncion.set_return(response);
-		logger.debug("Has cerrado correctamente la sesión.\n");
-		
 		return respuestaFinalFuncion;
 	}
 	
