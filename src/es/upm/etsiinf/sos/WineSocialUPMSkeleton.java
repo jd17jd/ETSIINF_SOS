@@ -315,8 +315,8 @@ public class WineSocialUPMSkeleton {
 		String password = usuario.getPwd();		
 		
 		//compruebo que soy el admin
-		logger.debug("Hace el login el admin...");
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
+			logger.debug("Hace el login el admin...");
 			usuarioLoggeado = admin;
 			logger.debug("Setteo el usuario actual como admin");
 			logger.debug("Ahora el usuario actual es: " + usuarioLoggeado.getName());
@@ -338,10 +338,10 @@ public class WineSocialUPMSkeleton {
 		if(usuarioLoggeado != null) {
 			if(usuarioLoggeado.getName().equals(name)) {
 				logger.debug("El usuario ya esta loggeado previamente");
+				respuestaFinalFuncion.set_return(response);
 				response.setResponse(true);
+				return respuestaFinalFuncion;
 			}
-			respuestaFinalFuncion.set_return(response);
-			return respuestaFinalFuncion;
 		}
 		
 		
