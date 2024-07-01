@@ -36,7 +36,7 @@ public class WineSocialUPMSkeleton {
 
 	private boolean loggeado = false;
 	private static User admin;
-	private static User usuarioLoggeado;
+	private User usuarioLoggeado;
 	
 	public static Map<String,User> users;
 	public static Map<User,FollowerList> followersMap; // KEY: Nombre usuario -- VALUE: lista de seguidores
