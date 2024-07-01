@@ -499,8 +499,8 @@ public class WineSocialUPMSkeleton {
 		
 		//SI ES EL ADMIN NO LLAMO AL BACKEND, LO CAMBIA "LOCAL"
 		if(usuarioLoggeado.getName().equals(admin.getName())) {
-			if(usuarioLoggeado.getPwd().equals(oldPassword)) { //si la contraseña actual coincide
-				usuarioLoggeado.setPwd(newPassword);
+			if(admin.getPwd().equals(oldPassword)) { //si la contraseña actual coincide
+				admin.setPwd(newPassword);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.debug("Se ha cambiado la contraseña del admin correctamente.");
