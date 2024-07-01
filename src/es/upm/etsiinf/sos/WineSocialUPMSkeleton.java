@@ -359,17 +359,12 @@ public class WineSocialUPMSkeleton {
 
 		//SI EL LOGIN HA IDO BIEN
 		if(loginResponseBackend.getResult()) {
-			User user = usersRegistered.get(name);
-			if(user == null) {
-				user = new User();
-				user.setName(name);
-				user.setPwd(password);
-				usersRegistered.put(name, user); // Por qué
-			}
-			userLogged = user;
+			userLogged = usersRegistered.get(name);
 			logger.info("El usuario que ejecuta ahora las operaciones es: " + userLogged.getName());
+
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
+			
 			return respuestaFinalFuncion;
 		}
 		else {
