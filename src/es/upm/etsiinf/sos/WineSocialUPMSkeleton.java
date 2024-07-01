@@ -340,8 +340,8 @@ public class WineSocialUPMSkeleton {
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(userLogged != null) {
 			if(userLogged.getName().equals(name)) {
-				respuestaFinalFuncion.set_return(response);
 				response.setResponse(true);
+				respuestaFinalFuncion.set_return(response);
 				logger.info("Usuario ya loggeado previamente.");
 				return respuestaFinalFuncion;
 			}
@@ -364,17 +364,19 @@ public class WineSocialUPMSkeleton {
 				user = new User();
 				user.setName(name);
 				user.setPwd(password);
-				usersRegistered.put(name, user);
+				usersRegistered.put(name, user); // Por qué
 			}
 			userLogged = user;
 			logger.info("El usuario que ejecuta ahora las operaciones es: " + userLogged.getName());
-		} else {
+			response.setResponse(true);
+			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
+		}
+		else {
 			userLogged = null;
 			logger.error("Error. El login dio error y sigo siendo usuario 'null'");
+			return respuestaFinalFuncion;
 		}
-		
-		respuestaFinalFuncion.set_return(response);
-		return respuestaFinalFuncion;
 	}
 	
 	
