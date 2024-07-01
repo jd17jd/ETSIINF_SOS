@@ -279,7 +279,6 @@ public class WineSocialUPMSkeleton {
 		response.setPwd(result.getPassword());
 
 		//lo devuelto por el backend
-		logger.debug("La respuesta del backend al addUser ha sido: " + result.getResult());
 		if(result.getResult()) {
 			User usuario = new User();
 			usuario.setName(username);

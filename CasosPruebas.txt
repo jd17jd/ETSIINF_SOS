@@ -1,4 +1,4 @@
-<<PRUEBAS LOGIN>>
+<<PRUEBAS LOGIN>> ==> ACABADA
 	
 	FALLOS CUBIERTOS
 	- Usuario no existe en sistema.
@@ -9,13 +9,22 @@
 	- Login admin.
 	- Login de otro usuario.
 	
-	
-<<PRUEBAS AddUSER>>
+-------------------------------------------------------------
+
+<<PRUEBAS AddUSER>> ==> ACABADA
 	
 	FALLOS CUBIERTOS
-	- Usuario no existe en sistema.
-	- Usuario se loggea varias veces
+	- Usuario ya existente en el sistema (registrado)
 	
+	EXITO:
+	- Añadir usuario.
+
+-------------------------------------------------------------
+
+<<PRUEBAS LOGOUT>> ==> ACABADA
+	
+	FALLOS CUBIERTOS
+	- Usuario ya existente en el sistema (registrado)
 	
 	EXITO:
 	- Añadir usuario.
