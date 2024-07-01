@@ -365,7 +365,6 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(loginResponseBackend.getResult());
 
 		//si el login ha ido bien => entro y pongo al usuario que dirige las operaciones como el usuario loggeado
-		logger.debug("La respuesta del backend al login ha sido: " + loginResponseBackend.getResult());
 		if(loginResponseBackend.getResult()) {
 			User user = users.get(name);
 			if(user == null) {
@@ -397,6 +396,13 @@ public class WineSocialUPMSkeleton {
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+		
+		//si no está registrado
+		if(!usuarioRegistrado(usuarioLoggeado.getName())) {
+			response.setResponse(false);
+			logger.debug("El usuario no existe en el sistema :(");
+			return respuestaFinalFuncion;
+		}
 		
 		// COMPROBACION SESION INICIADA (si estoy loggeado (activo), cierro sesion)
 		if(usuarioLoggeado.equals(null)) {
