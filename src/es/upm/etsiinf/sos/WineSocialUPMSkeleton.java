@@ -399,10 +399,11 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION SESION INICIADA (si estoy loggeado (activo), cierro sesion)
 		if(usuarioLoggeado.equals(null)) {
+			logger.debug("No puedes cerrar sesión al no estar loggeado.");
 			response.setResponse(false);
 		} else {
 			usuarioLoggeado = null;
-			logger.debug("Has cerrado sesión");
+			logger.debug("Has cerrado sesión.");
 			response.setResponse(true);
 		}
 		respuestaFinalFuncion.set_return(response);
