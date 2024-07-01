@@ -504,9 +504,11 @@ public class WineSocialUPMSkeleton {
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.debug("Se ha cambiado la contraseña del admin correctamente.");
+				return respuestaFinalFuncion;
 			} else {
 				logger.debug("La contraseña no coincide, no se pudo cambiar.");
-				response.setResponse(false);  
+				response.setResponse(false);
+				return respuestaFinalFuncion;
 			}
 		}
 		
@@ -528,12 +530,13 @@ public class WineSocialUPMSkeleton {
 			logger.debug("Contraseña cambiada correctamente!!");
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
 		} else {
 			logger.debug("El backend me devolvió error al intentar cambiar la contraseña");
 			response.setResponse(false);
 			respuestaFinalFuncion.set_return(response);	
+			return respuestaFinalFuncion;
 		}
-		return respuestaFinalFuncion;
 	}
 	
 	
