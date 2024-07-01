@@ -252,10 +252,12 @@ public class WineSocialUPMSkeleton {
 		String username = addUser.getArgs0().getUsername();
 
 		logger.debug("Evaluo primera condicion...");
-		logger.debug("Soy el usuario: [" + usuarioLoggeado.getName() + "]");
+		
+		logger.debug("Usuario activo: [" + usuarioLoggeado.getName() + "]");
+		logger.debug("Usuario ADMIN: [" + admin.getName() + "]");
 
 		//si no soy admin => false (no puedo añadir usuarios)
-		if(!usuarioLoggeado.getName().equals(ADMIN_NAME)) {
+		if(!usuarioLoggeado.getName().equals(admin.getName())) {
 			logger.error("NO SOY EL ADMIN AQUI");
 			response.setResponse(false);
 			response.setPwd(null);
