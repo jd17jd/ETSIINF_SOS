@@ -61,10 +61,6 @@ public class WineSocialUPMSkeleton {
 		System.out.println("[IMP] Creada instancia: " + counter++);
 	}
 	
-	private void printInstanceHashCode() {
-        logger.debug("Instance HashCode: " + this.hashCode());
-    }
-	
 	//INICIALIZO LOGGER
 	static {
         try {
@@ -247,7 +243,6 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 		
-		printInstanceHashCode();
 		
 		String username = addUser.getArgs0().getUsername();
 
@@ -315,9 +310,7 @@ public class WineSocialUPMSkeleton {
 		
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login upmLogin = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd upmLoginBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd();
-		
-		printInstanceHashCode();
-		
+				
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
