@@ -31,7 +31,7 @@ import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub;
 public class WineSocialUPMSkeleton {
 	
 	public static final String ADMIN_NAME = "admin";
-	public static final String ADMIN_PWD = "admin";
+	public static String ADMIN_PWD = "admin";
 	public static int counter = 0;
 
 	private boolean loggeado = false;
@@ -500,6 +500,7 @@ public class WineSocialUPMSkeleton {
 		//SI ES EL ADMIN NO LLAMO AL BACKEND, LO CAMBIA "LOCAL"
 		if(usuarioLoggeado.getName().equals(admin.getName())) {
 			if(admin.getPwd().equals(oldPassword)) { //si la contraseña actual coincide
+				ADMIN_PWD = newPassword;
 				admin.setPwd(newPassword);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
