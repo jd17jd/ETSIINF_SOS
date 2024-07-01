@@ -355,23 +355,19 @@ public class WineSocialUPMSkeleton {
 		// COMPROBCION DE EXISTENCIA DEVUELTO POR BACKEND
 		loginRespuesta = stub.login(upmLogin);
 		loginResponseBackend = loginRespuesta.get_return();
+
 		response.setResponse(loginResponseBackend.getResult()); //Resultado del backend
+		respuestaFinalFuncion.set_return(response);
 
 		//SI EL LOGIN HA IDO BIEN
 		if(loginResponseBackend.getResult()) {
 			userLogged = usersRegistered.get(name);
-			logger.info("El usuario que ejecuta ahora las operaciones es: " + userLogged.getName());
-
-			response.setResponse(true);
-			respuestaFinalFuncion.set_return(response);
-			
+			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
 		}
-		else {
-			userLogged = null;
-			logger.error("Error. El login dio error y sigo siendo usuario 'null'");
-			return respuestaFinalFuncion;
-		}
+		// userLogged = null; La sesión del usuario en curso (U1) sigue activa.
+		logger.error("Error. No se ha podido iniciar sesión.");
+		return respuestaFinalFuncion;
 	}
 	
 	
