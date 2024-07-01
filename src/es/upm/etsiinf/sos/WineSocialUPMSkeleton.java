@@ -397,17 +397,11 @@ public class WineSocialUPMSkeleton {
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
-		//si no está registrado
-		if(!usuarioRegistrado(usuarioLoggeado.getName())) {
-			response.setResponse(false);
-			logger.debug("El usuario no existe en el sistema :(");
-			return respuestaFinalFuncion;
-		}
-		
 		// COMPROBACION SESION INICIADA (si estoy loggeado (activo), cierro sesion)
 		if(usuarioLoggeado.equals(null)) {
 			response.setResponse(false);
 		} else {
+			usuarioLoggeado = null;
 			response.setResponse(true);
 		}
 		respuestaFinalFuncion.set_return(response);
@@ -471,7 +465,7 @@ public class WineSocialUPMSkeleton {
 		//obtengo el valor devuelto por el backend
 		response.setResponse(removeResponseE.get_return().getResult()); 
 		
-		//COMO YA NO EXISTE, SE BORRA DEL MAPA
+		//COMO YA EXISTE, SE BORRA DEL MAPA
 		if(removeResponseE.get_return().getResult()) {
 			logger.debug("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
 			users.remove(nombreUsuarioBorrado);
@@ -479,6 +473,7 @@ public class WineSocialUPMSkeleton {
 		return respuestaFinalFuncion;
 	}
 
+	
 	//TODO: Checkear
 	/**
 	 * 

@@ -11,7 +11,7 @@
 	
 -------------------------------------------------------------
 
-<<PRUEBAS AddUSER>> ==> ACABADA
+<<PRUEBAS ADD_USER>> ==> ACABADA
 	
 	FALLOS CUBIERTOS
 	- Usuario ya existente en el sistema (registrado)
@@ -25,16 +25,45 @@
 	
 	FALLOS CUBIERTOS
 	- Usuario no existe en el sistema (registrado)
+	- Admin cierra su sesión 
 	
 	EXITO:
-	- Cierra sesión previamente iniciada.
+	- - Usuario cierra su sesión.
 	
 -------------------------------------------------------------
 
-<<PRUEBAS REMOVEUSER>> ==> ACABADA
+<<PRUEBAS REMOVE_USER>> ==> ACABADA
 	
 	FALLOS CUBIERTOS
-	- Usuario no existe en el sistema (registrado)
+	- Admin no se puede borrar.
+	- Usuario no loggeado no se puede borrar.
+	- Solo admin o propio usuario puede borrarse  
 	
 	EXITO:
-	- Cierra sesión previamente iniciada.
+	- Admin/usuario elimina a un usuario.
+	
+-------------------------------------------------------------
+
+<<PRUEBAS CHANGE_PASSWORD>> ==> 
+	
+	FALLOS CUBIERTOS
+	- 
+	- 
+	-   
+	
+	EXITO:
+	- 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
