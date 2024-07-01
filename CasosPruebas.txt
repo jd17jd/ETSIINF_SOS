@@ -1,10 +1,21 @@
-<<PRUEBA 1>>
-	Login:
+<<PRUEBAS LOGIN>>
 	
 	FALLOS CUBIERTOS
 	- Usuario no existe en sistema.
-	- 
+	- Usuario se loggea varias veces
+	
 	
 	EXITO:
 	- Login admin.
 	- Login de otro usuario.
+	
+	
+<<PRUEBAS AddUSER>>
+	
+	FALLOS CUBIERTOS
+	- Usuario no existe en sistema.
+	- Usuario se loggea varias veces
+	
+	
+	EXITO:
+	- Añadir usuario.

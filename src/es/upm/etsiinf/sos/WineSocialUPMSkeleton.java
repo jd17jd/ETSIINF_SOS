@@ -90,6 +90,7 @@ public class WineSocialUPMSkeleton {
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username username2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Username();
 		
+		logger.debug("Compruebo que el usuario existe en el sistema.");
 		username2.setName(username);
 		existUser.setUsername(username2);
 		  
@@ -295,7 +296,7 @@ public class WineSocialUPMSkeleton {
 	 * @return loginResponse Objeto inddicando si se ha loggeado correctamente
 	 */
 	
-	//EN PRINCIPIO YA ESTÁ ARREGLADA
+	//YA FUNCIONA!!
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) throws RemoteException {
 		logger.debug("ESTOY EN EL [LOGIN]");
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
