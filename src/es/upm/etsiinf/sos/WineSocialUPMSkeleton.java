@@ -36,7 +36,7 @@ public class WineSocialUPMSkeleton {
 
 	private boolean loggeado = false;
 	private static User admin;
-	private User usuarioLoggeado;
+	private static User usuarioLoggeado;
 	
 	public static Map<String,User> users;
 	public static Map<User,FollowerList> followersMap; // KEY: Nombre usuario -- VALUE: lista de seguidores
@@ -330,7 +330,7 @@ public class WineSocialUPMSkeleton {
 		//compruebo que soy el admin
 		logger.debug("Hace el login el admin...");
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
-			this.usuarioLoggeado = admin;
+			usuarioLoggeado = admin;
 			logger.debug("Setteo el usuario actual como admin");
 			logger.debug("Ahora el usuario actual es: " + usuarioLoggeado.getName());
 			response.setResponse(true);
