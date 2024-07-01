@@ -443,11 +443,13 @@ public class WineSocialUPMSkeleton {
 		
 		//EL ADMIN NO SE PUEDE BORRAR
 		if(nombreUsuarioBorrado.equals(ADMIN_NAME)) {
+			logger.debug("No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
 		
 		//SI NO ESTOY LOGGEADO NO PUEDO BORRARME
 		if(usuarioLoggeado.equals(null)) {
+			logger.debug("Debes estar loggeado para borrarte.");
 			return respuestaFinalFuncion;
 		}
 		
@@ -471,27 +473,11 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(removeResponseE.get_return().getResult()); 
 		
 		
-		
-		/*
-			
-			response.setResponse(removeResponseE.get_return().getResult());
-			respuestaFinalFuncion.set_return(response); //False en incio
-			System.out.println("Se ha eliminado al usuario: '" + nombre_usuario + "' del sistema\n");
-			//TODO: REVISAR ESTO PRQ NOSOTROS TENDRIAMOS QUE BORRARLO DE FOLLOWERS
-			//si se ha eliminado bien tendria que borrarse su lista de seguidores (prq ya no existe)
-			if(removeResponseE.get_return().getResult()){
-				  WineSocialUPMSkeleton.followersMap.remove(nombre_usuario);
-			}			
-		} else {
-			
-			return respuestaFinalFuncion;
-		}
-		
-		//EL USUARIO ADMIN NO SE PUEDE BORRAR
-		if (nombre_usuario.equals("admin")) {
-			System.out.println("No está autorizado para eliminar el usuario: '" + nombre_usuario + "'.\n");
-			return respuestaFinalFuncion;
-		}*/			
+		//COMO YA NO EXISTE, SE BORRA DEL MAPA
+		if(removeResponseE.get_return().getResult()) {
+			logger.debug("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
+			users.remove(nombreUsuarioBorrado);
+		}		
 		return respuestaFinalFuncion;
 	}
 							
