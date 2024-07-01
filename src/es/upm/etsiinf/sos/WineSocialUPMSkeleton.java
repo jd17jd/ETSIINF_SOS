@@ -237,18 +237,14 @@ public class WineSocialUPMSkeleton {
 	 * @throws RemoteException 
 	 */
 	
-	//EN PRINCIPIO YA ESTÁ ARREGLADA
+	//FUNCIONA!!
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
+		logger.debug("ESTOY EN EL [ADDUSER]");
 		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
 		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 		
 		String username = addUser.getArgs0().getUsername();
-
-		logger.debug("Evaluo primera condicion...");
-		
-		logger.debug("Usuario activo: [" + usuarioLoggeado.getName() + "]");
-		logger.debug("Usuario ADMIN: [" + admin.getName() + "]");
 
 		//si no soy admin => false (no puedo añadir usuarios)
 		if(!usuarioLoggeado.getName().equals(admin.getName())) {
@@ -258,9 +254,6 @@ public class WineSocialUPMSkeleton {
 			res.set_return(response);
 			return res;
 		}
-
-		logger.debug("Evaluo segunda condicion...");
-		logger.debug("Usuario argumento pasado: [" +  username + "]");
 
 		// Verificar si el usuario que llama a esta función es el administrador y que no este ya registrado
 		if(usuarioRegistrado(username)) {
@@ -283,6 +276,7 @@ public class WineSocialUPMSkeleton {
 		response.setPwd(result.getPassword());
 
 		//lo devuelto por el backend
+		logger.debug("La respuesta del backend al addUser ha sido: " + result.getResult());
 		if(result.getResult()) {
 			User usuario = new User();
 			usuario.setName(username);
@@ -303,6 +297,7 @@ public class WineSocialUPMSkeleton {
 	
 	//EN PRINCIPIO YA ESTÁ ARREGLADA
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) throws RemoteException {
+		logger.debug("ESTOY EN EL [LOGIN]");
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();  
 		
@@ -332,7 +327,6 @@ public class WineSocialUPMSkeleton {
 
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
 		
-		logger.debug("Compruebo que el usuario este registrado/exista en el sistema");
 		//comprobar que existe en el sistema
 		if(!usuarioRegistrado(name)) {
 			usuarioLoggeado = null; //vacioe
@@ -340,10 +334,10 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		logger.debug("El usuario ya esta loggeado previamente");
 		//si el usuario hace login de forma repetida, da igual la contraseña, siempre da true
 		if(usuarioLoggeado != null) {
 			if(usuarioLoggeado.getName().equals(name)) {
+				logger.debug("El usuario ya esta loggeado previamente");
 				response.setResponse(true);
 			}
 			respuestaFinalFuncion.set_return(response);
@@ -381,7 +375,7 @@ public class WineSocialUPMSkeleton {
 			logger.debug("El usuario que ejecuta las operaciones ahora es: " + user.getName());
 			usuarioLoggeado = user;
 		//si el login da error sigo como usuario 'null'
-		}else {
+		} else {
 			logger.debug("El login dio error y sigo siendo usuario 'null'");
 			usuarioLoggeado = null;
 		}
@@ -397,7 +391,7 @@ public class WineSocialUPMSkeleton {
 	 * @return logoutResponse Objeto indicando si se ha cerrado correctamente la sesion
 	 */
 	
-	//EN PRINCIPIO YA ESTÁ ARREGLADA
+	//FUNCIONA!!
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
@@ -421,7 +415,8 @@ public class WineSocialUPMSkeleton {
 	 * @param removeUser Objeto con el nombre del usuario a borrar
 	 * @return removeUserResponse Objeto indicando si se ha borrado correctamente
 	 */
-	//EN PRINCIPIO YA ESTÁ ARREGLADA
+	
+	//FUNCIONA!!
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) throws RemoteException {
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();

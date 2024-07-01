@@ -1,0 +1,10 @@
+<<PRUEBA 1>>
+	Login:
+	
+	FALLOS CUBIERTOS
+	- Usuario no existe en sistema.
+	- 
+	
+	EXITO:
+	- Login admin.
+	- Login de otro usuario.
