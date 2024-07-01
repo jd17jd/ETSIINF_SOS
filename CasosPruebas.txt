@@ -54,7 +54,8 @@
 	-   
 	
 	EXITO:
-	- 
+	- Admin cambia su contraseña
+	- Usuario cambia su contraseña
 	
 	
 	

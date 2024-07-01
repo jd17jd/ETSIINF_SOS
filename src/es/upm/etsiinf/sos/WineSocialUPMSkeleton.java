@@ -509,6 +509,7 @@ public class WineSocialUPMSkeleton {
 			} else {
 				logger.debug("La contraseña no coincide, no se pudo cambiar.");
 				response.setResponse(false);
+				respuestaFinalFuncion.set_return(response);
 				return respuestaFinalFuncion;
 			}
 		}
