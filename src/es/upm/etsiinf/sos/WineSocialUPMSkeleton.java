@@ -243,7 +243,6 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 		
-		
 		String username = addUser.getArgs0().getUsername();
 
 		logger.debug("Evaluo primera condicion...");
@@ -259,7 +258,6 @@ public class WineSocialUPMSkeleton {
 			res.set_return(response);
 			return res;
 		}
-
 
 		logger.debug("Evaluo segunda condicion...");
 		logger.debug("Usuario argumento pasado: [" +  username + "]");
@@ -452,7 +450,7 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
-		if(!usuarioLoggeado.equals(users.get(nombreUsuarioBorrado)) && !usuarioLoggeado.equals(admin)) {
+		if(!usuarioLoggeado.equals(users.get(nombreUsuarioBorrado)) && (!usuarioLoggeado.getName().equals(admin.getName()))) {
 			logger.debug("Debes ser admin o el usuario a borrar.");
 			return respuestaFinalFuncion;
 		}
