@@ -17,6 +17,7 @@ public class Main {
 		
 		try {
 			cliente = new Cliente();
+			System.out.println("Cliente creado con hashCode: " + cliente.hashCode());
 			
 			while(true) {
 				printMenu();
@@ -100,21 +101,23 @@ public class Main {
 	}
 	
 	public static void addUser() {
-		System.out.println("Escribe el nombre del nuevo usuario...");
-		String name = leeString();
-		
-		try {
-			AddUserResponse res = cliente.addUser(name);
-			
-			if(res.getResponse()) {
-				System.out.println("Creado usuario con contraseña: " + res.getPwd());
-			} else {
-				System.out.println("Error al crear el usuario");
-			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
+        System.out.println("Escribe el nombre del nuevo usuario...");
+        String name = leeString();
+
+        try {
+            System.out.println("Cliente hashCode antes de addUser: " + cliente.hashCode());
+            AddUserResponse res = cliente.addUser(name);
+            System.out.println("Cliente hashCode después de addUser: " + cliente.hashCode());
+
+            if (res.getResponse()) {
+                System.out.println("Creado usuario con contraseña: " + res.getPwd());
+            } else {
+                System.out.println("Error al crear el usuario");
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 	
 	
 	public static void login() {
