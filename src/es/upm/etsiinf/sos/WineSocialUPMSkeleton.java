@@ -391,6 +391,12 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
+		// COMPROBACION USUARIO EXISTENTE
+		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
+			logger.error("Error. El usuario no existe en el sistema.");
+			return respuestaFinalFuncion;
+		}
+		
 		
 		User usuario = usersRegistered.get(nombreUsuarioBorrado);
 		
