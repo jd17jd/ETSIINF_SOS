@@ -15,7 +15,10 @@
 	
 	ERRORES CUBIERTOS
 	- Usuario ya existente en el sistema
+	- Registrar a un usuario sin estar loggeado como admin
 	- Registrar a otro usuario con otro user no admin
+	- Registrar a un user que ya existe
+
 	
 	EXITO:
 	- Añadir usuario.
