@@ -511,6 +511,7 @@ public class WineSocialUPMSkeleton {
 	 * @throws RemoteException 
 	 */
 	public es.upm.etsiinf.sos.AddFollowerResponse addFollower(es.upm.etsiinf.sos.AddFollower addFollower) throws RemoteException {
+		logger.debug("METODO: [ADD_FOLLOWER]");
 		AddFollowerResponse respuestaFinalFuncion = new AddFollowerResponse();
 		Response response = new Response();
 
