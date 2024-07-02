@@ -240,12 +240,12 @@ public class WineSocialUPMSkeleton {
 	 * @return AddUserResponse: Objeto que contiene la contraseña + booleano de exito de operacion
 	 * @throws RemoteException 
 	 */
-/* 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
+ 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
 		logger.debug("FUNCION: [ADDUSER]");
 		es.upm.etsiinf.sos.AddUserResponse respuestaFinalFuncion = new es.upm.etsiinf.sos.AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
 
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
 		
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser stubAddUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd stubUserBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
@@ -257,7 +257,6 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		response.setPwd(null);
 		respuestaFinalFuncion.set_return(response);
-
 
 		String username = addUser.getArgs0().getUsername();
 
@@ -281,6 +280,7 @@ public class WineSocialUPMSkeleton {
 
 		response.setResponse(stubAddUserResponseBackend.getResult());
 		response.setPwd(stubAddUserResponseBackend.getPassword());
+		respuestaFinalFuncion.set_return(response);
 
 		// SI HA IDO BIEN, LO AÑADO AL MAPA
 		if(stubAddUserResponseBackend.getResult()) {
@@ -289,14 +289,13 @@ public class WineSocialUPMSkeleton {
 			usuario.setPwd(stubAddUserResponseBackend.getPassword());
 			usersRegistered.put(username, usuario);
 			logger.info("Usuario: '" + username + "' añadido con éxito.");
-
+			return respuestaFinalFuncion;
 		}
 		logger.error("Error. No se pudo añadir al usuario: '" + username + "'.");
-
-		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
-	} */
-	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
+	}
+
+	/* public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
 		logger.debug("ESTOY EN EL [ADDUSER]");
 		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
 		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
@@ -342,7 +341,7 @@ public class WineSocialUPMSkeleton {
 		}
 		res.set_return(response);
 		return res;
-	}
+	} */
 	
 
 	/**
