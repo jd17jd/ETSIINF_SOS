@@ -1,0 +1,108 @@
+RESULTADO REMOVE: true
+********************** TEST 1 (value: 1)**********************
+El admin se logea, cambia la contraseña, log out y login con la nueva
+Result admin login (exp true) : true
+Result admin changePwd (exp true) : true
+Result admin login (exp true) : true
+Result admin changePwd AGAIN (exp true) : true
+Result admin logout  (exp true) : true
+
+SUCCESS
+********************** TEST 2 (value: 1)**********************
+El admin se logea, añade dos usuarios iguales, el segundo debe fallar, y luego logout
+Result admin login (exp true) : true
+Result add user (exp true) : true
+Result add user (exp false because user already exist) : false
+
+SUCCESS
+********************** TEST 6 (value: 1)**********************
+user2 login (falla), admin login, crea user2, user2 login otro st, remove user1 (falla), admin borra user1 (ok) borra user que no existe (falla)
+Result user login (exp false becuase user not registered) : false
+Result admin login (exp true) : true
+Result add user2 (exp true) : true
+Result user2 login (exp true) : true
+Result user2 deletes user1 (exp false becuase not allowed) : false
+Result admin deletes user1 (exp true) : false
+Result admin deletes user500 (exp false bacause user500 didn't exist) : false
+
+FAIL
+********************** TEST 8 (value: 1)**********************
+user2 login st1 y st2, st1 logout, changpwd en st1 (fail), changpwd en st2
+Result user2 login con stub1 (exp true) : true
+Result user2 login con stub2 (exp true) : true
+Result user2 change pwd con stub1 (exp false because user2 has logout on stub1-session) : false
+Result user2 change pwd con stub2 (exp true) : false
+
+FAIL
+********************** TEST 10 (value: 1)**********************
+user2 login 2 veces en st1, logout, admin login st1 (fail), logout, admin login st1 (ok)
+Result user2 login (exp true) : false
+Result user2 login (exp true) : false
+Result user2 logout (exp true) : false
+Result admin login en mismo stub (exp false) : true
+Result user2 logout (exp true) : true
+Result admin login en mismo stub (exp true) : true
+
+FAIL
+********************** TEST 11 (value: 1)**********************
+user2 login st1, admin login st2, admin borrar user2, st1 hacer login user2 (fail)
+Result user2 login (exp true) : false
+Result admin login (exp true) : true
+Result admin deletes user2 (exp true): false
+Result user2 login (exp fail) cause was removed : false
+
+FAIL
+********************** TEST 14 (value: 1)**********************
+admin crea usuer11, user11 se logea en dos stubs, st1 y st2, en uno se borra y en otro no debe permitir hacer nada.
+Result admin login (exp true) : true
+Result admin create user11 (exp true) : true
+Result user11 login (exp true) : true
+Result user11 login en otro stub (exp true) : true
+Result user11 deletes user11 en stub11(exp true) : true
+Result user login en stub2 (exp false) : false
+
+SUCCESS
+********************** TEST 15 (value: 1)**********************
+admin crea user4, user4 addF user 5 en st2 (fail), user4 login en st2, user4 addFol user5 (fail), admin crear user5, use4 añade al user5 (ok)
+Result admin login (exp true) : true
+Result admin create user4 (exp true) : true
+Result user4 addfollower user5 (exp false) : false
+Result user4 login (exp true) : true
+Result user4 addfollower user5 (exp false) : false
+Result admin create user5 (exp true) : false
+Result user4 addfollower user5 (exp true) : false
+
+FAIL
+********************** TEST 16 (value: 1)**********************
+user4 log en st1 y getFollower, ok y user5. user5 logea en st2 y getfollowers, ok y nada.
+Result user4 login (exp true) : true
+catch RemoteException with message: unknown
+FAILED
+********************** TEST 18 (value: 1)**********************
+admin login, admin addW vino 1; ok, getWines; ok y vino1. addW vino2, getWines; ok y vino2-vino1	vinos en un stub
+Result admin login (exp true) : true
+catch RemoteException with message: unknown
+FAILED
+********************** TEST 19 (value: 1)**********************
+admin login, admin addW vino3 y vino4 en stb1. Login de otro user en st2 y getW en orden correcto
+Result admin login (exp true) : true
+catch RemoteException with message: unknown
+FAILED
+********************** TEST 24 (value: 1)**********************
+admin login, crea user8 y user9. user8 log en st1 y user9 en st2. user8 sigue a user9, user8 getfollowerrates; ok. User9 puntua vino1 y vino3. user8 getfollowerRates de user9; ok y vino3-1
+Result admin login (exp true) : true
+Result admin create user8 (exp true) : true
+Result admin create user9 (exp true) : true
+Result user8 login en st1 (exp true) : true
+Result user9 login en st2 (exp true) : true
+catch RemoteException with message: unknown
+FAILED
+********************** TEST 25 (value: 1)**********************
+admin login y borra user9, user8 log en st2, getfollowers, ok y vacio, getfollowersRates, false
+Result admin login (exp true) : true
+Result admin deletes user9 (exp true) : true
+Result user8 login en st1 (exp true) : true
+catch RemoteException with message: unknown
+FAILED
+***********************************RESULT******************************
+Total superadas Validador* : 3.0

@@ -107,3 +107,761 @@ DEBUG - Ahora el usuario actual es: admin
 DEBUG - Evaluo primera condicion...
 DEBUG - Soy el usuario: [null]
 ERROR - NO SOY EL ADMIN AQUI
+DEBUG - Instance HashCode: 1569855200
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Instance HashCode: 419587138
+DEBUG - Evaluo primera condicion...
+DEBUG - Soy el usuario: [admin]
+ERROR - NO SOY EL ADMIN AQUI
+DEBUG - Instance HashCode: 770379599
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Instance HashCode: 748602942
+DEBUG - Evaluo primera condicion...
+DEBUG - Soy el usuario: [admin]
+ERROR - NO SOY EL ADMIN AQUI
+DEBUG - Instance HashCode: 304752000
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Instance HashCode: 1779772986
+DEBUG - Evaluo primera condicion...
+DEBUG - Soy el usuario: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [pepe]
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Instance HashCode: 1351709286
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Instance HashCode: 232668564
+DEBUG - Evaluo primera condicion...
+DEBUG - Soy el usuario: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [piolin]
+DEBUG - Debes ser admin o el usuario a borrar.
+DEBUG - Debes ser admin o el usuario a borrar.
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [piolin]
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - Debes ser admin o el usuario a borrar.
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [piolin]
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [juanito]
+DEBUG - Usuario: 'juanito' borrado con exito.
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [piolin]
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [test1u1]
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [test1u1]
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario no existe en el sistema :(
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [test1u1]
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [test1u1]
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario no existe en el sistema :(
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [test1u2]
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario ya esta loggeado previamente
+DEBUG - Usuario: 'test1u1' borrado con exito.
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario ya esta loggeado previamente
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario ya esta loggeado previamente
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario no existe en el sistema :(
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario ya esta loggeado previamente
+DEBUG - La respuesta del backend al login ha sido: false
+DEBUG - El login dio error y sigo siendo usuario 'null'
+DEBUG - Evaluo primera condicion...
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - Evaluo primera condicion...
+DEBUG - Usuario activo: [admin]
+DEBUG - Usuario ADMIN: [admin]
+DEBUG - Evaluo segunda condicion...
+DEBUG - Usuario argumento pasado: [pablito]
+DEBUG - Hace el login el admin...
+DEBUG - Compruebo que el usuario este registrado/exista en el sistema
+DEBUG - El usuario ya esta loggeado previamente
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - La respuesta del backend al addUser ha sido: true
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - La respuesta del backend al addUser ha sido: true
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - La respuesta del backend al login ha sido: true
+DEBUG - El usuario que ejecuta las operaciones ahora es: j1
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - El usuario ya esta loggeado previamente
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - El usuario no existe en el sistema :(
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - La respuesta del backend al addUser ha sido: true
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El usuario ya existe en el sistema, no se crea
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - La respuesta del backend al addUser ha sido: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - La respuesta del backend al addUser ha sido: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - La respuesta del backend al addUser ha sido: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - La respuesta del backend al login ha sido: true
+DEBUG - El usuario que ejecuta las operaciones ahora es: antonio1
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El usuario que ejecuta las operaciones ahora es: jd
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - Has cerrado correctamente la sesión.
+
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - Usuario: 'jd3jd' borrado con exito.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - No se puede borrar al admin.
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - No se puede borrar al admin.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - Usuario: 'antonioo' borrado con exito.
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El login dio error y sigo siendo usuario 'null'
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El usuario que ejecuta las operaciones ahora es: antonioo
+DEBUG - Usuario: 'antonioo' borrado con exito.
+DEBUG - ESTOY EN EL [ADDUSER]
+ERROR - NO SOY EL ADMIN AQUI
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El usuario que ejecuta las operaciones ahora es: antonioa
+DEBUG - Debes ser admin o el usuario a borrar.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - El backend me devolvió error al intentar cambiar la contraseña
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El login dio error y sigo siendo usuario 'null'
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El login dio error y sigo siendo usuario 'null'
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - La contraseña no coincide, no se pudo cambiar.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: false
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - La contraseña no coincide, no se pudo cambiar.
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El usuario que ejecuta las operaciones ahora es: luisillo
+DEBUG - ESTOY EN EL [CHANGE_PASSWORD]
+DEBUG - Contraseña cambiada correctamente!!
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Compruebo que el usuario existe en el sistema.
+DEBUG - La respuesta del backend es: true
+DEBUG - El login dio error y sigo siendo usuario 'null'
+DEBUG - ESTOY EN EL [LOGIN]
+DEBUG - Hace el login el admin...
+DEBUG - Setteo el usuario actual como admin
+DEBUG - Ahora el usuario actual es: admin
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: false
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Respuesta del backend: false
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+INFO - El usuario que ejecuta ahora las operaciones es: sergio
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+INFO - Usuario ya loggeado previamente.
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+INFO - Usuario ya loggeado previamente.
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: false
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Respuesta del backend: false
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+INFO - El usuario que ejecuta ahora las operaciones es: sergyy
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: false
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Respuesta del backend: false
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+ERROR - Error. El login dio error y sigo siendo usuario 'null'
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: false
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Respuesta del backend: false
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+ERROR - Error. No se ha podido iniciar sesión.
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: false
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [ADDUSER]
+DEBUG - Respuesta del backend: false
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'jiji' añadido con éxito.
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'jojo' añadido con éxito.
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'hah' añadido con éxito.
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - Respuesta del backend: true
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - FUNCION: [LOGIN]
+DEBUG - Respuesta del backend: true
+INFO - Sesion iniciada con éxito. Usuario actual es: hah
+DEBUG - FUNCION: [ADDUSER]
+ERROR - Error. No tienes permisos para añadir usuarios. Se debe ser administrador.
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'koko' añadido con éxito.
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - ESTOY EN EL [LOGOUT]
+DEBUG - Has cerrado sesión.
+DEBUG - FUNCION: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - FUNCION: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'jako' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'jj' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No se puede borrar al admin.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'jj' borrado con exito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'jj' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Respuesta del backend: false
+INFO - Usuario: 'jm' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Respuesta del backend: true
+INFO - Sesion iniciada con éxito. Usuario actual es: jj
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. Debes estar loggeado como admin o el usuario que quieres borrar.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'jj' borrado con exito.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'kiki' añadido con éxito.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'kiki' borrado con exito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'kiki' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. La contraseña no coincide, no se pudo cambiar.
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: kiki
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Contraseña cambiada correctamente!!
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Contraseña cambiada correctamente!!
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No se pudo cambiar la contraseña.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'kk' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'jj' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: jj
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No se pudo borrar al usuario: 'test1u2
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u4' añadido con éxito.
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No tienes permisos para añadir usuarios. Se debe ser administrador.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u9' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u9
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u9' borrado con exito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
