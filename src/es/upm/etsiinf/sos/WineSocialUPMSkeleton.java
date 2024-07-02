@@ -261,7 +261,7 @@ public class WineSocialUPMSkeleton {
 		String username = addUser.getArgs0().getUsername();
 
 		// COMPROBACION ADMIN
-		if(!userLogged.getName().equals(admin.getName())) {
+		if(!userLogged.getName().equals(admin.getName()) || userLogged.equals(null)) {
 			logger.error("Error. No tienes permisos para añadir usuarios. Se debe ser administrador.");
 			return respuestaFinalFuncion;
 		}
@@ -294,54 +294,6 @@ public class WineSocialUPMSkeleton {
 		logger.error("Error. No se pudo añadir al usuario: '" + username + "'.");
 		return respuestaFinalFuncion;
 	}
-
-	/* public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		logger.debug("ESTOY EN EL [ADDUSER]");
-		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
-		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
-		
-		String username = addUser.getArgs0().getUsername();
-
-		//si no soy admin => false (no puedo añadir usuarios)
-		if(!userLogged.getName().equals(admin.getName())) {
-			logger.error("NO SOY EL ADMIN AQUI");
-			response.setResponse(false);
-			response.setPwd(null);
-			res.set_return(response);
-			return res;
-		}
-
-		// Verificar si el usuario que llama a esta función es el administrador y que no este ya registrado
-		if(usuarioRegistrado(username)) {
-			logger.debug("El usuario ya existe en el sistema, no se crea");
-			response.setResponse(false);
-			response.setPwd(null);
-			res.set_return(response);
-			return res;
-		}
-
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd(); 
-		userBackend.setName(username);
-		addUserAuth.setUser(userBackend);
-
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = stub.addUser(addUserAuth);
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
-
-		response.setResponse(result.getResult());
-		response.setPwd(result.getPassword());
-
-		//lo devuelto por el backend
-		if(result.getResult()) {
-			User usuario = new User();
-			usuario.setName(username);
-			usuario.setPwd(result.getPassword());
-			usersRegistered.put(username, usuario);
-		}
-		res.set_return(response);
-		return res;
-	} */
 	
 
 	/**

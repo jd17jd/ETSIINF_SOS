@@ -13,8 +13,9 @@
 
 < PRUEBAS ADD_USER > ==> TERMINADO
 	
-	FALLOS CUBIERTOS
-	- Usuario ya existente en el sistema (registrado)
+	ERRORES CUBIERTOS
+	- Usuario ya existente en el sistema
+	- Registrar a otro usuario con otro user no admin
 	
 	EXITO:
 	- Añadir usuario.
