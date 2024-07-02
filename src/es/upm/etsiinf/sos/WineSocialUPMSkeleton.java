@@ -357,7 +357,7 @@ public class WineSocialUPMSkeleton {
 	 * @return removeUserResponse Objeto indicando si se ha borrado correctamente
 	 */
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) throws RemoteException {
-		/*logger.debug("METODO: [REMOVE_USER]");
+		logger.debug("METODO: [REMOVE_USER]");
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
@@ -411,53 +411,6 @@ public class WineSocialUPMSkeleton {
 
 		logger.error("Error. No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
 		return respuestaFinalFuncion;
-		*/
-		RemoveUserResponse response = new RemoveUserResponse();
-		es.upm.etsiinf.sos.model.xsd.Response response2 = new es.upm.etsiinf.sos.model.xsd.Response();
-		String name = removeUser.getArgs0().getUsername();
-		if ((!userLogged.getName().equals(admin.getName()) && !userLogged.getName().equals(usersRegistered.get(name)))){
-			response2.setResponse(false);
-			response.set_return(response2);
-			return response;
-		}
-		if (name.equals("admin")) {
-			response2.setResponse(false);
-			response.set_return(response2);
-			return response;
-		}
-		if (!usersRegistered.containsKey(name)) {
-			response2.setResponse(false);
-			response.set_return(response2);
-			return response;
-		}
-		if (userLogged.equals(null)) {
-			response2.setResponse(false);
-			response.set_return(response2);
-			return response;
-		}
-		User user = usersRegistered.get(name);
-		System.out.println(user.getName()+"   "+user.getPwd());
-		UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUser removeUser2 = new UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUser();
-		removeUser2.setName(name);
-		removeUser2.setPassword(user.getPwd());
-		UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserE removeUserE = new UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserE();
-		removeUserE.setRemoveUser(removeUser2);
-
-		try {
-			es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-			UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserResponseE responseE = new UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserResponseE();
-			responseE = stub.removeUser(removeUserE);
-			UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserResponse response3 = responseE.get_return();
-			response2.setResponse(response3.getResult());
-			if (response3.getResult()) {
-				usersRegistered.remove(name);
-			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			response2.setResponse(false);
-		}
-		response.set_return(response2);
-		return response;
 	}
 
 	/**
