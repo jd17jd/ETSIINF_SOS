@@ -684,25 +684,25 @@ public class WineSocialUPMSkeleton {
 		vino = addWine.getArgs0();
 		
 		// INICIALIZACION RESPUESTA
-		response.setResponse(true);
+		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		//if(usuarioActual.equals(ADMIN_NAME)) {
+		if(userLogged.getName().equals(admin.getName())) {
 			if(!existeVino(vino)) {
 				winesList.add(vino); 
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
-				System.out.println("Se ha añadido el vino: '" + vino.getName() + "' con éxito.\n");
+				logger.debug("Se ha añadido el vino: '" + vino.getName() + "' con éxito.");
 			} else {
-				System.out.println("El vino: '" + vino.getName() + "' con: \n" +
+				logger.debug("El vino: '" + vino.getName() + "' con: \n" +
 				"\t\tTipo de uva: " + vino.getGrape() + "\n" +
 				"\t\tAño: " + vino.getYear() + "\n" +
 				"ya existe en la red social.\n");
 				return respuestaFinalFuncion;
 			}
-		//} else
-			//System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
+		} else
+			logger.debug("No tienes permisos para crear vinos. Se debe ser administrador.");
 		return respuestaFinalFuncion;
 	}
 
@@ -723,9 +723,9 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		if(userLogged.equals(ADMIN_NAME)) {
+		if(userLogged.getName().equals(admin.getName())) {
 			if(!existeVino(vinoBorrado)) {
-				System.out.println("El vino: '" + vinoBorrado.getName() + "' con: \n" +
+				logger.debug("El vino: '" + vinoBorrado.getName() + "' con: \n" +
 				"\t\tTipo de uva: " + vinoBorrado.getGrape() + "\n" +
 				"\t\tAño: " + vinoBorrado.getYear() + "\n" +
 				"no existe en la red social.\n");
@@ -734,11 +734,11 @@ public class WineSocialUPMSkeleton {
 				winesList.remove(vinoBorrado);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
-				System.out.println("Se ha borrado el vino: '" + vinoBorrado.getName() + "' con éxito.\n");
+				logger.debug("Se ha borrado el vino: '" + vinoBorrado.getName() + "' con éxito.");
 				return respuestaFinalFuncion;
 			}
 		} else
-			System.out.println("No tienes permisos para crear vinos. Se debe ser administrador.\n");
+			logger.debug("No tienes permisos para crear vinos. Se debe ser administrador.");
 		return respuestaFinalFuncion;
 	}
 
@@ -786,7 +786,6 @@ public class WineSocialUPMSkeleton {
 			listaVinos.setYears(años);
 			listaVinos.setResult(true);
 			respuestaFinalFuncion.set_return(listaVinos);
-
 			return respuestaFinalFuncion;
 		}
 		else 
@@ -816,7 +815,6 @@ public class WineSocialUPMSkeleton {
 		vino.setName(vinoPuntuado.getName());
 		vino.setGrape(vinoPuntuado.getGrape());
 		vino.setYear(vinoPuntuado.getYear());
-		
 		
 		// COMPROBACION DE LOGGEADO
 		if (userLogged != null) {
@@ -929,7 +927,6 @@ public class WineSocialUPMSkeleton {
 		}
 		else 
 		 	logger.error("Error. Para ver los vinos debes haber iniciado sesión previamente.");
-
 		return respuestaFinalFuncion;
 	}
 
@@ -943,6 +940,8 @@ public class WineSocialUPMSkeleton {
 	 * @return getMyFollowerRatesResponse
 	 */
 
+	//TODO: REVISAR EL GET DEL MAPA DE 'userRatedMap'
+	
 	public es.upm.etsiinf.sos.GetMyFollowerRatesResponse getMyFollowerRates(es.upm.etsiinf.sos.GetMyFollowerRates getMyFollowerRates) {
 		GetMyFollowerRatesResponse respuestaFinalFuncion = new GetMyFollowerRatesResponse();
 		Username username = getMyFollowerRates.getArgs0();
