@@ -241,56 +241,60 @@ public class WineSocialUPMSkeleton {
 	 * @throws RemoteException 
 	 */
 	public es.upm.etsiinf.sos.AddUserResponse addUser(es.upm.etsiinf.sos.AddUser addUser) throws RemoteException {
-		logger.debug("ESTOY EN EL [ADDUSER]");
-		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.etsiinf.sos.AddUserResponse res = new es.upm.etsiinf.sos.AddUserResponse();
+		logger.debug("FUNCION: [ADDUSER]");
+		AddUserResponse respuestaFinalFuncion = new AddUserResponse();
 		es.upm.etsiinf.sos.model.xsd.AddUserResponse response = new es.upm.etsiinf.sos.model.xsd.AddUserResponse();
+
+		UPMAuthenticationAuthorizationWSSkeletonStub stub = new UPMAuthenticationAuthorizationWSSkeletonStub();
 		
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser stubAddUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd stubUserBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd();
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse stubAddUserResponse = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd stubAddUserResponseBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd();
+
+		// INICIALIZACION RESPUESTA
+		response.setResponse(false);
+		response.setPwd(null);
+		respuestaFinalFuncion.set_return(response);
+
+
 		String username = addUser.getArgs0().getUsername();
 
-		//si no soy admin => false (no puedo añadir usuarios)
+		// COMPROBACION ADMIN
 		if(!userLogged.getName().equals(admin.getName())) {
-			logger.error("NO SOY EL ADMIN AQUI");
-			response.setResponse(false);
-			response.setPwd(null);
-			res.set_return(response);
-			return res;
+			logger.error("Error. No tienes permisos para añadir usuarios. Se debe ser administrador.");
+			return respuestaFinalFuncion;
 		}
 
-		// Verificar si el usuario que llama a esta función es el administrador y que no este ya registrado
+		// COMPROBACION USUARIO YA REGISTRADO
 		if(usuarioRegistrado(username)) {
-			logger.debug("El usuario ya existe en el sistema, no se crea");
-			response.setResponse(false);
-			response.setPwd(null);
-			res.set_return(response);
-			return res;
+			logger.error("Error. El usuario ya está registrado en el sistema.");
+			return respuestaFinalFuncion;
 		}
 
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser addUserAuth = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUser();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd userBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.UserBackEnd(); 
-		userBackend.setName(username);
-		addUserAuth.setUser(userBackend);
+		stubUserBackend.setName(username);
+		stubAddUser.setUser(stubUserBackend);
+		stubAddUserResponse = stub.addUser(stubAddUser);
 
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponse addUserRes = stub.addUser(addUserAuth);
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.AddUserResponseBackEnd result = addUserRes.get_return();
+		stubAddUserResponseBackend = stubAddUserResponse.get_return();
 
-		response.setResponse(result.getResult());
-		response.setPwd(result.getPassword());
+		response.setResponse(stubAddUserResponseBackend.getResult());
+		response.setPwd(stubAddUserResponseBackend.getPassword());
 
-		//lo devuelto por el backend
-		if(result.getResult()) {
+		// SI HA IDO BIEN, LO AÑADO AL MAPA
+		if(stubAddUserResponseBackend.getResult()) {
 			User usuario = new User();
 			usuario.setName(username);
-			usuario.setPwd(result.getPassword());
+			usuario.setPwd(stubAddUserResponseBackend.getPassword());
 			usersRegistered.put(username, usuario);
 		}
-		res.set_return(response);
-		return res;
+		
+		respuestaFinalFuncion.set_return(response);
+		return respuestaFinalFuncion;
 	}
 	
 
-
-	
 	/**
 	 * userAdmin.login(user1)
 	 * Comienza una nueva sesion para user1
@@ -303,13 +307,13 @@ public class WineSocialUPMSkeleton {
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();  
 		
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login upmLogin = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd upmLoginBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd();
-
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
 
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse loginRespuesta = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd loginResponseBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login stubLogin = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd stubLoginBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginBackEnd();
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse stubLoginResponse = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd stubLoginResponseBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd();
 
 				
 		// INICIALIZACION RESPUESTA
@@ -347,24 +351,24 @@ public class WineSocialUPMSkeleton {
 			}
 		}
 		
-		upmLoginBackend.setName(name);
-		upmLoginBackend.setPassword(password);
-		upmLogin.setLogin(upmLoginBackend);
+		stubLoginBackend.setName(name);
+		stubLoginBackend.setPassword(password);
+		stubLogin.setLogin(stubLoginBackend);
 
-		
 		// COMPROBCION DE EXISTENCIA DEVUELTO POR BACKEND
-		loginRespuesta = stub.login(upmLogin);
-		loginResponseBackend = loginRespuesta.get_return();
+		stubLoginResponse = stub.login(stubLogin);
+		stubLoginResponseBackend = stubLoginResponse.get_return();
 
-		response.setResponse(loginResponseBackend.getResult()); //Resultado del backend
+		response.setResponse(stubLoginResponseBackend.getResult()); //Resultado del backend
 		respuestaFinalFuncion.set_return(response);
 
-		//SI EL LOGIN HA IDO BIEN
-		if(loginResponseBackend.getResult()) {
+		// SI EL LOGIN HA IDO BIEN
+		if(stubLoginResponseBackend.getResult()) {
 			userLogged = usersRegistered.get(name);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
 		}
+
 		// userLogged = null; La sesión del usuario en curso (U1) sigue activa.
 		logger.error("Error. Contraseña incorrecta.");
 		return respuestaFinalFuncion;
