@@ -46,6 +46,8 @@ public class WineSocialUPMSkeleton {
 	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
 	
 	public WineSocialUPMSkeleton() {
+		System.out.println("[IMP] Creada instancia: " + counter++);
+		
 		admin = new User();
 		admin.setName(ADMIN_NAME);
 		admin.setPwd(ADMIN_PWD);
@@ -59,7 +61,6 @@ public class WineSocialUPMSkeleton {
 		if (winesList == null) new ArrayList<>();
 		if (userRatedMap == null) new HashMap<>();
 		
-		System.out.println("[IMP] Creada instancia: " + counter++);
 	}
 	
 	//INICIALIZO LOGGER
@@ -286,7 +287,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response);
 
 		// SI HA IDO BIEN, LO AÑADO AL MAPA
-		if(stubAddUserResponseBackend.getResult()) {
+		if(response.getResponse()) {
 			User usuario = new User();
 			usuario.setName(username);
 			usuario.setPwd(stubAddUserResponseBackend.getPassword());
@@ -367,7 +368,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response);
 
 		// SI EL LOGIN HA IDO BIEN
-		if(stubLoginResponseBackend.getResult()) {
+		if(response.getResponse()) {
 			userLogged = usersRegistered.get(name);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
@@ -459,8 +460,8 @@ public class WineSocialUPMSkeleton {
 		removeResponseE =  stub.removeUser(removeUserE);
 		response.setResponse(removeResponseE.get_return().getResult()); 
 		
-		// COMO YA EXISTE, SE BORRA DEL MAPA
-		if(removeResponseE.get_return().getResult()) {
+		// SI EL BORRADO HA IDO BIEN
+		if(response.getResponse()) {
 			usersRegistered.remove(nombreUsuarioBorrado);
 			logger.info("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
 			return respuestaFinalFuncion;
@@ -470,64 +471,72 @@ public class WineSocialUPMSkeleton {
 		return respuestaFinalFuncion;
 	}
 
-	
-	//TODO: Checkear
 	/**
-	 * 
-	 * @param changePassword
-	 * @return changePasswordResponse
+	 * user1.changePassword(oldpwd, newpwd)
+	 * Cambia la contraseña del usuario que la invoca
+	 * @param changePassword Objeto con la contraseña antigua y la nueva
+	 * @return changePasswordResponse Objeto indicando si se ha cambiado correctamente
 	 */
 	public es.upm.etsiinf.sos.ChangePasswordResponse changePassword(es.upm.etsiinf.sos.ChangePassword changePassword) throws RemoteException {
-		logger.debug("ESTOY EN EL [CHANGE_PASSWORD]");
+		logger.debug("METODO: [CHANGE_PASSWORD]");
 		ChangePasswordResponse respuestaFinalFuncion = new ChangePasswordResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePassword upmChangePassword = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePassword();
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordBackEnd upmChangePasswordBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordBackEnd();
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordResponseE changeRes = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordResponseE();
+
 		
-		//extraigo cada contraseña por si quisiese imprimirlas
+		// INICIALIZACION RESPUESTA
+		response.setResponse(false);
+		respuestaFinalFuncion.set_return(response); //False en incio
+
+		if (userLogged == null) {
+			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
+			return respuestaFinalFuncion;
+		}
+
+		
+		// EXTRAEMOS CONTRASEÑAS
 		String oldPassword = changePassword.getArgs0().getOldpwd();
 		String newPassword = changePassword.getArgs0().getNewpwd();
 		
-		//SI ES EL ADMIN NO LLAMO AL BACKEND, LO CAMBIA "LOCAL"
+		// SI ES EL ADMIN NO LLAMO AL BACKEND
 		if(userLogged.getName().equals(admin.getName())) {
-			if(admin.getPwd().equals(oldPassword)) { //si la contraseña actual coincide
+			if(admin.getPwd().equals(oldPassword)) {
 				ADMIN_PWD = newPassword;
-				admin.setPwd(newPassword);
+				admin.setPwd(ADMIN_PWD);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
-				logger.debug("Se ha cambiado la contraseña del admin correctamente.");
+				logger.info("Se ha cambiado la contraseña del admin correctamente.");
 				return respuestaFinalFuncion;
-			} else {
-				logger.debug("La contraseña no coincide, no se pudo cambiar.");
-				response.setResponse(false);
-				respuestaFinalFuncion.set_return(response);
+			}
+			else {
+				logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
 				return respuestaFinalFuncion;
 			}
 		}
-		
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePassword upmChangePassword = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePassword();
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordBackEnd upmChangePasswordBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordBackEnd();
 		
 		upmChangePasswordBackend.setName(userLogged.getName());
 		upmChangePasswordBackend.setNewpwd(newPassword);
 		upmChangePasswordBackend.setOldpwd(oldPassword);
 		upmChangePassword.setChangePassword(upmChangePasswordBackend);
 		  
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ChangePasswordResponseE changeRes = stub.changePassword(upmChangePassword);
+		changeRes = stub.changePassword(upmChangePassword);
 
 		response.setResponse(changeRes.get_return().getResult());
+		respuestaFinalFuncion.set_return(response);
 		
-		//SI SE HA CAMBIADO CORRECTAMENTE 
+		// SI EL CHANGEPASSWORD HA IDO BIEN
 		if(response.getResponse()) {
-			logger.debug("Contraseña cambiada correctamente!!");
-			response.setResponse(true);
-			respuestaFinalFuncion.set_return(response);
-			return respuestaFinalFuncion;
-		} else {
-			logger.debug("El backend me devolvió error al intentar cambiar la contraseña");
-			response.setResponse(false);
-			respuestaFinalFuncion.set_return(response);	
+			logger.info("Contraseña cambiada correctamente!!");
 			return respuestaFinalFuncion;
 		}
+		logger.error("Error. No se pudo cambiar la contraseña.");
+		return respuestaFinalFuncion;
 	}
 	
 	
