@@ -275,8 +275,8 @@ public class WineSocialUPMSkeleton {
 
 		stubUserBackend.setName(username);
 		stubAddUser.setUser(stubUserBackend);
-		stubAddUserResponse = stub.addUser(stubAddUser);
 
+		stubAddUserResponse = stub.addUser(stubAddUser);
 		stubAddUserResponseBackend = stubAddUserResponse.get_return();
 
 		response.setResponse(stubAddUserResponseBackend.getResult());
@@ -289,6 +289,8 @@ public class WineSocialUPMSkeleton {
 			usuario.setPwd(stubAddUserResponseBackend.getPassword());
 			usersRegistered.put(username, usuario);
 		}
+
+		logger.info("Usuario: '" + username + "' añadido con éxito.");
 		
 		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
