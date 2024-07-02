@@ -390,6 +390,11 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
 			return respuestaFinalFuncion;
 		}
+
+		if (usersRegistered.get(nombreUsuarioBorrado) == null) {
+			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no existe en el sistema.");
+			return respuestaFinalFuncion;
+		}
 		
 		User usuario = usersRegistered.get(nombreUsuarioBorrado);
 		
@@ -398,7 +403,7 @@ public class WineSocialUPMSkeleton {
 		removeUserE2.setPassword(usuario.getPwd());
 		removeUserE.setRemoveUser(removeUserE2);
 		
-		removeResponseE =  stub.removeUser(removeUserE);
+		removeResponseE = stub.removeUser(removeUserE);
 		response.setResponse(removeResponseE.get_return().getResult()); 
 		
 		// SI EL BORRADO HA IDO BIEN
