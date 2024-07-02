@@ -34,7 +34,6 @@ public class WineSocialUPMSkeleton {
 	public static String ADMIN_PWD = "admin";
 	public static int counter = 0;
 
-	private boolean loggeado = false; //TODO: Cambiar
 	private static User admin;
 	private static User userLogged = new User();
 	
@@ -79,57 +78,6 @@ public class WineSocialUPMSkeleton {
             e.printStackTrace();
         }
     }
-	
-
-	/**
-	 * Comprueba si el usuario pasado como parametro es seguidor del usuario que la invoca
-	 * @param name Nombre del usuario a comprobar
-	 * @return true si es seguidor, false en caso contrario
-	 */
-	private boolean followerExist(String name) {
-	    boolean existe = false;
-	    if (followersMap.get(userLogged).getFollowers() != null) {
-	        String[] seguidores = followersMap.get(userLogged).getFollowers();
-	        for (int i = 0; i < seguidores.length; i++) {
-	            //System.out.println("Comparando " + seguidores[i] + " con " + name);
-	            if (seguidores[i].equals(name)) {
-	                existe = true;
-	                //System.out.println("Encontrado: " + seguidores[i]);
-	            }
-	        }
-	    }
-	    return existe;
-	}
-
-	/**
-	 * Borra un seguidor de la lista de seguidores del usuario que la invoca
-	 * @param seguidor Nombre del seguidor a borrar
-	 */
-	private void borrarSeguidor (String seguidor) {
-		int res = -1;
-		boolean encontrado = false;
-        String[] seguidores = followersMap.get(userLogged).getFollowers();
-
-        for (int i = 0; i < seguidores.length && !encontrado; i++) {
-            if (seguidores[i].equals(seguidor)) {
-                res = i;
-				encontrado = true;
-            }
-        }
-
-        if (res != -1) {
-            String[] followersN = new String[seguidores.length - 1]; //Nueva lista de tamaño - 1
-
-            int j = 0;
-            for (int i = 0; i < seguidores.length; i++) {
-                if (i != res) {
-                	followersN[j] = seguidores[i];
-                    j++;
-                }
-            }
-            followersMap.get(userLogged).setFollowers(followersN);
-        }
-	}
 
 	/**
 	 * Imprime los nombres de las personas que tengo en mi lista de seguidores
@@ -540,6 +488,25 @@ public class WineSocialUPMSkeleton {
 		return respuestaFinalFuncion;
 	}
 	
+
+	/**
+	 * FUNCION AUXILIAR.
+	 * Comprueba si el usuario pasado como parametro es seguidor del usuario que la invoca
+	 * @param name Nombre del usuario a comprobar
+	 * @return true si es seguidor, false en caso contrario
+	 */
+	private boolean followerExist(String name) {
+	    boolean existe = false;
+	    if (followersMap.get(userLogged).getFollowers() != null) {
+	        String[] seguidores = followersMap.get(userLogged).getFollowers();
+	        for (int i = 0; i < seguidores.length; i++) {
+	            if (seguidores[i].equals(name)) {
+	                existe = true;
+	            }
+	        }
+	    }
+	    return existe;
+	}
 	
 	/**
 	 * user1.addFollower(user2) --> user1 FOLLOWS a user2.
@@ -563,14 +530,14 @@ public class WineSocialUPMSkeleton {
 		String nombreUsuarioASeguir = username.getUsername(); //el usuario al que se va a seguir 
 
 		// COMPROBACION DE LOGGEADO USER1 
-		if (!loggeado) {
-			System.out.println("Para seguir a un usuario se debe haber iniciado sesión previamente.\n");
+		if (userLogged == null) {
+			logger.error("Error. No puedes seguir a un usuario sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
 
 		// COMPROBACION DE EXISTENCIA USUARIO A SEGUIR
 		if(!usuarioRegistrado(nombreUsuarioASeguir)) {
-			System.out.println("El usuario: '" + nombreUsuarioASeguir + "' no existe en el sistema.\n");
+			logger.error("Error. El usuario: '" + nombreUsuarioASeguir + "' no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
@@ -586,11 +553,43 @@ public class WineSocialUPMSkeleton {
 			listaSeguidores.addFollowers(nombreUsuarioASeguir);
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
-			System.out.println("El usuario: '" + userLogged + "' ha empezado a seguir a: '" + nombreUsuarioASeguir + "' como seguidor.\n");
+			logger.info("El usuario: '" + userLogged + "' ha empezado a seguir a: '" + nombreUsuarioASeguir + "' como seguidor.");
 			return respuestaFinalFuncion;
 		}
-		System.out.println("El usuario: '" + userLogged + "' ya sigue a: '" + nombreUsuarioASeguir + "'.\n");
+
+		logger.error("Error. El usuario: '" + userLogged + "' ya sigue a: '" + nombreUsuarioASeguir + ".");
 		return respuestaFinalFuncion;
+	}
+
+	/**
+	 * FUNCION AUXILIAR.
+	 * Borra un seguidor de la lista de seguidores del usuario que la invoca
+	 * @param seguidor Nombre del seguidor a borrar
+	 */
+	private void borrarSeguidor (String seguidor) {
+		int res = -1;
+		boolean encontrado = false;
+        String[] seguidores = followersMap.get(userLogged).getFollowers();
+
+        for (int i = 0; i < seguidores.length && !encontrado; i++) {
+            if (seguidores[i].equals(seguidor)) {
+                res = i;
+				encontrado = true;
+            }
+        }
+
+        if (res != -1) {
+            String[] followersN = new String[seguidores.length - 1]; //Nueva lista de tamaño - 1
+
+            int j = 0;
+            for (int i = 0; i < seguidores.length; i++) {
+                if (i != res) {
+                	followersN[j] = seguidores[i];
+                    j++;
+                }
+            }
+            followersMap.get(userLogged).setFollowers(followersN);
+        }
 	}
 
 	/**
@@ -611,14 +610,14 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(reponse); //False en incio
 
 		// COMPROBACION DE LOGGEADO USER1 
-		if (!loggeado) {
-			System.out.println("Para dejar de seguir a un usuario se debe haber iniciado sesión previamente.\n");
+		if (userLogged == null) {
+			logger.error("Error. Para dejar de seguir a un usuario se debe haber iniciado sesión previamente.");
 			return respuestaFinalFuncion;
 		}
 
 		// COMPROBACION DE EXISTENCIA USUARIO A SEGUIR
 		if(!usuarioRegistrado(nombreUsuarioUnfollow)) {
-			System.out.println("El usuario: '" + nombreUsuarioUnfollow + "' no existe en el sistema.\n");
+			logger.error("Error. El usuario: '" + nombreUsuarioUnfollow + "' no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}	
 		
@@ -626,12 +625,12 @@ public class WineSocialUPMSkeleton {
 			borrarSeguidor(nombreUsuarioUnfollow);
 			reponse.setResponse(true);
 			respuestaFinalFuncion.set_return(reponse);
-			System.out.println("El usuario: '" + userLogged + "' ha dejado de seguir a: '" + nombreUsuarioUnfollow + "'.\n");
-			return respuestaFinalFuncion;
-		} else {
-			System.out.println("El usuario: '" + userLogged + "' no sigue a: '" + nombreUsuarioUnfollow + "' y por tanto no lo puede borrar.\n");
+			logger.info("El usuario: '" + userLogged + "' ha dejado de seguir a: '" + nombreUsuarioUnfollow + ".");
 			return respuestaFinalFuncion;
 		}
+
+		logger.error("Error. El usuario: '" + userLogged + "' no sigue a: '" + nombreUsuarioUnfollow + "' y por tanto no lo puede borrar.");
+		return respuestaFinalFuncion;
 	}
 	
 	
@@ -650,13 +649,14 @@ public class WineSocialUPMSkeleton {
 		listaSeguidores.setResult(false);
 		respuestaFinalFuncion.set_return(listaSeguidores); //False en incio
 		
-		if(loggeado) {
+		if(userLogged != null) {
 			listaSeguidores.setFollowers(followersMap.get(userLogged).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
 			listaSeguidores.setResult(true);
 			respuestaFinalFuncion.set_return(listaSeguidores); 
 			return respuestaFinalFuncion;
 		}
-		System.out.println("Para ver tus seguidores debes haber iniciado sesión previamente.\n");
+
+		logger.error("Error. Para ver tus seguidores debes haber iniciado sesión previamente.");
 		return respuestaFinalFuncion;		
 	}
 
@@ -748,7 +748,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaVinos); //False en incio
 
 		// COMPROBACION DE LOGGEADO
-		if(loggeado) {
+		if(userLogged != null) {
 			// MAX INDEX (Para recorrerla hacia atras)
 			int j = winesList.size() - 1;
 
@@ -776,9 +776,11 @@ public class WineSocialUPMSkeleton {
 			listaVinos.setYears(años);
 			listaVinos.setResult(true);
 			respuestaFinalFuncion.set_return(listaVinos);
+
 			return respuestaFinalFuncion;
-		} else 
-			System.out.println("Para ver los vinos debes haber iniciado sesión previamente.\n");
+		}
+		else 
+			logger.error("Error. Para ver los vinos debes haber iniciado sesión previamente.");
 		return respuestaFinalFuncion;
 	}
 
@@ -807,7 +809,7 @@ public class WineSocialUPMSkeleton {
 		
 		
 		// COMPROBACION DE LOGGEADO
-		if (loggeado) {
+		if (userLogged != null) {
 			//si el vino existe lo puedo puntuar
 			if (existeVino(vino)) {
 				// compruebo que la puntuacion que se le da está entre 0 y 10
@@ -832,29 +834,35 @@ public class WineSocialUPMSkeleton {
 	                        break;
 	                    }
 	                }
+
 	                //si no se encontró en la lista, se añade
 					if(!vinoEncontrado) {
 						listaPuntuados.add(vinoPuntuado);
 					}
+
 					//actualizo el mapa con la lista modificada
 					userRatedMap.put(userLogged, listaPuntuados);
 					response.setResponse(true);
 	                respuestaFinalFuncion.set_return(response);
-	                System.out.println("Se ha puntuado el vino: '" + vino.getName() + "' con un: '" + vinoPuntuado.getRate() + "' con éxito.\n");
+
+	                logger.info("Se ha puntuado el vino: '" + vino.getName() + "' con un: '" + vinoPuntuado.getRate() + "' con éxito.");
 	                return respuestaFinalFuncion;
-				} else {
-					System.out.println("La puntuación debe estar entre 0 y 10.\n");
+				}
+				else {
+					logger.error("Error. La puntuación debe estar entre 0 y 10.");
 					return respuestaFinalFuncion;
 				}
-			} else {
-				System.out.println("El vino: '" + vino.getName() + "' con: \n" +
+			}
+			else {
+				logger.error("Error. El vino: '" + vino.getName() + "' con: \n" +
 				"\t\tTipo de uva: " + vino.getGrape() + "\n" +
 				"\t\tAño: " + vino.getYear() + "\n" +
-				"no existe en la red social.\n");
+				"no existe en la red social.");
 				return respuestaFinalFuncion;
 			}
-		} else
-			System.out.println("Para puntuar un vino se debe haber iniciado sesión previamente.\n");
+		}
+		else
+			logger.error("Error. Para puntuar un vino se debe haber iniciado sesión previamente.");
 		return respuestaFinalFuncion;
 	}
 
@@ -875,7 +883,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaVinosPuntuados);
 
 		 // COMPROBACION DE LOGGEADO
-		 if(loggeado) {
+		 if(userLogged != null) {
 		 	// MAX INDEX (Para recorrerla hacia atras)
 		 	int j = puntuados.size() - 1;
 
@@ -908,8 +916,10 @@ public class WineSocialUPMSkeleton {
 		 	listaVinosPuntuados.setResult(true);
 		 	respuestaFinalFuncion.set_return(listaVinosPuntuados);
 		 	return respuestaFinalFuncion;
-		 } else 
-		 	System.out.println("Para ver los vinos debes haber iniciado sesión previamente.\n");
+		}
+		else 
+		 	logger.error("Error. Para ver los vinos debes haber iniciado sesión previamente.");
+
 		return respuestaFinalFuncion;
 	}
 
@@ -934,7 +944,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaPuntuados);
 		
 		//si estoy loggeado y sigo al [follower1] entonces devuelvo su lista (invertida)
-		if(loggeado && followerExist(nombreFollower)){
+		if((userLogged != null) && followerExist(nombreFollower)){
 			//accedo al mapa de los vinos puntuados por [follower1]
 			List<WineRated> puntuados = userRatedMap.get(nombreFollower);
 			
@@ -964,9 +974,10 @@ public class WineSocialUPMSkeleton {
 	            listaPuntuados.setRates(puntuaciones);
 	            listaPuntuados.setResult(true);
 			}
-		} else {
-			System.out.println("Para ver los vinos de un seguidor, debes haber iniciado sesión y el seguidor debe existir.\n");
 		}
+		else
+			logger.error("Error. Para ver los vinos de un seguidor, debes haber iniciado sesión y el seguidor debe existir.");
+			
 		respuestaFinalFuncion.set_return(listaPuntuados);
 		return respuestaFinalFuncion;
 	}
