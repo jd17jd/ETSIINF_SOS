@@ -288,9 +288,10 @@ public class WineSocialUPMSkeleton {
 			usuario.setName(username);
 			usuario.setPwd(stubAddUserResponseBackend.getPassword());
 			usersRegistered.put(username, usuario);
-		}
+			logger.info("Usuario: '" + username + "' añadido con éxito.");
 
-		logger.info("Usuario: '" + username + "' añadido con éxito.");
+		}
+		logger.error("Error. No se pudo añadir al usuario: '" + username + "'.");
 		
 		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
