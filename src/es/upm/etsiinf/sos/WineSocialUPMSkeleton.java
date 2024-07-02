@@ -416,64 +416,59 @@ public class WineSocialUPMSkeleton {
 	 * @param removeUser Objeto con el nombre del usuario a borrar
 	 * @return removeUserResponse Objeto indicando si se ha borrado correctamente
 	 */
-	
-	//FUNCIONA!!
 	public es.upm.etsiinf.sos.RemoveUserResponse removeUser(es.upm.etsiinf.sos.RemoveUser removeUser) throws RemoteException {
-		logger.debug("ESTOY EN EL [REMOVE_USER]");
+		logger.debug("METODO: [REMOVE_USER]");
 		RemoveUserResponse respuestaFinalFuncion = new RemoveUserResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 		
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
+		
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserE removeUserE = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserE();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUser removeUserE2 = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUser();
+
+		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserResponseE removeResponseE = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserResponseE();
 		
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
-		
-		// OBTENGO EL USUARIO DEL PARAMETRO
-		String nombreUsuarioBorrado = removeUser.getArgs0().getUsername();
-		
-		//EL ADMIN NO SE PUEDE BORRAR
-		if(nombreUsuarioBorrado.equals(ADMIN_NAME)) {
-			logger.debug("No se puede borrar al admin.");
+
+		if (userLogged == null) {
+			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
 		
-		//SI NO ESTOY LOGGEADO NO PUEDO BORRARME
-		if(userLogged.equals(null)) {
-			logger.debug("Debes estar loggeado para borrarte.");
+		String nombreUsuarioBorrado = removeUser.getArgs0().getUsername();
+		
+		// EL ADMIN NO SE PUEDE BORRAR
+		if(nombreUsuarioBorrado.equals(ADMIN_NAME)) {
+			logger.error("Error. No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
 		if(!userLogged.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!userLogged.getName().equals(admin.getName()))) {
-			logger.debug("Debes ser admin o el usuario a borrar.");
+			logger.error("Error. Debes estar loggeado como admin o el usuario que quieres borrar.");
 			return respuestaFinalFuncion;
 		}
 		
 		User usuario = usersRegistered.get(nombreUsuarioBorrado);
 		
 		// PARAMETROS A PASAR AL BACKEND
-		removeUserE2.setName(usuario.getName()); //lo mismo que pasarle variable 'nombreUsuarioBorrado'
+		removeUserE2.setName(usuario.getName());
 		removeUserE2.setPassword(usuario.getPwd());
 		removeUserE.setRemoveUser(removeUserE2);
 		
-		//Llamamos al backend
-		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUserResponseE removeResponseE =  stub.removeUser(removeUserE);
-		
-		//obtengo el valor devuelto por el backend
+		removeResponseE =  stub.removeUser(removeUserE);
 		response.setResponse(removeResponseE.get_return().getResult()); 
 		
-		//COMO YA EXISTE, SE BORRA DEL MAPA
+		// COMO YA EXISTE, SE BORRA DEL MAPA
 		if(removeResponseE.get_return().getResult()) {
-			logger.debug("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
 			usersRegistered.remove(nombreUsuarioBorrado);
+			logger.info("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
+			return respuestaFinalFuncion;
 		}
-		//EL BACKEND ME DEVUELVE FALSE
-		else {
-			logger.debug("No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
-		}
+
+		logger.debug("No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
 		return respuestaFinalFuncion;
 	}
 

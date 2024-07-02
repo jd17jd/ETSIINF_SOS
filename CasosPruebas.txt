@@ -1,6 +1,6 @@
 < PRUEBAS LOGIN > ==> TERMINADO. FALTA SESIONES
 	
-	ERRORES CUBIERTOS
+	ERRORES CUBIERTOS:
 	- Login de un usuario no registrado
 	- Usuario se loggea varias veces
 	- Usuario se loggea con contraseña incorrecta
@@ -8,12 +8,15 @@
 	EXITO:
 	- Login user admin.
 	- Login other user.
+
+	FALTA:
+	- Sesiones de usuarios
 	
 -------------------------------------------------------------
 
 < PRUEBAS ADD_USER > ==> TERMINADO
 	
-	ERRORES CUBIERTOS
+	ERRORES CUBIERTOS:
 	- Usuario ya existente en el sistema
 	- Registrar a un usuario sin estar loggeado como admin
 	- Registrar a otro usuario con otro user no admin
@@ -25,20 +28,22 @@
 
 -------------------------------------------------------------
 
-<<PRUEBAS LOGOUT>> ==> ACABADA
+< PRUEBAS LOGOUT > ==> TERMINADO
 	
-	FALLOS CUBIERTOS
-	- Usuario no existe en el sistema (registrado)
-	- Admin cierra su sesión 
+	FALLOS CUBIERTOS:
+	- Usuario no loggeado
 	
 	EXITO:
-	- - Usuario cierra su sesión.
+	- Usuario cierra su sesión.
+
+	FALTA:
+	- Sesiones de usuarios
 	
 -------------------------------------------------------------
 
 <<PRUEBAS REMOVE_USER>> ==> ACABADA
 	
-	FALLOS CUBIERTOS
+	FALLOS CUBIERTOS:
 	- Admin no se puede borrar.
 	- UusarioX no puede borrar a UsuarioY.
 	- Solo admin o propio usuario puede borrarse
@@ -53,9 +58,8 @@
 
 <<PRUEBAS CHANGE_PASSWORD>> ==> 
 	
-	FALLOS CUBIERTOS
+	FALLOS CUBIERTOS:
 	- 
-	-   
 	
 	EXITO:
 	- Admin cambia su contraseña
