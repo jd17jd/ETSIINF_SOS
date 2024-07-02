@@ -16,13 +16,26 @@ Result add user (exp false because user already exist) : false
 
 SUCCESS
 ********************** TEST 6 (value: 1)**********************
-user2 login (falla), admin login, crea user2, user2 login otro st, remove user1 (falla), admin borra user1 (ok) borra user que no existe (falla)
+
+user2 login (falla)
 Result user login (exp false becuase user not registered) : false
+
+admin login
 Result admin login (exp true) : true
+
+crea user2
 Result add user2 (exp true) : true
+
+user2 login otro st
 Result user2 login (exp true) : true
+
+remove user1 (falla)
 Result user2 deletes user1 (exp false becuase not allowed) : false
+
+admin borra user1 (ok)
 Result admin deletes user1 (exp true) : false
+
+borra user que no existe (falla)
 Result admin deletes user500 (exp false bacause user500 didn't exist) : false
 
 FAIL
