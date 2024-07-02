@@ -258,10 +258,15 @@ public class WineSocialUPMSkeleton {
 		response.setPwd(null);
 		respuestaFinalFuncion.set_return(response);
 
+		if (userLogged == null) {
+			logger.error("Error. No puedes añadir usuarios sin estar loggeado.");
+			return respuestaFinalFuncion;
+		}
+
 		String username = addUser.getArgs0().getUsername();
 
 		// COMPROBACION ADMIN
-		if(userLogged == null || !userLogged.getName().equals(admin.getName())) {
+		if(!userLogged.getName().equals(admin.getName())) {
 			logger.error("Error. No tienes permisos para añadir usuarios. Se debe ser administrador.");
 			return respuestaFinalFuncion;
 		}
