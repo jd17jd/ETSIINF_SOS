@@ -41,7 +41,7 @@
 	
 -------------------------------------------------------------
 
-<<PRUEBAS REMOVE_USER>> ==> ACABADA
+< PRUEBAS REMOVE_USER > ==> TERMINADO
 	
 	FALLOS CUBIERTOS:
 	- No se puede borrar un usuario sin estar loggeado
@@ -55,10 +55,12 @@
 	
 -------------------------------------------------------------
 
-<<PRUEBAS CHANGE_PASSWORD>> ==> 
+< PRUEBAS CHANGE_PASSWORD > ==> TERMINADO
 	
 	FALLOS CUBIERTOS:
-	- 
+	- Contraeña antigua del admin no coincide
+	- No se puede cambiar la contraseña de un user no loggeado
+	- Contraseña antigua del usuario no coincide.
 	
 	EXITO:
 	- Admin cambia su contraseña

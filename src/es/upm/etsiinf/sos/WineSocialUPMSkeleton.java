@@ -535,7 +535,8 @@ public class WineSocialUPMSkeleton {
 			logger.info("Contraseña cambiada correctamente!!");
 			return respuestaFinalFuncion;
 		}
-		logger.error("Error. No se pudo cambiar la contraseña.");
+
+		logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
 		return respuestaFinalFuncion;
 	}
 	
