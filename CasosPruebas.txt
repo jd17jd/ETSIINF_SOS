@@ -44,15 +44,14 @@
 <<PRUEBAS REMOVE_USER>> ==> ACABADA
 	
 	FALLOS CUBIERTOS:
-	- Admin no se puede borrar.
+	- No se puede borrar un usuario sin estar loggeado
+	- No se puede borrar el admin.
 	- UusarioX no puede borrar a UsuarioY.
 	- Solo admin o propio usuario puede borrarse
 	
 	EXITO:
 	- Admin elimina a usuario ya existente
-
-	FALLO:
-	- Si usuario no está loggeado, no debe permitir borrar cualquier usuario
+	- Usuario se elimina a si mismo
 	
 -------------------------------------------------------------
 
