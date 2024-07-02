@@ -1,9 +1,9 @@
-<<PRUEBAS LOGIN>> ==> ACABADA
+< PRUEBAS LOGIN > ==> ACABADA
 	
 	ERRORES CUBIERTOS
 	- Login de un usuario no registrado
 	- Usuario se loggea varias veces
-	
+	- Usuario se loggea con contraseña incorrecta
 	
 	EXITO:
 	- Login user admin.

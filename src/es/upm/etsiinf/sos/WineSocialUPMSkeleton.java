@@ -366,7 +366,7 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		// userLogged = null; La sesión del usuario en curso (U1) sigue activa.
-		logger.error("Error. No se ha podido iniciar sesión.");
+		logger.error("Error. Contraseña incorrecta.");
 		return respuestaFinalFuncion;
 	}
 	
