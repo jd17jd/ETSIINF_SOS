@@ -80,6 +80,7 @@ public class WineSocialUPMSkeleton {
     }
 
 	/**
+	 * FUNCION AUXILIAR.
 	 * Imprime los nombres de las personas que tengo en mi lista de seguidores
 	 * @return String representando un array con los nombres de las personas que tengo en mi lista de seguidores
 	 */
@@ -96,8 +97,9 @@ public class WineSocialUPMSkeleton {
     }
 
 	/**
-	 * 
-	 * @return
+	 * FUNCION AUXILIAR.
+	 * Imprime los nombres de los vinos que tengo en mi lista de vinos
+	 * @return String representando un array con los nombres de los vinos que tengo en mi lista de vinos
 	 */
 	public String getSeguidores() {
 	    StringBuilder usuariosInfo = new StringBuilder("MAPA FOLLOWERS = ");
@@ -109,34 +111,24 @@ public class WineSocialUPMSkeleton {
 	    return usuariosInfo.toString();
 	}
 
-	/** 
-	 * Comprueba si existe el vino pasado como parametros en una 
-	 * @param vino Vino a comprobar
-	 * @return true si existe, false en caso contrario
-	 */
-	private boolean existeVino(Wine vino) {    
-		for (Wine vinoList : winesList) {
-			if (vinoList.getGrape().equals(vino.getGrape()) && 
-				vinoList.getName().equals(vino.getName()) && 
-				vinoList.getYear() == vino.getYear()) {
-				return true;
-			}
-		}
-		return false;
-	}
 
+	/**
+	 * FUNCION AUXILIAR.
+	 * Imprime la lista de vinos
+	 * @param vino Vino a imprimir
+	 * @return String con la informacion del vino
+	 */
 	private String printWineRated(WineRated vino) {
 		String res = "[";
 		res += "Nombre: " + vino.getName() + ", Año: " + vino.getYear() + ", Uva: " + vino.getGrape() + 
 				", Puntuacion: " + vino.getRate();
 		return res + "]";
 	}
-
 	
 	/**
-	 * Funcion auxiliar para ver el mapa de puntuaciones impreso
-	 * @param ninguno
-	 * @return el mapa
+	 * FUNCION AUXILIAR.
+	 * Imprime el mapa de puntuaciones
+	 * @return String con la informacion de las puntuaciones
 	 */
 	public String imprimeRatedMap(){
 	    StringBuilder ratedInfo = new StringBuilder("MAPA PUNTUACIONES = ");
@@ -157,12 +149,13 @@ public class WineSocialUPMSkeleton {
 	}
 
 	/**
-	 * FUNCION AUXILIAR. usuarioRegistrado(user1)
+	 * FUNCION AUXILIAR.
+	 * usuarioRegistrado(user1)
 	 * Comprueba si el usuario pasado como parametro está registrado
 	 * @param nombreUsuario Nombre del usuario a comprobar
 	 * @return true si está registrado, false en caso contrario
 	 */
-	private boolean usuarioRegistrado (String username) throws RemoteException {
+	private boolean usuarioRegistrado(String username) throws RemoteException {
 		boolean result = false;
 		
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser existUser = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.ExistUser();
@@ -633,8 +626,6 @@ public class WineSocialUPMSkeleton {
 		return respuestaFinalFuncion;
 	}
 	
-	
-	
 	/**
 	 * user1.getMyFollowers().
 	 * Devuelve la lista de los usuarios a los que sigue user1.
@@ -658,6 +649,24 @@ public class WineSocialUPMSkeleton {
 
 		logger.error("Error. Para ver tus seguidores debes haber iniciado sesión previamente.");
 		return respuestaFinalFuncion;		
+	}
+
+
+	/** 
+	 * FUNCION AUXILIAR.
+	 * Comprueba si existe el vino pasado como parametros en una 
+	 * @param vino Vino a comprobar
+	 * @return true si existe, false en caso contrario
+	 */
+	private boolean existeVino(Wine vino) {    
+		for (Wine vinoList : winesList) {
+			if (vinoList.getGrape().equals(vino.getGrape()) && 
+				vinoList.getName().equals(vino.getName()) && 
+				vinoList.getYear() == vino.getYear()) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
