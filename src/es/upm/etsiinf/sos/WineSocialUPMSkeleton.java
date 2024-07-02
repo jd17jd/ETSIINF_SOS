@@ -393,6 +393,9 @@ public class WineSocialUPMSkeleton {
 
 		if (usersRegistered.get(nombreUsuarioBorrado) == null) {
 			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no existe en el sistema.");
+			
+			response.setResponse(true);
+			respuestaFinalFuncion.set_return(response); //False en incio
 			return respuestaFinalFuncion;
 		}
 		
