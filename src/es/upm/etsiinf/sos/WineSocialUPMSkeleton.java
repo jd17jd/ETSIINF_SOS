@@ -38,6 +38,7 @@ public class WineSocialUPMSkeleton {
 	private static User userLogged = new User();
 	
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
+	public static Map<String, User> usersLogged; // KEY: Nombre usuario -- VALUE: Objeto usuario
 	public static Map<User,FollowerList> followersMap; // KEY: Objeto usuario -- VALUE: lista de seguidores
 	public static List<Wine> winesList;
 	public static Map<User, List<WineRated>> userRatedMap; // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
@@ -56,6 +57,7 @@ public class WineSocialUPMSkeleton {
 			usersRegistered.put("admin", admin);
 		}
 
+		if (usersLogged == null) new HashMap<>();
 		if (followersMap == null) new HashMap<>();
 		if (winesList == null) new ArrayList<>();
 		if (userRatedMap == null) new HashMap<>();
@@ -311,6 +313,7 @@ public class WineSocialUPMSkeleton {
 		// SI EL LOGIN HA IDO BIEN
 		if(response.getResponse()) {
 			userLogged = usersRegistered.get(name);
+			usersLogged.put(name, userLogged);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
 		}
@@ -339,7 +342,7 @@ public class WineSocialUPMSkeleton {
 		if (userLogged != null) {
 			userLogged = null;
 			logger.info("Has cerrado sesión.");
-
+			usersLogged.remove(userLogged.getName());
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 			return respuestaFinalFuncion;
