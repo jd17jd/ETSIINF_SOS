@@ -36,18 +36,24 @@ public class Test {
 			Cliente cliente5 = new Cliente();
 			
 			System.out.println("PRIMERA PRUEBA");
-			System.out.println("Prueba de login de user2.");
-			System.out.println("------------------\n");
-
-			cliente2.login("user2", "contraseñaDaigual"); //False
-
-
-			System.out.println("SEGUNDA PRUEBA");
 			System.out.println("Prueba de login de admin.");
 			System.out.println("------------------\n");
 
-			admin.login("admin", "admin"); //True
+			if(admin.login("admin", "admin")) { //True
+				System.out.println("Se ha hecho login del admin.");
+			}
+				
 
+			
+			System.out.println("SEGUNDA PRUEBA");
+			System.out.println("Prueba de login de user2.");
+			System.out.println("------------------\n");
+
+			if(!(cliente2.login("user2", "contraseñaDaigual"))) { //False
+				System.out.println("No se ha podido hacer el login del cliente2.");
+			}
+
+			
 			System.out.println("TERCERA PRUEBA");
 			System.out.println("Prueba de crear de admin.");
 			System.out.println("------------------\n");
