@@ -865,3 +865,721 @@ DEBUG - METODO: [REMOVE_USER]
 INFO - Usuario: 'test1u9' borrado con exito.
 DEBUG - METODO: [LOGIN]
 INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'user2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: user2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u2' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u4' añadido con éxito.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No tienes permisos para añadir usuarios. Se debe ser administrador.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u9' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u9' borrado con exito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u2' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u4' añadido con éxito.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No tienes permisos para añadir usuarios. Se debe ser administrador.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u9' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u9' borrado con exito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u4' añadido con éxito.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No tienes permisos para añadir usuarios. Se debe ser administrador.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'user22' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: user22
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u2' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u9' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u9' borrado con exito.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'userC' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Sesion iniciada con éxito. Usuario actual es: userC
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+ERROR - Error. Para puntuar un vino se debe haber iniciado sesión previamente.
+ERROR - Error. Para puntuar un vino se debe haber iniciado sesión previamente.
+ERROR - Error. Para ver los vinos de un seguidor, debes haber iniciado sesión y el seguidor debe existir.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+ERROR - Error. Para ver los vinos de un seguidor, debes haber iniciado sesión y el seguidor debe existir.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
