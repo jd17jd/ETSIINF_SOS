@@ -8,19 +8,30 @@ import es.upm.etsiinf.sos.WineSocialUPMSkeleton;
 import es.upm.etsiinf.sos.WineSocialUPMStub;
 import es.upm.etsiinf.sos.WineSocialUPMStub.*;
 
-public class Test {
+public class Test_1 {
 
-	public static void prueba_login() {
-		String username = "user2";
-		String password = "contraseñaDaigual";
+	public static void prueba_login(Cliente cliente) {
+		String username = "admin";
+		String password = "admin";
+		boolean res = false;
 		
 		try {
-			boolean res = cliente.login(username, password);
-			
-			if(res)
-				System.out.println("Se ha hecho login correctamente");
-			else
-				System.out.println("Error con el login");
+			res = cliente.login(username, password);
+			if(res) System.out.println("El admin se ha loggeado bien.");
+			else System.out.println("Error con el login");
+
+			res = cliente.changePassword(username, "adminNew");
+			if(res) System.out.println("Admin ha cambiado la contraseña.");
+			else System.out.println("Error con el cambio de contraseña");
+
+			res = cliente.logout();
+			if(res) System.out.println("Admin se desloggea.");
+			else System.out.println("Error con el logout");
+
+			res = cliente.login(username, "adminNew");
+			if(res) System.out.println("El admin se ha loggeado de nuevo bien.");
+			else System.out.println("Error con el login");
+
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -38,18 +49,9 @@ public class Test {
 			Cliente cliente4 = new Cliente();
 			Cliente cliente5 = new Cliente();
 			
-			//Idea mia:¿? Podriamos declarar solamente los stubs en vez de clientes. o Seria lo mismo...
-			//¿¿¿¿¿Sería declarar 'WineSocialUPMSkeleton' o 'WineSocialUPMStub'?????
-			
-			//WineSocialUPMSkeleton stub1 = new WineSocialUPMSkeleton();
-			//WineSocialUPMSkeleton stub2 = new WineSocialUPMSkeleton();
-			
 			//TODO: Como sabemos la contraseña que se genera en el stub¿? 
 			//¿Ejecutamos una vez y vemos la contraseña (se guarda en backend) y luego podemos
 			//seguir ejecutando las demas pruebas? => Mejor opcion hacerlo secuencial.
-			
-			//////////////////////////////////////////////////////////////////////////////
-			//////////////////////////////////////////////////////////////////////////////
 			
 			System.out.println("TEST Nº 1");
 			System.out.println("------------------\n");
