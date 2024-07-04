@@ -341,7 +341,7 @@ public class WineSocialUPMSkeleton {
 		// COMPROBACION SESION INICIADA
 		if (userLogged != null) {
 			userLogged = null;
-			logger.info("El usuario ha cerrado sesión.");
+			logger.info("Has cerrado sesión.");
 			usersLogged.remove(userLogged.getName());
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
