@@ -1,18 +1,33 @@
 RESULTADO REMOVE: true
 ********************** TEST 1 (value: 1)**********************
-El admin se logea, cambia la contraseña, log out y login con la nueva
+El admin se logea,
 Result admin login (exp true) : true
+
+cambia la contraseña,
 Result admin changePwd (exp true) : true
+
+log out
+Result admin logout (exp true) : true
+
+login con la nueva
 Result admin login (exp true) : true
-Result admin changePwd AGAIN (exp true) : true
+
+log out
 Result admin logout  (exp true) : true
 
 SUCCESS
 ********************** TEST 2 (value: 1)**********************
-El admin se logea, añade dos usuarios iguales, el segundo debe fallar, y luego logout
+El admin se logea,
 Result admin login (exp true) : true
+
+añade dos usuarios iguales,
 Result add user (exp true) : true
+
+el segundo debe fallar
 Result add user (exp false because user already exist) : false
+
+logout
+Result admin logout  (exp true) : true
 
 SUCCESS
 ********************** TEST 6 (value: 1)**********************
