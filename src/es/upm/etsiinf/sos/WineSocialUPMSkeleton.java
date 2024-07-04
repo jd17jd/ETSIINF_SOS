@@ -333,22 +333,17 @@ public class WineSocialUPMSkeleton {
 		logger.debug("METODO: [LOGOUT]");
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
-		
-		// INICIALIZACION RESPUESTA
-		response.setResponse(false);
-		respuestaFinalFuncion.set_return(response); //False en incio
-		
+			
 		// COMPROBACION SESION INICIADA
-		if (userLogged != null) {
+		if (userLogged.equals(null)) {
+			logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
+			response.setResponse(false);
+		} else {
 			userLogged = null;
 			logger.info("Has cerrado sesión.");
-			usersLogged.remove(userLogged.getName());
 			response.setResponse(true);
-			respuestaFinalFuncion.set_return(response);
-			return respuestaFinalFuncion;
 		}
-
-		logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
+		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
 	}
 	
