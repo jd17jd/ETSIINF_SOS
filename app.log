@@ -885,3 +885,21 @@ DEBUG - METODO: [ADDUSER]
 ERROR - Error. El usuario ya está registrado en el sistema.
 DEBUG - METODO: [LOGOUT]
 INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'wwwww' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'usuarioP' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.

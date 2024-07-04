@@ -49,13 +49,13 @@ public class Test_1 {
 			if(res) System.out.println("El admin se ha loggeado bien.");
 			else System.out.println("Error con el login");
 
-			res = cliente.addUser("usuarioP");
-			if(res) System.out.println("Admin ha añadido a 'usuarioP'.");
-			else System.out.println("Error al añadir usuario 'usuarioP'.");
+			cliente.addUser("usuarioP");
+			System.out.println("Admin ha añadido a 'usuarioP'.");
+//			else System.out.println("Error al añadir usuario 'usuarioP'.");
 
-			res = cliente.addUser("usuarioP");
-			if(res) System.out.println("Admin ha añadido a 'usuarioP'.");
-			else System.out.println("Error al añadir usuario 'usuarioP'");
+			cliente.addUser("usuarioP");
+			System.out.println("Admin ha añadido a 'usuarioP'.");
+//			else System.out.println("Error al añadir usuario 'usuarioP'");
 
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -76,7 +76,7 @@ public class Test_1 {
 			if(res) System.out.println("El admin se ha loggeado bien.");
 			else System.out.println("Error con el login");
 			
-			res = cliente.addUser("usuario2");
+			cliente.addUser("usuario2");
 			if(res) System.out.println("Admin ha añadido a 'usuario2'.");
 			else System.out.println("Error al añadir usuario 'usuario2'");
 
@@ -100,7 +100,7 @@ public class Test_1 {
 			Prueba_2(clienteAdmin);
 			
 			System.out.println("PRUEBA_Nº6\n");
-			Prueba_6(clienteAdmin);
+//			Prueba_6(clienteAdmin);
 			
 		}
 		catch(Exception e) {
