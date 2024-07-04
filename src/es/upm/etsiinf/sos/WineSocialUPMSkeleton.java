@@ -250,12 +250,12 @@ public class WineSocialUPMSkeleton {
 	 * @param login Objeto con los datos del usuario a loggear
 	 * @return loginResponse Objeto inddicando si se ha loggeado correctamente
 	 */
-	//TODO: HACER LO DE LAS SESIONES
+ 	//TODO: HACER LO DE LAS SESIONES
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) throws RemoteException {
 		logger.debug("METODO: [LOGIN]");
 		LoginResponse respuestaFinalFuncion = new LoginResponse();
-		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();  
-		
+		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub stub = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub();
 
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login stubLogin = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.Login();
@@ -264,27 +264,15 @@ public class WineSocialUPMSkeleton {
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse stubLoginResponse = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponse();
 		es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd stubLoginResponseBackend = new es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub.LoginResponseBackEnd();
 
-				
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
-		respuestaFinalFuncion.set_return(response); //False en incio
-		
+		respuestaFinalFuncion.set_return(response); // False en incio
+
 		// OBTENGO EL USUARIO Y CONTRASEÑA DEL PARAMETRO
 		User usuario = login.getArgs0();
 		String name = usuario.getName();
-		String password = usuario.getPwd();		
-		
-		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
-		boolean loggeadoPrevio = userLogged.getName().equals(name);
-		if(userLogged != null) {
-			if(loggeadoPrevio) {
-				response.setResponse(loggeadoPrevio);
-				respuestaFinalFuncion.set_return(response);
-				logger.info("Usuario: '" + userLogged.getName() + "' ya loggeado previamente");
-				return respuestaFinalFuncion;
-			}
-		}
-		
+		String password = usuario.getPwd();
+
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
 			userLogged = admin;
@@ -292,42 +280,45 @@ public class WineSocialUPMSkeleton {
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Usuario actual: " + userLogged.getName());
 			return respuestaFinalFuncion;
-		}		
+		}
 
 		// COMPROBACION USUARIO EXISTENTE
-		if(!usuarioRegistrado(name)) {
-			userLogged = null; //vacio
-			logger.error("Error. El usuario '" + name + "' no existe en el sistema.");
+		if (!usuarioRegistrado(name)) {
+			userLogged = null; // vacioe
+			logger.error("Error. El usuario no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
-		
+
+		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
+		if (userLogged != null) {
+			if (userLogged.getName().equals(name)) {
+				response.setResponse(true);
+				respuestaFinalFuncion.set_return(response);
+				logger.info("Usuario ya loggeado previamente.");
+				return respuestaFinalFuncion;
+			}
+		}
+
 		stubLoginBackend.setName(name);
 		stubLoginBackend.setPassword(password);
-		
-		//TODO: revisar por si es mejor
-		////////////////////////////////////
-		//userLogged.setName(name);
-		//userLogged.setPwd(password);
-		////////////////////////////////////
-		
 		stubLogin.setLogin(stubLoginBackend);
 
 		// COMPROBCION DE EXISTENCIA DEVUELTO POR BACKEND
 		stubLoginResponse = stub.login(stubLogin);
 		stubLoginResponseBackend = stubLoginResponse.get_return();
 
-		response.setResponse(stubLoginResponseBackend.getResult()); //Resultado del backend
+		response.setResponse(stubLoginResponseBackend.getResult()); // Resultado del backend
 		respuestaFinalFuncion.set_return(response);
 
 		// SI EL LOGIN HA IDO BIEN
-		if(response.getResponse()) {
+		if (response.getResponse()) {
 			userLogged = usersRegistered.get(name);
 			usersLogged.put(name, userLogged);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
-		} else {
-			logger.error("Error. La contraseña introducida es INCORRECTA.");
 		}
+
+		logger.error("Error. Contraseña incorrecta.");
 		return respuestaFinalFuncion;
 	}
 	
