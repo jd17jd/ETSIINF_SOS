@@ -114,15 +114,15 @@ public class Test_1 {
 			else System.out.println("Error con el login");
 			
 			//se loggea admin
-			boolean res = cliente1.login("admin","admin");
-			if(res) System.out.println("El admin se ha loggeado bien.");
+			boolean res2 = cliente1.login("admin","admin");
+			if(res2) System.out.println("El admin se ha loggeado bien.");
 			else System.out.println("Error con el login");
 			
 			// Añadir un nuevo usuario
 	        AddUserResponse addUserResponse = cliente1.addUser("joselito");
 	        if (addUserResponse.getResponse()) {
 	        	System.out.println("Usuario joselito añadido correctamente.");
-	            System.out.println("Contraseña autogenerada: " + addUserResponse.getPassword());
+	            System.out.println("Contraseña autogenerada: " + addUserResponse.getPwd());
 	        } else {
 	        	System.out.println("Error al añadir usuario joselito.");
 	        }
@@ -258,7 +258,7 @@ public class Test_1 {
 
 			System.out.println("Fallo en stub del cliente\n"); 
 			e.printStackTrace();
-		} */
+		}
 	}
 	
 	

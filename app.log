@@ -903,3 +903,9 @@ DEBUG - METODO: [ADDUSER]
 INFO - Usuario: 'usuarioP' añadido con éxito.
 DEBUG - METODO: [ADDUSER]
 ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'joselito' añadido con éxito.
