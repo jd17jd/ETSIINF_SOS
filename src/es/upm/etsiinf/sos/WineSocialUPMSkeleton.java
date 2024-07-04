@@ -306,8 +306,8 @@ public class WineSocialUPMSkeleton {
 		
 		//TODO: revisar por si es mejor
 		////////////////////////////////////
-		userLogged.setName(name);
-		userLogged.setPwd(password);
+		//userLogged.setName(name);
+		//userLogged.setPwd(password);
 		////////////////////////////////////
 		
 		stubLogin.setLogin(stubLoginBackend);
