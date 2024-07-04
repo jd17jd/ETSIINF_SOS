@@ -109,7 +109,7 @@ public class Test_1 {
 			System.out.println("------------------\n");
 
 			//se loggea user2 y da mal
-			boolean res = cliente1.login("joselito","noExiste");
+			boolean res = cliente1.login("qq","noExiste");
 			if(res) System.out.println("El joselito se ha loggeado bien.");
 			else System.out.println("Error con el login");
 			
@@ -119,7 +119,7 @@ public class Test_1 {
 			else System.out.println("Error con el login");
 			
 			// Añadir un nuevo usuario
-	        AddUserResponse addUserResponse = cliente1.addUser("joselito");
+	        AddUserResponse addUserResponse = cliente1.addUser("j");
 	        if (addUserResponse.getResponse()) {
 	        	System.out.println("Usuario joselito añadido correctamente.");
 	            System.out.println("Contraseña autogenerada: " + addUserResponse.getPwd());
@@ -128,23 +128,23 @@ public class Test_1 {
 	        }
 	        
 	        //login en otro stub(2)
-	        boolean res = cliente2.login("joselito","joselito8419");
-			if(res) System.out.println("El joselito se ha loggeado bien.");
+	        boolean res3 = cliente2.login("joselito","joselito8419");
+			if(res3) System.out.println("El joselito se ha loggeado bien.");
 			else System.out.println("Error con el login");
 			
 			//intenta borrar user1 pero no tiene permisos
-			boolean res = cliente2.removeUser("usuarioP");
-			if(res) System.out.println("El usuarioP se ha borrado.");
+			boolean res4 = cliente2.removeUser("usuarioP");
+			if(res4) System.out.println("El usuarioP se ha borrado.");
 			else System.out.println("Error con el remove prq no tiene permisos.");
 			
 			//admin intenta borrar user1 (deberia poder)
-			boolean res = cliente1.removeUser("usuarioP");
+			boolean res5 = cliente1.removeUser("usuarioP");
 			if(res) System.out.println("El usuarioP se ha borrado.");
 			else System.out.println("Error con el remove");
 			
 			//admin intenta borrar user1 (NO deberia poder)
-			boolean res = cliente1.removeUser("user500");
-			if(res) System.out.println("El usuarioP se ha borrado.");
+			boolean res6 = cliente1.removeUser("user500");
+			if(res6) System.out.println("El usuarioP se ha borrado.");
 			else System.out.println("Error con el remove prq el usuario no existe.");
 
 			System.out.println("------------------\n");
