@@ -865,3 +865,23 @@ DEBUG - METODO: [REMOVE_USER]
 INFO - Usuario: 'test1u9' borrado con exito.
 DEBUG - METODO: [LOGIN]
 INFO - Sesion iniciada con éxito. Usuario actual es: test1u8
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
