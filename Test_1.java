@@ -11,7 +11,7 @@ import es.upm.etsiinf.sos.WineSocialUPMStub.*;
 
 public class Test_1 {
 
-	public static void prueba_login(Cliente cliente) {
+	public static void Prueba_1(Cliente cliente) {
 		String username = "admin";
 		String password = "admin";
 		boolean res = false;
@@ -26,8 +26,7 @@ public class Test_1 {
 			else System.out.println("Error con el cambio de contraseña");
 
 			cliente.logout();
-			if(res) System.out.println("Admin se desloggea.");
-			else System.out.println("Error con el logout");
+			System.out.println("Usuario desloggeado");
 
 			res = cliente.login(username, "adminNew");
 			if(res) System.out.println("El admin se ha loggeado de nuevo bien.");
@@ -38,14 +37,70 @@ public class Test_1 {
 		} catch (Exception e) { //Logout
 			e.printStackTrace();
 		}
-	} 
+	}
+	
+	public static void Prueba_2(Cliente cliente) {
+		String username = "admin";
+		String password = "admin";
+		boolean res = false;
+		
+		try {
+			res = cliente.login(username, password);
+			if(res) System.out.println("El admin se ha loggeado bien.");
+			else System.out.println("Error con el login");
+
+			res = cliente.addUser("usuarioP");
+			if(res) System.out.println("Admin ha añadido a 'usuarioP'.");
+			else System.out.println("Error al añadir usuario 'usuarioP'.");
+
+			res = cliente.addUser("usuarioP");
+			if(res) System.out.println("Admin ha añadido a 'usuarioP'.");
+			else System.out.println("Error al añadir usuario 'usuarioP'");
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (Exception e) { //Logout
+			e.printStackTrace();
+		}
+	}
+	
+	public static void Prueba_6(Cliente cliente,Cliente cliente2) {
+		boolean res = false;
+		
+		try {
+			res = cliente.login("user2", "contraseñaMal");
+			if(res) System.out.println("El user2 se ha loggeado bien.");
+			else System.out.println("Error con el login");
+
+			res = cliente.login("admin", "admin");
+			if(res) System.out.println("El admin se ha loggeado bien.");
+			else System.out.println("Error con el login");
+			
+			res = cliente.addUser("usuario2");
+			if(res) System.out.println("Admin ha añadido a 'usuario2'.");
+			else System.out.println("Error al añadir usuario 'usuario2'");
+
+
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (Exception e) { //Logout
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public static void main(String [] args) {
 		try {
 			Cliente clienteAdmin = new Cliente();
 			
-			prueba_login(clienteAdmin);
+			System.out.println("PRUEBA_Nº1\n");
+			Prueba_1(clienteAdmin);
+			
+			System.out.println("PRUEBA_Nº2\n");
+			Prueba_2(clienteAdmin);
+			
+			System.out.println("PRUEBA_Nº6\n");
+			Prueba_6(clienteAdmin);
 			
 		}
 		catch(Exception e) {
