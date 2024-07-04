@@ -209,13 +209,13 @@ public class WineSocialUPMSkeleton {
 
 		// COMPROBACION ADMIN
 		if(!userLogged.getName().equals(admin.getName())) {
-			logger.error("Error. No tienes permisos para añadir usuarios. Se debe ser administrador.");
+			logger.error("Error. No tienes permisos para añadir usuarios. Debes ser administrador.");
 			return respuestaFinalFuncion;
 		}
 
 		// COMPROBACION USUARIO YA REGISTRADO
 		if(usuarioRegistrado(username)) {
-			logger.error("Error. El usuario ya está registrado en el sistema.");
+			logger.error("Error. El usuario '" + username +"' ya está registrado en el sistema.");
 			return respuestaFinalFuncion;
 		}
 
@@ -235,10 +235,11 @@ public class WineSocialUPMSkeleton {
 			usuario.setName(username);
 			usuario.setPwd(stubAddUserResponseBackend.getPassword());
 			usersRegistered.put(username, usuario);
-			logger.info("Usuario: '" + username + "' añadido con éxito.");
+			logger.info("El usuario: '" + username + "' con contraseña: <" + usuario.getPwd() + "> se ha añadido con éxito.");
 			return respuestaFinalFuncion;
+		}else {
+			logger.error("Error. No se pudo añadir al usuario: '" + username + "'.");
 		}
-		logger.error("Error. No se pudo añadir al usuario: '" + username + "'.");
 		return respuestaFinalFuncion;
 	}
 	
@@ -273,6 +274,17 @@ public class WineSocialUPMSkeleton {
 		String name = usuario.getName();
 		String password = usuario.getPwd();		
 		
+		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
+		boolean loggeadoPrevio = userLogged.getName().equals(name);
+		if(userLogged != null) {
+			if(loggeadoPrevio) {
+				response.setResponse(loggeadoPrevio);
+				respuestaFinalFuncion.set_return(response);
+				logger.info("Usuario: '" + userLogged.getName() + "' ya loggeado previamente");
+				return respuestaFinalFuncion;
+			}
+		}
+		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
 			userLogged = admin;
@@ -284,23 +296,20 @@ public class WineSocialUPMSkeleton {
 
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(name)) {
-			userLogged = null; //vacioe
-			logger.error("Error. El usuario no existe en el sistema.");
+			userLogged = null; //vacio
+			logger.error("Error. El usuario '" + name + "' no existe en el sistema.");
 			return respuestaFinalFuncion;
-		}
-		
-		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
-		if(userLogged != null) {
-			if(userLogged.getName().equals(name)) {
-				response.setResponse(true);
-				respuestaFinalFuncion.set_return(response);
-				logger.info("Usuario ya loggeado previamente.");
-				return respuestaFinalFuncion;
-			}
 		}
 		
 		stubLoginBackend.setName(name);
 		stubLoginBackend.setPassword(password);
+		
+		//TODO: revisar por si es mejor
+		////////////////////////////////////
+		userLogged.setName(name);
+		userLogged.setPwd(password);
+		////////////////////////////////////
+		
 		stubLogin.setLogin(stubLoginBackend);
 
 		// COMPROBCION DE EXISTENCIA DEVUELTO POR BACKEND
@@ -316,9 +325,9 @@ public class WineSocialUPMSkeleton {
 			usersLogged.put(name, userLogged);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
+		} else {
+			logger.error("Error. La contraseña introducida es INCORRECTA.");
 		}
-
-		logger.error("Error. Contraseña incorrecta.");
 		return respuestaFinalFuncion;
 	}
 	
@@ -340,15 +349,15 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION SESION INICIADA
 		if (userLogged != null) {
+			logger.info("El usuario '" + userLogged.getName() + "' cierra sesión...");
 			userLogged = null;
-			logger.info("Has cerrado sesión.");
 			usersLogged.remove(userLogged.getName());
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 			return respuestaFinalFuncion;
+		} else {
+			logger.error("Error. No puedes cerrar sesión si no estás loggeado.");
 		}
-
-		logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 		return respuestaFinalFuncion;
 	}
 	
@@ -375,6 +384,7 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
+		// COMPROBACION DE USUARIO LOGGEADO
 		if (userLogged == null) {
 			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
@@ -396,7 +406,7 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario no existe en el sistema.");
+			logger.error("Error. El usuario '" + nombreUsuarioBorrado + "' no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
@@ -416,9 +426,9 @@ public class WineSocialUPMSkeleton {
 			usersRegistered.remove(nombreUsuarioBorrado);
 			logger.info("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
 			return respuestaFinalFuncion;
+		} else {
+			logger.error("Error. No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
 		}
-
-		logger.error("Error. No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
 		return respuestaFinalFuncion;
 	}
 
@@ -485,9 +495,9 @@ public class WineSocialUPMSkeleton {
 		if(response.getResponse()) {
 			logger.info("Contraseña cambiada correctamente!!");
 			return respuestaFinalFuncion;
+		} else {
+			logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
 		}
-
-		logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
 		return respuestaFinalFuncion;
 	}
 	
@@ -1002,3 +1012,4 @@ public class WineSocialUPMSkeleton {
 	}
 
 }
+
