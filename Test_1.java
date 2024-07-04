@@ -127,10 +127,28 @@ public class Test_1 {
 	        	System.out.println("Error al añadir usuario joselito.");
 	        }
 	        
-	        
+	        //login en otro stub(2)
+	        boolean res = cliente2.login("joselito","joselito8419");
+			if(res) System.out.println("El joselito se ha loggeado bien.");
+			else System.out.println("Error con el login");
 			
+			//intenta borrar user1 pero no tiene permisos
+			boolean res = cliente2.removeUser("usuarioP");
+			if(res) System.out.println("El usuarioP se ha borrado.");
+			else System.out.println("Error con el remove prq no tiene permisos.");
+			
+			//admin intenta borrar user1 (deberia poder)
+			boolean res = cliente1.removeUser("usuarioP");
+			if(res) System.out.println("El usuarioP se ha borrado.");
+			else System.out.println("Error con el remove");
+			
+			//admin intenta borrar user1 (NO deberia poder)
+			boolean res = cliente1.removeUser("user500");
+			if(res) System.out.println("El usuarioP se ha borrado.");
+			else System.out.println("Error con el remove prq el usuario no existe.");
 
 			System.out.println("------------------\n");
+			
 			
 			//////////////////////////////////////////////////////////////////////////////	
 			//////////////////////////////////////////////////////////////////////////////
