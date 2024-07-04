@@ -285,7 +285,7 @@ public class WineSocialUPMSkeleton {
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(name)) {
 			userLogged = null; //vacio
-			logger.error("Error. El usuario: '" + name + "' no existe en el sistema.");
+			logger.error("Error. El usuario: '" + userLogged.getName() + "' no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
