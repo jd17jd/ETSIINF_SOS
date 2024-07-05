@@ -296,7 +296,7 @@ public class WineSocialUPMSkeleton {
 			activeUser = admin;
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
-			logger.info("Usuario actual: " + activeUser.getName());
+			logger.info("Usuario actual: " + activeUser.getName() + ", valor de isLogged: " + isLogged);
 			return respuestaFinalFuncion;
 		}
 
@@ -475,7 +475,9 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		if (!isLogged) {
+		logger.debug("Valor de isLogged: " + isLogged + ", usuario actual: " + activeUser.getName());
+
+		if (!this.isLogged) {
 			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
@@ -513,7 +515,7 @@ public class WineSocialUPMSkeleton {
 		// SI EL CHANGEPASSWORD HA IDO BIEN
 		if(response.getResponse()) logger.info("Contraseña cambiada correctamente!!");
 		else logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
-		
+
 		return respuestaFinalFuncion;
 	}
 	
