@@ -271,6 +271,103 @@ public class Test_1 {
 			return 0;
 		}
 	}
+	
+	
+	private static int test8() throws RemoteException {
+		System.out.println("********************** TEST 8 (value: 1)**********************");
+		System.out.println("1) user2 login st1 y st2, 2) st1 logout, 3) changpwd en st1 (fail), 4) changpwd en st2");
+
+		stub1 = getStub();
+
+		// 1
+		boolean login1 = stub1.login(createLoginData(USER2, USER2PWD)).get_return().getResponse();
+		System.out.println("Result user2 login con stub1 (exp true) : " + login1);
+
+		stub2 = getStub();
+
+		// 2
+		boolean login2 = stub2.login(createLoginData(USER2, USER2PWD)).get_return().getResponse();
+		System.out.println("Result user2 login con stub2 (exp true) : " + login2);
+
+		stub1.logout(logoutVacio);
+
+		// 3)
+		boolean changePwdFail = stub1.changePassword(createChangePWDData(USER2PWD, USER2NEWPWD)).get_return()
+				.getResponse();
+		System.out.println("Result user2 change pwd con stub1 (exp false because user2 has logout on stub1-session) : "
+				+ changePwdFail);
+
+		// 4)
+		boolean changePwd = stub2.changePassword(createChangePWDData(USER2PWD, USER2NEWPWD)).get_return().getResponse();
+		System.out.println("Result user2 change pwd con stub2 (exp true) : " + changePwd);
+
+		resetStub(stub1);
+
+		// hace logout del stub2
+		stub2.logout(logoutVacio);
+
+		resetStub(stub2);
+
+		System.out.println();
+
+		if (login1 && login2 && !changePwdFail && changePwd) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
+	private static int test10() throws RemoteException {
+		System.out.println("********************** TEST 10 (value: 1)**********************");
+		System.out.println("1) user2 login 2 veces en st1, 2) logout, 3) admin login st1 (fail), 4) logout, 5) admin login st1 (ok)");
+		
+		stub1 = getStub();
+		
+		//1
+		boolean login1 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
+		System.out.println("Result user2 login (exp true) : " + login1);
+		
+		//1
+		boolean login2 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
+		System.out.println("Result user2 login (exp true) : " + login2);
+		
+		//2
+		boolean logout1 = stub1.logout(logoutVacio).get_return().getResponse();
+		System.out.println("Result user2 logout (exp true) : " + logout1);
+		
+		//3
+		boolean login3F = stub1.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login en mismo stub (exp false) : " + login3F);
+		
+		//4
+		boolean logout2 = stub1.logout(logoutVacio).get_return().getResponse();
+		System.out.println("Result user2 logout (exp true) : " + logout2);
+		
+		//5
+		boolean login4 = stub1.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login en mismo stub (exp true) : " + login4);
+		
+		stub1.logout(logoutVacio);
+		
+		resetStub(stub1);
+		
+		admin.logout(logoutVacio);
+		
+		resetStub(admin);
+		System.out.println();
+		
+		if (login1 && login2 && logout1 && logout2 && login4 && !login3F) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
+	
 
 	public static void main(String[] args) throws InterruptedException {
 		// System.out.println("BORRADO USUARIOS...");
