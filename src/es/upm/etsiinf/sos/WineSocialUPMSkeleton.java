@@ -249,6 +249,7 @@ public class WineSocialUPMSkeleton {
 	 * @param login Objeto con los datos del usuario a loggear
 	 * @return loginResponse Objeto inddicando si se ha loggeado correctamente
 	 */
+ 	
 	//TODO: HACER LO DE LAS SESIONES
 	public es.upm.etsiinf.sos.LoginResponse login(es.upm.etsiinf.sos.Login login) throws RemoteException {
 		logger.debug("METODO: [LOGIN]");
@@ -291,6 +292,11 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
+		//admin stub1
+		//admin crea pablete y luis
+		//pablete login stub1 -> userLogged = pablete(stub1)
+		//luis trata de hacer login stub1 
+		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(userLogged != null) {
 			if(userLogged.getName().equals(name)) {
@@ -298,6 +304,10 @@ public class WineSocialUPMSkeleton {
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Usuario ya loggeado previamente.");
 				return respuestaFinalFuncion;
+			}
+			else {
+		        logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + userLogged.getName() + ".");
+		        return respuestaFinalFuncion;
 			}
 		}
 		
