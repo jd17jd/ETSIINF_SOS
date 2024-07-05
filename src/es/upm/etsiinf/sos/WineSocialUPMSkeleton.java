@@ -35,7 +35,7 @@ public class WineSocialUPMSkeleton {
 	public static int counter = 0;
 
 	private static User admin;
-	private User activeUser;
+	private static User activeUser;
 
 	private static boolean isLogged = false;
 
