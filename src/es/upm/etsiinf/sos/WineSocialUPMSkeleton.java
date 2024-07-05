@@ -34,7 +34,7 @@ public class WineSocialUPMSkeleton {
 	public static String ADMIN_PWD = "admin";
 	public static int counter = 0;
 
-	private static User admin;
+	private static User admin = new User();
 	private static User userLogged = new User();
 	
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
@@ -47,8 +47,7 @@ public class WineSocialUPMSkeleton {
 	
 	public WineSocialUPMSkeleton() {
 		System.out.println("[IMP] Creada instancia: " + counter++);
-		
-		admin = new User();
+	
 		admin.setName(ADMIN_NAME);
 		admin.setPwd(ADMIN_PWD);
 		
