@@ -495,7 +495,7 @@ public class WineSocialUPMSkeleton {
 				admin.setPwd(newPassword);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
-				logger.info("Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: " + newPassword);
+				logger.info("Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: " + newPassword + "Valor response= " + response.getResponse());
 				return respuestaFinalFuncion;
 			}
 			else {
