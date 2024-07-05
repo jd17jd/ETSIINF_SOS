@@ -4,7 +4,7 @@ El admin se logea,
 Result admin login (exp true) : true
 
 cambia la contraseña,
-Result admin changePwd (exp true) : true
+Result admin changePwd (exp true) : false
 
 log out
 Result admin logout (exp true) : true

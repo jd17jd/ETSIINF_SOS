@@ -37,7 +37,7 @@ public class WineSocialUPMSkeleton {
 	private static User admin;
 	private static User activeUser;
 
-	private boolean isLogged = false;
+	private static boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
 	
@@ -317,6 +317,7 @@ public class WineSocialUPMSkeleton {
 			boolean res = activeUser.getName().equals(name) ? true : false;
 			response.setResponse(res);
 			respuestaFinalFuncion.set_return(response);
+
 			logger.info("Ya está loggeado " + res + ", " + activeUser.getName() + " - " + name);
 
 			return respuestaFinalFuncion;
