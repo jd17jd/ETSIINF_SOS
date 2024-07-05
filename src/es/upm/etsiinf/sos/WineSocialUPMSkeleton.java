@@ -288,6 +288,7 @@ public class WineSocialUPMSkeleton {
 		String name = usuario.getName();
 		String password = usuario.getPwd();
 		
+		logger.info("ESTOY EN EL STUB: " + stub.toString());
 		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
 		
 		// COMPROBACION ADMIN
