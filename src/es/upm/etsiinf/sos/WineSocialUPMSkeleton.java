@@ -299,18 +299,6 @@ public class WineSocialUPMSkeleton {
 			logger.info("Usuario actual: " + activeUser.getName() + ", valor de isLogged: " + isLogged);
 			return respuestaFinalFuncion;
 		}
-
-		// // COMPROBACION USUARIO EXISTENTE
-		// if(!usuarioRegistrado(name)) {
-		// 	activeUser = null;
-		// 	logger.error("Error. El usuario no existe en el sistema.");
-		// 	return respuestaFinalFuncion;
-		// }
-		
-		//admin stub1
-		//admin crea pablete y luis
-		//pablete login stub1 -> activeUser = pablete(stub1)
-		//luis trata de hacer login stub1
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
@@ -321,17 +309,6 @@ public class WineSocialUPMSkeleton {
 			logger.info("Ya está loggeado " + res + ", " + activeUser.getName() + " - " + name);
 
 			return respuestaFinalFuncion;
-
-			// if(activeUser.getName().equals(name)) {
-			// 	response.setResponse(true);
-			// 	respuestaFinalFuncion.set_return(response);
-			// 	logger.info("Usuario ya loggeado previamente.");
-			// 	return respuestaFinalFuncion;
-			// }
-			// else {
-		    //     logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + activeUser.getName() + ".");
-		    //     return respuestaFinalFuncion;
-			// }
 		}
 
 		stubLoginBackend.setName(name);
@@ -407,7 +384,7 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		if (activeUser == null) {
+		if (!isLogged) {
 			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
