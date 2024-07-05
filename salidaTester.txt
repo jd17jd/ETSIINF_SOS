@@ -83,7 +83,7 @@ FAIL
 ********************** TEST 14 (value: 1)**********************
 admin crea usuer11, user11 se logea en dos stubs, st1 y st2, en uno se borra y en otro no debe permitir hacer nada.
 Result admin login (exp true) : true
-Result admin create user11 (exp true) : true
+Result admin  user11 (exp true) : true
 Result user11 login (exp true) : true
 Result user11 login en otro stub (exp true) : true
 Result user11 deletes user11 en stub11(exp true) : true
