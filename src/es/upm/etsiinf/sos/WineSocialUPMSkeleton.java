@@ -55,8 +55,8 @@ public class WineSocialUPMSkeleton {
 
 		if (admin == null) {
 			admin = new User();
-			admin.setName(ADMIN_NAME);
-			admin.setPwd(ADMIN_PWD);
+			admin.setName("admin");
+			admin.setPwd("admin");
 		}
 
 		if (activeUser == null) activeUser = new User();
@@ -291,7 +291,7 @@ public class WineSocialUPMSkeleton {
 		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
 		
 		// COMPROBACION ADMIN
-		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
+		if (name.equals(admin.getName()) && password.equals(admin.getPwd())) {
 			isLogged = true;
 			activeUser = admin;
 			response.setResponse(true);
@@ -376,7 +376,7 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 			response.setResponse(false);
 		} else {
-			this.isLogged = false;
+			isLogged = false;
 			logger.info("Has cerrado sesión.");
 			response.setResponse(true);
 		}
@@ -479,7 +479,7 @@ public class WineSocialUPMSkeleton {
 
 		logger.debug("Valor de isLogged: " + isLogged + ", usuario actual: " + activeUser.getName());
 
-		if (!this.isLogged) {
+		if (!isLogged) {
 			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
