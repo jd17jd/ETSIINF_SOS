@@ -35,10 +35,14 @@ public class WineSocialUPMSkeleton {
 	public static int counter = 0;
 
 	private static User admin;
-	private static User userLogged = new User();
+	private static User userLogged;
+
+	private boolean isLooged = false;
+
+
 	
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
-	public static Map<String, User> usersLogged; // KEY: Nombre usuario -- VALUE: Objeto usuario
+	
 	public static Map<User,FollowerList> followersMap; // KEY: Objeto usuario -- VALUE: lista de seguidores
 	public static List<Wine> winesList;
 	public static Map<User, List<WineRated>> userRatedMap; // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
@@ -46,18 +50,26 @@ public class WineSocialUPMSkeleton {
 	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
 	
 	public WineSocialUPMSkeleton() {
-		System.out.println("[IMP] Creada instancia: " + counter++);
+
+		logger.debug("[IMP] Creada instancia: " + counter++);
 		
-		admin = new User();
-		admin.setName(ADMIN_NAME);
-		admin.setPwd(ADMIN_PWD);
+		// admin = new User();
+		// admin.setName(ADMIN_NAME);
+		// admin.setPwd(ADMIN_PWD);
+
+		if (admin == null) {
+			admin = new User();
+			admin.setName(ADMIN_NAME);
+			admin.setPwd(ADMIN_PWD);
+		}
+
+		if (userLogged == null) userLogged = new User();
 		
 		if (usersRegistered == null) {
 			usersRegistered = new HashMap<String, User>();
 			usersRegistered.put("admin", admin);
 		}
 
-		if (usersLogged == null) new HashMap<>();
 		if (followersMap == null) new HashMap<>();
 		if (winesList == null) new ArrayList<>();
 		if (userRatedMap == null) new HashMap<>();
@@ -325,7 +337,6 @@ public class WineSocialUPMSkeleton {
 		// SI EL LOGIN HA IDO BIEN
 		if(response.getResponse()) {
 			userLogged = usersRegistered.get(name);
-			usersLogged.put(name, userLogged);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
 			return respuestaFinalFuncion;
 		}
