@@ -291,7 +291,7 @@ public class WineSocialUPMSkeleton {
 		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
 		
 		// COMPROBACION ADMIN
-		if (name.equals(admin.getName()) && password.equals(admin.getPwd())) {
+		if (name.equals(admin.getName()) && password.equals(ADMIN_PWD)) {
 			isLogged = true;
 			activeUser = admin;
 			response.setResponse(true);
@@ -353,9 +353,9 @@ public class WineSocialUPMSkeleton {
 			activeUser.setPwd(password);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
-		}else {
-			logger.error("Error devuelto por backend");
 		}
+
+		logger.error("Error. Contraseña incorrecta.");
 		return respuestaFinalFuncion;
 	}
 	
