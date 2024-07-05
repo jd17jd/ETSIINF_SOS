@@ -475,7 +475,7 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		if (activeUser.equals(null)) {
+		if (!isLogged) {
 			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
@@ -488,8 +488,7 @@ public class WineSocialUPMSkeleton {
 		// SI ES EL ADMIN NO LLAMO AL BACKEND
 		if(activeUser.getName().equals(admin.getName())) {
 			if(admin.getPwd().equals(oldPassword)) {
-				ADMIN_PWD = newPassword;
-				admin.setPwd(ADMIN_PWD);
+				admin.setPwd(newPassword);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Se ha cambiado la contraseña del admin correctamente.");
@@ -512,12 +511,9 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response);
 		
 		// SI EL CHANGEPASSWORD HA IDO BIEN
-		if(response.getResponse()) {
-			logger.info("Contraseña cambiada correctamente!!");
-			return respuestaFinalFuncion;
-		}
-
-		logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
+		if(response.getResponse()) logger.info("Contraseña cambiada correctamente!!");
+		else logger.error("Error. La contraseña no coincide, no se pudo cambiar.");
+		
 		return respuestaFinalFuncion;
 	}
 	
