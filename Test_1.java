@@ -14,11 +14,12 @@ public class Test_1 {
 	private static final String ADMINPWD = "admin";
 	private static final String NEW_ADMINPWD = "admin3";
 
-	private static final String USER1 = "uB1";
+	private static final String USER1 = "uD1";
 
 
-	private static final String USER2 = "uB2";
+	private static final String USER2 = "uD2";
 	private static String USER2PWD = "";
+	private static String NEW_USER2PWD = "Nuevaa";
 
 
 	private static WineSocialUPMStub admin;
@@ -281,25 +282,25 @@ public class Test_1 {
 
 		// 1
 		boolean login1 = stub1.login(createLoginData(USER2, USER2PWD)).get_return().getResponse();
-		System.out.println("Result user2 login con stub1 (exp true) : " + login1);
+		System.out.println("1. Result user2 login con stub1 (exp true) : " + login1);
 
 		stub2 = getStub();
 
 		// 2
 		boolean login2 = stub2.login(createLoginData(USER2, USER2PWD)).get_return().getResponse();
-		System.out.println("Result user2 login con stub2 (exp true) : " + login2);
+		System.out.println("2. Result user2 login con stub2 (exp true) : " + login2);
 
 		stub1.logout(logoutVacio);
 
 		// 3)
-		boolean changePwdFail = stub1.changePassword(createChangePWDData(USER2PWD, USER2NEWPWD)).get_return()
-				.getResponse();
-		System.out.println("Result user2 change pwd con stub1 (exp false because user2 has logout on stub1-session) : "
-				+ changePwdFail);
+		ChangePassword changePasswordData = createChangePWDData(USER2PWD, NEW_USER2PWD);
+		NEW_USER2PWD = changePasswordData.getArgs0().getNewpwd();
+		boolean changePwdFail = stub1.changePassword(changePasswordData).get_return().getResponse();
+		System.out.println("3. Result user2 change pwd con stub1 (exp false because user2 has logout on stub1-session) : " + changePwdFail);
 
 		// 4)
-		boolean changePwd = stub2.changePassword(createChangePWDData(USER2PWD, USER2NEWPWD)).get_return().getResponse();
-		System.out.println("Result user2 change pwd con stub2 (exp true) : " + changePwd);
+		boolean changePwd = stub2.changePassword(createChangePWDData(USER2PWD, NEW_USER2PWD)).get_return().getResponse();
+		System.out.println("4. Result user2 change pwd con stub2 (exp true) : " + changePwd);
 
 		resetStub(stub1);
 
@@ -326,28 +327,28 @@ public class Test_1 {
 		stub1 = getStub();
 		
 		//1
-		boolean login1 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
-		System.out.println("Result user2 login (exp true) : " + login1);
+		boolean login1 = stub1.login(createLoginData(USER2, NEW_USER2PWD)).get_return().getResponse();
+		System.out.println("1. Result user2 login (exp true) : " + login1);
 		
 		//1
-		boolean login2 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
-		System.out.println("Result user2 login (exp true) : " + login2);
+		boolean login2 = stub1.login(createLoginData(USER2, NEW_USER2PWD)).get_return().getResponse();
+		System.out.println("1. Result user2 login (exp true) : " + login2);
 		
 		//2
 		boolean logout1 = stub1.logout(logoutVacio).get_return().getResponse();
-		System.out.println("Result user2 logout (exp true) : " + logout1);
+		System.out.println("2. Result user2 logout (exp true) : " + logout1);
 		
 		//3
 		boolean login3F = stub1.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
-		System.out.println("Result admin login en mismo stub (exp false) : " + login3F);
+		System.out.println("2. Result admin login en mismo stub (exp false) : " + login3F);
 		
 		//4
 		boolean logout2 = stub1.logout(logoutVacio).get_return().getResponse();
-		System.out.println("Result user2 logout (exp true) : " + logout2);
+		System.out.println("4. Result user2 logout (exp true) : " + logout2);
 		
 		//5
 		boolean login4 = stub1.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
-		System.out.println("Result admin login en mismo stub (exp true) : " + login4);
+		System.out.println("5. Result admin login en mismo stub (exp true) : " + login4);
 		
 		stub1.logout(logoutVacio);
 		
@@ -386,7 +387,7 @@ public class Test_1 {
 		double totalMark = 0.0D;
 
 		try {
-			totalMark = test1() + test2() + test6();
+			totalMark = test1() + test2() + test6() + test10();
 			System.out.println("Total superadas Validador: " + totalMark);
 			
 		} catch (RemoteException e) {

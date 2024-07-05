@@ -1340,3 +1340,132 @@ INFO - Usuario actual: admin
 DEBUG - METODO: [ADDUSER]
 INFO - Usuario: 'uB2' añadido con éxito.
 DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uB2
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uB2
+ERROR - Error. El usuario uB2 no puede loggearse porque ya hay una sesión activa para el usuario admin.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uC1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uC2
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uC2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uC2
+ERROR - Error. El usuario uC2 no puede loggearse porque ya hay una sesión activa para el usuario admin.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'uC1' borrado con exito.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uD1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uD2
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uD2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uD2
+ERROR - Error. El usuario uD2 no puede loggearse porque ya hay una sesión activa para el usuario admin.
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'uD1' borrado con exito.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uD2
+ERROR - Error. El usuario uD2 no puede loggearse porque ya hay una sesión activa para el usuario admin.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: uD2
+ERROR - Error. El usuario uD2 no puede loggearse porque ya hay una sesión activa para el usuario admin.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGOUT]
