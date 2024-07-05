@@ -291,7 +291,7 @@ public class WineSocialUPMSkeleton {
 		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
 		
 		// COMPROBACION ADMIN
-		if (name.equals(admin.getName()) && password.equals(ADMIN_PWD)) {
+		if (name.equals(admin.getName()) && password.equals(admin.getPwd())) {
 			isLogged = true;
 			activeUser = admin;
 			response.setResponse(true);
