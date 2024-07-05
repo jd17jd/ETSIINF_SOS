@@ -34,7 +34,7 @@ public class WineSocialUPMSkeleton {
 	public static String ADMIN_PWD = "admin";
 	public static int counter = 0;
 
-	private static User admin = new User();
+	private static User admin;
 	private static User userLogged = new User();
 	
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
@@ -47,7 +47,8 @@ public class WineSocialUPMSkeleton {
 	
 	public WineSocialUPMSkeleton() {
 		System.out.println("[IMP] Creada instancia: " + counter++);
-	
+		
+		admin = new User();
 		admin.setName(ADMIN_NAME);
 		admin.setPwd(ADMIN_PWD);
 		
@@ -340,6 +341,7 @@ public class WineSocialUPMSkeleton {
 	 * @param logout Objeto vacio (creo)
 	 * @return logoutResponse Objeto indicando si se ha cerrado correctamente la sesion
 	 */
+	/*
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
 		logger.debug("METODO: [LOGOUT]");
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
@@ -355,6 +357,29 @@ public class WineSocialUPMSkeleton {
 			response.setResponse(true);
 		}
 		respuestaFinalFuncion.set_return(response);
+		return respuestaFinalFuncion;
+	}*/
+	
+	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
+		logger.debug("METODO: [LOGOUT]");
+		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
+		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
+		
+		// INICIALIZACION RESPUESTA
+		response.setResponse(false);
+		respuestaFinalFuncion.set_return(response); //False en incio
+		
+		// COMPROBACION SESION INICIADA
+		if (userLogged != null) {
+			userLogged = null;
+			logger.info("Has cerrado sesión.");
+			usersLogged.remove(userLogged.getName());
+			response.setResponse(true);
+			respuestaFinalFuncion.set_return(response);
+			return respuestaFinalFuncion;
+		}
+
+		logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 		return respuestaFinalFuncion;
 	}
 	
