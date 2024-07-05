@@ -35,7 +35,7 @@ public class WineSocialUPMSkeleton {
 	public static int counter = 0;
 
 	private static User admin;
-	private static User userLogged = new User();
+	private User userLogged = new User();
 	
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
 	public static Map<String, User> usersLogged; // KEY: Nombre usuario -- VALUE: Objeto usuario
