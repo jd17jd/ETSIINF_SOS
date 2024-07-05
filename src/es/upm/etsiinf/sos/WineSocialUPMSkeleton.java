@@ -273,6 +273,8 @@ public class WineSocialUPMSkeleton {
 		String name = usuario.getName();
 		String password = usuario.getPwd();		
 		
+		logger.debug("Intentando login para el usuario: " + name);
+		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
 			userLogged = admin;
