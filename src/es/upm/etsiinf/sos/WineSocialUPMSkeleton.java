@@ -368,7 +368,6 @@ public class WineSocialUPMSkeleton {
 			response.setResponse(false);
 		} else {
 			activeUser = null;
-			usersConnected.remove(activeUser);
 			logger.info("Has cerrado sesión.");
 			response.setResponse(true);
 		}
