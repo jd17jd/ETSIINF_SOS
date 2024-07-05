@@ -35,14 +35,15 @@ public class WineSocialUPMSkeleton {
 	public static int counter = 0;
 
 	private static User admin;
-	private static User userLogged;
+	private static User activeUser;
 
-	private boolean isLooged = false;
+	private boolean isLogged = false;
 
-
-	
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
+	public static List<User> usersConnected; 
 	
+	//----
+
 	public static Map<User,FollowerList> followersMap; // KEY: Objeto usuario -- VALUE: lista de seguidores
 	public static List<Wine> winesList;
 	public static Map<User, List<WineRated>> userRatedMap; // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
@@ -52,10 +53,6 @@ public class WineSocialUPMSkeleton {
 	public WineSocialUPMSkeleton() {
 
 		logger.debug("[IMP] Creada instancia: " + counter++);
-		
-		// admin = new User();
-		// admin.setName(ADMIN_NAME);
-		// admin.setPwd(ADMIN_PWD);
 
 		if (admin == null) {
 			admin = new User();
@@ -63,13 +60,14 @@ public class WineSocialUPMSkeleton {
 			admin.setPwd(ADMIN_PWD);
 		}
 
-		if (userLogged == null) userLogged = new User();
+		if (activeUser == null) activeUser = new User();
 		
 		if (usersRegistered == null) {
 			usersRegistered = new HashMap<String, User>();
 			usersRegistered.put("admin", admin);
 		}
 
+		if (usersConnected == null) new ArrayList<>();
 		if (followersMap == null) new HashMap<>();
 		if (winesList == null) new ArrayList<>();
 		if (userRatedMap == null) new HashMap<>();
@@ -100,7 +98,7 @@ public class WineSocialUPMSkeleton {
 	 */
 	private String printStringListaFollowers() {
 		String res = "";
-		String[] arr = followersMap.get(userLogged).getFollowers();
+		String[] arr = followersMap.get(activeUser).getFollowers();
 		for (int i = 0; i < arr.length; i++) {
 			if(i > 0) {
 				res += ", ";
@@ -212,7 +210,7 @@ public class WineSocialUPMSkeleton {
 		response.setPwd(null);
 		respuestaFinalFuncion.set_return(response);
 
-		if (userLogged == null) {
+		if (!isLogged) { // isLooged == false
 			logger.error("Error. No puedes añadir usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
@@ -220,14 +218,14 @@ public class WineSocialUPMSkeleton {
 		String username = addUser.getArgs0().getUsername();
 
 		// COMPROBACION ADMIN
-		if(!userLogged.getName().equals(admin.getName())) {
+		if(!activeUser.getName().equals(admin.getName())) {
 			logger.error("Error. No tienes permisos para añadir usuarios. Se debe ser administrador.");
 			return respuestaFinalFuncion;
 		}
 
 		// COMPROBACION USUARIO YA REGISTRADO
 		if(usuarioRegistrado(username)) {
-			logger.error("Error. El usuario ya está registrado en el sistema.");
+			logger.error("Error. El usuario: " + username + " ya está registrado en el sistema.");
 			return respuestaFinalFuncion;
 		}
 
@@ -246,11 +244,17 @@ public class WineSocialUPMSkeleton {
 			User usuario = new User();
 			usuario.setName(username);
 			usuario.setPwd(stubAddUserResponseBackend.getPassword());
+				response.setResponse(true);
+				response.setPwd(stubAddUserResponseBackend.getPassword());
+				respuestaFinalFuncion.set_return(response);
 			usersRegistered.put(username, usuario);
 			logger.info("Usuario: '" + username + "' añadido con éxito.");
 			return respuestaFinalFuncion;
 		}
 		logger.error("Error. No se pudo añadir al usuario: '" + username + "'.");
+			response.setResponse(false);
+			response.setPwd(null);
+			respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
 	}
 	
@@ -290,35 +294,35 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
-			userLogged = admin;
+			activeUser = admin;
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
-			logger.info("Usuario actual: " + userLogged.getName());
+			logger.info("Usuario actual: " + activeUser.getName());
 			return respuestaFinalFuncion;
 		}
 
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(name)) {
-			userLogged = null; //vacioe
+			activeUser = null; //vacioe
 			logger.error("Error. El usuario no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
 		//admin stub1
 		//admin crea pablete y luis
-		//pablete login stub1 -> userLogged = pablete(stub1)
+		//pablete login stub1 -> activeUser = pablete(stub1)
 		//luis trata de hacer login stub1 
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
-		if(userLogged != null) {
-			if(userLogged.getName().equals(name)) {
+		if(activeUser != null) {
+			if(activeUser.getName().equals(name)) {
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Usuario ya loggeado previamente.");
 				return respuestaFinalFuncion;
 			}
 			else {
-		        logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + userLogged.getName() + ".");
+		        logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + activeUser.getName() + ".");
 		        return respuestaFinalFuncion;
 			}
 		}
@@ -336,8 +340,9 @@ public class WineSocialUPMSkeleton {
 
 		// SI EL LOGIN HA IDO BIEN
 		if(response.getResponse()) {
-			userLogged = usersRegistered.get(name);
-			logger.info("Sesion iniciada con éxito. Usuario actual es: " + userLogged.getName());
+			activeUser = usersRegistered.get(name);
+			usersConnected.add(activeUser);
+			logger.info("Sesion iniciada con éxito. Usuario actual es: " + activeUser.getName());
 			return respuestaFinalFuncion;
 		}
 
@@ -358,11 +363,12 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 			
 		// COMPROBACION SESION INICIADA
-		if (userLogged.equals(null)) {
+		if (activeUser.equals(null)) {
 			logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 			response.setResponse(false);
 		} else {
-			userLogged = null;
+			activeUser = null;
+			usersConnected.remove(activeUser);
 			logger.info("Has cerrado sesión.");
 			response.setResponse(true);
 		}
@@ -393,7 +399,7 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		if (userLogged == null) {
+		if (activeUser == null) {
 			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
@@ -407,7 +413,7 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
-		if(!userLogged.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!userLogged.getName().equals(admin.getName()))) {
+		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
 			logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
 			return respuestaFinalFuncion;
 		}
@@ -463,7 +469,7 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		if (userLogged.equals(null)) {
+		if (activeUser.equals(null)) {
 			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
@@ -474,7 +480,7 @@ public class WineSocialUPMSkeleton {
 		String newPassword = changePassword.getArgs0().getNewpwd();
 		
 		// SI ES EL ADMIN NO LLAMO AL BACKEND
-		if(userLogged.getName().equals(admin.getName())) {
+		if(activeUser.getName().equals(admin.getName())) {
 			if(admin.getPwd().equals(oldPassword)) {
 				ADMIN_PWD = newPassword;
 				admin.setPwd(ADMIN_PWD);
@@ -489,7 +495,7 @@ public class WineSocialUPMSkeleton {
 			}
 		}
 		
-		upmChangePasswordBackend.setName(userLogged.getName());
+		upmChangePasswordBackend.setName(activeUser.getName());
 		upmChangePasswordBackend.setNewpwd(newPassword);
 		upmChangePasswordBackend.setOldpwd(oldPassword);
 		upmChangePassword.setChangePassword(upmChangePasswordBackend);
@@ -518,8 +524,8 @@ public class WineSocialUPMSkeleton {
 	 */
 	private boolean followerExist(String name) {
 	    boolean existe = false;
-	    if (followersMap.get(userLogged).getFollowers() != null) {
-	        String[] seguidores = followersMap.get(userLogged).getFollowers();
+	    if (followersMap.get(activeUser).getFollowers() != null) {
+	        String[] seguidores = followersMap.get(activeUser).getFollowers();
 	        for (int i = 0; i < seguidores.length; i++) {
 	            if (seguidores[i].equals(name)) {
 	                existe = true;
@@ -552,7 +558,7 @@ public class WineSocialUPMSkeleton {
 		String nombreUsuarioASeguir = username.getUsername(); //el usuario al que se va a seguir 
 
 		// COMPROBACION DE LOGGEADO USER1 
-		if (userLogged == null) {
+		if (activeUser == null) {
 			logger.error("Error. No puedes seguir a un usuario sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
@@ -563,11 +569,11 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		FollowerList listaSeguidores = followersMap.get(userLogged); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
+		FollowerList listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
 		
 		if(listaSeguidores == null) { 
 			listaSeguidores = new FollowerList();
-			followersMap.put(userLogged, listaSeguidores);
+			followersMap.put(activeUser, listaSeguidores);
 		}
 		
 		// COMPROBACION EXISTENCIA USUAIRO
@@ -575,11 +581,11 @@ public class WineSocialUPMSkeleton {
 			listaSeguidores.addFollowers(nombreUsuarioASeguir);
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
-			logger.info("El usuario: '" + userLogged + "' ha empezado a seguir a: '" + nombreUsuarioASeguir + "' como seguidor.");
+			logger.info("El usuario: '" + activeUser + "' ha empezado a seguir a: '" + nombreUsuarioASeguir + "' como seguidor.");
 			return respuestaFinalFuncion;
 		}
 
-		logger.error("Error. El usuario: '" + userLogged + "' ya sigue a: '" + nombreUsuarioASeguir + ".");
+		logger.error("Error. El usuario: '" + activeUser + "' ya sigue a: '" + nombreUsuarioASeguir + ".");
 		return respuestaFinalFuncion;
 	}
 
@@ -591,7 +597,7 @@ public class WineSocialUPMSkeleton {
 	private void borrarSeguidor (String seguidor) {
 		int res = -1;
 		boolean encontrado = false;
-        String[] seguidores = followersMap.get(userLogged).getFollowers();
+        String[] seguidores = followersMap.get(activeUser).getFollowers();
 
         for (int i = 0; i < seguidores.length && !encontrado; i++) {
             if (seguidores[i].equals(seguidor)) {
@@ -610,7 +616,7 @@ public class WineSocialUPMSkeleton {
                     j++;
                 }
             }
-            followersMap.get(userLogged).setFollowers(followersN);
+            followersMap.get(activeUser).setFollowers(followersN);
         }
 	}
 
@@ -632,7 +638,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(reponse); //False en incio
 
 		// COMPROBACION DE LOGGEADO USER1 
-		if (userLogged == null) {
+		if (activeUser == null) {
 			logger.error("Error. Para dejar de seguir a un usuario se debe haber iniciado sesión previamente.");
 			return respuestaFinalFuncion;
 		}
@@ -647,11 +653,11 @@ public class WineSocialUPMSkeleton {
 			borrarSeguidor(nombreUsuarioUnfollow);
 			reponse.setResponse(true);
 			respuestaFinalFuncion.set_return(reponse);
-			logger.info("El usuario: '" + userLogged + "' ha dejado de seguir a: '" + nombreUsuarioUnfollow + ".");
+			logger.info("El usuario: '" + activeUser + "' ha dejado de seguir a: '" + nombreUsuarioUnfollow + ".");
 			return respuestaFinalFuncion;
 		}
 
-		logger.error("Error. El usuario: '" + userLogged + "' no sigue a: '" + nombreUsuarioUnfollow + "' y por tanto no lo puede borrar.");
+		logger.error("Error. El usuario: '" + activeUser + "' no sigue a: '" + nombreUsuarioUnfollow + "' y por tanto no lo puede borrar.");
 		return respuestaFinalFuncion;
 	}
 	
@@ -669,8 +675,8 @@ public class WineSocialUPMSkeleton {
 		listaSeguidores.setResult(false);
 		respuestaFinalFuncion.set_return(listaSeguidores); //False en incio
 		
-		if(userLogged != null) {
-			listaSeguidores.setFollowers(followersMap.get(userLogged).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
+		if(activeUser != null) {
+			listaSeguidores.setFollowers(followersMap.get(activeUser).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
 			listaSeguidores.setResult(true);
 			respuestaFinalFuncion.set_return(listaSeguidores); 
 			return respuestaFinalFuncion;
@@ -716,7 +722,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		if(userLogged.getName().equals(admin.getName())) {
+		if(activeUser.getName().equals(admin.getName())) {
 			if(!existeVino(vino)) {
 				winesList.add(vino); 
 				response.setResponse(true);
@@ -751,7 +757,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response); //False en incio
 
 		// COMPROBACION DE ADMIN
-		if(userLogged.getName().equals(admin.getName())) {
+		if(activeUser.getName().equals(admin.getName())) {
 			if(!existeVino(vinoBorrado)) {
 				logger.debug("El vino: '" + vinoBorrado.getName() + "' con: \n" +
 				"\t\tTipo de uva: " + vinoBorrado.getGrape() + "\n" +
@@ -786,7 +792,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaVinos); //False en incio
 
 		// COMPROBACION DE LOGGEADO
-		if(userLogged != null) {
+		if(activeUser != null) {
 			// MAX INDEX (Para recorrerla hacia atras)
 			int j = winesList.size() - 1;
 
@@ -845,7 +851,7 @@ public class WineSocialUPMSkeleton {
 		vino.setYear(vinoPuntuado.getYear());
 		
 		// COMPROBACION DE LOGGEADO
-		if (userLogged != null) {
+		if (activeUser != null) {
 			//si el vino existe lo puedo puntuar
 			if (existeVino(vino)) {
 				// compruebo que la puntuacion que se le da está entre 0 y 10
@@ -854,7 +860,7 @@ public class WineSocialUPMSkeleton {
 					//lo añado siempre que no exista ya dentro, sino sobreescribo
 					
 					//obtengo la lista de vinos puntuados por el usuario actual (si no hay la creo)
-					listaPuntuados = userRatedMap.getOrDefault(userLogged, new ArrayList<>());
+					listaPuntuados = userRatedMap.getOrDefault(activeUser, new ArrayList<>());
 					
 					// Busco si el vino ya está en la lista
 	                boolean vinoEncontrado = false;
@@ -877,7 +883,7 @@ public class WineSocialUPMSkeleton {
 					}
 
 					//actualizo el mapa con la lista modificada
-					userRatedMap.put(userLogged, listaPuntuados);
+					userRatedMap.put(activeUser, listaPuntuados);
 					response.setResponse(true);
 	                respuestaFinalFuncion.set_return(response);
 
@@ -912,14 +918,14 @@ public class WineSocialUPMSkeleton {
 	public es.upm.etsiinf.sos.GetMyRatesResponse getMyRates(es.upm.etsiinf.sos.GetMyRates getMyRates) {
 		GetMyRatesResponse respuestaFinalFuncion = new GetMyRatesResponse();
 		WinesRatedList listaVinosPuntuados = new WinesRatedList();
-		List<WineRated> puntuados = userRatedMap.get(userLogged);
+		List<WineRated> puntuados = userRatedMap.get(activeUser);
 		
 		// INICIALIZACION RESPUESTA
 		listaVinosPuntuados.setResult(false);
 		respuestaFinalFuncion.set_return(listaVinosPuntuados);
 
 		 // COMPROBACION DE LOGGEADO
-		 if(userLogged != null) {
+		 if(activeUser != null) {
 		 	// MAX INDEX (Para recorrerla hacia atras)
 		 	int j = puntuados.size() - 1;
 
@@ -981,7 +987,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaPuntuados);
 		
 		//si estoy loggeado y sigo al [follower1] entonces devuelvo su lista (invertida)
-		if((userLogged != null) && followerExist(nombreFollower)){
+		if((activeUser != null) && followerExist(nombreFollower)){
 			//accedo al mapa de los vinos puntuados por [follower1]
 			List<WineRated> puntuados = userRatedMap.get(nombreFollower);
 			
