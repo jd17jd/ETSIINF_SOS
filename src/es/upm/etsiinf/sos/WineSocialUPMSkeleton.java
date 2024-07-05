@@ -274,7 +274,7 @@ public class WineSocialUPMSkeleton {
 		String name = usuario.getName();
 		String password = usuario.getPwd();		
 		
-		logger.debug("Intentando login para el usuario: " + name + "en el stub: " + stub.toString());
+		logger.debug("Intentando login para el usuario: " + name);
 		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
@@ -283,7 +283,7 @@ public class WineSocialUPMSkeleton {
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Usuario actual: " + userLogged.getName());
 			return respuestaFinalFuncion;
-		}		
+		}
 
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(name)) {
@@ -304,11 +304,11 @@ public class WineSocialUPMSkeleton {
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Usuario ya loggeado previamente.");
 				return respuestaFinalFuncion;
-			}/*
+			}
 			else {
 		        logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + userLogged.getName() + ".");
 		        return respuestaFinalFuncion;
-			}*/
+			}
 		}
 
 		stubLoginBackend.setName(name);
@@ -341,7 +341,6 @@ public class WineSocialUPMSkeleton {
 	 * @param logout Objeto vacio (creo)
 	 * @return logoutResponse Objeto indicando si se ha cerrado correctamente la sesion
 	 */
-	/*
 	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
 		logger.debug("METODO: [LOGOUT]");
 		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
@@ -357,29 +356,6 @@ public class WineSocialUPMSkeleton {
 			response.setResponse(true);
 		}
 		respuestaFinalFuncion.set_return(response);
-		return respuestaFinalFuncion;
-	}*/
-	
-	public es.upm.etsiinf.sos.LogoutResponse logout(es.upm.etsiinf.sos.Logout logout) throws RemoteException {
-		logger.debug("METODO: [LOGOUT]");
-		LogoutResponse respuestaFinalFuncion = new LogoutResponse();
-		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
-		
-		// INICIALIZACION RESPUESTA
-		response.setResponse(false);
-		respuestaFinalFuncion.set_return(response); //False en incio
-		
-		// COMPROBACION SESION INICIADA
-		if (userLogged != null) {
-			userLogged = null;
-			logger.info("Has cerrado sesión.");
-			usersLogged.remove(userLogged.getName());
-			response.setResponse(true);
-			respuestaFinalFuncion.set_return(response);
-			return respuestaFinalFuncion;
-		}
-
-		logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 		return respuestaFinalFuncion;
 	}
 	
