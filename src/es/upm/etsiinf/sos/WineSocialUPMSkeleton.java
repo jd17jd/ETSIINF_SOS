@@ -40,7 +40,6 @@ public class WineSocialUPMSkeleton {
 	private boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
-	public static List<User> usersConnected; 
 	
 	//----
 
@@ -67,7 +66,6 @@ public class WineSocialUPMSkeleton {
 			usersRegistered.put("admin", admin);
 		}
 
-		if (usersConnected == null) new ArrayList<>();
 		if (followersMap == null) new HashMap<>();
 		if (winesList == null) new ArrayList<>();
 		if (userRatedMap == null) new HashMap<>();
@@ -288,12 +286,13 @@ public class WineSocialUPMSkeleton {
 		// OBTENGO EL USUARIO Y CONTRASEÑA DEL PARAMETRO
 		User usuario = login.getArgs0();
 		String name = usuario.getName();
-		String password = usuario.getPwd();		
+		String password = usuario.getPwd();
 		
 		logger.debug("Intentando login para el usuario: " + name);
 		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
+			this.isLogged = true;
 			activeUser = admin;
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
@@ -301,30 +300,37 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 
-		// COMPROBACION USUARIO EXISTENTE
-		if(!usuarioRegistrado(name)) {
-			activeUser = null; //vacioe
-			logger.error("Error. El usuario no existe en el sistema.");
-			return respuestaFinalFuncion;
-		}
+		// // COMPROBACION USUARIO EXISTENTE
+		// if(!usuarioRegistrado(name)) {
+		// 	activeUser = null;
+		// 	logger.error("Error. El usuario no existe en el sistema.");
+		// 	return respuestaFinalFuncion;
+		// }
 		
 		//admin stub1
 		//admin crea pablete y luis
 		//pablete login stub1 -> activeUser = pablete(stub1)
-		//luis trata de hacer login stub1 
+		//luis trata de hacer login stub1
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
-		if(activeUser != null) {
-			if(activeUser.getName().equals(name)) {
-				response.setResponse(true);
-				respuestaFinalFuncion.set_return(response);
-				logger.info("Usuario ya loggeado previamente.");
-				return respuestaFinalFuncion;
-			}
-			else {
-		        logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + activeUser.getName() + ".");
-		        return respuestaFinalFuncion;
-			}
+		if(isLogged) {
+			boolean res = activeUser.getName().equals(name) ? true : false;
+			response.setResponse(res);
+			respuestaFinalFuncion.set_return(response);
+			logger.info("Ya está loggeado " + res + ", " + activeUser.getName() + " - " + name);
+
+			return respuestaFinalFuncion;
+
+			// if(activeUser.getName().equals(name)) {
+			// 	response.setResponse(true);
+			// 	respuestaFinalFuncion.set_return(response);
+			// 	logger.info("Usuario ya loggeado previamente.");
+			// 	return respuestaFinalFuncion;
+			// }
+			// else {
+		    //     logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + activeUser.getName() + ".");
+		    //     return respuestaFinalFuncion;
+			// }
 		}
 
 		stubLoginBackend.setName(name);
@@ -340,9 +346,10 @@ public class WineSocialUPMSkeleton {
 
 		// SI EL LOGIN HA IDO BIEN
 		if(response.getResponse()) {
-			activeUser = usersRegistered.get(name);
-			usersConnected.add(activeUser);
-			logger.info("Sesion iniciada con éxito. Usuario actual es: " + activeUser.getName());
+			this.isLogged = true;
+			activeUser.setName(name);
+			activeUser.setPwd(password);
+			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
 		}
 
@@ -363,11 +370,11 @@ public class WineSocialUPMSkeleton {
 		es.upm.etsiinf.sos.model.xsd.Response response = new es.upm.etsiinf.sos.model.xsd.Response();
 			
 		// COMPROBACION SESION INICIADA
-		if (activeUser.equals(null)) {
+		if (!isLogged) {
 			logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 			response.setResponse(false);
 		} else {
-			activeUser = null;
+			this.isLogged = false;
 			logger.info("Has cerrado sesión.");
 			response.setResponse(true);
 		}
