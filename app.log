@@ -885,3 +885,458 @@ DEBUG - METODO: [ADDUSER]
 ERROR - Error. El usuario ya está registrado en el sistema.
 DEBUG - METODO: [LOGOUT]
 INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'testu1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'testu2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. La contraseña no coincide, no se pudo cambiar.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uu1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uu2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'us1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'us2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'yy' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario ya loggeado previamente.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. La contraseña no coincide, no se pudo cambiar.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uss1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uss2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'usu1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'usu2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uuu1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uuu2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uA1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uA2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uB1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+INFO - Usuario actual: admin
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'uB2' añadido con éxito.
+DEBUG - METODO: [LOGIN]

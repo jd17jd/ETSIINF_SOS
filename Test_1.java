@@ -14,10 +14,10 @@ public class Test_1 {
 	private static final String ADMINPWD = "admin";
 	private static final String NEW_ADMINPWD = "admin3";
 
-	private static final String USER1 = "testu1";
+	private static final String USER1 = "uB1";
 
 
-	private static final String USER2 = "testu2";
+	private static final String USER2 = "uB2";
 	private static String USER2PWD = "";
 
 
@@ -151,27 +151,27 @@ public class Test_1 {
 		//1
 		Login loginData = createLoginData(ADMINUSER, ADMINPWD);
 		boolean login = admin.login(loginData).get_return().getResponse();
-		System.out.println("Result admin login (exp true) : " + login);
+		System.out.println("1. Result admin login (exp true) : " + login);
 
 		//2
 		ChangePassword changePass = createChangePWDData(ADMINPWD, NEW_ADMINPWD);
 		boolean changePWD = admin.changePassword(changePass).get_return().getResponse();
-		System.out.println("Result admin changePwd (exp true) : " + changePWD);
+		System.out.println("2. Result admin changePwd (exp true) : " + changePWD);
 
 		//3
 		LogoutResponse response = admin.logout(logoutVacio);
 		boolean logout = response.get_return().getResponse();
-		System.out.println("Result admin logout (exp true) : " + logout);
+		System.out.println("3. Result admin logout (exp true) : " + logout);
 
 		//4
 		Login loginDataNew = createLoginData(ADMINUSER, NEW_ADMINPWD);
 		boolean loginNewPWD = admin.login(loginDataNew).get_return().getResponse();
-		System.out.println("Result admin login with new pwd (exp true) : " + loginNewPWD);
+		System.out.println("4. Result admin login with new pwd (exp true) : " + loginNewPWD);
 
 		//5
 		LogoutResponse response2 = admin.logout(logoutVacio);
 		boolean logout2 = response2.get_return().getResponse();
-		System.out.println("Result admin logout (exp true) : " + logout2);
+		System.out.println("5. Result admin logout (exp true) : " + logout2);
 
 		if (login && changePWD && logout && loginNewPWD && logout2) {
 			System.out.println("SUCCESS");
@@ -189,23 +189,23 @@ public class Test_1 {
 		
 		admin = getStub();
 		//1
-		Login loginData = createLoginData(ADMINUSER, ADMINPWD);
+		Login loginData = createLoginData(ADMINUSER, NEW_ADMINPWD);
 		boolean login = admin.login(loginData).get_return().getResponse();
-		System.out.println("Result admin login (exp true) : " + login);
+		System.out.println("1. Result admin login (exp true) : " + login);
 
 		//2
 		AddUser addData1 = createAddData(USER1);
 		boolean adduser = admin.addUser(addData1).get_return().getResponse();
-		System.out.println("Result admin add user1 (exp true) : " + adduser);
+		System.out.println("2. Result admin add user1 (exp true) : " + adduser);
 
 		AddUser addData2 = createAddData(USER1);
 		boolean adduserFail = admin.addUser(addData2).get_return().getResponse();
-		System.out.println("Result admin add user1 (exp false) : " + adduserFail);
+		System.out.println("2. Result admin add user1 (exp false) : " + adduserFail);
 
 		//3
 		LogoutResponse response = admin.logout(logoutVacio);
 		boolean logout = response.get_return().getResponse();
-		System.out.println("Result admin logout (exp true) : " + logout);
+		System.out.println("3. Result admin logout (exp true) : " + logout);
 
 		if (login && adduser && !adduserFail && logout) {
 			System.out.println("SUCCESS");
@@ -227,40 +227,40 @@ public class Test_1 {
 		//1
 		Login loginData = createLoginData(USER2, USER2PWD);
 		boolean loginFail = stub2.login(loginData).get_return().getResponse();
-		System.out.println("Result user2 login (exp false becuase user not registered) : " + login);
+		System.out.println("1. Result user2 login (exp false becuase user not registered) : " + loginFail);
 
 		admin = getStub();
 
 		//2
-		Login loginDataAdmin = createLoginData(ADMINUSER, ADMINPWD);
+		Login loginDataAdmin = createLoginData(ADMINUSER, NEW_ADMINPWD);
 		boolean loginAdmin = admin.login(loginDataAdmin).get_return().getResponse();
-		System.out.println("Result admin login (exp true) : " + loginAdmin);
+		System.out.println("2. Result admin login (exp true) : " + loginAdmin);
 
 		//3
 		AddUser addData = createAddData(USER2);
-		AddUserResponse response = admin.addUser(addData);
-		boolean addUser = response.get_return().getResponse();
-		USER2PWD = response.get_return().getPwd();
-		System.out.println("Result add user2 (exp true) : " + addUser);
+		AddUserResponse response = admin.addUser(addData).get_return();
+		boolean addUser = response.getResponse();
+		USER2PWD = response.getPwd();
+		System.out.println("3. Result add user2 (exp true) : " + addUser);
 
-		//4
+		//4 //AQUI FALLA CON UNKNOWN
 		Login loginData2 = createLoginData(USER2, USER2PWD);
 		boolean login = stub2.login(loginData2).get_return().getResponse();
-		System.out.println("Result user2 login (exp true) : " + login);
+		System.out.println("4. Result user2 login (exp true) : " + login);
 
 		//5
 		RemoveUser removeUserData = createRemoveUserData(USER1);
 		boolean removeFail = stub2.removeUser(removeUserData).get_return().getResponse();
-		System.out.println("Result user2 deletes user1 (exp false becuase not allowed) : " + removeFail);
+		System.out.println("5. Result user2 deletes user1 (exp false becuase not allowed) : " + removeFail);
 
 		//6
 		boolean remove = admin.removeUser(removeUserData).get_return().getResponse();
-		System.out.println("Result admin deletes user1 (exp true) : " + remove);
+		System.out.println("6. Result admin deletes user1 (exp true) : " + remove);
 
 		//7
 		RemoveUser removeUserData2 = createRemoveUserData("user500");
-		boolean removeFailAdmin = admin.removeUser(removeUserData2).get_return().getResponse();
-		System.out.println("Result admin deletes user500 (exp false bacause user500 didn't exist) : " + removeFailAdmin);
+		boolean removeFailAdmin = stub2.removeUser(removeUserData2).get_return().getResponse();
+		System.out.println("7. Result admin deletes user500 (exp false bacause user500 didn't exist) : " + removeFailAdmin);
 
 		if (!loginFail && loginAdmin && addUser && login && !removeFail && remove && !removeFailAdmin) {
 			System.out.println("SUCCESS");
@@ -282,16 +282,13 @@ public class Test_1 {
 		catch (AxisFault e) {
 			System.out.println("catch AxisFault with message: " + e.getMessage());
 		}
-
+		
 		double totalMark = 0.0D;
-		int[] arrayNotas = new int[28];
-		String notas = "";
 
 		try {
-			nota = test6();
-			arrayNotas[5] = nota;
-			totalMark += (double) nota;
-			notas = notas + nota + " / ";
+			totalMark = test1() + test2() + test6();
+			System.out.println("Total superadas Validador: " + totalMark);
+			
 		} catch (RemoteException e) {
 			System.out.println("catch RemoteException with message: " + e.getMessage());
 			System.out.println("FAILED");
