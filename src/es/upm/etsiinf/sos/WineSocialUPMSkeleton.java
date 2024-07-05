@@ -274,7 +274,7 @@ public class WineSocialUPMSkeleton {
 		String name = usuario.getName();
 		String password = usuario.getPwd();		
 		
-		logger.debug("Intentando login para el usuario: " + name);
+		logger.debug("Intentando login para el usuario: " + name + "en el stub: " + stub.toString());
 		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
@@ -304,13 +304,13 @@ public class WineSocialUPMSkeleton {
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Usuario ya loggeado previamente.");
 				return respuestaFinalFuncion;
-			}
+			}/*
 			else {
 		        logger.error("Error. El usuario " + name + " no puede loggearse porque ya hay una sesión activa para el usuario " + userLogged.getName() + ".");
 		        return respuestaFinalFuncion;
-			}
+			}*/
 		}
-		
+
 		stubLoginBackend.setName(name);
 		stubLoginBackend.setPassword(password);
 		stubLogin.setLogin(stubLoginBackend);
