@@ -33,16 +33,16 @@ SUCCESS
 ********************** TEST 6 (value: 1)**********************
 
 user2 login (falla)
-Result user login (exp false becuase user not registered) : false
+Result user login (exp false becuase user not registered) : false //FUNCIONA
 
 admin login
-Result admin login (exp true) : true
+Result admin login (exp true) : true //FUNCIONA
 
 crea user2
-Result add user2 (exp true) : true
+Result add user2 (exp true) : true //FUNCIONA
 
 user2 login otro st
-Result user2 login (exp true) : true
+Result user2 login (exp true) : true //DEBERIA FUNCIONAR
 
 remove user1 (falla)
 Result user2 deletes user1 (exp false becuase not allowed) : false
