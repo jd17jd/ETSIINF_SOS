@@ -288,7 +288,7 @@ public class WineSocialUPMSkeleton {
 		String name = usuario.getName();
 		String password = usuario.getPwd();
 		
-		logger.debug("Intentando login para el usuario: " + name);
+		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
 		
 		// COMPROBACION ADMIN
 		if (name.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
@@ -494,7 +494,7 @@ public class WineSocialUPMSkeleton {
 				admin.setPwd(newPassword);
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
-				logger.info("Se ha cambiado la contraseña del admin correctamente.");
+				logger.info("Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: " + newPassword);
 				return respuestaFinalFuncion;
 			}
 			else {
