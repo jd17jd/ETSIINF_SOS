@@ -31,7 +31,7 @@ import es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub;
 public class WineSocialUPMSkeleton {
 	
 	public static final String ADMIN_NAME = "admin";
-	public static final String ADMIN_PWD = "admin";
+	public static String ADMIN_PWD = "admin";
 	public static int counter = 0;
 
 	private static String username = "";
@@ -271,7 +271,7 @@ public class WineSocialUPMSkeleton {
 		String nUser = usuario.getName();
 		String nPass = usuario.getPwd();
 		
-		logger.debug("Intentando login para el usuario: " + nUser + " con contraseña: <" + nPass + ">, ¿loggeado? => " + isLogged);
+		logger.debug("Intentando login para el usuario: " + nUser + " con contraseña: " + nPass + ", ¿loggeado? => " + isLogged);
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
@@ -314,7 +314,7 @@ public class WineSocialUPMSkeleton {
 
 		// SI EL LOGIN HA IDO BIEN
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
-		
+
 		if(response.getResponse()) {
 			isLogged = true;
 			username = nUser;
@@ -463,7 +463,8 @@ public class WineSocialUPMSkeleton {
 		// SI ES EL ADMIN NO LLAMO AL BACKEND
 		if(username.equals(ADMIN_NAME)) {
 			if(password.equals(oldPassword)) {
-				password = newPassword;
+				ADMIN_PWD = newPassword;
+				password = ADMIN_PWD;
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: " + newPassword + "Valor response= " + response.getResponse());
