@@ -392,6 +392,8 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
+		logger.debug("Valor de isLogged: " + isLogged + ", usuario actual: " + activeUser.getName());
+
 		if (!isLogged) {
 			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
