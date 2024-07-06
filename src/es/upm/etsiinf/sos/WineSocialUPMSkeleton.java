@@ -53,13 +53,20 @@ public class WineSocialUPMSkeleton {
 
 		logger.debug("[IMP] Creada instancia: " + counter++);
 
+		logger.debug("Admin: " + admin);
+
+		logger.debug("Active user: " + activeUser.getName() + ", isLogged: " + isLogged);
+
+
 		if (admin == null) {
 			admin = new User();
 			admin.setName("admin");
 			admin.setPwd("admin");
 		}
 
-		if (activeUser == null) activeUser = new User();
+		if (activeUser == null) {
+			activeUser = new User();
+		}
 		
 		if (usersRegistered == null) {
 			usersRegistered = new HashMap<String, User>();
@@ -292,8 +299,8 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION ADMIN
 		if (name.equals(admin.getName()) && password.equals(admin.getPwd())) {
-			isLogged = true;
-			activeUser = admin;
+			this.isLogged = true;
+			this.activeUser = admin;
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Usuario actual: " + activeUser.getName() + ", valor de isLogged: " + isLogged);
@@ -305,7 +312,7 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 
-		activeUser = usersRegistered.get(name);
+		this.activeUser = usersRegistered.get(name);
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
@@ -332,8 +339,8 @@ public class WineSocialUPMSkeleton {
 		// SI EL LOGIN HA IDO BIEN
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
 		if(response.getResponse()) {
-			isLogged = true;
-			activeUser = usersRegistered.get(name);
+			this.isLogged = true;
+			this.activeUser = usersRegistered.get(name);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
 		}
