@@ -51,7 +51,7 @@ public class WineSocialUPMSkeleton {
 
 	private static WineSocialUPMSkeleton instance;
 	
-	public WineSocialUPMSkeleton() {
+	private WineSocialUPMSkeleton() {
 
 		logger.debug("[IMP] Creada instancia: " + counter++);
 
