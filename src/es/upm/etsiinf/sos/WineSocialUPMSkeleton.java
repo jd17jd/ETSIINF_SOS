@@ -34,9 +34,9 @@ public class WineSocialUPMSkeleton {
 	public static final String ADMIN_PWD = "admin";
 	public static int counter = 0;
 
-	private String username = "";
-	private String password = "";
-	private boolean isLogged = false;
+	private static String username = "";
+	private static String password = "";
+	private static boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
 	public static Map<String,FollowerList> followersMap; // KEY: String nombreUsuario -- VALUE: lista de seguidores
@@ -199,7 +199,7 @@ public class WineSocialUPMSkeleton {
 		String usuarioAdd = addUser.getArgs0().getUsername();
 
 		// COMPROBACION ADMIN
-		if(!this.username.equals(ADMIN_NAME)) {
+		if(!username.equals(ADMIN_NAME)) {
 			logger.error("Error. No tienes permisos para añadir usuarios. Se debe ser administrador.");
 			return respuestaFinalFuncion;
 		}
@@ -268,33 +268,33 @@ public class WineSocialUPMSkeleton {
 		
 		// OBTENGO EL USUARIO Y CONTRASEÑA DEL PARAMETRO
 		User usuario = login.getArgs0();
-		String username = usuario.getName();
-		String password = usuario.getPwd();
+		String nUser = usuario.getName();
+		String nPass = usuario.getPwd();
 		
-		logger.debug("Intentando login para el usuario: " + username + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
+		logger.debug("Intentando login para el usuario: " + nUser + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
-			boolean res = this.username.equals(username) ? true : false;
+			boolean res = this.username.equals(nUser) ? true : false;
 			response.setResponse(res);
 			respuestaFinalFuncion.set_return(response);
-			logger.info("Ya está loggeado " + res + ", " + this.username + " " + username);
+			logger.info("Ya está loggeado " + res + ", " + this.username + " " + nUser);
 			return respuestaFinalFuncion;
 		}
 				
 		// COMPROBACION ADMIN
 		if (username.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
-			this.isLogged = true;
-			this.username = username;
-			this.password = password;
+			isLogged = true;
+			username = nUser;
+			password = nPass;
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Usuario actual: " + username + ", valor de isLogged: " + isLogged);
 			return respuestaFinalFuncion;
 		}
 
-		if (!usuarioRegistrado(username)) {
-			logger.error("Error. El usuario: '" + username + "' no está registrado en el sistema.");
+		if (!usuarioRegistrado(nUser)) {
+			logger.error("Error. El usuario: '" + nUser + "' no está registrado en el sistema.");
 			return respuestaFinalFuncion;
 		}
 
@@ -303,9 +303,9 @@ public class WineSocialUPMSkeleton {
 		stubLoginBackend.setName(username);
 		stubLoginBackend.setPassword(password);
 		
-		this.username = username;
-		this.password = password;
-		this.isLogged = true;
+		username = nUser;
+		password = nPass;
+		isLogged = true;
 		
 		stubLogin.setLogin(stubLoginBackend);
 
@@ -382,7 +382,7 @@ public class WineSocialUPMSkeleton {
 		
 		logger.debug("Active user llamante: " + username);
 		
-		if(isLogged && (nameUsrDelete.equals(ADMIN_NAME) || nameUsrDelete.equals(this.username)) && !nameUsrDelete.equals(ADMIN_NAME)) {
+		if(isLogged && (nameUsrDelete.equals(ADMIN_NAME) || nameUsrDelete.equals(username)) && !nameUsrDelete.equals(ADMIN_NAME)) {
 			logger.debug("ActiveUser: " + username + ", Usuario a borrar:  " + nameUsrDelete);
 
 			// PARAMETROS A PASAR AL BACKEND
@@ -464,9 +464,9 @@ public class WineSocialUPMSkeleton {
 		String newPassword = changePassword.getArgs0().getNewpwd();
 		
 		// SI ES EL ADMIN NO LLAMO AL BACKEND
-		if(this.username.equals(ADMIN_NAME)) {
+		if(username.equals(ADMIN_NAME)) {
 			if(password.equals(oldPassword)) {
-				this.password = newPassword;
+				password = newPassword;
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: " + newPassword + "Valor response= " + response.getResponse());
