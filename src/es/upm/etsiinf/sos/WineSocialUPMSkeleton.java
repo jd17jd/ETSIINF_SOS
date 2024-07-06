@@ -37,7 +37,7 @@ public class WineSocialUPMSkeleton {
 	private static User admin;
 	private User activeUser;
 
-	private static boolean isLogged = false;
+	private boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
 	
