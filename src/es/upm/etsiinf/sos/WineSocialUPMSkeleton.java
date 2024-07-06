@@ -403,11 +403,31 @@ public class WineSocialUPMSkeleton {
 		
 		//--- AQUI YA SE QUE ESTOY LOGGEADO Y QUE NO QUIERO BORRAR EL ADMIN ---
 		
-		
 		//si soy el ADMIN O el mismo usuario que se quiere borrar => VA BIEN
 		if((activeUser.getName().equals(admin.getName())) || (activeUser.getName().equals(nombreUsuarioBorrado))) {
+			User usuario = usersRegistered.get(nombreUsuarioBorrado);
+		
+			// PARAMETROS A PASAR AL BACKEND
+			removeUserE2.setName(usuario.getName());
+			removeUserE2.setPassword(usuario.getPwd());
+			removeUserE.setRemoveUser(removeUserE2);
 			
+			removeResponseE =  stub.removeUser(removeUserE);
+			response.setResponse(removeResponseE.get_return().getResult()); 
+			
+			// SI EL BORRADO HA IDO BIEN
+			if(response.getResponse()) {
+				usersRegistered.remove(nombreUsuarioBorrado);
+				logger.info("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
+				return respuestaFinalFuncion;
+			}
+
+			logger.error("Error. No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
+			return respuestaFinalFuncion;
 		}
+
+		logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
+		return respuestaFinalFuncion;
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
 //		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
@@ -420,28 +440,6 @@ public class WineSocialUPMSkeleton {
 //			logger.error("Error. El usuario no existe en el sistema.");
 //			return respuestaFinalFuncion;
 //		}
-		
-		
-		
-		User usuario = usersRegistered.get(nombreUsuarioBorrado);
-		
-		// PARAMETROS A PASAR AL BACKEND
-		removeUserE2.setName(usuario.getName());
-		removeUserE2.setPassword(usuario.getPwd());
-		removeUserE.setRemoveUser(removeUserE2);
-		
-		removeResponseE =  stub.removeUser(removeUserE);
-		response.setResponse(removeResponseE.get_return().getResult()); 
-		
-		// SI EL BORRADO HA IDO BIEN
-		if(response.getResponse()) {
-			usersRegistered.remove(nombreUsuarioBorrado);
-			logger.info("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
-			return respuestaFinalFuncion;
-		}
-
-		logger.error("Error. No se pudo borrar al usuario: '" + nombreUsuarioBorrado);
-		return respuestaFinalFuncion;
 	}
 
 	/**
