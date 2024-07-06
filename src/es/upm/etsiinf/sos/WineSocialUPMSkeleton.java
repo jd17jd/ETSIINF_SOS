@@ -318,13 +318,13 @@ public class WineSocialUPMSkeleton {
 
 		// SI EL LOGIN HA IDO BIEN
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
-//		if(response.getResponse()) {
-//			isLogged = true;
-//			activeUser.setName(name);
-//			activeUser.setPwd(password);
-//			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
-//			return respuestaFinalFuncion;
-//		}
+		if(response.getResponse()) {
+			isLogged = true;
+			username = nUser;
+			password = nPass;
+			logger.info("Sesion iniciada con éxito. Usuario actual es: " + username + ", valor de isLogged: " + isLogged);
+			return respuestaFinalFuncion;
+		}
 
 		//logger.error("Error. Contraseña incorrecta.");
 		return respuestaFinalFuncion;
