@@ -37,9 +37,10 @@ public class WineSocialUPMSkeleton {
 	private static User admin;
 	private static User activeUser;
 
-	private static boolean isLogged;
+	private static boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
+	
 	
 	//----
 
@@ -52,8 +53,6 @@ public class WineSocialUPMSkeleton {
 	public WineSocialUPMSkeleton() {
 
 		logger.debug("[IMP] Creada instancia: " + counter++);
-
-		isLogged = false;
 
 		if (admin == null) {
 			admin = new User();
