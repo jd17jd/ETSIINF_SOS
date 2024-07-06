@@ -40,6 +40,7 @@ public class WineSocialUPMSkeleton {
 	private static boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
+	public static Map<String, User> usersLogged; // KEY: Nombre usuario -- VALUE: Objeto usuario
 	
 	
 	//----
@@ -335,7 +336,7 @@ public class WineSocialUPMSkeleton {
 		if(response.getResponse()) {
 			isLogged = true;
 			activeUser.setName(name);
-			activeUser.setPwd(password);
+			activeUser.setPwd(password); //AQUI
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
 		}
@@ -406,11 +407,6 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
-
-		if (!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no está registrado en el sistema.");
-			return respuestaFinalFuncion;
-		}
 		
 		activeUser = usersRegistered.get(nombreUsuarioBorrado);
 		
@@ -422,7 +418,7 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario no existe en el sistema.");
+			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no está registrado en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
