@@ -411,7 +411,9 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. El usuario no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
-
+		
+		logger.debug("Active user llamante: " + activeUser.getName());
+		
 		//si soy el ADMIN O el mismo usuario que se quiere borrar => VA BIEN
 		if((activeUser.getName().equals(admin.getName())) || (activeUser.getName().equals(nombreUsuarioBorrado))) {
 
