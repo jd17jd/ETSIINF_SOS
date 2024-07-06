@@ -40,8 +40,6 @@ public class WineSocialUPMSkeleton {
 	private static boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
-	public static Map<String, User> usersLogged; // KEY: Nombre usuario -- VALUE: Objeto usuario
-	
 	
 	//----
 
@@ -301,15 +299,8 @@ public class WineSocialUPMSkeleton {
 			logger.info("Usuario actual: " + activeUser.getName() + ", valor de isLogged: " + isLogged);
 			return respuestaFinalFuncion;
 		}
-
-		if (!usuarioRegistrado(name)) {
-			logger.error("Error. El usuario: '" + name + "' no está registrado en el sistema.");
-			return respuestaFinalFuncion;
-		}
 		
-		activeUser = usersRegistered.get(name);
-
-		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.		
+		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
 			boolean res = activeUser.getName().equals(name) ? true : false;
 			response.setResponse(res);
@@ -335,7 +326,8 @@ public class WineSocialUPMSkeleton {
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
 		if(response.getResponse()) {
 			isLogged = true;
-			activeUser = usersRegistered.get(name);
+			activeUser.setName(name);
+			activeUser.setPwd(password);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
 		}
@@ -371,7 +363,6 @@ public class WineSocialUPMSkeleton {
 	
 	
 	/**
-	/**
 	 * userAdmin.removeUser(user1) // user1.removeUser(user1)
 	 * Elimina al usuario pasado como parametro del sistema
 	 * @param removeUser Objeto con el nombre del usuario a borrar
@@ -393,36 +384,43 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
+		String nombreUsuarioBorrado = removeUser.getArgs0().getUsername();
+		
 		if (!isLogged) {
 			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
 		
-		String nombreUsuarioBorrado = removeUser.getArgs0().getUsername();
+		//---AQUI ENTONCES ESTOY LOGGEADO---
 		
 		// EL ADMIN NO SE PUEDE BORRAR
 		if(nombreUsuarioBorrado.equals(admin.getName())) {
 			logger.error("Error. No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
-
-		// COMPROBACION USUARIO EXISTENTE
-		if (!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no existe en el sistema.");
-			return respuestaFinalFuncion;
+		
+		//si estoy loggeado y + => {mi nombre de usuario es admin} o {mi nombre de usuario es el que se va a borrar} y + no se quiere borrar el admin
+		
+		//--- AQUI YA SE QUE ESTOY LOGGEADO Y QUE NO QUIERO BORRAR EL ADMIN ---
+		
+		
+		//si soy el ADMIN O el mismo usuario que se quiere borrar => VA BIEN
+		if((activeUser.getName().equals(admin.getName())) || (activeUser.getName().equals(nombreUsuarioBorrado))) {
+			
 		}
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
-		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
-			logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
-			return respuestaFinalFuncion;
-		}
+//		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
+//			logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
+//			return respuestaFinalFuncion;
+//		}
 		
-		//COMPROBACION MAPA REGISTRADOS
-		if (!usersRegistered.containsKey(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario no está registrado en el sistema.");
-			return respuestaFinalFuncion;
-		}
+		// COMPROBACION USUARIO EXISTENTE
+//		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
+//			logger.error("Error. El usuario no existe en el sistema.");
+//			return respuestaFinalFuncion;
+//		}
+		
 		
 		
 		User usuario = usersRegistered.get(nombreUsuarioBorrado);
@@ -556,7 +554,7 @@ public class WineSocialUPMSkeleton {
 		String nombreUsuarioASeguir = username.getUsername(); //el usuario al que se va a seguir 
 
 		// COMPROBACION DE LOGGEADO USER1 
-		if (activeUser == null) {
+		if (!isLogged) {
 			logger.error("Error. No puedes seguir a un usuario sin estar loggeado.");
 			return respuestaFinalFuncion;
 		}
