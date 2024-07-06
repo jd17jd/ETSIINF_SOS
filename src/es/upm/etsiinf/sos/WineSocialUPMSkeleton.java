@@ -63,7 +63,7 @@ public class WineSocialUPMSkeleton {
 			activeUser = new User();
 		}
 
-		logger.debug("Admin: " + admin);
+		logger.debug("Admin: " + admin.getName() + ", " + admin.getPwd());
 
 		logger.debug("Active user: " + activeUser.getName() + ", isLogged: " + isLogged);
 
