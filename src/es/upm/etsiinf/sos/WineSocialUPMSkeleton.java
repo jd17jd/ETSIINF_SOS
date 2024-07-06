@@ -292,7 +292,7 @@ public class WineSocialUPMSkeleton {
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
-			boolean res = activeUser.getName().equals(name) ? true : false;
+			boolean res = activeUser.getName().equals(name) ? false : true;
 			response.setResponse(res);
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Ya está loggeado " + res + ", " + activeUser.getName() + " - " + name);
