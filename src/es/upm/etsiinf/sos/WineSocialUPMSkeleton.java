@@ -44,10 +44,6 @@ public class WineSocialUPMSkeleton {
 	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
 	
 	public WineSocialUPMSkeleton() {
-
-		logger.debug("[IMP] Creada instancia: " + counter++);
-
-		logger.debug("Active user: " + activeUser.getName() + ", isLogged: " + isLogged);
 		
 		if (usersRegistered == null) {
 			User admin = new User();
@@ -56,6 +52,11 @@ public class WineSocialUPMSkeleton {
 			usersRegistered = new HashMap<String, User>();
 			usersRegistered.put("admin", admin);
 		}
+
+		logger.debug("[IMP] Creada instancia: " + counter++);
+
+		if (activeUser == null) logger.debug("Active user: null, isLogged: " + isLogged);
+		else logger.debug("Active user: " + activeUser.getName() + ", isLogged: " + isLogged);
 
 		if (followersMap == null) new HashMap<>();
 		if (winesList == null) new ArrayList<>();
