@@ -405,6 +405,11 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
+
+		if (!usuarioRegistrado(nombreUsuarioBorrado)) {
+			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no está registrado en el sistema.");
+			return respuestaFinalFuncion;
+		}
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
 		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
@@ -412,11 +417,11 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		// COMPROBACION USUARIO EXISTENTE
-		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario no existe en el sistema.");
-			return respuestaFinalFuncion;
-		}
+		// // COMPROBACION USUARIO EXISTENTE
+		// if(!usuarioRegistrado(nombreUsuarioBorrado)) {
+		// 	logger.error("Error. El usuario no existe en el sistema.");
+		// 	return respuestaFinalFuncion;
+		// }
 		
 		
 		User usuario = usersRegistered.get(nombreUsuarioBorrado);
