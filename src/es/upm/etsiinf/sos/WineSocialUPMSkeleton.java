@@ -35,7 +35,7 @@ public class WineSocialUPMSkeleton {
 	public static int counter = 0;
 
 	private static User admin;
-	private static User activeUser;
+	private User activeUser;
 
 	private static boolean isLogged = false;
 
@@ -333,8 +333,7 @@ public class WineSocialUPMSkeleton {
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
 		if(response.getResponse()) {
 			isLogged = true;
-			activeUser.setName(name);
-			activeUser.setPwd(password);
+			activeUser = usersRegistered.get(name);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
 		}
@@ -361,6 +360,7 @@ public class WineSocialUPMSkeleton {
 			response.setResponse(false);
 		} else {
 			isLogged = false;
+			activeUser = null;
 			logger.info("Has cerrado sesión.");
 			response.setResponse(true);
 		}
