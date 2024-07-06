@@ -271,19 +271,19 @@ public class WineSocialUPMSkeleton {
 		String nUser = usuario.getName();
 		String nPass = usuario.getPwd();
 		
-		logger.debug("Intentando login para el usuario: " + nUser + " con contraseña: <" + password + ">, ¿loggeado? => " + isLogged);
+		logger.debug("Intentando login para el usuario: " + nUser + " con contraseña: <" + nPass + ">, ¿loggeado? => " + isLogged);
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 		if(isLogged) {
-			boolean res = this.username.equals(nUser) ? true : false;
+			boolean res = username.equals(nUser) ? true : false;
 			response.setResponse(res);
 			respuestaFinalFuncion.set_return(response);
-			logger.info("Ya está loggeado " + res + ", " + this.username + " " + nUser);
+			logger.info("Ya está loggeado " + res + ", " + username + " " + nUser);
 			return respuestaFinalFuncion;
 		}
 				
 		// COMPROBACION ADMIN
-		if (username.equals(ADMIN_NAME) && password.equals(ADMIN_PWD)) {
+		if (nUser.equals(ADMIN_NAME) && nPass.equals(ADMIN_PWD)) {
 			isLogged = true;
 			username = nUser;
 			password = nPass;
