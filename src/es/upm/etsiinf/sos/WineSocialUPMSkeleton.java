@@ -282,7 +282,7 @@ public class WineSocialUPMSkeleton {
 		String password = usuario.getPwd();
 		
 		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">");
-		
+		logger.debug("Mi isLogged es => " + isLogged);
 		
 		if (!usuarioRegistrado(name)) {
 			logger.error("Error. El usuario: '" + name + "' no está registrado en el sistema.");
