@@ -32,6 +32,7 @@ public class WineSocialUPMSkeleton {
 	
 	public static int counter = 0;
 
+	private String admin_password = "admin";
 	private User activeUser;
 
 	private boolean isLogged = false;
@@ -299,7 +300,7 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		// COMPROBACION ADMIN -> local
-		if (name.equals("admin") && password.equals("admin")) {
+		if (name.equals("admin") && password.equals(admin_password)) {
 			isLogged = true;
 			activeUser = usersRegistered.get(name); //el usuario actual es el admin
 			//activeUser.setName("admin");
@@ -477,6 +478,8 @@ public class WineSocialUPMSkeleton {
 		if(activeUser.getName().equals("admin")) {
 			if(activeUser.getPwd().equals(oldPassword)) { //las contraseñas coinciden
 				activeUser.setPwd(newPassword);
+				admin_password = newPassword;
+				
 				response.setResponse(true);
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: " + newPassword + "Valor response= " + response.getResponse());
