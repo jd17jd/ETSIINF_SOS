@@ -48,6 +48,8 @@ public class WineSocialUPMSkeleton {
 	public static Map<User, List<WineRated>> userRatedMap; // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
 	
 	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
+
+	private static WineSocialUPMSkeleton instance;
 	
 	public WineSocialUPMSkeleton() {
 
@@ -78,6 +80,13 @@ public class WineSocialUPMSkeleton {
 		if (userRatedMap == null) new HashMap<>();
 		
 	}
+
+	public static synchronized WineSocialUPMSkeleton getInstance() {
+        if (instance == null) {
+            instance = new WineSocialUPMSkeleton();
+        }
+        return instance;
+    }
 	
 	//INICIALIZO LOGGER
 	static {
