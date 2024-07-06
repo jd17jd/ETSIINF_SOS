@@ -1,0 +1,2308 @@
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEW
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u28693>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEW
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error devuelto por backend
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+ERROR - Error. La contraseña no coincide, no se pudo cambiar.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error devuelto por backend
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEW
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+ERROR - Error. La contraseña no coincide, no se pudo cambiar.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+ERROR - Error. La contraseña no coincide, no se pudo cambiar.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 24
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 25
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u25636>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u25636>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: true
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u25636>, ¿loggeado? => true
+INFO - Usuario actual: test1u2, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: test1u2
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: test1u2
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u25884>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+INFO - ESTOY EN EL STUB: es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub@6f485e21
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+INFO - ESTOY EN EL STUB: es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub@3ea34131
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+INFO - ESTOY EN EL STUB: es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub@542c5a24
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+INFO - ESTOY EN EL STUB: es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub@6adc1c20
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+INFO - ESTOY EN EL STUB: es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub@510c9f22
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+INFO - ESTOY EN EL STUB: es.upm.fi.sos.t3.backend.UPMAuthenticationAuthorizationWSSkeletonStub@79384f22
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u23448>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: null
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => true
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [ADDUSER]
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => true
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: null
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: null
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: null
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: null
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => true
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [ADDUSER]
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => true
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: admin5Valor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: '31' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: 31 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: 32 con contraseña: <>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: '32' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: 32 con contraseña: <324339>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - 32
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: '31' borrado con exito.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: 32 con contraseña: <Nuevaa>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - 32
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: 32 con contraseña: <Nuevaa>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - 32
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u23020>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u27937>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u27963>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u21789>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u2
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u1
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u21789>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24774>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u2
+ERROR - Error. El usuario: 'test1u1' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u1
+ERROR - Error. El usuario: 'test1u1' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Valor de isLogged: true, usuario actual: test1u1
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24774>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u25890>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24798>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario: 'user500' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24976>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario: 'test1u1' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario: 'test1u1' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario: 'user500' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24976>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: true
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24976>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: test1u2
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: test1u2
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 24
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 25
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 26
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 27
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 28
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 29
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 30
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 31
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 32
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 33
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 34
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 35
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 36
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>, ¿loggeado? => true
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 37
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 38
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 39
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 40
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 41
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 42
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u112003>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: true
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u11
+DEBUG - [IMP] Creada instancia: 43
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u112003>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u11 - test1u11
+DEBUG - [IMP] Creada instancia: 44
+DEBUG - METODO: [REMOVE_USER]
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - [IMP] Creada instancia: 45
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u112003>, ¿loggeado? => true
+ERROR - Error. El usuario: 'test1u11' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 46
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24060>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario: 'user500' no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24060>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: true
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u24060>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: test1u2
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: test1u2
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 24
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u27255>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - ActiveUser: admin, Usuario a borrar:  test1u1
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u27255>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: true
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u23138>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u22173>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: test1u2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: test1u2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: admin5Valor response= true
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 24
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 25
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: '31' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 26
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: 31 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 27
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 28
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: 32 con contraseña: <>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 29
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 30
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: 32 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 31
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: 32 con contraseña: <null>, ¿loggeado? => true
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: admin5Valor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'USE1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: USE1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: USE2 con contraseña: <>, ¿loggeado? => false
+ERROR - Error. El usuario: 'USE2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin5>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'USE2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: USE2 con contraseña: <USE27086>, ¿loggeado? => true
+INFO - Ya está loggeado true, USE2 - USE2
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: USE2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: USE2
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: USE2 con contraseña: <Nuevaa>, ¿loggeado? => true
+INFO - Ya está loggeado true, USE2 - USE2
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: USE2 con contraseña: <Nuevaa>, ¿loggeado? => true
+INFO - Ya está loggeado true, USE2 - USE2
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: null
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => true
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [ADDUSER]
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Admin: null
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@c14f50
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@c14f50
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@c14f50
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@c14f50
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@c14f50
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@c14f50
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: 
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: 
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: 
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: 
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: 
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u22422>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u22422>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u25463>, ¿loggeado? => true
+INFO - Ya está loggeado false, admin test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: admin
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: admin, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: adminNEW, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: admin, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: null, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: admin, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: test1u21201, ¿loggeado? => true
+INFO - Ya está loggeado false, admin test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - Active user llamante: admin
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: test1u21201, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: true
+INFO - Sesion iniciada con éxito. Usuario actual es: test1u2, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: true, usuario actual: admin
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>, ¿loggeado? => false
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - METODO: [ADDUSER]
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u21887>, ¿loggeado? => true
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
