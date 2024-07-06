@@ -335,8 +335,7 @@ public class WineSocialUPMSkeleton {
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
 		if(response.getResponse()) {
 			isLogged = true;
-			activeUser.setName(name);
-			activeUser.setPwd(password); //AQUI
+			activeUser = usersRegistered.get(name);
 			logger.info("Sesion iniciada con éxito. Usuario actual es: " + name);
 			return respuestaFinalFuncion;
 		}
@@ -408,7 +407,7 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		activeUser = usersRegistered.get(nombreUsuarioBorrado);
+		// activeUser = usersRegistered.get(nombreUsuarioBorrado);
 		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
 		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
