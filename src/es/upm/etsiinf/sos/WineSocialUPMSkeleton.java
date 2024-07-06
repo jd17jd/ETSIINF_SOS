@@ -401,13 +401,14 @@ public class WineSocialUPMSkeleton {
 		String nombreUsuarioBorrado = removeUser.getArgs0().getUsername();
 		
 		// EL ADMIN NO SE PUEDE BORRAR
-		if(nombreUsuarioBorrado.equals(ADMIN_NAME)) {
+		if(nombreUsuarioBorrado.equals(admin.getName())) {
 			logger.error("Error. No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
 
+		// COMPROBACION USUARIO EXISTENTE
 		if (!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no está registrado en el sistema.");
+			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
@@ -417,11 +418,11 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		// // COMPROBACION USUARIO EXISTENTE
-		// if(!usuarioRegistrado(nombreUsuarioBorrado)) {
-		// 	logger.error("Error. El usuario no existe en el sistema.");
-		// 	return respuestaFinalFuncion;
-		// }
+		//COMPROBACION MAPA REGISTRADOS
+		if (!usersRegistered.containsKey(nombreUsuarioBorrado)) {
+			logger.error("Error. El usuario no está registrado en el sistema.");
+			return respuestaFinalFuncion;
+		}
 		
 		
 		User usuario = usersRegistered.get(nombreUsuarioBorrado);
