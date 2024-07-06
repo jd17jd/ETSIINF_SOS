@@ -398,13 +398,18 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. No se puede borrar al admin.");
 			return respuestaFinalFuncion;
 		}
-		
-		//si estoy loggeado y + => {mi nombre de usuario es admin} o {mi nombre de usuario es el que se va a borrar} y + no se quiere borrar el admin
-		
-		//--- AQUI YA SE QUE ESTOY LOGGEADO Y QUE NO QUIERO BORRAR EL ADMIN ---
-		
+
+		// COMPROBACION USUARIO EXISTENTE
+		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
+			logger.error("Error. El usuario no existe en el sistema.");
+			return respuestaFinalFuncion;
+		}
+
 		//si soy el ADMIN O el mismo usuario que se quiere borrar => VA BIEN
 		if((activeUser.getName().equals(admin.getName())) || (activeUser.getName().equals(nombreUsuarioBorrado))) {
+
+			logger.debug("ActiveUser: " + activeUser.getName() + ", Usuario a borrar:  " + nombreUsuarioBorrado);
+
 			User usuario = usersRegistered.get(nombreUsuarioBorrado);
 		
 			// PARAMETROS A PASAR AL BACKEND
@@ -429,17 +434,6 @@ public class WineSocialUPMSkeleton {
 		logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
 		return respuestaFinalFuncion;
 		
-		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
-//		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
-//			logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
-//			return respuestaFinalFuncion;
-//		}
-		
-		// COMPROBACION USUARIO EXISTENTE
-//		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
-//			logger.error("Error. El usuario no existe en el sistema.");
-//			return respuestaFinalFuncion;
-//		}
 	}
 
 	/**
