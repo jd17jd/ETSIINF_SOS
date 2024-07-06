@@ -371,6 +371,7 @@ public class WineSocialUPMSkeleton {
 	
 	
 	/**
+	/**
 	 * userAdmin.removeUser(user1) // user1.removeUser(user1)
 	 * Elimina al usuario pasado como parametro del sistema
 	 * @param removeUser Objeto con el nombre del usuario a borrar
@@ -392,8 +393,6 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en incio
 
-		logger.debug("Valor de isLogged: " + isLogged + ", usuario actual: " + activeUser.getName());
-
 		if (!isLogged) {
 			logger.error("Error. No puedes eliminar usuarios sin estar loggeado.");
 			return respuestaFinalFuncion;
@@ -407,8 +406,6 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		// activeUser = usersRegistered.get(nombreUsuarioBorrado);
-		
 		// SOLO EL ADMIN O EL PROPIO USUARIO PUEDEN BORRAR SU CUENTA, SI NO SOY NI UNO NI OTRO NADA
 		if(!activeUser.equals(usersRegistered.get(nombreUsuarioBorrado)) && (!activeUser.getName().equals(admin.getName()))) {
 			logger.error("Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.");
@@ -417,7 +414,7 @@ public class WineSocialUPMSkeleton {
 		
 		// COMPROBACION USUARIO EXISTENTE
 		if(!usuarioRegistrado(nombreUsuarioBorrado)) {
-			logger.error("Error. El usuario: '" + nombreUsuarioBorrado + "' no está registrado en el sistema.");
+			logger.error("Error. El usuario no existe en el sistema.");
 			return respuestaFinalFuncion;
 		}
 		
