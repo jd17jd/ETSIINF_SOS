@@ -463,7 +463,7 @@ public class WineSocialUPMSkeleton {
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en inicio
 
-		logger.debug("Valor de isLogged: " + isLogged + ", Usuario actual: " + activeUser.getName());
+		logger.debug("Valor de isLogged: " + isLogged);
 
 		if (!isLogged) {
 			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
