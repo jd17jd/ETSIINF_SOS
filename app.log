@@ -2306,3 +2306,73 @@ INFO - Has cerrado sesión.
 DEBUG - [IMP] Creada instancia: 18
 DEBUG - METODO: [LOGOUT]
 ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@26b7c7a5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@26b7c7a5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@26b7c7a5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@26b7c7a5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@26b7c7a5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Admin: es.upm.etsiinf.sos.model.xsd.User@26b7c7a5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Admin: admin, admin
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>, ¿loggeado? => false
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Admin: admin, admin
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Admin: admin, admin
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Admin: admin, admin
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>, ¿loggeado? => false
+DEBUG - La respuesta del backend ha sido: false
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Admin: admin, admin
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [CHANGE_PASSWORD]
+DEBUG - Valor de isLogged: false, usuario actual: null
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Admin: admin, admin
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.

@@ -1,0 +1,12 @@
+log4j:WARN No appenders could be found for logger (org.apache.axis2.description.AxisOperation).
+log4j:WARN Please initialize the log4j system properly.
+RESULTADO REMOVE: true
+********************** TEST 1 (value: 1)**********************
+El admin se logea, cambia la contraseña, log out y login con la nueva
+Result admin login (exp true) : true
+Result admin changePwd (exp true) : false
+Result admin login (exp true) : false
+Result admin changePwd AGAIN (exp true) : false
+Result admin logout  (exp true) : false
+
+FAIL
