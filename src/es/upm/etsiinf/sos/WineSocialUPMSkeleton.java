@@ -300,12 +300,8 @@ public class WineSocialUPMSkeleton {
 
 //		activeUser = usersRegistered.get(name);
 		
-		stubLoginBackend.setName(username);
-		stubLoginBackend.setPassword(password);
-		
-		username = nUser;
-		password = nPass;
-		isLogged = true;
+		stubLoginBackend.setName(nUser);
+		stubLoginBackend.setPassword(nPass);
 		
 		stubLogin.setLogin(stubLoginBackend);
 
@@ -318,6 +314,7 @@ public class WineSocialUPMSkeleton {
 
 		// SI EL LOGIN HA IDO BIEN
 		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
+		
 		if(response.getResponse()) {
 			isLogged = true;
 			username = nUser;
