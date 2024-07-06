@@ -239,6 +239,7 @@ public class WineSocialUPMSkeleton {
 			response.setPwd(stubAddUserResponseBackend.getPassword());
 			respuestaFinalFuncion.set_return(response);
 			usersRegistered.put(username, usuario);
+			followersMap.putIfAbsent(usuario, null);
 			logger.info("Usuario: '" + username + "' añadido con éxito.");
 			return respuestaFinalFuncion;
 		}
