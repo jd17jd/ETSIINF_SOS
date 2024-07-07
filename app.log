@@ -11158,3 +11158,1068 @@ DEBUG - METODO: [LOGOUT]
 INFO - Has cerrado sesión.
 DEBUG - METODO: [LOGOUT]
 INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u11'.
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u117877>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u11
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u117877>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: test1u11, Usuario a borrar:  test1u11)
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u117877>
+ERROR - Error. El usuario: 'test1u11' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u4'.
+ERROR - Error. El usuario: test1u4 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u4 con contraseña: <null>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u5'.
+ERROR - Error. El usuario: test1u5 ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u4 con contraseña: <null>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u5 con contraseña: <null>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino2' con éxito.
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino4' con éxito.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u4 con contraseña: <null>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <null>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADDUSER]
+ERROR - Error. No puedes añadir usuarios sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <null>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No puedes eliminar usuarios sin estar loggeado.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <null>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <null>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'iratxe2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'iratxe11'.
+INFO - Usuario: 'iratxe11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe11 con contraseña: <iratxe114734>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe11
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe11 con contraseña: <iratxe114734>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe11
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: iratxe11, Usuario a borrar:  iratxe11)
+INFO - Usuario: 'iratxe11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe11 con contraseña: <iratxe114734>
+ERROR - Error. El usuario: 'iratxe11' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'iratxe4'.
+INFO - Usuario: 'iratxe4' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe4 con contraseña: <iratxe41296>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe4
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'iratxe5' no existe en el sistema.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'iratxe5'.
+INFO - Usuario: 'iratxe5' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:iratxe4usuario a seguir: iratxe5
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@698fc352' ha empezado a seguir a: 'iratxe5' como seguidor.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe4 con contraseña: <iratxe41296>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe4
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'iratxe5'
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe5 con contraseña: <iratxe53255>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe5
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+INFO - No existe la lista de followers del activeUser :(
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino2' con éxito.
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino4' con éxito.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe4 con contraseña: <iratxe41296>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe4
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - El vino: 'vino1' con: 
+		Tipo de uva: tinto
+		Año: 2015
+ya existe en la red social.
+
+DEBUG - METODO: [ADD_WINE]
+DEBUG - El vino: 'vino3' con: 
+		Tipo de uva: tinto
+		Año: 2015
+ya existe en la red social.
+
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'iratxe8'.
+INFO - Usuario: 'iratxe8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'iratxe9'.
+INFO - Usuario: 'iratxe9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe8 con contraseña: <iratxe81249>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe8
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe9 con contraseña: <iratxe99522>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:iratxe8usuario a seguir: iratxe9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@6035e464' ha empezado a seguir a: 'iratxe9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'iratxe9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'iratxe9' puntuando el vino: 'vino1'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = 
+INFO - ¿¿Vino ya dentro de la lista?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: iratxe9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'iratxe9' puntuando el vino: 'vino3'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = [NOMBRE: iratxe9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - ¿¿Vino ya dentro de la lista?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: iratxe9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10], [Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Se ha puntuado el vino: 'vino3' con un: '6' con éxito.
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'iratxe9'.
+INFO - Soy: 'iratxe8'. Estoy loggeado y sigo al usuario: 'iratxe9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: iratxe9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10], [Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 2
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 22
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: admin, Usuario a borrar:  iratxe9)
+INFO - Usuario: 'iratxe9' borrado con exito.
+DEBUG - [IMP] Creada instancia: 23
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: iratxe8 con contraseña: <iratxe81249>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: iratxe8
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'iratxe9'
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'iratxe9'.
+INFO - Soy: 'iratxe8'. Estoy loggeado y sigo al usuario: 'iratxe9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: iratxe9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10], [Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 2
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u1'.
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u1'.
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u2'.
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u29903>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: admin, Usuario a borrar:  test1u1)
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u29903>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u29903>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Contraseña cambiada correctamente!!
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u11'.
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u1'.
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u1'.
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u2'.
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u29095>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: admin, Usuario a borrar:  test1u1)
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u29095>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u29095>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Contraseña cambiada correctamente!!
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: admin, Usuario a borrar:  test1u2)
+INFO - Usuario: 'test1u2' borrado con exito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u11'.
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u119671>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u11
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u119671>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: test1u11, Usuario a borrar:  test1u11)
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u119671>
+ERROR - Error. El usuario: 'test1u11' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminNEWValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <adminNEW>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Se ha cambiado la contraseña del admin correctamente. Contraseña nueva: adminValor response= true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u1'.
+INFO - Usuario: 'test1u1' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u1'.
+ERROR - Error. El usuario: test1u1 ya está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <null>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 3
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u2'.
+INFO - Usuario: 'test1u2' añadido con éxito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u23503>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. No tienes permisos para eliminar usuario. Se debe ser administrador o el propio usuario a borrar.
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: admin, Usuario a borrar:  test1u1)
+INFO - Usuario: 'test1u1' borrado con exito.
+DEBUG - METODO: [REMOVE_USER]
+ERROR - Error. El usuario no existe en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 4
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u23503>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 5
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <test1u23503>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [CHANGE_PASSWORD]
+ERROR - Error. No puedes cambiar contraseña sin estar loggeado.
+DEBUG - METODO: [CHANGE_PASSWORD]
+INFO - Contraseña cambiada correctamente!!
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 6
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Ya está loggeado true, test1u2 - test1u2
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+ERROR - Error. No puedes cerrar sesión al no estar loggeado.
+DEBUG - [IMP] Creada instancia: 7
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u2
+DEBUG - [IMP] Creada instancia: 8
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: admin, Usuario a borrar:  test1u2)
+INFO - Usuario: 'test1u2' borrado con exito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u2 con contraseña: <nuevaa>
+ERROR - Error. El usuario: 'test1u2' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 9
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u11'.
+INFO - Usuario: 'test1u11' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 10
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u119300>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u11
+DEBUG - [IMP] Creada instancia: 11
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u119300>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u11
+DEBUG - METODO: [REMOVE_USER]
+DEBUG - (ActiveUser: test1u11, Usuario a borrar:  test1u11)
+INFO - Usuario: 'test1u11' borrado con exito.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u11 con contraseña: <test1u119300>
+ERROR - Error. El usuario: 'test1u11' no está registrado en el sistema.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 12
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u4'.
+INFO - Usuario: 'test1u4' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 13
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u4 con contraseña: <test1u41792>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. El usuario: 'test1u5' no existe en el sistema.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u5'.
+INFO - Usuario: 'test1u5' añadido con éxito.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:test1u4usuario a seguir: test1u5
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@70133331' ha empezado a seguir a: 'test1u5' como seguidor.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 14
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u4 con contraseña: <test1u41792>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'test1u5'
+DEBUG - [IMP] Creada instancia: 15
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u5 con contraseña: <test1u57562>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u5
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+INFO - No existe la lista de followers del activeUser :(
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 16
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino2' con éxito.
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 17
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino4' con éxito.
+DEBUG - [IMP] Creada instancia: 18
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u4 con contraseña: <test1u41792>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u4
+DEBUG - METODO: [GET_WINES]
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 19
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u8'.
+INFO - Usuario: 'test1u8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'test1u9'.
+INFO - Usuario: 'test1u9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 20
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u8 con contraseña: <test1u87198>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u8
+DEBUG - [IMP] Creada instancia: 21
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: test1u9 con contraseña: <test1u96320>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: test1u9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:test1u8usuario a seguir: test1u9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@7a67ac18' ha empezado a seguir a: 'test1u9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'test1u9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'test1u9' puntuando el vino: 'vino1'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = 
+INFO - ¿¿Vino ya dentro de la lista?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: test1u9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'test1u9' puntuando el vino: 'vino3'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = [NOMBRE: test1u9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - ¿¿Vino ya dentro de la lista?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: test1u9, PUNTUADOS: [[Nombre: vino1, Año: 2015, 
