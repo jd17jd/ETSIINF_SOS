@@ -811,7 +811,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaVinos); //False en incio
 
 		// COMPROBACION DE LOGGEADO
-		if(activeUser != null) {
+		if(isLogged) {
 			// MAX INDEX (Para recorrerla hacia atras)
 			int j = winesList.size() - 1;
 
@@ -871,7 +871,7 @@ public class WineSocialUPMSkeleton {
 		vino.setYear(vinoPuntuado.getYear());
 		
 		// COMPROBACION DE LOGGEADO
-		if (activeUser != null) {
+		if (isLogged) {
 			//si el vino existe lo puedo puntuar
 			if (existeVino(vino)) {
 				// compruebo que la puntuacion que se le da está entre 0 y 10
@@ -946,7 +946,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaVinosPuntuados);
 
 		 // COMPROBACION DE LOGGEADO
-		 if(activeUser != null) {
+		 if(isLogged) {
 		 	// MAX INDEX (Para recorrerla hacia atras)
 		 	int j = puntuados.size() - 1;
 
@@ -1007,7 +1007,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(listaPuntuados);
 		
 		//si estoy loggeado y sigo al [follower1] entonces devuelvo su lista (invertida)
-		if((activeUser != null) && followerExist(nombreFollower)){
+		if((isLogged) && followerExist(nombreFollower)){
 			//accedo al mapa de los vinos puntuados por [follower1]
 			List<WineRated> puntuados = userRatedMap.get(nombreFollower);
 			
