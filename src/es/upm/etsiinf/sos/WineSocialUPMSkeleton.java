@@ -1007,7 +1007,15 @@ public class WineSocialUPMSkeleton {
 			
 			logger.info("Soy: '" + activeUser.getName() + "'. Estoy loggeado y sigo al usuario: '" + nombreFollower + "'.");
 			//accedo al mapa de los vinos puntuados por [follower1]
-			List<WineRated> puntuados = userRatedMap.get(nombreFollower);
+
+			List<WineRated> puntuados = null;
+
+			if(userRatedMap.containsKey(nombreFollower)) {
+				logger.debug("Lista vinos puntuados de seguidor: " + imprimeRatedMap());
+				puntuados = userRatedMap.get(nombreFollower);
+			}
+			else
+				logger.info("No existe la lista de vinos puntuados de: " + nombreFollower + " :(");
 			
 			if(puntuados != null && !puntuados.isEmpty()) {
 				// MAX INDEX (Para recorrerla hacia atras)
