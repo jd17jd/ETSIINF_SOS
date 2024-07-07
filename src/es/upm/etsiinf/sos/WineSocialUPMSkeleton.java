@@ -857,7 +857,9 @@ public class WineSocialUPMSkeleton {
 		
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
-		respuestaFinalFuncion.set_return(response); //False en incio
+		respuestaFinalFuncion.set_return(response); //False en inicio
+		
+		logger.info("Usuario: '" + activeUser.getName() + "' puntuando el vino: '" + vinoPuntuado.getName() + "'.");
 		
 		//setteo de parametros para buscar si hay alguno exactamente con los MISMOS atributos
 		vino.setName(vinoPuntuado.getName());
@@ -865,61 +867,64 @@ public class WineSocialUPMSkeleton {
 		vino.setYear(vinoPuntuado.getYear());
 		
 		// COMPROBACION DE LOGGEADO
-		if (isLogged) {
-			//si el vino existe lo puedo puntuar
-			if (existeVino(vino)) {
-				// compruebo que la puntuacion que se le da está entre 0 y 10
-				if (vinoPuntuado.getRate() >= 0 && vinoPuntuado.getRate() <= 10) {
-					// Añado puntuacion asociada al usuario que la ha puesto
-					//lo añado siempre que no exista ya dentro, sino sobreescribo
-					
-					//obtengo la lista de vinos puntuados por el usuario actual (si no hay la creo)
-					listaPuntuados = userRatedMap.getOrDefault(activeUser, new ArrayList<>());
-					
-					// Busco si el vino ya está en la lista
-	                boolean vinoEncontrado = false;
-	                for (int i = 0; i < listaPuntuados.size(); i++) {
-	                    WineRated vinoExistente = listaPuntuados.get(i);
-	                    if (vinoExistente.getName().equals(vinoPuntuado.getName()) &&
-	                        vinoExistente.getGrape().equals(vinoPuntuado.getGrape()) &&
-	                        vinoExistente.getYear() == vinoPuntuado.getYear()) {
-	                    	
-	                        // Si se encuentra el vino, se actualiza la puntuación
-	                        listaPuntuados.set(i, vinoPuntuado);
-	                        vinoEncontrado = true;
-	                        break;
-	                    }
-	                }
-
-	                //si no se encontró en la lista, se añade
-					if(!vinoEncontrado) {
-						listaPuntuados.add(vinoPuntuado);
-					}
-
-					//actualizo el mapa con la lista modificada
-					userRatedMap.put(activeUser.getName(), listaPuntuados);
-					response.setResponse(true);
-	                respuestaFinalFuncion.set_return(response);
-
-	                logger.info("Se ha puntuado el vino: '" + vino.getName() + "' con un: '" + vinoPuntuado.getRate() + "' con éxito.");
-	                return respuestaFinalFuncion;
-				}
-				else {
-					logger.error("Error. La puntuación debe estar entre 0 y 10.");
-					return respuestaFinalFuncion;
-				}
-			}
-			else {
-				logger.error("Error. El vino: '" + vino.getName() + "' con: \n" +
-				"\t\tTipo de uva: " + vino.getGrape() + "\n" +
-				"\t\tAño: " + vino.getYear() + "\n" +
-				"no existe en la red social.");
-				return respuestaFinalFuncion;
-			}
-		}
-		else
+		if (!isLogged) {
 			logger.error("Error. Para puntuar un vino se debe haber iniciado sesión previamente.");
-		return respuestaFinalFuncion;
+			return respuestaFinalFuncion;
+		}
+		
+		// COMPROBACION EXISTENCIA VINO
+		if(!existeVino(vino)) {
+			logger.error("Error. El vino: '" + vino.getName() + "' con: \n" +
+					"\t\tTipo de uva: " + vino.getGrape() + "\n" +
+					"\t\tAño: " + vino.getYear() + "\n" +
+					"no existe en la red social.");
+			return respuestaFinalFuncion;
+		}
+				
+		// compruebo que la puntuacion que se le da está entre 0 y 10
+		if (!(vinoPuntuado.getRate() >= 0 && vinoPuntuado.getRate() <= 10)) {
+			logger.error("Error. La puntuación debe estar entre 0 y 10.");
+			return respuestaFinalFuncion;
+		}
+		
+		logger.info("Estoy loggeado, el vino existe y la puntuacion es correcta.");
+		//AQUI EL VINO EXISTE, ESTOY LOGGEADO Y LA PUNTACION ES CORRECTA
+		
+		//Añado puntuacion asociada al usuario que la ha puesto
+		//lo añado siempre que no exista ya dentro, sino sobreescribo
+		//obtengo la lista de vinos puntuados por el usuario actual (si no hay la creo)
+		//TODO: POSIBLE ERRROR
+		listaPuntuados = userRatedMap.getOrDefault(activeUser, new ArrayList<>());
+		
+		logger.info(imprimeRatedMap());
+					
+		// Busco si el vino ya está en la lista
+	    boolean vinoEncontrado = false;
+	    for (int i = 0; i < listaPuntuados.size(); i++) {
+	    	WineRated vinoExistente = listaPuntuados.get(i);
+	    	if (vinoExistente.getName().equals(vinoPuntuado.getName()) &&
+	    			vinoExistente.getGrape().equals(vinoPuntuado.getGrape()) &&
+	                vinoExistente.getYear() == vinoPuntuado.getYear()) {
+                // Si se encuentra el vino, se actualiza la puntuación
+                listaPuntuados.set(i, vinoPuntuado);
+                vinoEncontrado = true;
+                break;
+            }
+	    }
+	    
+	    logger.info("¿¿Vino encontrado?? => " + vinoEncontrado);
+	    
+	    //si no se encontró en la lista, se añade
+		if(!vinoEncontrado) {
+			listaPuntuados.add(vinoPuntuado);
+		}
+		
+		//actualizo el mapa con la lista modificada
+		userRatedMap.put(activeUser.getName(), listaPuntuados);
+		response.setResponse(true);
+        respuestaFinalFuncion.set_return(response);
+        logger.info("Se ha puntuado el vino: '" + vino.getName() + "' con un: '" + vinoPuntuado.getRate() + "' con éxito.");
+	    return respuestaFinalFuncion;
 	}
 
 	
@@ -1046,7 +1051,6 @@ public class WineSocialUPMSkeleton {
 	            listaPuntuados.setResult(true);
 	            logger.info("Lista puntuados (resultado): " + listaPuntuados.getResult());
 				respuestaFinalFuncion.set_return(listaPuntuados);
-				logger.info("Puntuados: " + puntuados.toArray().toString());
 				return respuestaFinalFuncion;
 			}
 		}

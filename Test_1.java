@@ -20,10 +20,10 @@ public class Test_1 {
 	private static String USER2PWD = "";
 	private static String NEW_USER2PWD = "Nuevaa";
 
-	private static String USER8 = "josele8";
+	private static String USER8 = "joselq8";
 	private static String USER8PWD;
 	
-	private static String USER9 = "pepile9";
+	private static String USER9 = "pepilq9";
 	private static String USER9PWD;
 
 	private static WineSocialUPMStub admin;
