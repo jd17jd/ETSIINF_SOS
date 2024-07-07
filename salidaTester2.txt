@@ -10,3 +10,20 @@ Result admin changePwd AGAIN (exp true) : false
 Result admin logout  (exp true) : false
 
 FAIL
+
+
+admin.borrarSeguidorListas(Luis);
+
+LISTA FOLLOWERS (PEPE) => {Luis, Marta, Laura} => [Luis,Marta,Laura] => [Marta,Laura]
+LISTA FOLLOWERS (MARTA) => {Pepe, Jose}
+
+LISTA PUNTUADOS (PEPE) => {Tinto-8}
+LISTA PUNTUADOS (LUIS) => {Blanco-8}
+
+Remove(Luis) => Borrar: de ListaFollowers donde esté incluido -
+						su propia listaFollowers -
+						su lista de vinosPuntuados -
+						de usuariosRegistrados - OK
+
+admin crea a user9
+followersMap => {<user9,listaFollowers>}

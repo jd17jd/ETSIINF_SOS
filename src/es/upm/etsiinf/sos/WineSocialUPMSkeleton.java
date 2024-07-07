@@ -424,11 +424,11 @@ public class WineSocialUPMSkeleton {
 			// SI EL BORRADO HA IDO BIEN
 			if(response.getResponse()) {
 
-				// Borrar la lista de 
-				
+				// Borrar el usuario de las listas de followers en las que aparezca
+				borrarSeguidorListas(nombreUsuarioBorrado);
 				
 				// Borrar su propia lista de seguidores
-				followersMap.remove(nombreUsuarioBorrado);
+				followersMap.remove(usuario);
 			
 				// Borrar su lista de vinos puntuados
 				userRatedMap.remove(nombreUsuarioBorrado);
@@ -629,7 +629,37 @@ public class WineSocialUPMSkeleton {
             followersMap.get(activeUser).setFollowers(followersN);
         }
 	}
-
+	
+	
+	private void borrarSeguidorListas (String seguidor) {
+		int res = -1;
+		boolean encontrado = false;
+		
+		for (Map.Entry<User, FollowerList> entry : followersMap.entrySet()) {
+			FollowerList followerList = entry.getValue();
+			String seguidores[] = followerList.getFollowers();
+			
+			for (int i = 0; i < seguidores.length && !encontrado; i++) {
+	            if (seguidores[i].equals(seguidor)) {
+	                res = i;
+					encontrado = true;
+	            }
+	        }
+			//si lo he encontrado en alguna lista
+			if (res != -1) {
+	            String[] followersNew = new String[seguidores.length - 1]; //Nueva lista de tamaño - 1
+	            int j = 0;
+	            for (int i = 0; i < seguidores.length; i++) {
+	                if (i != res) {
+	                	followersNew[j] = seguidores[i];
+	                    j++;
+	                }
+	            }
+	            followerList.setFollowers(followersNew);
+			}
+		}
+	}
+	
 	/**
 	 * user1.unfollow(user2) --> user1 UNFOLLOWS a user2.
 	 * @param unfollow Objeto con el nombre del usuario a dejar de seguir
