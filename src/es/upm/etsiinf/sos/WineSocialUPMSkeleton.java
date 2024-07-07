@@ -919,10 +919,9 @@ public class WineSocialUPMSkeleton {
 			listaPuntuados.add(vinoPuntuado);
 		}
 		
-		logger.info(imprimeRatedMap());
-		
 		//actualizo el mapa con la lista modificada
 		userRatedMap.put(activeUser.getName(), listaPuntuados);
+		logger.info(imprimeRatedMap());
 		response.setResponse(true);
         respuestaFinalFuncion.set_return(response);
         logger.info("Se ha puntuado el vino: '" + vino.getName() + "' con un: '" + vinoPuntuado.getRate() + "' con éxito.");
