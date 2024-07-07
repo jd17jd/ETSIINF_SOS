@@ -1048,10 +1048,10 @@ public class WineSocialUPMSkeleton {
 				return respuestaFinalFuncion;
 			}
 		}
-		else
+		else {
 			logger.error("Error. Para ver los vinos de un seguidor, debes haber iniciado sesión y el seguidor debe existir.");
-			
-		respuestaFinalFuncion.set_return(listaPuntuados);
+			respuestaFinalFuncion.set_return(listaPuntuados);
+		}
 		return respuestaFinalFuncion;
 	}
 
