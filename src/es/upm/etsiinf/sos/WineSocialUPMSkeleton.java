@@ -563,8 +563,10 @@ public class WineSocialUPMSkeleton {
 		}
 		
 		logger.debug("Estoy aqui");
-		FollowerList listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
-		logger.debug("Estoy ahora aqui");
+		FollowerList listaSeguidores = null;
+		if (followersMap.get(activeUser) == null) logger.debug("followersMap.get(activeUser) es null");
+		else {listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
+		logger.debug("Estoy ahora aqui"); }
 
 		if(listaSeguidores == null) { 
 			listaSeguidores = new FollowerList();
