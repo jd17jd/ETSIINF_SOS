@@ -894,7 +894,7 @@ public class WineSocialUPMSkeleton {
 		//lo añado siempre que no exista ya dentro, sino sobreescribo
 		//obtengo la lista de vinos puntuados por el usuario actual (si no hay la creo)
 		//TODO: POSIBLE ERRROR
-		listaPuntuados = userRatedMap.getOrDefault(activeUser, new ArrayList<>());
+		listaPuntuados = userRatedMap.getOrDefault(activeUser.getName(), new ArrayList<>());
 		
 		logger.info(imprimeRatedMap());
 					
@@ -912,7 +912,7 @@ public class WineSocialUPMSkeleton {
             }
 	    }
 	    
-	    logger.info("¿¿Vino encontrado?? => " + vinoEncontrado);
+	    logger.info("¿¿Vino ya dentro de la lista?? => " + vinoEncontrado);
 	    
 	    //si no se encontró en la lista, se añade
 		if(!vinoEncontrado) {
