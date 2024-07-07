@@ -10,21 +10,45 @@ import es.upm.etsiinf.sos.WineSocialUPMStub.*;
 
 public class Test_1 {
 
-	private static final String ADMINUSER = "admin";
-	private static final String ADMINPWD = "admin";
-	private static final String NEW_ADMINPWD = "admin3";
-
-	private static final String USER1 = "uD1";
-	private static final String USER2 = "uD2";
-	
-	private static String USER2PWD = "";
-	private static String NEW_USER2PWD = "Nuevaa";
-
-	private static String USER8 = "joselT8";
+	private static String ADMINUSER = "admin";
+	private static String ADMINPWD = "admin";
+	private static String ADMINNEWPWD2 = "adminNEW";
+	private static String USER1 = "test1u1";
+	private static String USER1PWD = "user1";
+	private static String USER1NEWPWD;
+	private static String USER2 = "test1u2";
+	private static String USER2PWD;
+	private static String USER2NEWPWD = "nuevaa";
+	private static String USER3 = "test1u3";
+	private static String USER3PWD;
+	private static String USER4 = "test1u4";
+	private static String USER4PWD;
+	private static String USER5 = "test1u5";
+	private static String USER5PWD;
+	private static String USER6 = "test1u6";
+	private static String USER6PWD;
+	private static String USER7 = "test1u7";
+	private static String USER7PWD;
+	private static String USER8 = "test1u8";
 	private static String USER8PWD;
-	
-	private static String USER9 = "pepilT9";
+	private static String USER9 = "test1u9";
 	private static String USER9PWD;
+	private static String USER10 = "test1u10";
+	private static String USER10PWD;
+	private static String USER11 = "test1u11";
+	private static String USER11PWD;
+	private static String USER12 = "test1u12";
+	private static String USER12PWD;
+	private static String USER13 = "test1u13";
+	private static String USER13PWD;
+	private static String USER14 = "test1u14";
+	private static String USER14PWD;
+	private static String USER15 = "test1u15";
+	private static String USER15PWD;
+	private static String USERN = "test1uN";
+	private static String USERNPWD;
+
+	static RemoveUser userBorrar = new RemoveUser();
 
 	private static WineSocialUPMStub admin;
 	private static WineSocialUPMStub stub1;
@@ -54,21 +78,6 @@ public class Test_1 {
 		stub._getServiceClient().engageModule("addressing");
 		return stub;
 	}
-
-/* 	private static void borradoUsuarios() {
-		try {
-			UPMAuthenticationAuthorizationWSSkeletonStub st = new UPMAuthenticationAuthorizationWSSkeletonStub();
-			RemoveUserE removeUser0 = new RemoveUserE();
-			es.upm.etsiinf.client.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUser param = new es.upm.etsiinf.client.UPMAuthenticationAuthorizationWSSkeletonStub.RemoveUser();
-			param.setName("test%");
-			removeUser0.setRemoveUser(param);
-			RemoveUserResponseE res = st.removeUser(removeUser0);
-			System.out.println("RESULTADO REMOVE: " + !res.get_return().getResult());
-		} catch (RemoteException var4) {
-			var4.printStackTrace();
-		}
-
-	} */
 
 	private static Login createLoginData(String username, String password) {
 		Login res = new Login();
@@ -103,9 +112,6 @@ public class Test_1 {
 		res.setArgs0(param);
 		return res;
 	}
-
-
-
 
 
 	private static AddFollower createFollowerData(String username) {
@@ -147,6 +153,7 @@ public class Test_1 {
 		return rateWine;
 	}
 
+	//SUCCESS
 	private static int test1() throws RemoteException {
 		System.out.println("********************** TEST 1 (value: 1)**********************");
 		System.out.println("1) admin login, 2) admin change password, 3) admin logout, 4) admin login con nueva pwd, 5) admin logout");
@@ -159,7 +166,7 @@ public class Test_1 {
 		System.out.println("1. Result admin login (exp true) : " + login);
 
 		//2
-		ChangePassword changePass = createChangePWDData(ADMINPWD, NEW_ADMINPWD);
+		ChangePassword changePass = createChangePWDData(ADMINPWD, ADMINNEWPWD2);
 		boolean changePWD = admin.changePassword(changePass).get_return().getResponse();
 		System.out.println("2. Result admin changePwd (exp true) : " + changePWD);
 
@@ -169,7 +176,7 @@ public class Test_1 {
 		System.out.println("3. Result admin logout (exp true) : " + logout);
 
 		//4
-		Login loginDataNew = createLoginData(ADMINUSER, NEW_ADMINPWD);
+		Login loginDataNew = createLoginData(ADMINUSER, ADMINNEWPWD2);
 		boolean loginNewPWD = admin.login(loginDataNew).get_return().getResponse();
 		System.out.println("4. Result admin login with new pwd (exp true) : " + loginNewPWD);
 
@@ -187,14 +194,15 @@ public class Test_1 {
 			return 0;
 		}
 	}
-
+	
+	//SUCCES
 	private static int test2() throws RemoteException {
 		System.out.println("********************** TEST 2 (value: 1)**********************");
 		System.out.println("1) admin login, 2) admin addUser(testu1) x2 (segundo debe fallar), 3) admin logout");
 		
 		admin = getStub();
 		//1
-		Login loginData = createLoginData(ADMINUSER, NEW_ADMINPWD);
+		Login loginData = createLoginData(ADMINUSER, ADMINNEWPWD2);
 		boolean login = admin.login(loginData).get_return().getResponse();
 		System.out.println("1. Result admin login (exp true) : " + login);
 
@@ -222,7 +230,7 @@ public class Test_1 {
 		}
 	}
 
-
+	//SUCCESS
 	private static int test6() throws RemoteException {
 		System.out.println("********************** TEST 6 (value: 1)**********************");
 		System.out.println("1) user2 login (falla), 2) admin login, 3) admin addsUser user2, 4) user2 login, 5) user2 remove user1 (falla), 6) admin remove user1, 7) admin remove user500 (falla)");
@@ -237,7 +245,7 @@ public class Test_1 {
 		admin = getStub();
 
 		//2
-		Login loginDataAdmin = createLoginData(ADMINUSER, NEW_ADMINPWD);
+		Login loginDataAdmin = createLoginData(ADMINUSER, ADMINNEWPWD2);
 		boolean loginAdmin = admin.login(loginDataAdmin).get_return().getResponse();
 		System.out.println("2. Result admin login (exp true) : " + loginAdmin);
 
@@ -277,7 +285,7 @@ public class Test_1 {
 		}
 	}
 	
-	
+	//SUCCESS
 	private static int test8() throws RemoteException {
 		System.out.println("********************** TEST 8 (value: 1)**********************");
 		System.out.println("1) user2 login st1 y st2, 2) st1 logout, 3) changpwd en st1 (fail), 4) changpwd en st2");
@@ -297,13 +305,13 @@ public class Test_1 {
 		stub1.logout(logoutVacio);
 
 		// 3)
-		ChangePassword changePasswordData = createChangePWDData(USER2PWD, NEW_USER2PWD);
-		NEW_USER2PWD = changePasswordData.getArgs0().getNewpwd();
+		ChangePassword changePasswordData = createChangePWDData(USER2PWD, USER2NEWPWD);
+		USER2NEWPWD = changePasswordData.getArgs0().getNewpwd();
 		boolean changePwdFail = stub1.changePassword(changePasswordData).get_return().getResponse();
 		System.out.println("3. Result user2 change pwd con stub1 (exp false because user2 has logout on stub1-session) : " + changePwdFail);
 
 		// 4)
-		boolean changePwd = stub2.changePassword(createChangePWDData(USER2PWD, NEW_USER2PWD)).get_return().getResponse();
+		boolean changePwd = stub2.changePassword(createChangePWDData(USER2PWD, USER2NEWPWD)).get_return().getResponse();
 		System.out.println("4. Result user2 change pwd con stub2 (exp true) : " + changePwd);
 
 		resetStub(stub1);
@@ -324,6 +332,7 @@ public class Test_1 {
 		}
 	}
 	
+	//REVISAAAAAAAR
 	private static int test10() throws RemoteException {
 		System.out.println("********************** TEST 10 (value: 1)**********************");
 		System.out.println("1) user2 login 2 veces en st1, 2) logout, 3) admin login st1 (fail), 4) logout, 5) admin login st1 (ok)");
@@ -331,11 +340,11 @@ public class Test_1 {
 		stub1 = getStub();
 		
 		//1
-		boolean login1 = stub1.login(createLoginData(USER2, NEW_USER2PWD)).get_return().getResponse();
+		boolean login1 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
 		System.out.println("1. Result user2 login (exp true) : " + login1);
 		
 		//1
-		boolean login2 = stub1.login(createLoginData(USER2, NEW_USER2PWD)).get_return().getResponse();
+		boolean login2 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
 		System.out.println("1. Result user2 login (exp true) : " + login2);
 		
 		//2
@@ -372,7 +381,293 @@ public class Test_1 {
 		}
 	}
 	
+	//SUCCESS
+	private static int test11() throws RemoteException {
+		System.out.println("********************** TEST 11 (value: 1)**********************");
+		System.out.println("user2 login st1, admin login st2, admin borrar user2, st1 hacer login user2 (fail)");
+		
+		stub1 = getStub();
+		
+		boolean login1 = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
+		System.out.println("Result user2 login (exp true) : " + login1);
+		
+		admin = getStub();
+		
+		boolean login2 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login2);
+		
+		Username username = new Username();
+		username.setUsername(USER2);
+		userBorrar.setArgs0(username);
+		boolean delete = admin.removeUser(userBorrar).get_return().getResponse();
+		System.out.println("Result admin deletes user2 (exp true): " + delete);
+		
+		boolean loginFail = stub1.login(createLoginData(USER2, USER2NEWPWD)).get_return().getResponse();
+		System.out.println("Result user2 login (exp fail) cause was removed : " + loginFail);
+		
+		stub1.logout(logoutVacio);
+		resetStub(stub1);
+		admin.logout(logoutVacio);
+		resetStub(admin);
+		System.out.println();
+		
+		if (login1 && login2 && delete && !loginFail) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	   }
 	
+	//SUCCESS
+	private static int test14() throws RemoteException {
+		System.out.println("********************** TEST 14 (value: 1)**********************");
+		System.out.println(
+				"admin crea usuer11, user11 se logea en dos stubs, st1 y st2, en uno se borra y en otro no debe permitir hacer nada.");
+
+		admin = getStub();
+		
+		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login1);
+		AddUserResponseE res = admin.addUser(createAddData(USER11));
+		
+		boolean addUser = res.get_return().getResponse();
+		USER11PWD = res.get_return().getPwd();
+		System.out.println("Result admin create user11 (exp true) : " + addUser);
+		admin.logout(logoutVacio);
+		
+		stub1 = getStub();
+		
+		boolean login2 = stub1.login(createLoginData(USER11, USER11PWD)).get_return().getResponse();
+		System.out.println("Result user11 login (exp true) : " + login2);
+		
+		stub2 = getStub();
+		
+		boolean login3 = stub2.login(createLoginData(USER11, USER11PWD)).get_return().getResponse();
+		System.out.println("Result user11 login en otro stub (exp true) : " + login3);
+		Username username = new Username();
+		username.setUsername(USER11);
+		userBorrar.setArgs0(username);
+		
+		boolean delete = stub1.removeUser(userBorrar).get_return().getResponse();
+		System.out.println("Result user11 deletes user11 en stub11(exp true) : " + delete);
+		
+		boolean login3F = stub2.login(createLoginData(USER11, USER11PWD)).get_return().getResponse();
+		System.out.println("Result user login en stub2 (exp false) : " + login3F);
+		
+		resetStub(admin);
+		stub1.logout(logoutVacio);
+		resetStub(stub1);
+		resetStub(stub2);
+		System.out.println();
+		if (login1 && addUser && login2 && login3 && delete && !login3F) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
+	//SUCCESS
+	private static int test15() throws RemoteException {
+		System.out.println("********************** TEST 15 (value: 1)**********************");
+		System.out.println(
+				"admin crea user4, user4 addF user 5 en st2 (fail), user4 login en st2, user4 addFol user5 (fail), admin crear user5, use4 añade al user5 (ok)");
+
+		admin = getStub();
+		
+		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login1);
+		
+		AddUserResponseE res = admin.addUser(createAddData(USER4));
+		boolean addUser = res.get_return().getResponse();
+		USER4PWD = res.get_return().getPwd();
+		System.out.println("Result admin create user4 (exp true) : " + addUser);
+		
+		stub1 = getStub();
+		
+		boolean follower1F = stub1.addFollower(createFollowerData(USER5)).get_return().getResponse();
+		System.out.println("Result user4 addfollower user5 (exp false) : " + follower1F);
+		
+		boolean login2 = stub1.login(createLoginData(USER4, USER4PWD)).get_return().getResponse();
+		System.out.println("Result user4 login (exp true) : " + login2);
+		
+		boolean follower2F = stub1.addFollower(createFollowerData(USER5)).get_return().getResponse();
+		System.out.println("Result user4 addfollower user5 (exp false) : " + follower2F);
+		
+		AddUserResponseE res2 = admin.addUser(createAddData(USER5));
+		boolean addUser2 = res2.get_return().getResponse();
+		USER5PWD = res2.get_return().getPwd();
+		System.out.println("Result admin create user5 (exp true) : " + addUser2);
+		
+		admin.logout(logoutVacio);
+		
+		boolean follower3 = stub1.addFollower(createFollowerData(USER5)).get_return().getResponse();
+		System.out.println("Result user4 addfollower user5 (exp true) : " + follower3);
+		
+		resetStub(admin);
+		stub1.logout(logoutVacio);
+		resetStub(stub1);
+		System.out.println();
+		if (login1 && addUser && !follower1F && login2 && !follower2F && addUser2 && follower3) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
+	//SUCCESS
+	private static int test16() throws RemoteException {
+		System.out.println("********************** TEST 16 (value: 1)**********************");
+		System.out.println("user4 log en st1 y getFollower, ok y user5. user5 logea en st2 y getfollowers, ok y nada.");
+
+		stub1 = getStub();
+
+		boolean login1 = stub1.login(createLoginData(USER4, USER4PWD)).get_return().getResponse();
+		System.out.println("Result user4 login (exp true) : " + login1);
+		
+		GetMyFollowers getFollowers = new GetMyFollowers();
+		FollowerList res1 = stub1.getMyFollowers(getFollowers).get_return();
+		
+		boolean followers1 = res1.getResult();
+		String[] lista = res1.getFollowers();
+		if (lista != null) {
+			System.out.println("Result user4 getFollowers (exp true) en st1: " + followers1 + " - must have user5 ("
+					+ lista[0] + "): " + (lista.length == 1));
+			followers1 = true;
+		} else {
+			System.out.println("ListFollowers is null (FAIL)");
+		}
+
+		stub2 = getStub();
+		
+		boolean login2 = stub2.login(createLoginData(USER5, USER5PWD)).get_return().getResponse();
+		System.out.println("Result user5 login (exp true) : " + login2);
+		
+		getFollowers = new GetMyFollowers();
+		FollowerList res2 = stub2.getMyFollowers(getFollowers).get_return();
+		
+		boolean followers2 = res2.getResult();
+		String[] lista2 = res2.getFollowers();
+		System.out.println("Result user5 getFollowers (exp true) : " + followers2 + "-- " + lista2);
+		
+		stub1.logout(logoutVacio);
+		resetStub(stub1);
+		stub2.logout(logoutVacio);
+		resetStub(stub2);
+		System.out.println();
+		if (login1 && followers1 && login2 && followers2 && lista2 == null) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
+	//SUCCESS
+	private static int test18() throws RemoteException {
+		System.out.println("********************** TEST 18 (value: 1)**********************");
+		System.out.println(
+				"admin login, admin addW vino 1; ok, getWines; ok y vino1. addW vino2, getWines; ok y vino2-vino1\tvinos en un stub");
+
+		admin = getStub();
+		
+		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login1);
+		
+		boolean addw1 = admin.addWine(createWineData("vino1", "tinto", 2015)).get_return().getResponse();
+		System.out.println("Result admin createWine (exp true) : " + addw1);
+		
+		GetWines getWines = new GetWines();
+		WineList res1 = admin.getWines(getWines).get_return();
+		
+		boolean wines1 = res1.getResult();
+		String[] lista = res1.getNames();
+		if (lista != null) {
+			System.out.println("Result admin getWines (exp true) en st1: " + wines1 + " - must have vino1 (" + lista[0]
+					+ "): " + (lista.length == 1));
+			wines1 = lista[0].equals("vino1") && lista.length == 1;
+		} else {
+			System.out.println("ListWines is null (FAIL)");
+		}
+
+		boolean addw2 = admin.addWine(createWineData("vino2", "blanco", 2012)).get_return().getResponse();
+		System.out.println("Result admin createWine (exp true) : " + addw2);
+		
+		getWines = new GetWines();
+		WineList res2 = admin.getWines(getWines).get_return();
+		
+		boolean wines2 = res2.getResult();
+		String[] lista2 = res2.getNames();
+		if (lista2 != null) {
+			System.out.println("Result admin getWines (exp true) en st1: " + wines2 + " - must have vino2 (" + lista2[0]
+					+ "): " + (lista2.length == 2));
+			wines2 = lista2[0].equals("vino2") && lista2.length == 2;
+		} else {
+			System.out.println("ListWines is null (FAIL)");
+		}
+
+		admin.logout(logoutVacio);
+		resetStub(admin);
+		System.out.println();
+		if (login1 && addw1 && wines1 && addw2 && wines2) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+
+	//SUCCESS
+	private static int test19() throws RemoteException {
+		System.out.println("********************** TEST 19 (value: 1)**********************");
+		System.out.println(
+				"admin login, admin addW vino3 y vino4 en stb1. Login de otro user en st2 y getW en orden correcto");
+
+		admin = getStub();
+		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login1);
+
+		boolean addw1 = admin.addWine(createWineData("vino3", "tinto", 2015)).get_return().getResponse();
+		System.out.println("Result admin createWine (exp true) : " + addw1);
+		boolean addw2 = admin.addWine(createWineData("vino4", "blanco", 2012)).get_return().getResponse();
+		System.out.println("Result admin createWine (exp true) : " + addw2);
+		stub1 = getStub();
+		boolean login2 = stub1.login(createLoginData(USER4, USER4PWD)).get_return().getResponse();
+		System.out.println("Result user4 login (exp true) : " + login2);
+		GetWines getWines = new GetWines();
+		WineList res2 = stub1.getWines(getWines).get_return();
+		boolean wines2 = res2.getResult();
+		String[] lista2 = res2.getNames();
+		if (lista2 != null) {
+			System.out.println("Result user4 getWines (exp true) en st1: " + wines2 + " - must have vino4 (" + lista2[0]
+					+ "): " + (lista2.length == 4));
+			wines2 = lista2[0].equals("vino4") && lista2.length == 4;
+		} else {
+			System.out.println("ListWines is null (FAIL)");
+		}
+
+		admin.logout(logoutVacio);
+		resetStub(admin);
+		stub1.logout(logoutVacio);
+		resetStub(stub1);
+		System.out.println();
+		if (login1 && addw1 && addw2 && login2 && wines2) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
+	//SUCCESS
 	private static int test24() throws RemoteException {
 		System.out.println("********************** TEST 24 (value: 1)**********************");
 		System.out.println("1) admin login, 2) crea user8 y 3) user9. 4) user8 log en st1 y 5) user9 en st2."
@@ -468,6 +763,7 @@ public class Test_1 {
 		}
 	}
 	
+	//SUCCESS
 	private static int test25() throws RemoteException {
 		System.out.println("********************** TEST 25 (value: 1)**********************");
 		System.out.println(
@@ -535,7 +831,7 @@ public class Test_1 {
 		double totalMark = 0.0D;
 
 		try {
-			totalMark = test24() + test25();
+			totalMark = test1() + test2() + test6() + test8() + test10() + test11() + test14() + test15() + test16() + test18() + test19() + test24() + test25();
 			System.out.println("Total superadas Validador: " + totalMark);
 			
 		} catch (RemoteException e) {
