@@ -1006,8 +1006,12 @@ public class WineSocialUPMSkeleton {
 		listaPuntuados.setResult(false);
 		respuestaFinalFuncion.set_return(listaPuntuados);
 		
+		logger.debug("Obteniendo lista de ratings de mi seguidor: '" + nombreFollower + "'.");
+		
 		//si estoy loggeado y sigo al [follower1] entonces devuelvo su lista (invertida)
-		if((isLogged) && followerExist(nombreFollower)){
+		if(isLogged && followerExist(nombreFollower)){
+			
+			logger.info("Soy: '" + activeUser.getName() + "'. Estoy loggeado y sigo al usuario: '" + nombreFollower + "'.");
 			//accedo al mapa de los vinos puntuados por [follower1]
 			List<WineRated> puntuados = userRatedMap.get(nombreFollower);
 			
