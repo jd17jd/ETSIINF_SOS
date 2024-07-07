@@ -15,12 +15,16 @@ public class Test_1 {
 	private static final String NEW_ADMINPWD = "admin3";
 
 	private static final String USER1 = "uD1";
-
-
 	private static final String USER2 = "uD2";
+	
 	private static String USER2PWD = "";
 	private static String NEW_USER2PWD = "Nuevaa";
 
+	private static String USER8 = "test1u8";
+	private static String USER8PWD;
+	
+	private static String USER9 = "test1u9";
+	private static String USER9PWD;
 
 	private static WineSocialUPMStub admin;
 	private static WineSocialUPMStub stub1;
@@ -369,14 +373,100 @@ public class Test_1 {
 	}
 	
 	
+	private static int test24() throws RemoteException {
+		System.out.println("********************** TEST 24 (value: 1)**********************");
+		System.out.println("1) admin login, 2) crea user8 y 3) user9. 4) user8 log en st1 y 5) user9 en st2."
+				+ "6) user8 sigue a user9, 7) user8 getfollowerrates; ok. 8) User9 puntua vino1 y vino3. "
+				+ "9) user8 getfollowerRates de user9; ok y vino3-1");
+
+		admin = getStub();
+		
+		//1
+		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login1);
+		
+		//2
+		AddUserResponseE res = admin.addUser(createAddData(USER8));
+		boolean addUser = res.get_return().getResponse();
+		USER8PWD = res.get_return().getPwd();
+		System.out.println("Result admin create user8 (exp true) : " + addUser);
+		
+		//3
+		AddUserResponseE res2 = admin.addUser(createAddData(USER9));
+		boolean addUser2 = res2.get_return().getResponse();
+		USER9PWD = res2.get_return().getPwd();
+		System.out.println("Result admin create user9 (exp true) : " + addUser2);
+		
+		//4
+		stub1 = getStub();
+		boolean login2 = stub1.login(createLoginData(USER8, USER8PWD)).get_return().getResponse();
+		System.out.println("Result user8 login en st1 (exp true) : " + login2);
+		
+		//5
+		stub2 = getStub();
+		boolean login3 = stub2.login(createLoginData(USER9, USER9PWD)).get_return().getResponse();
+		System.out.println("Result user9 login en st2 (exp true) : " + login3);
+		
+		//6
+		boolean follower1 = stub1.addFollower(createFollowerData(USER9)).get_return().getResponse();
+		System.out.println("Result user8 addfollower user9 (exp true) : " + follower1);
+		
+		//7
+		GetMyFollowers getFollowers = new GetMyFollowers();
+		FollowerList res3 = stub1.getMyFollowers(getFollowers).get_return();
+		boolean followers1 = res3.getResult();
+		String[] lista = res3.getFollowers();
+		if (lista != null) {
+			System.out.println("Result user8 getFollowers (exp true) en st1: " + followers1 + " - must have user9 ("
+					+ lista[0] + "): " + (lista.length == 1));
+			followers1 = lista.length == 1 && lista[0].equals(USER9);
+		} else {
+			System.out.println("ListFollowers is null (FAIL)");
+		}
+
+		//8
+		boolean rate1 = stub2.rateWine(rateWineData("vino1", "tinto", 2015, 10)).get_return().getResponse();
+		System.out.println("Result user9 puntua vino1 en st2 (exp true) : " + rate1);
+		boolean rate2 = stub2.rateWine(rateWineData("vino3", "tinto", 2015, 6)).get_return().getResponse();
+		System.out.println("Result user9 puntua vino3 en st2 (exp true) : " + rate2);
+		
+		//9
+		GetMyFollowerRates followerRate = new GetMyFollowerRates();
+		Username user = new Username();
+		user.setUsername(USER9);
+		followerRate.setArgs0(user);
+		WinesRatedList res4 = stub1.getMyFollowerRates(followerRate).get_return();
+		boolean rates = res4.getResult();
+		String[] lista2 = res4.getNames();
+		if (lista2 != null) {
+			System.out.println("Result user8 getFollowers (exp true) en st1: " + rates + " - must have vino3 ("
+					+ lista2[0] + "): " + (lista2.length == 2));
+			rates = lista2.length == 2 && lista2[0].equals("vino3");
+		} else {
+			System.out.println("List is null (FAIL)");
+		}
+
+		admin.logout(logoutVacio);
+		resetStub(admin);
+		stub2.logout(logoutVacio);
+		resetStub(stub2);
+		stub1.logout(logoutVacio);
+		resetStub(stub1);
+		System.out.println();
+		if (login1 && addUser && addUser2 && login2 && login3 && follower1 && followers1 && rate1 && rate2 && rates) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
+	
 	
 	
 	
 
 	public static void main(String[] args) throws InterruptedException {
-		// System.out.println("BORRADO USUARIOS...");
-		// borradoUsuarios();
-
 		try {
 			init();
 		}
@@ -387,7 +477,7 @@ public class Test_1 {
 		double totalMark = 0.0D;
 
 		try {
-			totalMark = test1() + test2() + test6() + test10();
+			totalMark = test24();
 			System.out.println("Total superadas Validador: " + totalMark);
 			
 		} catch (RemoteException e) {
