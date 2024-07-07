@@ -562,15 +562,14 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		//creo la lista de seguidores si no existe
-		FollowerList listaSeguidores = null;
-		if (!WineSocialUPMSkeleton.followersMap.containsKey(activeUser)) {
+		FollowerList listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
+		
+		if(listaSeguidores == null) { 
 			listaSeguidores = new FollowerList();
-			WineSocialUPMSkeleton.followersMap.put(activeUser, listaSeguidores);
+			followersMap.put(activeUser, listaSeguidores);
 		}
 		
-		
-		// COMPROBACION EXISTENCIA USUARIO
+		// COMPROBACION EXISTENCIA USUAIRO
 		if(!followerExist(nombreUsuarioASeguir)) {
 			listaSeguidores.addFollowers(nombreUsuarioASeguir);
 			response.setResponse(true);
