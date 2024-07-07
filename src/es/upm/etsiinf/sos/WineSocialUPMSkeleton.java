@@ -1042,6 +1042,8 @@ public class WineSocialUPMSkeleton {
 	            listaPuntuados.setYears(años);
 	            listaPuntuados.setRates(puntuaciones);
 	            listaPuntuados.setResult(true);
+				respuestaFinalFuncion.set_return(listaPuntuados);
+				return respuestaFinalFuncion;
 			}
 		}
 		else
