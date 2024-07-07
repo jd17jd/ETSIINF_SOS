@@ -208,7 +208,7 @@ public class WineSocialUPMSkeleton {
 
 		String username = addUser.getArgs0().getUsername();
 		
-		logger.debug("Intentando añadir al usuario: " + username);
+		logger.debug("Intentando añadir al usuario: '" + username + "'.");
 
 		// COMPROBACION ADMIN
 		if(!activeUser.getName().equals("admin")) {
