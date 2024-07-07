@@ -468,7 +468,59 @@ public class Test_1 {
 		}
 	}
 	
-	
+	private static int test25() throws RemoteException {
+		System.out.println("********************** TEST 25 (value: 1)**********************");
+		System.out.println(
+				"admin login y borra user9, user8 log en st2, getfollowers, ok y vacio, getfollowersRates, false");
+
+		admin = getStub();
+		
+		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
+		System.out.println("Result admin login (exp true) : " + login1);
+		
+		Username username = new Username();
+		username.setUsername(USER9);
+		userBorrar.setArgs0(username);
+		
+		boolean delete = admin.removeUser(userBorrar).get_return().getResponse();
+		System.out.println("Result admin deletes user9 (exp true) : " + delete);
+		
+		stub1 = getStub();
+		
+		boolean login2 = stub1.login(createLoginData(USER8, USER8PWD)).get_return().getResponse();
+		System.out.println("Result user8 login en st1 (exp true) : " + login2);
+		
+		GetMyFollowers getFollowers = new GetMyFollowers();
+		FollowerList res1 = stub1.getMyFollowers(getFollowers).get_return();
+		boolean followers1 = res1.getResult();
+		String[] lista = res1.getFollowers();
+		System.out.println("Result user8 getFollowers (exp true) en st1: " + followers1
+				+ " - lista must be empty or null): " + lista);
+		
+		GetMyFollowerRates followerRate = new GetMyFollowerRates();
+		Username user = new Username();
+		user.setUsername(USER9);
+		followerRate.setArgs0(user);
+		WinesRatedList res4 = stub1.getMyFollowerRates(followerRate).get_return();
+		boolean ratesF = res4.getResult();
+		System.out.println("Result user8 getFollowers->user9 (exp false) en st1: " + ratesF);
+		
+		admin.logout(logoutVacio);
+		
+		resetStub(admin);
+		
+		stub1.logout(logoutVacio);
+		
+		resetStub(stub1);
+		System.out.println();
+		if (login1 && delete && login2 && followers1 && !ratesF) {
+			System.out.println("SUCCESS");
+			return 1;
+		} else {
+			System.out.println("FAIL");
+			return 0;
+		}
+	}
 	
 	
 
