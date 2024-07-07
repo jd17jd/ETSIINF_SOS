@@ -1,0 +1,21 @@
+BORRADO USUARIOS...
+RESULTADO REMOVE: true
+********************** TEST 1 (value: 1)**********************
+El admin se logea, cambia la contraseña, log out y login con la nueva
+Result admin login (exp true) : true
+Result admin changePwd (exp true) : true
+Result admin login (exp true) : true
+Result admin changePwd AGAIN (exp true) : true
+Result admin logout  (exp true) : true
+
+SUCCESS
+********************** TEST 2 (value: 1)**********************
+El admin se logea, añade dos usuarios iguales, el segundo debe fallar, y luego logout
+Result admin login (exp true) : true
+Result add user (exp true) : true
+Result add user (exp false because user already exist) : false
+
+SUCCESS
+********************** TEST 6 (value: 1)**********************
+user2 login (falla), admin login, crea user2, user2 login otro st, remove user1 (falla), admin borra user1 (ok) borra user que no existe (falla)
+Result user login (exp false becuase user not registered) : false
