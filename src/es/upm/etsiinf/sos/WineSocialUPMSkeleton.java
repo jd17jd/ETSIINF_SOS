@@ -629,6 +629,7 @@ public class WineSocialUPMSkeleton {
 	 * @throws RemoteException 
 	 */
 	public es.upm.etsiinf.sos.UnfollowResponse unfollow(es.upm.etsiinf.sos.Unfollow unfollow) throws RemoteException {
+		logger.debug("METODO: [UNFOLLOW]");
 		UnfollowResponse respuestaFinalFuncion = new UnfollowResponse();
 		Response reponse = new Response();
 
@@ -640,7 +641,7 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(reponse); //False en incio
 
 		// COMPROBACION DE LOGGEADO USER1 
-		if (activeUser == null) {
+		if (!isLogged) {
 			logger.error("Error. Para dejar de seguir a un usuario se debe haber iniciado sesión previamente.");
 			return respuestaFinalFuncion;
 		}
@@ -670,6 +671,7 @@ public class WineSocialUPMSkeleton {
 	 * @return getMyFollowersResponse Objeto con la lista de seguidores
 	 */
 	public es.upm.etsiinf.sos.GetMyFollowersResponse getMyFollowers(es.upm.etsiinf.sos.GetMyFollowers getMyFollowers) {
+		logger.debug("METODO: [GET_MY_FOLLOWERS]");
 		GetMyFollowersResponse respuestaFinalFuncion = new GetMyFollowersResponse();
 		FollowerList listaSeguidores = new FollowerList(); 
 
@@ -713,6 +715,7 @@ public class WineSocialUPMSkeleton {
 	 * @return addWineResponse Objeto indicando si se ha añadido correctamente
 	 */
 	public es.upm.etsiinf.sos.AddWineResponse addWine(es.upm.etsiinf.sos.AddWine addWine) {
+		logger.debug("METODO: [ADD_WINE]");
 		AddWineResponse respuestaFinalFuncion = new AddWineResponse();
 		Response response = new Response();
 		
@@ -749,6 +752,7 @@ public class WineSocialUPMSkeleton {
 	 * @return removeWineResponse Objeto indicando si se ha borrado correctamente
 	 */
 	public es.upm.etsiinf.sos.RemoveWineResponse removeWine(es.upm.etsiinf.sos.RemoveWine removeWine) {
+		logger.debug("METODO: [REMOVE_WINE]");
 		RemoveWineResponse respuestaFinalFuncion = new RemoveWineResponse();
 		Response response = new Response();
 		
@@ -785,6 +789,7 @@ public class WineSocialUPMSkeleton {
 	 * @return getMyRatesResponse
 	 */
 	public es.upm.etsiinf.sos.GetWinesResponse getWines(es.upm.etsiinf.sos.GetWines getWines) {
+		logger.debug("METODO: [GET_WINES]");
 		GetWinesResponse respuestaFinalFuncion = new GetWinesResponse();
 
 		WineList listaVinos = new WineList();
@@ -837,6 +842,7 @@ public class WineSocialUPMSkeleton {
 	 * @return rateWineResponse Objeto indicando si se ha puntuado correctamente
 	 */
 	public es.upm.etsiinf.sos.RateWineResponse rateWine(es.upm.etsiinf.sos.RateWine rateWine) {
+		logger.debug("METODO: [RATE_WINE]");
 		RateWineResponse respuestaFinalFuncion = new RateWineResponse();
 		Response response = new Response();
 		Wine vino = new Wine();
@@ -918,6 +924,7 @@ public class WineSocialUPMSkeleton {
 	 * @return
 	 */
 	public es.upm.etsiinf.sos.GetMyRatesResponse getMyRates(es.upm.etsiinf.sos.GetMyRates getMyRates) {
+		logger.debug("METODO: [GET_MY_RATES]");
 		GetMyRatesResponse respuestaFinalFuncion = new GetMyRatesResponse();
 		WinesRatedList listaVinosPuntuados = new WinesRatedList();
 		List<WineRated> puntuados = userRatedMap.get(activeUser.getName());
@@ -977,6 +984,7 @@ public class WineSocialUPMSkeleton {
 	 */
 	
 	public es.upm.etsiinf.sos.GetMyFollowerRatesResponse getMyFollowerRates(es.upm.etsiinf.sos.GetMyFollowerRates getMyFollowerRates) {
+		logger.debug("METODO: [GET_MY_FOLLOWER_RATES]");
 		GetMyFollowerRatesResponse respuestaFinalFuncion = new GetMyFollowerRatesResponse();
 		Username username = getMyFollowerRates.getArgs0();
 		String nombreFollower = username.getUsername();
