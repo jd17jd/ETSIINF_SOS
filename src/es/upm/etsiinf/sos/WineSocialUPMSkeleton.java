@@ -568,7 +568,8 @@ public class WineSocialUPMSkeleton {
 
 		if (!followersMap.containsKey(activeUser))  {
 			logger.debug("followersMap no contiene activeUser");
-			followersMap.put(activeUser, new FollowerList());
+			listaSeguidores = new FollowerList();
+			followersMap.put(activeUser, listaSeguidores);
 		}
 		logger.debug("Estoy ahora aqui");
 
@@ -577,11 +578,6 @@ public class WineSocialUPMSkeleton {
 		// else {listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
 		// logger.debug("Estoy ahora aqui"); }
 
-		if(listaSeguidores == null) { 
-			listaSeguidores = new FollowerList();
-			followersMap.put(activeUser, listaSeguidores);
-		}
-		
 		// COMPROBACION EXISTENCIA USUAIRO
 		if(!followerExist(nombreUsuarioASeguir)) {
 			listaSeguidores.addFollowers(nombreUsuarioASeguir);
