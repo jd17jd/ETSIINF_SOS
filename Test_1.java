@@ -20,10 +20,10 @@ public class Test_1 {
 	private static String USER2PWD = "";
 	private static String NEW_USER2PWD = "Nuevaa";
 
-	private static String USER8 = "josete8";
+	private static String USER8 = "josele8";
 	private static String USER8PWD;
 	
-	private static String USER9 = "pepita9";
+	private static String USER9 = "pepile9";
 	private static String USER9PWD;
 
 	private static WineSocialUPMStub admin;
@@ -385,10 +385,10 @@ public class Test_1 {
 		boolean login1 = admin.login(createLoginData(ADMINUSER, ADMINPWD)).get_return().getResponse();
 		System.out.println("Result admin login (exp true) : " + login1);
 		
-		boolean addw1 = admin.addWine(createWineData("vino3", "tinto", 2015)).get_return().getResponse();
+		boolean addw1 = admin.addWine(createWineData("vino1", "tinto", 2015)).get_return().getResponse();
         System.out.println("Result admin createWine (exp true) : " + addw1);
         
-        boolean addw2 = admin.addWine(createWineData("vino4", "blanco", 2012)).get_return().getResponse();
+        boolean addw2 = admin.addWine(createWineData("vino3", "tinto", 2015)).get_return().getResponse();
         System.out.println("Result admin createWine (exp true) : " + addw2);
 		
 		//2
