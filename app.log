@@ -10819,3 +10819,342 @@ DEBUG - METODO: [LOGOUT]
 INFO - Has cerrado sesión.
 DEBUG - METODO: [LOGOUT]
 INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'joselq8'.
+INFO - Usuario: 'joselq8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'pepilq9'.
+INFO - Usuario: 'pepilq9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: joselq8 con contraseña: <joselq83718>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: joselq8
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: pepilq9 con contraseña: <pepilq98360>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: pepilq9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:joselq8usuario a seguir: pepilq9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@23bd3982' ha empezado a seguir a: 'pepilq9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'pepilq9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Se ha puntuado el vino: 'vino3' con un: '6' con éxito.
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'pepilq9'.
+INFO - Soy: 'joselq8'. Estoy loggeado y sigo al usuario: 'pepilq9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: pepilq9, PUNTUADOS: [[Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 1
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+INFO - Puntuados: [Ljava.lang.Object;@226bd15f
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'joselz8'.
+INFO - Usuario: 'joselz8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'pepilz9'.
+INFO - Usuario: 'pepilz9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: joselz8 con contraseña: <joselz88419>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: joselz8
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: pepilz9 con contraseña: <pepilz98307>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: pepilz9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:joselz8usuario a seguir: pepilz9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@6da3cc05' ha empezado a seguir a: 'pepilz9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'pepilz9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilz9' puntuando el vino: 'vino1'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = 
+INFO - ¿¿Vino encontrado?? => false
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilz9' puntuando el vino: 'vino3'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilz9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - ¿¿Vino encontrado?? => false
+INFO - Se ha puntuado el vino: 'vino3' con un: '6' con éxito.
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'pepilz9'.
+INFO - Soy: 'joselz8'. Estoy loggeado y sigo al usuario: 'pepilz9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: pepilz9, PUNTUADOS: [[Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 1
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'joselA8'.
+ERROR - Error. El usuario: joselA8 ya está registrado en el sistema.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'pepilA9'.
+ERROR - Error. El usuario: pepilA9 ya está registrado en el sistema.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: joselA8 con contraseña: <null>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: pepilA9 con contraseña: <null>
+ERROR - Error. Contraseña incorrecta.
+DEBUG - METODO: [ADD_FOLLOWER]
+ERROR - Error. No puedes seguir a un usuario sin estar loggeado.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+ERROR - Error. Para ver tus seguidores debes haber iniciado sesión previamente.
+DEBUG - METODO: [RATE_WINE]
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'joselM8'.
+INFO - Usuario: 'joselM8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'pepilM9'.
+INFO - Usuario: 'pepilM9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: joselM8 con contraseña: <joselM86381>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: joselM8
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: pepilM9 con contraseña: <pepilM96356>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: pepilM9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:joselM8usuario a seguir: pepilM9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@101ea417' ha empezado a seguir a: 'pepilM9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'pepilM9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilM9' puntuando el vino: 'vino1'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = 
+INFO - ¿¿Vino encontrado?? => false
+INFO - MAPA PUNTUACIONES = 
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilM9' puntuando el vino: 'vino3'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilM9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - ¿¿Vino encontrado?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilM9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - Se ha puntuado el vino: 'vino3' con un: '6' con éxito.
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'pepilM9'.
+INFO - Soy: 'joselM8'. Estoy loggeado y sigo al usuario: 'pepilM9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: pepilM9, PUNTUADOS: [[Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 1
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'joselN8'.
+INFO - Usuario: 'joselN8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'pepilN9'.
+INFO - Usuario: 'pepilN9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: joselN8 con contraseña: <joselN88024>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: joselN8
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: pepilN9 con contraseña: <pepilN91905>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: pepilN9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:joselN8usuario a seguir: pepilN9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@4fce5854' ha empezado a seguir a: 'pepilN9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'pepilN9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilN9' puntuando el vino: 'vino1'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = 
+INFO - ¿¿Vino encontrado?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilN9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilN9' puntuando el vino: 'vino3'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilN9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - ¿¿Vino encontrado?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilN9, PUNTUADOS: [[Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Se ha puntuado el vino: 'vino3' con un: '6' con éxito.
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'pepilN9'.
+INFO - Soy: 'joselN8'. Estoy loggeado y sigo al usuario: 'pepilN9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: pepilN9, PUNTUADOS: [[Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 1
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - [IMP] Creada instancia: 0
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: admin con contraseña: <admin>
+INFO - Usuario actual: admin, valor de isLogged: true
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino1' con éxito.
+DEBUG - METODO: [ADD_WINE]
+DEBUG - Se ha añadido el vino: 'vino3' con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'joselT8'.
+INFO - Usuario: 'joselT8' añadido con éxito.
+DEBUG - METODO: [ADDUSER]
+DEBUG - Intentando añadir al usuario: 'pepilT9'.
+INFO - Usuario: 'pepilT9' añadido con éxito.
+DEBUG - [IMP] Creada instancia: 1
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: joselT8 con contraseña: <joselT84026>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: joselT8
+DEBUG - [IMP] Creada instancia: 2
+DEBUG - Active user: null, isLogged: false
+DEBUG - METODO: [LOGIN]
+DEBUG - Intentando login para el usuario: pepilT9 con contraseña: <pepilT91424>
+INFO - Sesion iniciada en backend con éxito. Usuario actual es: pepilT9
+DEBUG - METODO: [ADD_FOLLOWER]
+DEBUG - Estoy aqui. Active user:joselT8usuario a seguir: pepilT9
+DEBUG - followersMap no contiene activeUser
+DEBUG - Estoy ahora aqui
+INFO - El usuario: 'es.upm.etsiinf.sos.model.xsd.User@515386b4' ha empezado a seguir a: 'pepilT9' como seguidor.
+DEBUG - METODO: [GET_MY_FOLLOWERS]
+DEBUG - Comienza la funcion getMyFollowers...
+DEBUG - ¿¿Existe la lista de followers del usuario??
+DEBUG - Lista followers: [0]:'pepilT9'
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilT9' puntuando el vino: 'vino1'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = 
+INFO - ¿¿Vino ya dentro de la lista?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilT9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - Se ha puntuado el vino: 'vino1' con un: '10' con éxito.
+DEBUG - METODO: [RATE_WINE]
+INFO - Usuario: 'pepilT9' puntuando el vino: 'vino3'.
+INFO - Estoy loggeado, el vino existe y la puntuacion es correcta.
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilT9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10]]]
+
+INFO - ¿¿Vino ya dentro de la lista?? => false
+INFO - MAPA PUNTUACIONES = [NOMBRE: pepilT9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10], [Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Se ha puntuado el vino: 'vino3' con un: '6' con éxito.
+DEBUG - METODO: [GET_MY_FOLLOWER_RATES]
+DEBUG - Obteniendo lista de ratings de mi seguidor: 'pepilT9'.
+INFO - Soy: 'joselT8'. Estoy loggeado y sigo al usuario: 'pepilT9'.
+DEBUG - Lista vinos puntuados de seguidor: MAPA PUNTUACIONES = [NOMBRE: pepilT9, PUNTUADOS: [[Nombre: vino1, Año: 2015, Uva: tinto, Puntuacion: 10], [Nombre: vino3, Año: 2015, Uva: tinto, Puntuacion: 6]]]
+
+INFO - Entro en el if, el size de puntuados es: 2
+INFO - Setteo los nombres, uvas, años, ratings y resultado...
+INFO - Lista puntuados (resultado): true
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
+DEBUG - METODO: [LOGOUT]
+INFO - Has cerrado sesión.
