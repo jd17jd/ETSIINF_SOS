@@ -1018,6 +1018,7 @@ public class WineSocialUPMSkeleton {
 				logger.info("No existe la lista de vinos puntuados de: " + nombreFollower + " :(");
 			
 			if(puntuados != null && !puntuados.isEmpty()) {
+				logger.info("He entrado aquiiii");
 				// MAX INDEX (Para recorrerla hacia atras)
 	            int j = puntuados.size() - 1;
 	            
@@ -1043,6 +1044,7 @@ public class WineSocialUPMSkeleton {
 	            listaPuntuados.setRates(puntuaciones);
 	            listaPuntuados.setResult(true);
 				respuestaFinalFuncion.set_return(listaPuntuados);
+				logger.info("Puntuados: " + puntuados.toArray().toString());
 				return respuestaFinalFuncion;
 			}
 		}
