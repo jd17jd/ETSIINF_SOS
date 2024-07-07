@@ -677,7 +677,7 @@ public class WineSocialUPMSkeleton {
 		listaSeguidores.setResult(false);
 		respuestaFinalFuncion.set_return(listaSeguidores); //False en incio
 		
-		if(activeUser != null) {
+		if(isLogged) {
 			listaSeguidores.setFollowers(followersMap.get(activeUser).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
 			listaSeguidores.setResult(true);
 			respuestaFinalFuncion.set_return(listaSeguidores); 
