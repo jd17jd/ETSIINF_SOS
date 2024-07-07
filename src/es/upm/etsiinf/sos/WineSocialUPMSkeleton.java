@@ -1018,7 +1018,7 @@ public class WineSocialUPMSkeleton {
 				logger.info("No existe la lista de vinos puntuados de: " + nombreFollower + " :(");
 			
 			if(puntuados != null && !puntuados.isEmpty()) {
-				logger.info("He entrado aquiiii");
+				logger.info("Entro en el if, el size de puntuados es: " + puntuados.size());
 				// MAX INDEX (Para recorrerla hacia atras)
 	            int j = puntuados.size() - 1;
 	            
@@ -1038,11 +1038,13 @@ public class WineSocialUPMSkeleton {
 	                puntuaciones[j] = vinoPuntuado.getRate();
 	                j--;
 	            }
+	            logger.info("Setteo los nombres, uvas, años, ratings y resultado...");
 	            listaPuntuados.setNames(nombresVinos);
 	            listaPuntuados.setGrapes(nombresUva);
 	            listaPuntuados.setYears(años);
 	            listaPuntuados.setRates(puntuaciones);
 	            listaPuntuados.setResult(true);
+	            logger.info("Lista puntuados (resultado): " + listaPuntuados.getResult());
 				respuestaFinalFuncion.set_return(listaPuntuados);
 				logger.info("Puntuados: " + puntuados.toArray().toString());
 				return respuestaFinalFuncion;
