@@ -562,11 +562,20 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		logger.debug("Estoy aqui");
+		logger.debug("Estoy aqui. Active user:" + activeUser + "usuario a seguir: " + nombreUsuarioASeguir);
+
 		FollowerList listaSeguidores = null;
-		if (followersMap.get(activeUser) == null) logger.debug("followersMap.get(activeUser) es null");
-		else {listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
-		logger.debug("Estoy ahora aqui"); }
+
+		if (!followersMap.containsKey(activeUser))  {
+			logger.debug("followersMap no contiene activeUser");
+			followersMap.put(activeUser, new FollowerList());
+		}
+		logger.debug("Estoy ahora aqui");
+
+		
+		// if (followersMap.get(activeUser) == null) logger.debug("followersMap.get(activeUser) es null");
+		// else {listaSeguidores = followersMap.get(activeUser); //LISTA DE SEGUIDOS DE USUARIO ACTUAL
+		// logger.debug("Estoy ahora aqui"); }
 
 		if(listaSeguidores == null) { 
 			listaSeguidores = new FollowerList();
