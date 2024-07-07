@@ -535,7 +535,7 @@ public class Test_1 {
 		double totalMark = 0.0D;
 
 		try {
-			totalMark = test24();
+			totalMark = test24() + test25();
 			System.out.println("Total superadas Validador: " + totalMark);
 			
 		} catch (RemoteException e) {
