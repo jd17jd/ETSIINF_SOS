@@ -1,3 +1,8 @@
+java -jar ValidadorWineSocial.jar
+OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+   4692
+Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+
 BORRADO USUARIOS...
 log4j:WARN No appenders could be found for logger (org.apache.axis2.description.AxisOperation).
 log4j:WARN Please initialize the log4j system properly.
@@ -113,17 +118,17 @@ Result user8 addfollower user9 (exp true) : true
 Result user8 getFollowers (exp true) en st1: true - must have user9 (test1u9): true
 Result user9 puntua vino1 en st2 (exp true) : true
 Result user9 puntua vino3 en st2 (exp true) : true
-Result user8 getFollowers (exp true) en st1: true - must have vino3 (vino3): false
+Result user8 getFollowers (exp true) en st1: true - must have vino3 (vino3): true
 
-FAIL
+SUCCESS
 ********************** TEST 25 (value: 1)**********************
 admin login y borra user9, user8 log en st2, getfollowers, ok y vacio, getfollowersRates, false
 Result admin login (exp true) : true
 Result admin deletes user9 (exp true) : true
 Result user8 login en st1 (exp true) : true
-Result user8 getFollowers (exp true) en st1: true - lista must be empty or null): [Ljava.lang.String;@68be8808
-Result user8 getFollowers->user9 (exp false) en st1: true
+Result user8 getFollowers (exp true) en st1: true - lista must be empty or null): null
+Result user8 getFollowers->user9 (exp false) en st1: false
 
-FAIL
+SUCCESS
 ***********************************RESULT******************************
-Total superadas Validador* : 10.0
+Total superadas Validador* : 12.0
