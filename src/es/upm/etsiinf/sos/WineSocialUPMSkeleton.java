@@ -683,12 +683,14 @@ public class WineSocialUPMSkeleton {
 		
 		if(isLogged) {
 			logger.debug("¿¿Existe la lista de followers del usuario??");
+
 			if(followersMap.containsKey(activeUser)) {
 				logger.debug("Lista followers: " + printStringListaFollowers());
-			} else {
-				logger.info("No existe la lista de followers del activeUser :(");
+				listaSeguidores.setFollowers(followersMap.get(activeUser).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
 			}
-			listaSeguidores.setFollowers(followersMap.get(activeUser).getFollowers()); // METO SEGUIDORES DEL MAPA EN LA CLASE FollowersList
+			else
+				logger.info("No existe la lista de followers del activeUser :(");
+
 			listaSeguidores.setResult(true);
 			respuestaFinalFuncion.set_return(listaSeguidores); 
 			return respuestaFinalFuncion;
