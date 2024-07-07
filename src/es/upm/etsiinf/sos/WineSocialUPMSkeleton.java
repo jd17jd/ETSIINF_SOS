@@ -284,7 +284,6 @@ public class WineSocialUPMSkeleton {
 		String password = usuario.getPwd();
 		
 		logger.debug("Intentando login para el usuario: " + name + " con contraseña: <" + password + ">");
-		logger.debug("Mi isLogged es => " + isLogged);
 		
 		if (!usuarioRegistrado(name)) {
 			logger.error("Error. El usuario: '" + name + "' no está registrado en el sistema.");
@@ -326,7 +325,6 @@ public class WineSocialUPMSkeleton {
 		respuestaFinalFuncion.set_return(response);
 
 		// SI EL LOGIN HA IDO BIEN
-		logger.debug("La respuesta del backend ha sido: " + response.getResponse());
 		if(response.getResponse()) {
 			isLogged = true; //logged en el backend
 			activeUser = usersRegistered.get(name);
@@ -408,8 +406,6 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		logger.debug("Active user llamante: " + activeUser.getName());
-		
 		//si soy el ADMIN O el mismo usuario que se quiere borrar => VA BIEN
 		if((activeUser.getName().equals("admin")) || (activeUser.getName().equals(nombreUsuarioBorrado))) {
 
@@ -464,8 +460,6 @@ public class WineSocialUPMSkeleton {
 		// INICIALIZACION RESPUESTA
 		response.setResponse(false);
 		respuestaFinalFuncion.set_return(response); //False en inicio
-
-		logger.debug("Valor de isLogged: " + isLogged);
 
 		if (!isLogged) {
 			logger.error("Error. No puedes cambiar contraseña sin estar loggeado.");
