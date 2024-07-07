@@ -207,6 +207,8 @@ public class WineSocialUPMSkeleton {
 		}
 
 		String username = addUser.getArgs0().getUsername();
+		
+		logger.debug("Intentando añadir al usuario: " + username);
 
 		// COMPROBACION ADMIN
 		if(!activeUser.getName().equals("admin")) {
@@ -707,7 +709,7 @@ public class WineSocialUPMSkeleton {
 	 * @param vino Vino a comprobar
 	 * @return true si existe, false en caso contrario
 	 */
-	private boolean existeVino(Wine vino) {    
+	private boolean existeVino(Wine vino) {
 		for (Wine vinoList : winesList) {
 			if (vinoList.getGrape().equals(vino.getGrape()) && 
 				vinoList.getName().equals(vino.getName()) && 
