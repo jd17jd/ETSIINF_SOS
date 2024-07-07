@@ -38,9 +38,9 @@ public class WineSocialUPMSkeleton {
 	private boolean isLogged = false;
 
 	public static Map<String,User> usersRegistered; // KEY: Nombre usuario -- VALUE: Objeto usuario
-	public static Map<User,FollowerList> followersMap; // KEY: Objeto usuario -- VALUE: lista de seguidores
-	public static List<Wine> winesList;
-	public static Map<String, List<WineRated>> userRatedMap; // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
+	public static Map<User,FollowerList> followersMap = new HashMap<>(); // KEY: Objeto usuario -- VALUE: lista de seguidores
+	public static List<Wine> winesList = new ArrayList<>();
+	public static Map<String, List<WineRated>> userRatedMap =  new HashMap<>(); // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
 	
 	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
 	
@@ -59,9 +59,9 @@ public class WineSocialUPMSkeleton {
 		if (activeUser == null) logger.debug("Active user: null, isLogged: " + isLogged);
 		else logger.debug("Active user: " + activeUser.getName() + ", isLogged: " + isLogged);
 
-		if (followersMap == null) new HashMap<>();
-		if (winesList == null) new ArrayList<>();
-		if (userRatedMap == null) new HashMap<>();
+		// if (followersMap == null) new HashMap<>();
+		// if (winesList == null) new ArrayList<>();
+		// if (userRatedMap == null) new HashMap<>();
 		
 	}
 	
@@ -562,7 +562,7 @@ public class WineSocialUPMSkeleton {
 			return respuestaFinalFuncion;
 		}
 		
-		logger.debug("Estoy aqui. Active user:" + activeUser + "usuario a seguir: " + nombreUsuarioASeguir);
+		logger.debug("Estoy aqui. Active user:" + activeUser.getName() + "usuario a seguir: " + nombreUsuarioASeguir);
 
 		FollowerList listaSeguidores = null;
 
