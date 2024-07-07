@@ -919,6 +919,8 @@ public class WineSocialUPMSkeleton {
 			listaPuntuados.add(vinoPuntuado);
 		}
 		
+		logger.info(imprimeRatedMap());
+		
 		//actualizo el mapa con la lista modificada
 		userRatedMap.put(activeUser.getName(), listaPuntuados);
 		response.setResponse(true);
