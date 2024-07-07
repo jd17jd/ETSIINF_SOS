@@ -423,7 +423,19 @@ public class WineSocialUPMSkeleton {
 			
 			// SI EL BORRADO HA IDO BIEN
 			if(response.getResponse()) {
+
+				// Borrar la lista de 
+				
+				
+				// Borrar su propia lista de seguidores
+				followersMap.remove(nombreUsuarioBorrado);
+			
+				// Borrar su lista de vinos puntuados
+				userRatedMap.remove(nombreUsuarioBorrado);
+
+				// Borrarlo en usuarios registrados
 				usersRegistered.remove(nombreUsuarioBorrado);
+
 				respuestaFinalFuncion.set_return(response);
 				logger.info("Usuario: '" + nombreUsuarioBorrado + "' borrado con exito.");
 				return respuestaFinalFuncion;
