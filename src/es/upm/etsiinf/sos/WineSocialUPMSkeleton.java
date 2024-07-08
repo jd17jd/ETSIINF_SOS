@@ -387,6 +387,7 @@ public class WineSocialUPMSkeleton {
 				isLogged = false;
 				activeUser = null;
 				logger.info("Has cerrado sesión completamente.");
+				mapaSesiones.remove(activeUser); //lo borro del mapa de sesiones
 			} else { //aun tiene sesiones en el mapa (numSessions > 0)
 				isLogged = true;
 				logger.info("Aun quedan sesiones abiertas del usuario: '" + activeUser.getName() + "' en este stub.");
