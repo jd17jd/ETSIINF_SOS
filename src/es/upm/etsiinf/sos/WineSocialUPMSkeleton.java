@@ -41,6 +41,7 @@ public class WineSocialUPMSkeleton {
 	public static Map<User,FollowerList> followersMap = new HashMap<>(); // KEY: Objeto usuario -- VALUE: lista de seguidores
 	public static List<Wine> winesList = new ArrayList<>();
 	public static Map<String, List<WineRated>> userRatedMap =  new HashMap<>(); // KEY: Objeto usuario -- VALUE: Lista de Vinos Puntuados
+	public Map<User, Integer> mapaSesiones = new HashMap<>(); //las sesiones son independientes por cada stub, NO ES STATIC
 	
 	private static final Logger logger = Logger.getLogger(WineSocialUPMSkeleton.class);
 	
@@ -292,11 +293,22 @@ public class WineSocialUPMSkeleton {
 		activeUser = usersRegistered.get(name);
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
+
+		// Si se repite el login de un usuario, que se sume el nº de sesiones en ese stub para ese user 
 		if(isLogged) {
 			boolean res = activeUser.getName().equals(name) ? true : false;
 			response.setResponse(res);
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Ya está loggeado " + res + ", " + activeUser.getName() + " - " + name);
+
+			//////////////////////////////////////////////////////////////////////////////////////
+			//si ya se habia loggeado: mapaSesiones++
+			if(res) {
+				int numSessions = mapaSesiones.get(activeUser);
+				numSessions++; //lo incrementamos en 1
+				mapaSesiones.put(activeUser, numSessions); //lo metemos en el mapa actualizado
+			}
+			//////////////////////////////////////////////////////////////////////////////////////
 			return respuestaFinalFuncion;
 		}
 		
@@ -306,6 +318,11 @@ public class WineSocialUPMSkeleton {
 			activeUser = usersRegistered.get(name); //el usuario actual es el admin
 			//activeUser.setName("admin");
 			//activeUser.setPwd("admin");
+			
+			//////////////////////////////////////////////////////////////////////////////////////
+			mapaSesiones.put(activeUser, 1); //inicializo el numero de sesiones con 1 (una) y lo meto al mapa para llevar conteo
+			//////////////////////////////////////////////////////////////////////////////////////
+			
 			response.setResponse(true);
 			respuestaFinalFuncion.set_return(response);
 			logger.info("Usuario actual: " + activeUser.getName() + ", valor de isLogged: " + isLogged); //deberia dar "admin" + true
@@ -328,6 +345,11 @@ public class WineSocialUPMSkeleton {
 		if(response.getResponse()) {
 			isLogged = true; //logged en el backend
 			activeUser = usersRegistered.get(name);
+			
+			//////////////////////////////////////////////////////////////////////////////////////
+			mapaSesiones.put(activeUser, 1); //inicializo el numero de sesiones con 1 (una) y lo meto al mapa para llevar conteo
+			//////////////////////////////////////////////////////////////////////////////////////
+			
 			logger.info("Sesion iniciada en backend con éxito. Usuario actual es: " + activeUser.getName());
 			return respuestaFinalFuncion;
 		}
@@ -353,10 +375,29 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. No puedes cerrar sesión al no estar loggeado.");
 			response.setResponse(false);
 		} else {
-			isLogged = false;
-			activeUser = null;
-			logger.info("Has cerrado sesión.");
-			response.setResponse(true);
+			//////////////////////////////////////////////////////////////////////////////////////
+			int numSessions = mapaSesiones.get(activeUser);
+			numSessions--; //lo decrementamos en 1
+			mapaSesiones.put(activeUser, numSessions); //lo meto al mapa con valor actualizado
+			
+			//antes de poner el usuarioActual a null para que pueda otro coger el stub, compruebo el numSessions
+			//si llega a 0, se ha desloggeado de todas las sesiones y es null, sino sigue con sesiones disponibles
+			if(numSessions == 0) {
+				isLogged = false;
+				activeUser = null;
+				logger.info("Has cerrado sesión completamente.");
+			} else { //aun tiene sesiones en el mapa (numSessions > 0)
+				isLogged = true;
+				logger.info("Aun quedan sesiones abiertas del usuario: '" + activeUser.getName() + "' en este stub.");
+			}
+			//pase lo que pase doy true, bien sea porq he cerrado sesion completamente o prq he decrementado en 1 las que tenia
+			response.setResponse(true); 
+			//////////////////////////////////////////////////////////////////////////////////////
+//			
+//			isLogged = false;
+//			activeUser = null;
+//			logger.info("Has cerrado sesión.");
+//			response.setResponse(true);
 		}
 		respuestaFinalFuncion.set_return(response);
 		return respuestaFinalFuncion;
