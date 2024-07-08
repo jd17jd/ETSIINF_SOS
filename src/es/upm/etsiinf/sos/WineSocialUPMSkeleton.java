@@ -290,7 +290,6 @@ public class WineSocialUPMSkeleton {
 			logger.error("Error. El usuario: '" + name + "' no está registrado en el sistema.");
 			return respuestaFinalFuncion;
 		}
-		activeUser = usersRegistered.get(name);
 		
 		// SI SE HACE LOGIN DE FORMA REPETIDA, DA IGUAL LA CONTRASEÑA.
 
@@ -311,6 +310,8 @@ public class WineSocialUPMSkeleton {
 			//////////////////////////////////////////////////////////////////////////////////////
 			return respuestaFinalFuncion;
 		}
+		
+		activeUser = usersRegistered.get(name);
 		
 		// COMPROBACION ADMIN -> local
 		if (name.equals("admin") && password.equals(admin_password)) {
