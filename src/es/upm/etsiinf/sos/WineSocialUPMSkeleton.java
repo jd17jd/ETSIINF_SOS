@@ -310,7 +310,7 @@ public class WineSocialUPMSkeleton {
 			//////////////////////////////////////////////////////////////////////////////////////
 			return respuestaFinalFuncion;
 		}
-		
+		logger.info("Setteo aqui el usuario. No está loggeado previamente.");
 		activeUser = usersRegistered.get(name);
 		
 		// COMPROBACION ADMIN -> local
@@ -380,7 +380,7 @@ public class WineSocialUPMSkeleton {
 			int numSessions = mapaSesiones.get(activeUser);
 			numSessions--; //lo decrementamos en 1
 			mapaSesiones.put(activeUser, numSessions); //lo meto al mapa con valor actualizado
-			
+			logger.debug("Num de sesiones de usuario: '" + activeUser.getName() + "' es: " + numSessions);
 			//antes de poner el usuarioActual a null para que pueda otro coger el stub, compruebo el numSessions
 			//si llega a 0, se ha desloggeado de todas las sesiones y es null, sino sigue con sesiones disponibles
 			if(numSessions == 0) {
